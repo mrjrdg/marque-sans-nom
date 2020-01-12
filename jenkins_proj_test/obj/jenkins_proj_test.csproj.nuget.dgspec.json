@@ -10,14 +10,14 @@
         "projectUniqueName": "C:\\Users\\jorda\\Desktop\\marque-sans-nom\\jenkins_proj_test\\jenkins_proj_test.csproj",
         "projectName": "jenkins_proj_test",
         "projectPath": "C:\\Users\\jorda\\Desktop\\marque-sans-nom\\jenkins_proj_test\\jenkins_proj_test.csproj",
-        "packagesPath": "C:\\Users\\jorda\\.nuget\\packages\\",
+        "packagesPath": "C:\\WINDOWS\\system32\\config\\systemprofile\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\jorda\\Desktop\\marque-sans-nom\\jenkins_proj_test\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\jorda\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

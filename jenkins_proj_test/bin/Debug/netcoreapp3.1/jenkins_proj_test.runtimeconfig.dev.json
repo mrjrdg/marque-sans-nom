@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\jorda\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\jorda\\.nuget\\packages",
+      "C:\\WINDOWS\\system32\\config\\systemprofile\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\WINDOWS\\system32\\config\\systemprofile\\.nuget\\packages",
       "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
     ]
   }
