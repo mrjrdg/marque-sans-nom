@@ -7,9 +7,9 @@ Final project for `Certificat - informatique et developement logiciel`. The proj
 ## Authors
 
 - Jordan Gauthier       (GAUJ25089201)
-- Alex Dufour	        (xxxxxxxxxxxx)
+- Alex Dufour	          (xxxxxxxxxxxx)
 - Philippe Soucy        (xxxxxxxxxxxx)
-- Alexandre H. Bourdeau (xxxxxxxxxxxx)
+- Alexandre H. Bourdeau (HAMA12128907)
 
 ## How it work 
 
@@ -61,7 +61,6 @@ git clone https://github.com/lecanardcolvert/marque-sans-nom.git
 ## Features state
 
 #### Administrateur - Gestion
-
 
 - [ ] Gestion des administrateurs
 - [ ] Gestion des utilisateurs
