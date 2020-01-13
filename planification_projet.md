@@ -2,7 +2,6 @@
 
 ## Technologies
 
-A venir
 
 ## Compétences des membres
 
