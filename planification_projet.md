@@ -2,6 +2,12 @@
 
 ## Technologies
 
+- HTML, CSS
+- Bootstrap ? (à vérifier)
+- React.js (à vérifier)
+- JavaScript
+- MySQL
+- ASP.NET Core
 
 ## Compétences des membres
 
