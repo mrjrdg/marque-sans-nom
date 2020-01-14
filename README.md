@@ -16,7 +16,7 @@ Final project for `Certificat - informatique et developement logiciel`. The proj
 #### How to clone the project with https :
 
 ```bash
-git clone https://github.com/lecanardcolvert/marque-sans-nom.git
+git clone https://github.com/mrjrdg/marque-sans-nom.git
 ```
 
 ## Supported platforms
@@ -28,7 +28,6 @@ git clone https://github.com/lecanardcolvert/marque-sans-nom.git
 ## Tasks
 
 #### Administrateur - Gestion
-
 
 - [ ] Gestion des administrateurs
 - [ ] Gestion des utilisateurs
