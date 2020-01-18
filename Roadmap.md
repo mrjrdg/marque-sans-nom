@@ -8,7 +8,7 @@ Resume des fonctionnalités et leurs échéances
 
 - Jordan Gauthier       (GAUJ25089201)
 - Alex Dufour	          (DUFA23059001)
-- Philippe Soucy        (xxxxxxxxxxxx)
+- Philippe Soucy        (SOUP17039601)
 - Alexandre H. Bourdeau (HAMA12128907)
 
 <br>
@@ -20,11 +20,11 @@ Resume des fonctionnalités et leurs échéances
 
 - [ ] Separations des taches des membres d'equipe
 - [ ] Implentation des tests unitaires et integration
-- [ ] Maquette de la page d'accueil 
+- [ ] Maquette de la page d'accueil
 - [ ] Diagramme des used cases possibles
 - [ ] Conception et design du site
 - [ ] Logo
-- [ ] Definir la base de donnée 
+- [ ] Definir la base de donnée
 
 
 <br>
@@ -33,15 +33,15 @@ Resume des fonctionnalités et leurs échéances
 
 ## 2. Deuxieme Sprint [ 17 Mars 2020 ]
 
-- [ ] Separations des taches des membres d'equipe 
-- [ ] Implentation des tests unitaires et integration 
-- [ ] Inscription pour les entreprises afin d'offrir leurs services 
-- [ ] Creation d'utilisateur 
-- [ ] Log-in d'utilisateur 
-- [ ] Dashboard page d'accueil simplifier 
-- [ ] [Dashboard] Creation d'événement -> Page de liste de services offerts ( Paintball ect. ) 
+- [ ] Separations des taches des membres d'equipe
+- [ ] Implentation des tests unitaires et integration
+- [ ] Inscription pour les entreprises afin d'offrir leurs services
+- [ ] Creation d'utilisateur
+- [ ] Log-in d'utilisateur
+- [ ] Dashboard page d'accueil simplifier
+- [ ] [Dashboard] Creation d'événement -> Page de liste de services offerts ( Paintball ect. )
                                                     -> Autre page affichera les entreprise qui offre le paintball et prix                                                                                                                      
-- [ ] [Dashboard] Joindre événements éxistant 
+- [ ] [Dashboard] Joindre événements éxistant
 - [ ] [Dashboard] Detailes d'événement en cours   
 - [ ] Ajout d'utilisateurs (afin de lui envoyer un message)
 - [ ] Messages privés entre utilisateurs
@@ -58,7 +58,7 @@ Resume des fonctionnalités et leurs échéances
 - [ ] Suggestion d'événements similaires
 - [ ] Recherche d'événements ( Par ville, sport ect.)
 - [ ] [Dashboard] Creation d'événement -> Formulaire d'inscription (Create page  if valid) -> Cart [Option] Pay via Paypal
-- [ ] [Dashboard] Afficher l'historique d'activites 
+- [ ] [Dashboard] Afficher l'historique d'activites
 - [ ] Voir Fonctions optionnels plus bas.    
 
 
@@ -74,4 +74,4 @@ Resume des fonctionnalités et leurs échéances
 - [ ] Chat global
 - [ ] SMS notifications, quand l'événement est approuver.
 - [ ] Email notifications, quand l'événement est approuver.
-- [ ] Location d'équipements 
+- [ ] Location d'équipements
