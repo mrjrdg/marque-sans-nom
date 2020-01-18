@@ -57,11 +57,11 @@ git clone https://github.com/mrjrdg/marque-sans-nom.git
 
 - [ ] Liste des événements auxquelles l'utilisateur est inscrit
 
-## Features state
+# Fonctionnalites
 
 #### Administrateur - Gestion
 
-- [ ] Gestion des administrateurs
+- [x] Gestion des administrateurs
 - [ ] Gestion des utilisateurs
 - [ ] Gestion des lieux
 - [ ] Gestion des événements
