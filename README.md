@@ -27,35 +27,55 @@ git clone https://github.com/mrjrdg/marque-sans-nom.git
 
 ## Tasks
 
+- [ ] Maquette de la page d'accueil 
+
+
+#### Entreprise/Client - 
+
+- [ ] Inscription de leurs services offerts sur notre plateforme (Exemple : Paintball,Arena,Karting)
+- [ ] Afficher leurs locals/services a louer 
+
+
 #### Administrateur - Gestion
 
 - [ ] Gestion des administrateurs
 - [ ] Gestion des utilisateurs
-- [ ] Gestion des lieux
+- [ ] Gestion des lieux / services offerts par les entreprises ( Creer nouveau service offert )
 - [ ] Gestion des événements
-- [ ] Statistiques
+
 
 #### Utilisateur - Profil
 
-- [ ] Inscription
+- [ ] Inscription au site
 - [ ] Modification de profil
+- [ ] Modification des preferences du profil
+- [ ] Afficher l'historique d'activites 
+
 
 #### Utilisateur - Messages
 
+- [ ] Ajout d'utilisateurs (afin de lui envoyer un message)
 - [ ] Messages privés entre utilisateurs
-- [ ] Chat
+- [ ] Chat par evenement
+- [ ] Babillard pour discuter entre participant sur l'evenement 
+
 
 #### Utilisateur - Événements
 
 - [ ] Inscription aux événements
+- [ ] Creation aux événements soit publique ou prive
 - [ ] Suggestion d'événements similaires
-- [ ] Recherche d'événements
-- [ ] Inviter des amis
-- [ ] Babillard pour discuter entre participant
+- [ ] Recherche d'événements ( Par ville, sport ect.)
+- [ ] Etablir le nombre de participants requis 
+- [ ] Reservation/Depot a un événement 
+- [ ] Shopping cart et checkout
+- [ ] Option: Fermer l'événement selon le nombre de participant requis ou laisser ouvert
+
 
 #### Utilisateur - Événements à venir
 
 - [ ] Liste des événements auxquelles l'utilisateur est inscrit
+- [ ] Suggestions d'événements selon leur historique
 
 <br>
 <br>
@@ -63,45 +83,40 @@ git clone https://github.com/mrjrdg/marque-sans-nom.git
 
 # Fonctionnalites
 
-## 1. Premier Sprint
+## 1. Premier Sprint [ 18 Fevrier 2020 ]
 
-#### Administrateur - Gestion
-
-- [ ] Gestion des administrateurs
-- [ ] Gestion des utilisateurs
-- [ ] Gestion des lieux
-- [ ] Gestion des événements
-- [ ] Statistiques
-
-#### Utilisateur - Profil
-
-- [ ] Inscription
-- [ ] Modification de profil
-
-#### Utilisateur - Messages
-
-- [ ] Messages privés entre utilisateurs
-- [ ] Chat
-
-#### Utilisateur - Événements
-
-- [ ] Inscription aux événements
-- [ ] Suggestion d'événements similaires
-- [ ] Recherche d'événements
-- [ ] Inviter des amis
-- [ ] Babillard pour discuter entre participant
-
-#### Utilisateur - Événements à venir
-
-- [ ] Liste des événements auxquelles l'utilisateur est inscrit
-
-## 2. Deuxieme Sprint
+- [ ] Maquette de la page d'accueil 
+- [ ] Diagramme des used cases possibles
+- [ ] Conception et design du site
+- [ ] Separations des taches des membres d'equipe
+- [ ] Dashboard page d'accueil
+- [ ] Logo
 
 
-## 3. Produit Final
+
+## 2. Deuxieme Sprint [ 17 Mars 2020 ]
+- [ ] Separations des taches des membres d'equipe
+
+
+
+## 3. Produit Final [ 21 Avril 2020 ] 
+- [ ] Separations des taches des membres d'equipe
 
 
 ## 4. Fonctions optionnels
+
+- [ ] Extra Statistiques
+- [ ] API Paypal pour les paiements
+- [ ] Inscription au site par media social [Facebook etc.]
+- [ ] API Meteo media
+- [ ] Chat global
+- [ ] SMS notifications, quand l'événement est approuver.
+- [ ] Email notifications, quand l'événement est approuver.
+- [ ] Location d'équipements 
+
+
+
+
 
 ## State of the project
 
