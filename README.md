@@ -25,7 +25,7 @@ git clone https://github.com/mrjrdg/marque-sans-nom.git
 
 ## References
 
-## Tasks
+## Compte rendu des taches
 
 - [ ] Maquette de la page d'accueil 
 
@@ -64,7 +64,6 @@ git clone https://github.com/mrjrdg/marque-sans-nom.git
 
 - [ ] Inscription aux événements
 - [ ] Creation aux événements soit publique ou prive
-- [ ] Suggestion d'événements similaires
 - [ ] Recherche d'événements ( Par ville, sport ect.)
 - [ ] Etablir le nombre de participants requis 
 - [ ] Reservation/Depot a un événement 
@@ -76,45 +75,6 @@ git clone https://github.com/mrjrdg/marque-sans-nom.git
 
 - [ ] Liste des événements auxquelles l'utilisateur est inscrit
 - [ ] Suggestions d'événements selon leur historique
-
-<br>
-<br>
-<br>
-
-# Fonctionnalites
-
-## 1. Premier Sprint [ 18 Fevrier 2020 ]
-
-- [ ] Maquette de la page d'accueil 
-- [ ] Diagramme des used cases possibles
-- [ ] Conception et design du site
-- [ ] Separations des taches des membres d'equipe
-- [ ] Dashboard page d'accueil
-- [ ] Logo
-
-
-
-## 2. Deuxieme Sprint [ 17 Mars 2020 ]
-- [ ] Separations des taches des membres d'equipe
-
-
-
-## 3. Produit Final [ 21 Avril 2020 ] 
-- [ ] Separations des taches des membres d'equipe
-
-
-## 4. Fonctions optionnels
-
-- [ ] Extra Statistiques
-- [ ] API Paypal pour les paiements
-- [ ] Inscription au site par media social [Facebook etc.]
-- [ ] API Meteo media
-- [ ] Chat global
-- [ ] SMS notifications, quand l'événement est approuver.
-- [ ] Email notifications, quand l'événement est approuver.
-- [ ] Location d'équipements 
-
-
 
 
 
