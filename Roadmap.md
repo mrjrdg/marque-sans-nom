@@ -20,9 +20,11 @@ Resume des fonctionnalités et leurs échéances
 
 - [ ] Separations des taches des membres d'equipe
 - [ ] Implentation des tests unitaires et integration
+- [ ] Apprentissage des technologies ( Bootstrap, C# ASP DotNet, Shiny/R-Studio )
 - [ ] Maquette de la page d'accueil
 - [ ] Diagramme des used cases possibles
 - [ ] Conception et design du site
+- [ ] Template d'une page d'accueil
 - [ ] Logo
 - [ ] Definir la base de donnée
 
@@ -55,7 +57,8 @@ Resume des fonctionnalités et leurs échéances
 - [ ] Separations des taches des membres d'equipe
 - [ ] Modification des preferences du profil
 - [ ] Chat par événement
-- [ ] Suggestion d'événements similaires
+- [ ] Ajout de service d'un entreprise ( Admin )
+- [ ] Suggestion d'événements similaires ( Recommandation selon l'historique d'événement)
 - [ ] Recherche d'événements ( Par ville, sport ect.)
 - [ ] [Dashboard] Creation d'événement -> Formulaire d'inscription (Create page  if valid) -> Cart [Option] Pay via Paypal
 - [ ] [Dashboard] Afficher l'historique d'activites
@@ -67,7 +70,7 @@ Resume des fonctionnalités et leurs échéances
 
 ## 4. Fonctions optionnels
 
-- [ ] Extra Statistiques
+- [ ] Extra Statistiques ( Tables de stats exemple. ( événement + populaire ) )
 - [ ] API Paypal pour les paiements
 - [ ] Inscription au site par media social [Facebook etc.]
 - [ ] API Meteo media
@@ -75,3 +78,7 @@ Resume des fonctionnalités et leurs échéances
 - [ ] SMS notifications, quand l'événement est approuver.
 - [ ] Email notifications, quand l'événement est approuver.
 - [ ] Location d'équipements
+- [ ] Gestion des disponibilites des lieux ( externe ) 
+- [ ] Sociofinancement
+- [ ] Établir des événements récurrents
+- [ ] Google Maps API
