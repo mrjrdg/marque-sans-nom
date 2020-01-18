@@ -11,7 +11,8 @@ Resume des fonctionnalités et leurs échéances
 - Philippe Soucy        (xxxxxxxxxxxx)
 - Alexandre H. Bourdeau (HAMA12128907)
 
-
+<br>
+<br>
 
 # Fonctionnalites
 
@@ -25,6 +26,8 @@ Resume des fonctionnalités et leurs échéances
 - [ ] Logo
 - [ ] Definir la base de donnée 
 
+
+<br>
 
 
 
@@ -44,6 +47,9 @@ Resume des fonctionnalités et leurs échéances
 - [ ] Messages privés entre utilisateurs
 
 
+<br>
+
+
 ## 3. Produit Final [ 21 Avril 2020 ]
 
 - [ ] Separations des taches des membres d'equipe
@@ -55,6 +61,8 @@ Resume des fonctionnalités et leurs échéances
 - [ ] [Dashboard] Afficher l'historique d'activites 
 - [ ] Voir Fonctions optionnels plus bas.    
 
+
+<br>
 
 
 ## 4. Fonctions optionnels
