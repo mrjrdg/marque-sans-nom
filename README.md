@@ -57,11 +57,17 @@ git clone https://github.com/mrjrdg/marque-sans-nom.git
 
 - [ ] Liste des événements auxquelles l'utilisateur est inscrit
 
+<br>
+<br>
+<br>
+
 # Fonctionnalites
+
+## 1. Premier Sprint
 
 #### Administrateur - Gestion
 
-- [x] Gestion des administrateurs
+- [ ] Gestion des administrateurs
 - [ ] Gestion des utilisateurs
 - [ ] Gestion des lieux
 - [ ] Gestion des événements
@@ -88,6 +94,14 @@ git clone https://github.com/mrjrdg/marque-sans-nom.git
 #### Utilisateur - Événements à venir
 
 - [ ] Liste des événements auxquelles l'utilisateur est inscrit
+
+## 2. Deuxieme Sprint
+
+
+## 3. Produit Final
+
+
+## 4. Fonctions optionnels
 
 ## State of the project
 
