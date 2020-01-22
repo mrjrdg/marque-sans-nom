@@ -4,9 +4,9 @@
 
 Resume des fonctionnalités et leurs échéances
 
-Utilisateurs: Gens passionner de sports, actifs. ( 18 ans + pour la réservation) 
-Entreprises qui offrent leurs services: Municipalités, Centre de sports, location d'activités 
-Client : Diallo, Abdoulaye Banire 
+Utilisateurs: Gens passionner de sports, actifs. ( 18 ans + pour la réservation)  
+Entreprises qui offrent leurs services: Municipalités, Centre de sports, location d'activités  
+Client : Diallo, Abdoulaye Banire  
 
 ## Equipe La marque Sans Nom
 
