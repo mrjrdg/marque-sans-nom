@@ -4,11 +4,15 @@
 
 Resume des fonctionnalités et leurs échéances
 
+Utilisateurs: Gens passionner de sports, actifs. ( 18 ans + pour la réservation)  
+Entreprises qui offrent leurs services: Municipalités, Centre de sports, location d'activités  
+Client : Diallo, Abdoulaye Banire  
+
 ## Equipe La marque Sans Nom
 
 - Jordan Gauthier       (GAUJ25089201)
 - Alex Dufour	          (DUFA23059001)
-- Philippe Soucy        (xxxxxxxxxxxx)
+- Philippe Soucy        (SOUP17039601)
 - Alexandre H. Bourdeau (HAMA12128907)
 
 <br>
@@ -20,11 +24,13 @@ Resume des fonctionnalités et leurs échéances
 
 - [ ] Separations des taches des membres d'equipe
 - [ ] Implentation des tests unitaires et integration
-- [ ] Maquette de la page d'accueil 
+- [ ] Apprentissage des technologies ( Bootstrap, C# ASP DotNet, Shiny/R-Studio )
+- [ ] Maquette de la page d'accueil
 - [ ] Diagramme des used cases possibles
 - [ ] Conception et design du site
+- [ ] Template d'une page d'accueil
 - [ ] Logo
-- [ ] Definir la base de donnée 
+- [ ] Definir la base de donnée
 
 
 <br>
@@ -33,15 +39,15 @@ Resume des fonctionnalités et leurs échéances
 
 ## 2. Deuxieme Sprint [ 17 Mars 2020 ]
 
-- [ ] Separations des taches des membres d'equipe 
-- [ ] Implentation des tests unitaires et integration 
-- [ ] Inscription pour les entreprises afin d'offrir leurs services 
-- [ ] Creation d'utilisateur 
-- [ ] Log-in d'utilisateur 
-- [ ] Dashboard page d'accueil simplifier 
-- [ ] [Dashboard] Creation d'événement -> Page de liste de services offerts ( Paintball ect. ) 
+- [ ] Separations des taches des membres d'equipe
+- [ ] Implentation des tests unitaires et integration
+- [ ] Inscription pour les entreprises afin d'offrir leurs services
+- [ ] Creation d'utilisateur
+- [ ] Log-in d'utilisateur
+- [ ] Dashboard page d'accueil simplifier
+- [ ] [Dashboard] Creation d'événement -> Page de liste de services offerts ( Paintball ect. )
                                                     -> Autre page affichera les entreprise qui offre le paintball et prix                                                                                                                      
-- [ ] [Dashboard] Joindre événements éxistant 
+- [ ] [Dashboard] Joindre événements éxistant
 - [ ] [Dashboard] Detailes d'événement en cours   
 - [ ] Ajout d'utilisateurs (afin de lui envoyer un message)
 - [ ] Messages privés entre utilisateurs
@@ -55,10 +61,11 @@ Resume des fonctionnalités et leurs échéances
 - [ ] Separations des taches des membres d'equipe
 - [ ] Modification des preferences du profil
 - [ ] Chat par événement
-- [ ] Suggestion d'événements similaires
+- [ ] Ajout de service d'un entreprise ( Admin )
+- [ ] Suggestion d'événements similaires ( Recommandation selon l'historique d'événement)
 - [ ] Recherche d'événements ( Par ville, sport ect.)
 - [ ] [Dashboard] Creation d'événement -> Formulaire d'inscription (Create page  if valid) -> Cart [Option] Pay via Paypal
-- [ ] [Dashboard] Afficher l'historique d'activites 
+- [ ] [Dashboard] Afficher l'historique d'activites
 - [ ] Voir Fonctions optionnels plus bas.    
 
 
@@ -67,11 +74,15 @@ Resume des fonctionnalités et leurs échéances
 
 ## 4. Fonctions optionnels
 
-- [ ] Extra Statistiques
+- [ ] Extra Statistiques ( Tables de stats exemple. ( événement + populaire ) )
 - [ ] API Paypal pour les paiements
 - [ ] Inscription au site par media social [Facebook etc.]
 - [ ] API Meteo media
 - [ ] Chat global
 - [ ] SMS notifications, quand l'événement est approuver.
 - [ ] Email notifications, quand l'événement est approuver.
-- [ ] Location d'équipements 
+- [ ] Location d'équipements
+- [ ] Gestion des disponibilites des lieux ( externe ) 
+- [ ] Sociofinancement
+- [ ] Établir des événements récurrents
+- [ ] Google Maps API

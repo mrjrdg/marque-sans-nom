@@ -1,4 +1,4 @@
-# Final project 
+# Final project
 
 ## Description
 
@@ -7,11 +7,11 @@ Final project for `Certificat - informatique et developement logiciel`. The proj
 ## Authors
 
 - Jordan Gauthier       (GAUJ25089201)
-- Alex Dufour	          (xxxxxxxxxxxx)
-- Philippe Soucy        (xxxxxxxxxxxx)
+- Alex Dufour	          (DUFA23059001)
+- Philippe Soucy        (SOUP17039601)
 - Alexandre H. Bourdeau (HAMA12128907)
 
-## How it work 
+## How it work
 
 #### How to clone the project with https :
 
@@ -27,13 +27,13 @@ git clone https://github.com/mrjrdg/marque-sans-nom.git
 
 ## Compte rendu des taches
 
-- [ ] Maquette de la page d'accueil 
+- [ ] Maquette de la page d'accueil
 
 
-#### Entreprise/Client - 
+#### Entreprise/Client -
 
 - [ ] Inscription de leurs services offerts sur notre plateforme (Exemple : Paintball,Arena,Karting)
-- [ ] Afficher leurs locals/services a louer 
+- [ ] Afficher leurs locals/services a louer
 
 
 #### Administrateur - Gestion
@@ -49,7 +49,7 @@ git clone https://github.com/mrjrdg/marque-sans-nom.git
 - [ ] Inscription au site
 - [ ] Modification de profil
 - [ ] Modification des preferences du profil
-- [ ] Afficher l'historique d'activites 
+- [ ] Afficher l'historique d'activites
 
 
 #### Utilisateur - Messages
@@ -57,7 +57,7 @@ git clone https://github.com/mrjrdg/marque-sans-nom.git
 - [ ] Ajout d'utilisateurs (afin de lui envoyer un message)
 - [ ] Messages privés entre utilisateurs
 - [ ] Chat par evenement
-- [ ] Babillard pour discuter entre participant sur l'evenement 
+- [ ] Babillard pour discuter entre participant sur l'evenement
 
 
 #### Utilisateur - Événements
@@ -65,8 +65,8 @@ git clone https://github.com/mrjrdg/marque-sans-nom.git
 - [ ] Inscription aux événements
 - [ ] Creation aux événements soit publique ou prive
 - [ ] Recherche d'événements ( Par ville, sport ect.)
-- [ ] Etablir le nombre de participants requis 
-- [ ] Reservation/Depot a un événement 
+- [ ] Etablir le nombre de participants requis
+- [ ] Reservation/Depot a un événement
 - [ ] Shopping cart et checkout
 - [ ] Option: Fermer l'événement selon le nombre de participant requis ou laisser ouvert
 
