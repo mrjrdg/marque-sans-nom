@@ -71,3 +71,5 @@ Client : Diallo, Abdoulaye Banire
 - [ ] Gestionaires des disponibilites des lieux, selon les entreprises
 - [ ] Ajout d'un service recurrent pour les evenements dans le gestionnaire d'evenement
 - [ ] Visualisation d'evenement sur une carte electronique
+- [ ] Profil utilisateur
+  - [ ] Affichage des événements auquel l'utilisateur participe
