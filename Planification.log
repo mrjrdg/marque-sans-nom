@@ -1,0 +1,33 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.1.22)  28 JAN 2020 11:06
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**Planification.tex
+(./Planification.tex
+LaTeX2e <2019-10-01>
+
+! LaTeX Error: File `exam.cls' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: cls)
+
+Enter file name: X
+
+ )
+(\end occurred when \ifx on line 2 was incomplete)
+(\end occurred when \ifx on line 2 was incomplete) 
+Here is how much of TeX's memory you used:
+ 11 strings out of 493610
+ 204 string characters out of 6159293
+ 55281 words of memory out of 5000000
+ 4264 multiletter control sequences out of 15000+600000
+ 3640 words of font info for 14 fonts, out of 8000000 for 9000
+ 319 hyphenation exceptions out of 8191
+ 10i,0n,8p,74b,10s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+No pages of output.
+PDF statistics:
+ 0 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
