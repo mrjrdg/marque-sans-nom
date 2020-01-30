@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/jordangauthier/marque-sans-nom/webapp/webapp.csproj": {}
+    "/Users/macbook/Desktop/marque-sans-nom/webapp/webapp.csproj": {}
   },
   "projects": {
-    "/home/jordangauthier/marque-sans-nom/webapp/webapp.csproj": {
+    "/Users/macbook/Desktop/marque-sans-nom/webapp/webapp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/jordangauthier/marque-sans-nom/webapp/webapp.csproj",
+        "projectUniqueName": "/Users/macbook/Desktop/marque-sans-nom/webapp/webapp.csproj",
         "projectName": "webapp",
-        "projectPath": "/home/jordangauthier/marque-sans-nom/webapp/webapp.csproj",
-        "packagesPath": "/home/jordangauthier/.nuget/packages/",
-        "outputPath": "/home/jordangauthier/marque-sans-nom/webapp/obj/",
+        "projectPath": "/Users/macbook/Desktop/marque-sans-nom/webapp/webapp.csproj",
+        "packagesPath": "/Users/macbook/.nuget/packages/",
+        "outputPath": "/Users/macbook/Desktop/marque-sans-nom/webapp/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/jordangauthier/.nuget/NuGet/NuGet.Config"
+          "/Users/macbook/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -53,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.100/RuntimeIdentifierGraph.json"
         }
       }
     }
