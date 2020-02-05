@@ -20516,6 +20516,21 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/macbook/Desktop/marque-sans-nom/webapp/Views/Entreprise/Index.cshtml",
+      "TargetPath": "Views/Entreprise/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/macbook/Desktop/marque-sans-nom/webapp/Views/Entreprise/Create.cshtml",
+      "TargetPath": "Views/Entreprise/Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/macbook/Desktop/marque-sans-nom/webapp/Views/Entreprise/Details.cshtml",
+      "TargetPath": "Views/Entreprise/Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/macbook/Desktop/marque-sans-nom/webapp/Views/Shared/_Layout.cshtml",
       "TargetPath": "Views/Shared/_Layout.cshtml",
       "FileKind": "mvc"
@@ -20528,6 +20543,16 @@
     {
       "FilePath": "/Users/macbook/Desktop/marque-sans-nom/webapp/Views/Home/Privacy.cshtml",
       "TargetPath": "Views/Home/Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/macbook/Desktop/marque-sans-nom/webapp/Views/Entreprise/Edit.cshtml",
+      "TargetPath": "Views/Entreprise/Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/macbook/Desktop/marque-sans-nom/webapp/Views/Entreprise/Delete.cshtml",
+      "TargetPath": "Views/Entreprise/Delete.cshtml",
       "FileKind": "mvc"
     },
     {
