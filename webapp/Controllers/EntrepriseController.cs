@@ -5,16 +5,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using webapp.Data;
-using webapp.Models;
+using Models;
 
 namespace webapp.Controllers
 {
     public class EntrepriseController : Controller
     {
-        private readonly DatabaseContext _context;
+        private readonly AppDbContext _context;
 
-        public EntrepriseController(DatabaseContext context)
+        public EntrepriseController(AppDbContext context)
         {
             _context = context;
         }
