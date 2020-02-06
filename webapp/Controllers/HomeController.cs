@@ -5,33 +5,23 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using webapp.Models;
-using webapp.Data;
+using Models;
 using Microsoft.EntityFrameworkCore;
 using System.Web;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using ViewModels;
 
 
 
-namespace webapp.Controllers
+namespace Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
 
-//    public ActionResult SatyaAcademicYear()  
-//         {  
-//             using (DatabaseContext dc = new DatabaseContext(DbContextOptions<DatabaseContext>))  
-//             {  
-//                 var v = dc.AcademicYears.OrderByDescending(a => a.AcademicYear1).ToList();  
-//                 return PartialView("_AcademicYear", v);  
-//             }  
-//         }  
-
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-            
         }
 
       
@@ -39,12 +29,6 @@ namespace webapp.Controllers
         {
             return View();
         }
-
-        //   public async Task<IActionResult> Partial()
-        // {
-        //     return PartialView("_EntrepriseShare",await _context.Entreprise.ToListAsync());
-        // }
-       
 
         public IActionResult Privacy()
         {
