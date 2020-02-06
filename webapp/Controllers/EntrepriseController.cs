@@ -19,6 +19,7 @@ namespace webapp.Controllers
             _context = context;
         }
 
+
         // GET: Entreprise
         public async Task<IActionResult> Index()
         {

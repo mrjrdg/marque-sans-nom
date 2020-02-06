@@ -197,3 +197,4 @@
 /Users/macbook/Desktop/marque-sans-nom/webapp/obj/Debug/netcoreapp3.1/Razor/Views/Entreprise/Details.cshtml.g.cs
 /Users/macbook/Desktop/marque-sans-nom/webapp/obj/Debug/netcoreapp3.1/Razor/Views/Entreprise/Edit.cshtml.g.cs
 /Users/macbook/Desktop/marque-sans-nom/webapp/obj/Debug/netcoreapp3.1/Razor/Views/Entreprise/Index.cshtml.g.cs
+/Users/macbook/Desktop/marque-sans-nom/webapp/obj/Debug/netcoreapp3.1/Razor/Views/Entreprise/Page2.cshtml.g.cs
