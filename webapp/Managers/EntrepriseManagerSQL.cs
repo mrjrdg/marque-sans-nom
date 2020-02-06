@@ -3,6 +3,9 @@ using Services;
 using Models;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
 namespace Managers
 {
@@ -51,6 +54,11 @@ namespace Managers
         {
             var entreprise = await _context.Entreprise.FindAsync(id);
             return entreprise;
+        }
+
+        public async Task<List<Entreprise>> GetAll()
+        {
+            return await _context.Entreprise.ToListAsync();
         }
     }
 }

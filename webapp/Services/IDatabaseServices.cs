@@ -14,5 +14,6 @@ namespace Services
         Task<T> Create(T model);
         Task<T> Get(int id);
         Task<T> Delete(int id);
+        Task<List<T>> GetAll();
     }
 }
