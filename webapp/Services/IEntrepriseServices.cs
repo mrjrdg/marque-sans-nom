@@ -7,6 +7,6 @@ namespace Services
     /// </summary>
     public interface IEntrepriseServices : IDatabaseServices<Entreprise>
     {
-        
+    
     }
 }

@@ -6,15 +6,18 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Models;
+using Services;
 
 namespace webapp.Controllers
 {
     public class EntrepriseController : Controller
     {
+        private readonly IEntrepriseServices _entrepriseServices;
         private readonly AppDbContext _context;
 
-        public EntrepriseController(AppDbContext context)
+        public EntrepriseController(IEntrepriseServices entrepriseServices, AppDbContext context)
         {
+            _entrepriseServices = entrepriseServices;
             _context = context;
         }
 
@@ -22,7 +25,7 @@ namespace webapp.Controllers
         // GET: Entreprise
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Entreprise.ToListAsync());
+            return View(await _entrepriseServices.GetAll());
         }
 
         // GET: Entreprise/Details/5
