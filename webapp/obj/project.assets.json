@@ -8543,24 +8543,26 @@
     ]
   },
   "packageFolders": {
-    "/Users/macbook/.nuget/packages/": {}
+    "C:\\Users\\alxbo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/macbook/Desktop/marque-sans-nom/webapp/webapp.csproj",
+      "projectUniqueName": "C:\\Users\\alxbo\\Source\\Repos\\mrjrdg\\marque-sans-nom\\webapp\\webapp.csproj",
       "projectName": "webapp",
-      "projectPath": "/Users/macbook/Desktop/marque-sans-nom/webapp/webapp.csproj",
-      "packagesPath": "/Users/macbook/.nuget/packages/",
-      "outputPath": "/Users/macbook/Desktop/marque-sans-nom/webapp/obj/",
+      "projectPath": "C:\\Users\\alxbo\\Source\\Repos\\mrjrdg\\marque-sans-nom\\webapp\\webapp.csproj",
+      "packagesPath": "C:\\Users\\alxbo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\alxbo\\Source\\Repos\\mrjrdg\\marque-sans-nom\\webapp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/macbook/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\alxbo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -8614,7 +8616,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.100/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
