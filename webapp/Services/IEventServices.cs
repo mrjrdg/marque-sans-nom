@@ -7,6 +7,6 @@ namespace Services
     /// </summary>
     public interface IEventServices : IDatabaseServices<Event>
     {
-    
+        
     }
 }
