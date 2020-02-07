@@ -32,6 +32,7 @@ namespace webapp
             services.AddControllersWithViews();
 
             services.AddScoped<IEntrepriseServices, EntrepriseManagerSQL>();
+            services.AddScoped<IEventServices, EventManagerSQL>();
 
 
             services.AddDbContextPool<AppDbContext>(options =>
