@@ -21,7 +21,7 @@ namespace Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            EventApplicationUser e = new EventApplicationUser();
+            base.OnModelCreating(modelBuilder);
             
             modelBuilder.Entity<EventApplicationUser>()
                 .HasKey(t => new { t.ApplicationUserId, t.EventId });
