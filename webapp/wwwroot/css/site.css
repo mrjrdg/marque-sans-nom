@@ -29,3 +29,21 @@ img.myavatar {
     height: 2.25rem;
     margin-right: 8px;
 }
+
+/* Event - Avatars */
+ul.avatars>li {
+    display: inline-block;
+}
+
+ul.avatars>li+li {
+    margin-left: -0.75rem;
+}
+
+img.avatar {
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    border: 2px solid #ffffff;
+    background: #ffffff;
+    color: #fff;
+}
