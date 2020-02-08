@@ -34,6 +34,25 @@ img.myavatar {
     margin-right: 8px;
 }
 
+/* Event - General */
+h1.eventtitle {
+    margin-bottom: 0px;
+}
+
+p.eventtime {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+p.eventorganizer {
+    margin-top: 0px;
+}
+
+div.eventnav {
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+
 /* Event - Avatars */
 div.eventavatars {
     margin-top: 16px;
@@ -60,6 +79,7 @@ img.eventavatar {
     color: #fff;
 }
 
+/* Event - Category List */
 ul.eventcategorylist {
     padding-left: 0px;
 }
