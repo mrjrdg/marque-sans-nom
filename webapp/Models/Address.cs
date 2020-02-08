@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Models
 {
-    public class Addresse
+    public class Address
     {
         /// <summary>
         /// The id of the Addresse
@@ -16,6 +16,16 @@ namespace Models
         /// </summary>
         /// <value></value>
         [Required]
-        public string AddresseName { get; set; }
+        public string Name { get; set; }
+
+
+        /// <summary>
+        ///     Return the value of the Name property that is the address as a string.
+        /// </summary>
+        /// <returns>The address as a string</returns>
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

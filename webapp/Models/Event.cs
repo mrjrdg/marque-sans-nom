@@ -56,7 +56,7 @@ namespace Models
         /// </summary>
         /// <value></value>
         [Required]
-        public Addresse Addresse { get; set; }
+        public Address Addresse { get; set; }
 
         /// <summary>
         ///     The enterprise hosting the event

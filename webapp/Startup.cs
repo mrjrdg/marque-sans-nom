@@ -36,7 +36,7 @@ namespace webapp
 
 
             services.AddDbContextPool<AppDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DatabaseContext"))
+                options.UseSqlServer(Configuration.GetConnectionString("JordanGauthierDatabaseContext"))
             );
 
             services.AddIdentity<ApplicationUser, IdentityRole>(options =>
