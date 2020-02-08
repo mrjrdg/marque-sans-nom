@@ -12,7 +12,7 @@
     <link href="./lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="./css/site.css" rel="stylesheet">
 
-    <!-- Favicon here-->
+    <!-- Favicon here -->
 
 </head>
 <body>
@@ -33,24 +33,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Liste des activit&eacute;s</a>
                     </li>
-
-                    <!--
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Lien 1</a>
-                            <a class="dropdown-item" href="#">Lien 2</a>
-                            <a class="dropdown-item" href="#">Lien 3</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                        </div>
-                    </li>
-                    -->
-                    <!--
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Lien inactif</a>
-                    </li>
-                    -->
                 </ul>
 
                 <ul class="nav nav-pills">
@@ -73,66 +55,113 @@
         </div>
     </nav>
     <!-- NAVIGATION END -->
-    <!-- CONTENT START -->
-    <main role="main" class="container">
-
-        <div class="jumbotron">
-
-            <div>
-                <h1>Match de hockey</h1>
-                <p>Le 18 f&eacute;vrier 2020</p>
-                <p>18h &agrave; 20h</p>
-
-                <ul class="avatars">
-                    <!-- Avatar de l'utilisateur en premier -->
-                    <li><img src="./img/photos/maurice-richard.jpg" class="avatar" /></li>
-                    <li><img src="./img/photos/henri-richard.jfif" class="avatar" /></li>
-                    <li><img src="./img/photos/jean-beliveau.jfif" class="avatar" /></li>
-                    <li><img src="./img/photos/larry-robinson.jfif" class="avatar" /></li>
-                    <li><img src="./img/photos/guy-lafleur.jpg" class="avatar" /></li>
-                </ul>
-    
+    <!-- BREADCRUMB START
+    <nav aria-label="breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Liste des activit&eacute;s</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Fiche d'un &eacute;v&eacute;nement</li>
+            </ol>
+        </div>
+    </nav>
+    BREADCRUMB END -->
     <!--
 
         Éléments à ajouter (fiche)
-        - Date, heure de début, heure de fin
-        - Lieu (carte)
-        - Informations additionnelles sur le lieu (salle, porte, etc)
-        - Autres participants
         - Catégorie de l'événement
+        - Bouton m'inscrire / me désinscrire
 
     -->
+    <!-- CONTENT START -->
+    <main role="main" class="container spacebefore">
+        <div class="container">
 
+            <!-- TITLE START -->
+            <div>
+                <h1>Match de hockey des l&eacute;gendes</h1>
+                <h2><small class="text-muted">18 f&eacute;vrier 2020 à 18h</small></h2>
+            </div>
+            <!-- TITLE END -->
+
+            <!-- LIST OF PARTICIPANTS START -->
+            <div class="eventavatars">
+                <ul class="eventavatars">
+                    <!-- User avatar first -->
+                    <li><img src="./img/photos/maurice-richard.jpg" class="eventavatar" /></li>
+                    <li><img src="./img/photos/henri-richard.jfif" class="eventavatar" /></li>
+                    <li><img src="./img/photos/jean-beliveau.jfif" class="eventavatar" /></li>
+                    <li><img src="./img/photos/larry-robinson.jfif" class="eventavatar" /></li>
+                    <li><img src="./img/photos/guy-lafleur.jpg" class="eventavatar" /></li>
+                </ul>
+
+                <!-- Number of participants -->
+                <p>5 participants</p>
+            </div>
+            <!-- LIST OF PARTICIPANTS END -->
+            <hr />
+
+            <div>
+                <ul class="nav nav-pills nav-fill" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#projects" role="tab" aria-controls="projects" aria-selected="true">Option 1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#members" role="tab" aria-controls="members" aria-selected="false">Option 2</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- EVENT DESCRIPTION START -->
+            <div>
+                <h3>Description</h3>
                 <p class="lead">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eros in cursus turpis massa tincidunt dui ut ornare lectus. Semper viverra nam libero justo laoreet sit amet. Dignissim diam quis enim lobortis scelerisque fermentum dui faucibus. Mauris ultrices eros in cursus. Nunc faucibus a pellentesque sit amet porttitor. Molestie ac feugiat sed lectus. Nunc lobortis mattis aliquam faucibus purus in massa tempor. Arcu bibendum at varius vel pharetra vel turpis nunc eget. Nunc consequat interdum varius sit amet mattis vulputate. Molestie a iaculis at erat pellentesque. Lectus arcu bibendum at varius vel pharetra. Enim neque volutpat ac tincidunt vitae. Sed risus pretium quam vulputate dignissim suspendisse in est ante.
                     <br /><br />
                     Erat nam at lectus urna duis. Mollis aliquam ut porttitor leo a diam sollicitudin tempor. Duis ut diam quam nulla. In hac habitasse platea dictumst vestibulum rhoncus est pellentesque. Gravida rutrum quisque non tellus orci ac. Fames ac turpis egestas sed tempus urna et pharetra. Enim ut sem viverra aliquet eget sit amet tellus cras. Scelerisque varius morbi enim nunc faucibus a pellentesque. Turpis tincidunt id aliquet risus feugiat in ante metus. Fermentum odio eu feugiat pretium nibh ipsum. Egestas sed sed risus pretium quam vulputate. Diam vulputate ut pharetra sit amet. Non enim praesent elementum facilisis leo vel fringilla est. Sed tempus urna et pharetra. Non odio euismod lacinia at quis. Luctus venenatis lectus magna fringilla urna porttitor. Pharetra convallis posuere morbi leo. Faucibus in ornare quam viverra orci sagittis eu volutpat. Magna eget est lorem ipsum dolor sit amet. Lectus vestibulum mattis ullamcorper velit.
-                    <br /><br />
-                    Nec ullamcorper sit amet risus nullam eget felis eget nunc. Semper viverra nam libero justo laoreet sit amet cursus sit. Facilisi morbi tempus iaculis urna id volutpat lacus. Volutpat blandit aliquam etiam erat. Nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc. Eget mi proin sed libero enim sed faucibus. Sit amet porttitor eget dolor. Porttitor lacus luctus accumsan tortor posuere ac ut consequat. Egestas maecenas pharetra convallis posuere morbi leo. Nisl purus in mollis nunc sed id semper. Cursus sit amet dictum sit amet justo donec enim. Enim facilisis gravida neque convallis. Aliquam purus sit amet luctus venenatis lectus magna fringilla. Malesuada pellentesque elit eget gravida.
                 </p>
             </div>
-        </div>
+            <!-- DESCRIPTION END -->
 
-        <div class="container">
-            <h2>Lieu</h2>
-            <div class="row">
-                <div class="col-sm-auto">
-                    <img src="./img/carte-pin.png" width="25px" height="40px" />
-                </div>
-                <div class="col-sm">
+            <!-- LOCATION START -->
+            <div>
+                <h3>Lieu de l'activit&eacute;</h3>
+                <p>
                     <address>
                         4110, boulevard Lasalle<br />
                         Montréal (Québec)&nbsp;&nbsp;H4G 2N5
                     </address>
-                    <p>
-                        <a href="https://developers.google.com/maps/documentation/urls/guide" target="_blank">Afficher sur la carte</a>
-                    </p>
-                </div>
-            </div>
-        </div>
+                    <a href="https://developers.google.com/maps/documentation/urls/guide" target="_blank">Afficher sur la carte</a>
+                </p>
 
+                <h5>Précisions</h5>
+                <p>Veuillez entrer par la porte sur le c&ocirc;t&eacute; de l'ar&eacute;na, porte SH-2460</p>
+            </div>
+            <!-- LOCATION END -->
+
+            <!-- BABILLARD START -->
+            <div>
+                <h3>Babillard</h3>
+                <p>Messages ici</p>
+            </div>
+            <!-- BABILLARD END-->
+
+            <!-- CATEGORY START -->
+            <div>
+                <h3>Cat&eacute;gories</h3>
+                <p>
+                    <ul class="eventcategorylist">
+                        <li><a href="#" class="badge badge-primary">hockey</a></li>
+                        <li><a href="#" class="badge badge-info">sport</a></li>
+                        <li><a href="#" class="badge badge-danger">activit&eacute; ext&eacute;rieure</a></li>
+                    </ul>
+                </p>
+            </div>
+            <!-- CATEGORY END-->
+
+        </div>
     </main>
     <!-- CONTENT END -->
+
     <!-- FOOTER START -->
     <script src="./lib/jquery/dist/jquery.js"></script>
     <script src="./lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
