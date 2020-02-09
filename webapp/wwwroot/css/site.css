@@ -51,6 +51,12 @@ p.eventorganizer {
 div.eventnav {
     margin-bottom: 8px;
     margin-top: 8px;
+    background: #f8f9fa;
+    border-radius: 0.5rem;
+}
+
+ul.eventnav>li {
+    margin: 0.5rem;
 }
 
 /* Event - Avatars */

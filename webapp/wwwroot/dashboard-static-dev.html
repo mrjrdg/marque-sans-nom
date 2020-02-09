@@ -67,9 +67,19 @@
     BREADCRUMB END -->
     <!--
 
-        Éléments à ajouter (fiche)
+        Éléments d'une activité
+        - Titre
+        - Date + heure
+        - Organisateur (entreprise)
+        - Participants
+        - Description
+        - Lieu
+        - Précisions sur le lieu
+        - Babillard
         - Catégorie de l'événement
-        - Bouton m'inscrire / me désinscrire
+
+        Actions
+        - M'inscrire / me désinscrire
 
     -->
     <!-- CONTENT START -->
@@ -80,95 +90,110 @@
             <div>
                 <h1 class="eventtitle">Match de hockey des l&eacute;gendes</h1>
                 <p class="h3 eventtime"><small class="text-muted">18 f&eacute;vrier 2020 à 18h</small></p>
-                <p class="h4 eventorganizer"><small class="text-muted">Organisé par
+                <p class="h4 eventorganizer">
+                    <small class="text-muted">
+                        Organisé par
                         <span class="eventorganizer"><a href="#">Association de Sport de Montr&eacute;al</a></span>
-                    </small></p>
+                    </small>
+                </p>
             </div>
-            <!-- TITLE END -->
 
             <!-- LIST OF PARTICIPANTS START -->
             <div class="eventavatars">
                 <ul class="eventavatars">
                     <!-- User avatar first -->
-                    <li><img src="./img/photos/maurice-richard.jpg" class="eventavatar" /></li>
-                    <li><img src="./img/photos/henri-richard.jfif" class="eventavatar" /></li>
-                    <li><img src="./img/photos/jean-beliveau.jfif" class="eventavatar" /></li>
-                    <li><img src="./img/photos/larry-robinson.jfif" class="eventavatar" /></li>
-                    <li><img src="./img/photos/guy-lafleur.jpg" class="eventavatar" /></li>
+                    <li><img src="./img/photos/maurice-richard.jpg" class="eventavatar" data-toggle="tooltip" data-placement="top" title="moi" /></li>
+                    <li><img src="./img/photos/henri-richard.jfif" class="eventavatar" data-toggle="tooltip" data-placement="top" title="Henri Richard" /></li>
+                    <li><img src="./img/photos/jean-beliveau.jfif" class="eventavatar" data-toggle="tooltip" data-placement="top" title="Jean B&eacute;liveau" /></li>
+                    <li><img src="./img/photos/larry-robinson.jfif" class="eventavatar" data-toggle="tooltip" data-placement="top" title="Larry Robinson" /></li>
+                    <li><img src="./img/photos/guy-lafleur.jpg" class="eventavatar" data-toggle="tooltip" data-placement="top" title="Guy Lafleur" /></li>
                 </ul>
 
                 <!-- Number of participants -->
-                <p>5 participants</p>
+                <div>
+                    <p>
+                        5 participants
+                        <button type="button" class="btn btn-success btn-sm">Je veux m'inscrire !</button>
+                        <button type="button" class="btn btn-danger btn-sm">Me d&eacute;sinscrire</button>
+                    </p>
+                </div>
+
             </div>
-            <!-- LIST OF PARTICIPANTS END -->
+
             <hr />
 
             <div class="eventnav">
-                <ul class="nav nav-pills nav-fill" role="tablist">
+                <ul class="nav nav-pills nav-fill eventnav" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" data-toggle="tab" href="#projects" role="tab" aria-controls="projects" aria-selected="true">Option 1</a>
+                        <a class="nav-link active" data-toggle="tab" role="tab" aria-controls="projects" aria-selected="true" href="#eventinfo">Informations</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#members" role="tab" aria-controls="members" aria-selected="false">Option 2</a>
+                        <a class="nav-link" data-toggle="tab" role="tab" aria-controls="members" aria-selected="false" href="#eventboard">Babillard</a>
                     </li>
                 </ul>
             </div>
 
-            <!-- EVENT DESCRIPTION START -->
-            <div>
-                <h3>Description</h3>
-                <p class="lead">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eros in cursus turpis massa tincidunt dui ut ornare lectus. Semper viverra nam libero justo laoreet sit amet. Dignissim diam quis enim lobortis scelerisque fermentum dui faucibus. Mauris ultrices eros in cursus. Nunc faucibus a pellentesque sit amet porttitor. Molestie ac feugiat sed lectus. Nunc lobortis mattis aliquam faucibus purus in massa tempor. Arcu bibendum at varius vel pharetra vel turpis nunc eget. Nunc consequat interdum varius sit amet mattis vulputate. Molestie a iaculis at erat pellentesque. Lectus arcu bibendum at varius vel pharetra. Enim neque volutpat ac tincidunt vitae. Sed risus pretium quam vulputate dignissim suspendisse in est ante.
-                    <br /><br />
-                    Erat nam at lectus urna duis. Mollis aliquam ut porttitor leo a diam sollicitudin tempor. Duis ut diam quam nulla. In hac habitasse platea dictumst vestibulum rhoncus est pellentesque. Gravida rutrum quisque non tellus orci ac. Fames ac turpis egestas sed tempus urna et pharetra. Enim ut sem viverra aliquet eget sit amet tellus cras. Scelerisque varius morbi enim nunc faucibus a pellentesque. Turpis tincidunt id aliquet risus feugiat in ante metus. Fermentum odio eu feugiat pretium nibh ipsum. Egestas sed sed risus pretium quam vulputate. Diam vulputate ut pharetra sit amet. Non enim praesent elementum facilisis leo vel fringilla est. Sed tempus urna et pharetra. Non odio euismod lacinia at quis. Luctus venenatis lectus magna fringilla urna porttitor. Pharetra convallis posuere morbi leo. Faucibus in ornare quam viverra orci sagittis eu volutpat. Magna eget est lorem ipsum dolor sit amet. Lectus vestibulum mattis ullamcorper velit.
-                </p>
+            <div class="tab-content">
+
+                <!-- EVENTINFO TAB1 START-->
+                <div class="tab-pane active" id="eventinfo">
+                    <!-- EVENT DESCRIPTION START -->
+                    <div>
+                        <h3>Description</h3>
+                        <p class="lead">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eros in cursus turpis massa tincidunt dui ut ornare lectus. Semper viverra nam libero justo laoreet sit amet. Dignissim diam quis enim lobortis scelerisque fermentum dui faucibus. Mauris ultrices eros in cursus. Nunc faucibus a pellentesque sit amet porttitor. Molestie ac feugiat sed lectus. Nunc lobortis mattis aliquam faucibus purus in massa tempor. Arcu bibendum at varius vel pharetra vel turpis nunc eget. Nunc consequat interdum varius sit amet mattis vulputate. Molestie a iaculis at erat pellentesque. Lectus arcu bibendum at varius vel pharetra. Enim neque volutpat ac tincidunt vitae. Sed risus pretium quam vulputate dignissim suspendisse in est ante.
+                            <br /><br />
+                            Erat nam at lectus urna duis. Mollis aliquam ut porttitor leo a diam sollicitudin tempor. Duis ut diam quam nulla. In hac habitasse platea dictumst vestibulum rhoncus est pellentesque. Gravida rutrum quisque non tellus orci ac. Fames ac turpis egestas sed tempus urna et pharetra. Enim ut sem viverra aliquet eget sit amet tellus cras. Scelerisque varius morbi enim nunc faucibus a pellentesque. Turpis tincidunt id aliquet risus feugiat in ante metus. Fermentum odio eu feugiat pretium nibh ipsum. Egestas sed sed risus pretium quam vulputate. Diam vulputate ut pharetra sit amet. Non enim praesent elementum facilisis leo vel fringilla est. Sed tempus urna et pharetra. Non odio euismod lacinia at quis. Luctus venenatis lectus magna fringilla urna porttitor. Pharetra convallis posuere morbi leo. Faucibus in ornare quam viverra orci sagittis eu volutpat. Magna eget est lorem ipsum dolor sit amet. Lectus vestibulum mattis ullamcorper velit.
+                        </p>
+                    </div>
+                    <!-- LOCATION START -->
+                    <div>
+                        <h3>Lieu de l'activit&eacute;</h3>
+                        <p>
+                            <address>
+                                4110, boulevard Lasalle<br />
+                                Montréal (Québec)&nbsp;&nbsp;H4G 2N5
+                            </address>
+                            <a href="https://developers.google.com/maps/documentation/urls/guide" target="_blank">Afficher sur la carte</a>
+                        </p>
+
+                        <h5>Précisions</h5>
+                        <p>Veuillez entrer par la porte sur le c&ocirc;t&eacute; de l'ar&eacute;na, porte SH-2460</p>
+                    </div>
+                    <!-- CATEGORY START -->
+                    <div>
+                        <h3>Cat&eacute;gories</h3>
+                        <p>
+                            <ul class="eventcategorylist">
+                                <li><a href="#" class="badge badge-pill badge-primary">hockey</a></li>
+                                <li><a href="#" class="badge badge-pill badge-info">sport</a></li>
+                                <li><a href="#" class="badge badge-pill badge-danger">activit&eacute; ext&eacute;rieure</a></li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- EVENTBOARD TAB2 START -->
+                <div class="tab-pane" id="eventboard">
+                    <!-- BABILLARD START -->
+                    <div>
+                        <h3>Babillard</h3>
+                        <p>Messages ici</p>
+                    </div>
+                </div>
             </div>
-            <!-- DESCRIPTION END -->
-
-            <!-- LOCATION START -->
-            <div>
-                <h3>Lieu de l'activit&eacute;</h3>
-                <p>
-                    <address>
-                        4110, boulevard Lasalle<br />
-                        Montréal (Québec)&nbsp;&nbsp;H4G 2N5
-                    </address>
-                    <a href="https://developers.google.com/maps/documentation/urls/guide" target="_blank">Afficher sur la carte</a>
-                </p>
-
-                <h5>Précisions</h5>
-                <p>Veuillez entrer par la porte sur le c&ocirc;t&eacute; de l'ar&eacute;na, porte SH-2460</p>
-            </div>
-            <!-- LOCATION END -->
-
-            <!-- BABILLARD START -->
-            <div>
-                <h3>Babillard</h3>
-                <p>Messages ici</p>
-            </div>
-            <!-- BABILLARD END-->
-
-            <!-- CATEGORY START -->
-            <div>
-                <h3>Cat&eacute;gories</h3>
-                <p>
-                    <ul class="eventcategorylist">
-                        <li><a href="#" class="badge badge-primary">hockey</a></li>
-                        <li><a href="#" class="badge badge-info">sport</a></li>
-                        <li><a href="#" class="badge badge-danger">activit&eacute; ext&eacute;rieure</a></li>
-                    </ul>
-                </p>
-            </div>
-            <!-- CATEGORY END-->
-
         </div>
     </main>
-    <!-- CONTENT END -->
 
     <!-- FOOTER START -->
     <script src="./lib/jquery/dist/jquery.js"></script>
     <script src="./lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- FOOTER END -->
+    
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
 
 </body>
 </html>
