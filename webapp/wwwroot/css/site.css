@@ -23,15 +23,22 @@ main.spacebefore {
     margin-top: 8px;
 }
 
-img.myavatar {
+img.avatar {
     border-radius: 50% !important;
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
     border-bottom-right-radius: 50%;
     border-bottom-left-radius: 50%;
+}
+
+img.avatarsmall {
     width: 2.25rem;
     height: 2.25rem;
-    margin-right: 8px;
+}
+
+img.avatarmedium {
+    width: 4rem;
+    height: 4rem;
 }
 
 /* Event - General */
@@ -77,9 +84,6 @@ ul.eventavatars>li+li {
 }
 
 img.eventavatar {
-    border-radius: 50%;
-    width: 4rem;
-    height: 4rem;
     border: 2px solid #ffffff;
     background: #ffffff;
     color: #fff;

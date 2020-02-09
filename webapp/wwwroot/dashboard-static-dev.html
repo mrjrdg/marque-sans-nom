@@ -38,7 +38,7 @@
                 <ul class="nav nav-pills">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                            <img src="./img/photos/maurice-richard.jpg" class="myavatar" />Maurice
+                            <img src="./img/photos/maurice-richard.jpg" class="avatar avatarsmall mr-2"/>Maurice
                         </a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="#">Mon profil</a>
@@ -102,18 +102,18 @@
             <div class="eventavatars">
                 <ul class="eventavatars">
                     <!-- User avatar first -->
-                    <li><img src="./img/photos/maurice-richard.jpg" class="eventavatar" data-toggle="tooltip" data-placement="top" title="moi" /></li>
-                    <li><img src="./img/photos/henri-richard.jfif" class="eventavatar" data-toggle="tooltip" data-placement="top" title="Henri Richard" /></li>
-                    <li><img src="./img/photos/jean-beliveau.jfif" class="eventavatar" data-toggle="tooltip" data-placement="top" title="Jean B&eacute;liveau" /></li>
-                    <li><img src="./img/photos/larry-robinson.jfif" class="eventavatar" data-toggle="tooltip" data-placement="top" title="Larry Robinson" /></li>
-                    <li><img src="./img/photos/guy-lafleur.jpg" class="eventavatar" data-toggle="tooltip" data-placement="top" title="Guy Lafleur" /></li>
+                    <li><img src="./img/photos/maurice-richard.jpg" class="avatar avatarmedium eventavatar" data-toggle="tooltip" data-placement="top" title="moi" /></li>
+                    <li><img src="./img/photos/henri-richard.jfif" class="avatar avatarmedium eventavatar" data-toggle="tooltip" data-placement="top" title="Henri Richard" /></li>
+                    <li><img src="./img/photos/jean-beliveau.jfif" class="avatar avatarmedium eventavatar" data-toggle="tooltip" data-placement="top" title="Jean B&eacute;liveau" /></li>
+                    <li><img src="./img/photos/larry-robinson.jfif" class="avatar avatarmedium eventavatar" data-toggle="tooltip" data-placement="top" title="Larry Robinson" /></li>
+                    <li><img src="./img/photos/guy-lafleur.jpg" class="avatar avatarmedium eventavatar" data-toggle="tooltip" data-placement="top" title="Guy Lafleur" /></li>
                 </ul>
 
                 <!-- Number of participants -->
                 <div>
                     <p>
                         5 participants
-                        <button type="button" class="btn btn-success btn-sm">Je veux m'inscrire !</button>
+                        <button type="button" class="btn btn-success btn-sm">Je veux participer !</button>
                         <button type="button" class="btn btn-danger btn-sm">Me d&eacute;sinscrire</button>
                     </p>
                 </div>
@@ -128,7 +128,10 @@
                         <a class="nav-link active" data-toggle="tab" role="tab" aria-controls="projects" aria-selected="true" href="#eventinfo">Informations</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" role="tab" aria-controls="members" aria-selected="false" href="#eventboard">Babillard</a>
+                        <a class="nav-link" data-toggle="tab" role="tab" aria-controls="members" aria-selected="false" href="#eventboard">
+                        Babillard
+                        <span class="badge badge-dark">1</span>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -178,7 +181,34 @@
                     <!-- BABILLARD START -->
                     <div>
                         <h3>Babillard</h3>
-                        <p>Messages ici</p>
+
+                        <!-- NEW BOARD MESSAGE START -->
+                        <form>
+                            <div class="form-group" style="max-width: 540px;">
+                                <label for="eventnewboardmessage">Publier un message</label>
+                                <textarea class="form-control" id="eventnewboardmessage" rows="2"></textarea>
+                                <button type="submit" class="btn btn-primary mt-2">Envoyer</button>
+                            </div>
+                        </form>
+
+                        <!-- BOARD MESSAGE LIST START -->
+                        <div class="card mb-3" style="max-width: 540px;">
+                            <div class="row no-gutters">
+                                <div class="col-md-1 p-3">
+                                    <img src="./img/photos/guy-lafleur.jpg" class="card-img avatar avatarsmall" alt="...">
+                                </div>
+                                <div class="col-md-11">
+                                    <!-- TODO: Corriger le problème lorsq'on réduit la fenêtre -->
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            Guy Lafleur
+                                            <small class="text-muted">Il y a 28 minutes</small>
+                                        </h5>
+                                        <p class="card-text">Je vais vous &eacute;clater</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
