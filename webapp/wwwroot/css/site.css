@@ -1,10 +1,4 @@
-﻿/* Show it is fixed to the top */
-body {
-    min-height: 75rem;
-    padding-top: 4.5rem;
-}
-
-.bd-placeholder-img {
+﻿.bd-placeholder-img {
     font-size: 1.125rem;
     text-anchor: middle;
     -webkit-user-select: none;
@@ -19,31 +13,87 @@ body {
     }
 }
 
-img.myavatar {
+/* Navbar */
+body {
+    min-height: 75rem;
+    padding-top: 4.5rem;
+}
+
+main.spacebefore {
+    margin-top: 8px;
+}
+
+img.avatar {
     border-radius: 50% !important;
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
     border-bottom-right-radius: 50%;
     border-bottom-left-radius: 50%;
+}
+
+img.avatarsmall {
     width: 2.25rem;
     height: 2.25rem;
-    margin-right: 8px;
+}
+
+img.avatarmedium {
+    width: 4rem;
+    height: 4rem;
+}
+
+/* Event - General */
+h1.eventtitle {
+    margin-bottom: 0px;
+}
+
+p.eventtime {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+p.eventorganizer {
+    margin-top: 0px;
+}
+
+div.eventnav {
+    margin-bottom: 8px;
+    margin-top: 8px;
+    background: #f8f9fa;
+    border-radius: 0.5rem;
+}
+
+ul.eventnav>li {
+    margin: 0.5rem;
 }
 
 /* Event - Avatars */
-ul.avatars>li {
+div.eventavatars {
+    margin-top: 16px;
+}
+
+ul.eventavatars {
+    padding-left: 0px;
+    margin-bottom: 4px;
+}
+ul.eventavatars>li {
     display: inline-block;
 }
 
-ul.avatars>li+li {
+ul.eventavatars>li+li {
     margin-left: -0.75rem;
 }
 
-img.avatar {
-    border-radius: 50%;
-    width: 4rem;
-    height: 4rem;
+img.eventavatar {
     border: 2px solid #ffffff;
     background: #ffffff;
     color: #fff;
+}
+
+/* Event - Category List */
+ul.eventcategorylist {
+    padding-left: 0px;
+}
+
+ul.eventcategorylist>li {
+    display: inline-block;
 }
