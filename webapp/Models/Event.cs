@@ -48,7 +48,6 @@ namespace Models
         ///     The type of the event
         /// </summary>
         /// <value></value>
-        [Required]
         public EventType EventType { get; set; }
 
         /// <summary>
@@ -56,7 +55,7 @@ namespace Models
         /// </summary>
         /// <value></value>
         [Required]
-        public Address Addresse { get; set; }
+        public Address Address { get; set; }
 
         /// <summary>
         ///     The enterprise hosting the event

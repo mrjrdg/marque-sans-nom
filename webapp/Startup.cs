@@ -36,8 +36,11 @@ namespace webapp
 
 
             services.AddDbContextPool<AppDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("JordanGauthierDatabaseContext"))
-            );
+                {
+                    options.UseSqlServer(Configuration.GetConnectionString("JordanGauthierDatabaseContext"));
+                    options.EnableSensitiveDataLogging(true);
+                }
+            ); ;
 
             services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {

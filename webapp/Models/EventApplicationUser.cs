@@ -8,7 +8,6 @@ namespace Models
     /// </summary>
     public class EventApplicationUser
     {
-
         /// <summary>
         /// The id of the ApplicationUser partipating at the event Event
         /// </summary>
