@@ -54,21 +54,18 @@ namespace Models
         ///     The address of the event
         /// </summary>
         /// <value></value>
-        [Required]
         public Address Address { get; set; }
 
         /// <summary>
         ///     The enterprise hosting the event
         /// </summary>
         /// <value></value>
-        [Required]
         public Entreprise Entreprise { get; set; }
 
         /// <summary>
         ///     The owner ApplicationUser of this event
         /// </summary>
         /// <value></value>
-        [Required]
         public ApplicationUser ApplicationUser { get; set; }
 
         // FOREIGN KEY MANY TO MANY //

@@ -48,22 +48,22 @@ namespace webapp.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "dd877ad9-bab2-42a4-ad24-b9d3cbd397db",
-                            ConcurrencyStamp = "d255b2c0-20ac-4b82-acac-484a15accd03",
+                            Id = "04dada9c-cabc-45a6-bc0d-2514539de128",
+                            ConcurrencyStamp = "5f912fad-721c-4b28-be67-d1702821de75",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "642fc052-6ef4-46c8-94a8-8cbc4d58abf0",
-                            ConcurrencyStamp = "70caf04b-3820-4cc7-a2a3-512d920c6ee9",
+                            Id = "0250a755-7025-4002-bafe-d9103d49ef21",
+                            ConcurrencyStamp = "81b8bc0b-7069-4daf-bcda-cb58bb894294",
                             Name = "CustomerPeople",
                             NormalizedName = "CUSTOMERPEOPLE"
                         },
                         new
                         {
-                            Id = "d41d84ad-c113-4092-9714-3fb00153c109",
-                            ConcurrencyStamp = "4a5d2b44-1016-4960-b4f1-c6ee9a77a965",
+                            Id = "60194e0b-fa7c-40cc-8808-a33316405da2",
+                            ConcurrencyStamp = "cf2c1c65-cce7-4c57-a530-ca8f007c8733",
                             Name = "CustomerBusiness",
                             NormalizedName = "CUSTOMERBUSINESS"
                         });
@@ -156,23 +156,23 @@ namespace webapp.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "424955bd-d31b-453e-9bf7-89b91dde0c9c",
-                            RoleId = "dd877ad9-bab2-42a4-ad24-b9d3cbd397db"
+                            UserId = "d147d359-bbb7-4095-8e15-d217779deaa8",
+                            RoleId = "04dada9c-cabc-45a6-bc0d-2514539de128"
                         },
                         new
                         {
-                            UserId = "400919a5-8692-4bbc-88d3-f04e1f4ad2d3",
-                            RoleId = "dd877ad9-bab2-42a4-ad24-b9d3cbd397db"
+                            UserId = "937d51c8-19f0-4219-9a9c-169c92bb1626",
+                            RoleId = "04dada9c-cabc-45a6-bc0d-2514539de128"
                         },
                         new
                         {
-                            UserId = "a0930ac9-a90d-48ac-85da-e9f4341e7de7",
-                            RoleId = "dd877ad9-bab2-42a4-ad24-b9d3cbd397db"
+                            UserId = "f89ad1aa-4ae5-4f83-9083-b42ee060e187",
+                            RoleId = "04dada9c-cabc-45a6-bc0d-2514539de128"
                         },
                         new
                         {
-                            UserId = "64fc62c0-110b-4b0e-b45c-22dd9f03f6bd",
-                            RoleId = "dd877ad9-bab2-42a4-ad24-b9d3cbd397db"
+                            UserId = "1bffcd9f-7256-45c0-8317-c2823c82a32f",
+                            RoleId = "04dada9c-cabc-45a6-bc0d-2514539de128"
                         });
                 });
 
@@ -343,9 +343,9 @@ namespace webapp.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "424955bd-d31b-453e-9bf7-89b91dde0c9c",
+                            Id = "d147d359-bbb7-4095-8e15-d217779deaa8",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "1323f696-0f4e-482a-a99c-d4c8da0743ce",
+                            ConcurrencyStamp = "959747b0-7e01-425e-a51f-d06da96848a9",
                             Email = "jordangauthier@noname.com",
                             EmailConfirmed = false,
                             FirstName = "Jordan",
@@ -353,18 +353,18 @@ namespace webapp.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "JORDANGAUTHIER@NONAME.COM",
                             NormalizedUserName = "JORDANGAUTHIER@NONAME.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJQXe2oST0ds4DFEOmaXzFiCcaZXESdMQ84FHLwZRwf8zsWJusY+mxFP6mZ4C8De+w==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECS/nrGvsClwsoYYiag3bhLPKyvQyVpz/LGtQZy2+KqcRS8niz0rhReicqGt2GmFfQ==",
                             PhoneNumber = "514-979-7316",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "b40f6a37-be16-4d1c-b221-465c590f1f91",
+                            SecurityStamp = "501c6583-c1d4-468e-ba67-a27514e0056e",
                             TwoFactorEnabled = false,
                             UserName = "jordangauthier@noname.com"
                         },
                         new
                         {
-                            Id = "400919a5-8692-4bbc-88d3-f04e1f4ad2d3",
+                            Id = "937d51c8-19f0-4219-9a9c-169c92bb1626",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "26634460-4374-46e9-b625-2276f632582f",
+                            ConcurrencyStamp = "702fb545-a945-4a5f-97b5-c2009dc3c1d6",
                             Email = "alexdufour@noname.com",
                             EmailConfirmed = false,
                             FirstName = "Alex",
@@ -372,18 +372,18 @@ namespace webapp.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ALEXDUFOUR@NONAME.COM",
                             NormalizedUserName = "ALEXDUFOUR@NONAME.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJQXe2oST0ds4DFEOmaXzFiCcaZXESdMQ84FHLwZRwf8zsWJusY+mxFP6mZ4C8De+w==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECS/nrGvsClwsoYYiag3bhLPKyvQyVpz/LGtQZy2+KqcRS8niz0rhReicqGt2GmFfQ==",
                             PhoneNumber = "514-911-9111",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6759718d-36d3-4853-be8a-dc4df849a71c",
+                            SecurityStamp = "adc557cc-c873-445c-b311-c4dce4dba731",
                             TwoFactorEnabled = false,
                             UserName = "alexdufour@noname.com"
                         },
                         new
                         {
-                            Id = "a0930ac9-a90d-48ac-85da-e9f4341e7de7",
+                            Id = "f89ad1aa-4ae5-4f83-9083-b42ee060e187",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b8508197-2066-40e3-bfb5-dff02af52266",
+                            ConcurrencyStamp = "dd381d4c-e32d-4e86-a192-d1d758cc5327",
                             Email = "alexhamel@noname.com",
                             EmailConfirmed = false,
                             FirstName = "Alexandre",
@@ -391,17 +391,17 @@ namespace webapp.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "alexhamel@noname.com",
                             NormalizedUserName = "alexhamel@noname.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJQXe2oST0ds4DFEOmaXzFiCcaZXESdMQ84FHLwZRwf8zsWJusY+mxFP6mZ4C8De+w==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECS/nrGvsClwsoYYiag3bhLPKyvQyVpz/LGtQZy2+KqcRS8niz0rhReicqGt2GmFfQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "3b3f7030-79a8-4b5f-814e-1bb992226d30",
+                            SecurityStamp = "e329c92e-489b-4cc0-a9dc-6da0856d4401",
                             TwoFactorEnabled = false,
                             UserName = "alexhamel@noname.com"
                         },
                         new
                         {
-                            Id = "64fc62c0-110b-4b0e-b45c-22dd9f03f6bd",
+                            Id = "1bffcd9f-7256-45c0-8317-c2823c82a32f",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "5e981c06-db38-42cc-b5ea-05b0296ea126",
+                            ConcurrencyStamp = "909bc8f7-af55-4360-940b-f147761083a1",
                             Email = "philippesoucy@noname.com",
                             EmailConfirmed = false,
                             FirstName = "Philippe",
@@ -409,9 +409,9 @@ namespace webapp.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "PHILIPPESOUCY@NONAME.COM",
                             NormalizedUserName = "PHILIPPESOUCY@NONAME.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJQXe2oST0ds4DFEOmaXzFiCcaZXESdMQ84FHLwZRwf8zsWJusY+mxFP6mZ4C8De+w==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECS/nrGvsClwsoYYiag3bhLPKyvQyVpz/LGtQZy2+KqcRS8niz0rhReicqGt2GmFfQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "18160938-2e8c-417d-a475-d0a102efcb91",
+                            SecurityStamp = "23df3418-513c-4eae-a2c5-07b43d585e81",
                             TwoFactorEnabled = false,
                             UserName = "philippesoucy@noname.com"
                         });
@@ -419,12 +419,12 @@ namespace webapp.Migrations
 
             modelBuilder.Entity("Models.Entreprise", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AddressId")
+                    b.Property<int?>("AddressId")
                         .HasColumnType("int");
 
                     b.Property<string>("EntrepriseName")
@@ -465,17 +465,16 @@ namespace webapp.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AddressId")
+                    b.Property<int?>("AddressId")
                         .HasColumnType("int");
 
                     b.Property<string>("ApplicationUserId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("EntrepriseId")
+                    b.Property<int?>("EntrepriseId")
                         .HasColumnType("int");
 
                     b.Property<int?>("EventTypeId")
@@ -508,7 +507,7 @@ namespace webapp.Migrations
                         {
                             Id = 1,
                             AddressId = 3,
-                            ApplicationUserId = "424955bd-d31b-453e-9bf7-89b91dde0c9c",
+                            ApplicationUserId = "d147d359-bbb7-4095-8e15-d217779deaa8",
                             EndDate = new DateTime(2020, 2, 25, 18, 30, 0, 0, DateTimeKind.Unspecified),
                             EntrepriseId = 1,
                             EventTypeId = 1,
@@ -520,7 +519,7 @@ namespace webapp.Migrations
                         {
                             Id = 2,
                             AddressId = 2,
-                            ApplicationUserId = "400919a5-8692-4bbc-88d3-f04e1f4ad2d3",
+                            ApplicationUserId = "937d51c8-19f0-4219-9a9c-169c92bb1626",
                             EndDate = new DateTime(2020, 2, 25, 18, 30, 0, 0, DateTimeKind.Unspecified),
                             EntrepriseId = 2,
                             EventTypeId = 1,
@@ -547,32 +546,32 @@ namespace webapp.Migrations
                     b.HasData(
                         new
                         {
-                            ApplicationUserId = "424955bd-d31b-453e-9bf7-89b91dde0c9c",
+                            ApplicationUserId = "d147d359-bbb7-4095-8e15-d217779deaa8",
                             EventId = 1
                         },
                         new
                         {
-                            ApplicationUserId = "400919a5-8692-4bbc-88d3-f04e1f4ad2d3",
+                            ApplicationUserId = "937d51c8-19f0-4219-9a9c-169c92bb1626",
                             EventId = 1
                         },
                         new
                         {
-                            ApplicationUserId = "424955bd-d31b-453e-9bf7-89b91dde0c9c",
+                            ApplicationUserId = "d147d359-bbb7-4095-8e15-d217779deaa8",
                             EventId = 2
                         },
                         new
                         {
-                            ApplicationUserId = "400919a5-8692-4bbc-88d3-f04e1f4ad2d3",
+                            ApplicationUserId = "937d51c8-19f0-4219-9a9c-169c92bb1626",
                             EventId = 2
                         },
                         new
                         {
-                            ApplicationUserId = "64fc62c0-110b-4b0e-b45c-22dd9f03f6bd",
+                            ApplicationUserId = "1bffcd9f-7256-45c0-8317-c2823c82a32f",
                             EventId = 2
                         },
                         new
                         {
-                            ApplicationUserId = "a0930ac9-a90d-48ac-85da-e9f4341e7de7",
+                            ApplicationUserId = "f89ad1aa-4ae5-4f83-9083-b42ee060e187",
                             EventId = 2
                         });
                 });
@@ -659,31 +658,27 @@ namespace webapp.Migrations
             modelBuilder.Entity("Models.Entreprise", b =>
                 {
                     b.HasOne("Models.Address", "Address")
-                        .WithMany()
+                        .WithMany("Entreprises")
                         .HasForeignKey("AddressId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
                 });
 
             modelBuilder.Entity("Models.Event", b =>
                 {
                     b.HasOne("Models.Address", "Address")
-                        .WithMany()
+                        .WithMany("Events")
                         .HasForeignKey("AddressId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("Models.ApplicationUser", "ApplicationUser")
-                        .WithMany()
+                        .WithMany("Events")
                         .HasForeignKey("ApplicationUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("Models.Entreprise", "Entreprise")
                         .WithMany("Events")
                         .HasForeignKey("EntrepriseId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("Models.EventType", "EventType")
                         .WithMany()

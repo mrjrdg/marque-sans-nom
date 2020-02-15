@@ -5,26 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20200209054018_init.cs" />
-    <Compile Remove="Migrations\20200209054018_init.Designer.cs" />
-    <Compile Remove="Migrations\20200209054605_init.cs" />
-    <Compile Remove="Migrations\20200209054605_init.Designer.cs" />
-    <Compile Remove="Migrations\20200209055411_init.cs" />
-    <Compile Remove="Migrations\20200209055411_init.Designer.cs" />
-    <Compile Remove="Migrations\20200209055955_init.cs" />
-    <Compile Remove="Migrations\20200209055955_init.Designer.cs" />
-    <Compile Remove="Migrations\20200209060415_init.cs" />
-    <Compile Remove="Migrations\20200209060415_init.Designer.cs" />
-    <Compile Remove="Migrations\20200209060612_init.cs" />
-    <Compile Remove="Migrations\20200209060612_init.Designer.cs" />
-    <Compile Remove="Migrations\20200209061408_init.cs" />
-    <Compile Remove="Migrations\20200209061408_init.Designer.cs" />
-    <Compile Remove="Migrations\20200209061935_init.cs" />
-    <Compile Remove="Migrations\20200209061935_init.Designer.cs" />
-    <Compile Remove="Migrations\20200209062228_init.cs" />
-    <Compile Remove="Migrations\20200209062228_init.Designer.cs" />
-    <Compile Remove="Migrations\20200209064030_init.cs" />
-    <Compile Remove="Migrations\20200209064030_init.Designer.cs" />
+    <Compile Remove="Migrations\20200215035540_init.cs" />
+    <Compile Remove="Migrations\20200215035540_init.Designer.cs" />
   </ItemGroup>
 
  <ItemGroup>
@@ -40,6 +22,10 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
     <PackageReference Include="NLog.Web.AspNetCore" Version="4.9.0" />
   </ItemGroup>
+
+ <ItemGroup>
+   <Folder Include="Controllers\" />
+ </ItemGroup>
 
 
 </Project>

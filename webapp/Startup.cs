@@ -33,7 +33,8 @@ namespace webapp
 
             services.AddScoped<IEntrepriseServices, EntrepriseManagerSQL>();
             services.AddScoped<IEventServices, EventManagerSQL>();
-
+            services.AddScoped<IEventTypeServices, EventTypeManagerSQL>();
+            services.AddScoped<IAddressServices, AddressManagerSQL>();
 
             services.AddDbContextPool<AppDbContext>(options =>
                 {

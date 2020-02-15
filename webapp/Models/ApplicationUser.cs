@@ -21,6 +21,12 @@ namespace Models {
         /// <value></value>
         public List<EventApplicationUser> EventsParticipation { get; set; }
 
+        /// <summary>
+        ///     List all the event of in which the ApplicationUser participate.
+        /// </summary>
+        /// <value></value>
+        public List<Event> Events{ get; set; }
+
         // PROPERTY NOT BIND TO THE DATABASE //
 
         [NotMapped]

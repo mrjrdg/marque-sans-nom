@@ -9,10 +9,9 @@ namespace Models
     public class Entreprise
     {
         [Required]
-        public int Id { get; set; }
+        public int? Id { get; set; }
         [Required]
         public string EntrepriseName { get; set; }
-        [Required]
         public Address Address { get; set; }
         [Required]
         public string EntreprisePhone { get; set; }

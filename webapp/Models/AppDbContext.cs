@@ -41,35 +41,62 @@ namespace Models
 
             base.OnModelCreating(modelBuilder);
 
-            // SET UP MANY-TO-MAY RELATIONSHIP BETWEEN EVENT AND APPLICATION USER //
 
-            modelBuilder.Entity<EventApplicationUser>()
-                .HasKey(e => new { e.ApplicationUserId, e.EventId });
-
-            modelBuilder.Entity<EventApplicationUser>()
-                .HasOne(e => e.ApplicationUser)
-                .WithMany(e => e.EventsParticipation)
-                .HasForeignKey(e => e.ApplicationUserId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            modelBuilder.Entity<EventApplicationUser>()
-                .HasOne(e => e.Event)
-                .WithMany(e => e.Members)
-                .HasForeignKey(e => e.EventId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            // SET UP ONE-TO-MANY RELATIONSHIP BETWEEN EVENT AND ENTREPRISE //
+            // RELATION 1 //
 
             modelBuilder.Entity<Event>()
-                  .HasOne(e => e.Entreprise)
-                  .WithMany(e => e.Events)
-                  .OnDelete(DeleteBehavior.Restrict);
+                        .HasOne(e => e.Entreprise)
+                        .WithMany(e => e.Events)
+                        .OnDelete(DeleteBehavior.Restrict);
+
+            // RELATION 2 //
 
             modelBuilder.Entity<Event>()
-              .HasOne(e => e.Address);
+                        .HasOne(e => e.Address)
+                        .WithMany(e => e.Events)
+                        .OnDelete(DeleteBehavior.Restrict);
+
+            // RELATION 3 //
+
+            modelBuilder.Entity<Event>()
+                        .HasOne(e => e.EventType)
+                        .WithMany(e => e.Events)
+                        .OnDelete(DeleteBehavior.Restrict);
+
+            // RELATION 4 //
+
+            modelBuilder.Entity<Event>()
+                        .HasOne(e => e.ApplicationUser)
+                        .WithMany(e => e.Events)
+                        .OnDelete(DeleteBehavior.Restrict);
+
+            // RELATION 5 //
 
             modelBuilder.Entity<Entreprise>()
-                .HasOne(e => e.Address);
+                        .HasOne(e => e.Address)
+                        .WithMany(e => e.Entreprises)
+                        .OnDelete(DeleteBehavior.Restrict);
+
+            // RELATION 6-7 //
+
+            modelBuilder.Entity<EventApplicationUser>()
+                        .HasKey(e => new { e.ApplicationUserId, e.EventId });
+
+
+            modelBuilder.Entity<EventApplicationUser>()
+                        .HasOne(e => e.ApplicationUser)
+                        .WithMany(e => e.EventsParticipation)
+                        .HasForeignKey(e => e.ApplicationUserId)
+                        .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<EventApplicationUser>()
+                        .HasOne(e => e.Event)
+                        .WithMany(e => e.Members)
+                        .HasForeignKey(e => e.EventId)
+                        .OnDelete(DeleteBehavior.Restrict);
+
+
+
 
             modelBuilder.Entity<IdentityRole>().HasData(
               new IdentityRole
@@ -213,15 +240,15 @@ namespace Models
             // SEEDIND ENTREPRISE //
 
             modelBuilder.Entity<Entreprise>().HasData(
-                new 
+                new
                 {
                     Id = 1,
                     EntrepriseName = "Pro gym",
                     EntreprisePhone = "(514) 252-8704",
                     AddressId = 3
                 },
-                new 
-                { 
+                new
+                {
                     Id = 2,
                     EntrepriseName = "Groupe tazor",
                     EntreprisePhone = "(514) 911-9111",
@@ -276,7 +303,7 @@ namespace Models
             // SEEDING EVENT APPLICATION USER //
 
             modelBuilder.Entity<EventApplicationUser>().HasData(
-                new EventApplicationUser 
+                new EventApplicationUser
                 {
                     ApplicationUserId = userIds["jordangauthier@noname.com"],
                     EventId = 1
@@ -307,7 +334,7 @@ namespace Models
                     EventId = 2
                 }
             );
-           
+
         }
     }
 }

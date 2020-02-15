@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Models
@@ -60,6 +61,19 @@ namespace Models
         /// </summary>
         [RegularExpression("^[0-9]*$", ErrorMessage = "")]
         public int? AppartmentNumber { get; set; }
+
+        // FOREIGN KEY //
+
+        /// <summary>
+        /// will contain all the reference to the associated business
+        /// </summary>
+        public List<Entreprise> Entreprises { get; set; }
+
+
+        /// <summary>
+        /// will contain all the reference to the associated Events
+        /// </summary>
+        public List<Event> Events { get; set; }
 
 
         /// <summary>
