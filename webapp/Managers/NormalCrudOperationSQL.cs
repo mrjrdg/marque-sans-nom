@@ -27,7 +27,7 @@ namespace Managers
 
         public virtual async Task<TEntity> Create(TEntity model)
         {
-            var entity = await _context.AddAsync(model);
+            var entity = await _context.Set<TEntity>().AddAsync(model);
             await _context.SaveChangesAsync();
             return entity.Entity;
 

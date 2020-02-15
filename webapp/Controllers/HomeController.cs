@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -27,7 +27,7 @@ namespace Controllers
             _entrepriseServices = entrepriseServices;
         }
 
-      
+
         public async Task<IActionResult> IndexAsync()
         {
             var model = new HomeViewModel();
