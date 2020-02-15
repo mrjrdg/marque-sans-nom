@@ -30,7 +30,6 @@ namespace Managers
             var entity = await _context.Set<TEntity>().AddAsync(model);
             await _context.SaveChangesAsync();
             return entity.Entity;
-
         }
 
         public virtual async Task<TEntity> Delete(int id)

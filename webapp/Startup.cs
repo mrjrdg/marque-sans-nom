@@ -31,7 +31,7 @@ namespace webapp
         {
             services.AddControllersWithViews();
 
-            services.AddScoped<IEntrepriseServices, EntrepriseManagerSQL>();
+            services.AddScoped<IBusinessServices, BusinessManagerSQL>();
             services.AddScoped<IEventServices, EventManagerSQL>();
             services.AddScoped<IEventTypeServices, EventTypeManagerSQL>();
             services.AddScoped<IAddressServices, AddressManagerSQL>();

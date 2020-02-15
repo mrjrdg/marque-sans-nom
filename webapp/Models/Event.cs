@@ -60,7 +60,7 @@ namespace Models
         ///     The enterprise hosting the event
         /// </summary>
         /// <value></value>
-        public Entreprise Entreprise { get; set; }
+        public Business Business { get; set; }
 
         /// <summary>
         ///     The owner ApplicationUser of this event

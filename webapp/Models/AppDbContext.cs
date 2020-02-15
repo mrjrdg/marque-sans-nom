@@ -28,7 +28,7 @@ namespace Models
 
         // !@#$%^&* MET LE NOM DE TES ENTITES AU PLURIEL ICI !@#$%^&*  //
 
-        public DbSet<Entreprise> Entreprise { get; set; }
+        public DbSet<Business> Businesses { get; set; }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<EventType> EventTypes { get; set; }
         public DbSet<Event> Events { get; set; }
@@ -55,7 +55,7 @@ namespace Models
             // RELATION 1 //
 
             modelBuilder.Entity<Event>()
-                        .HasOne(e => e.Entreprise)
+                        .HasOne(e => e.Business)
                         .WithMany(e => e.Events)
                         .OnDelete(DeleteBehavior.Restrict);
 
@@ -82,9 +82,9 @@ namespace Models
 
             // RELATION 5 //
 
-            modelBuilder.Entity<Entreprise>()
+            modelBuilder.Entity<Business>()
                         .HasOne(e => e.Address)
-                        .WithMany(e => e.Entreprises)
+                        .WithMany(e => e.Businesses)
                         .OnDelete(DeleteBehavior.Restrict);
 
             // RELATION 6-7 //
@@ -247,21 +247,21 @@ namespace Models
                 }
             );
 
-            // SEEDIND ENTREPRISE //
+            // SEEDIND BUSINESS //
 
-            modelBuilder.Entity<Entreprise>().HasData(
+            modelBuilder.Entity<Business>().HasData(
                 new
                 {
                     Id = 1,
-                    EntrepriseName = "Pro gym",
-                    EntreprisePhone = "(514) 252-8704",
+                    Name = "Pro gym",
+                    Phone = "(514) 252-8704",
                     AddressId = 3
                 },
                 new
                 {
                     Id = 2,
-                    EntrepriseName = "Groupe tazor",
-                    EntreprisePhone = "(514) 911-9111",
+                    Name = "Groupe tazor",
+                    Phone = "(514) 911-9111",
                     AddressId = 1
                 }
             );
@@ -288,7 +288,7 @@ namespace Models
                 {
                     Id = 1,
                     AddressId = 3,
-                    EntrepriseId = 1,
+                    BusinessId = 1,
                     ApplicationUserId = userIds["jordangauthier@noname.com"],
                     StartDate = new DateTime(2020, 02, 25, 13, 30, 0),
                     EndDate = new DateTime(2020, 02, 25, 18, 30, 0),
@@ -300,7 +300,7 @@ namespace Models
                 {
                     Id = 2,
                     AddressId = 2,
-                    EntrepriseId = 2,
+                    BusinessId = 2,
                     ApplicationUserId = userIds["alexdufour@noname.com"],
                     StartDate = new DateTime(2020, 02, 25, 13, 30, 0),
                     EndDate = new DateTime(2020, 02, 25, 18, 30, 0),

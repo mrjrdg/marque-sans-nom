@@ -6,15 +6,15 @@ using System.Collections.Generic;
 
 namespace Models
 {
-    public class Entreprise
+    public class Business
     {
         [Required]
-        public int? Id { get; set; }
+        public int Id { get; set; }
         [Required]
-        public string EntrepriseName { get; set; }
+        public string Name { get; set; }
         public Address Address { get; set; }
         [Required]
-        public string EntreprisePhone { get; set; }
+        public string Phone { get; set; }
 
         // foreign key //
 

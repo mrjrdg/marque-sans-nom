@@ -67,7 +67,7 @@ namespace Models
         /// <summary>
         /// will contain all the reference to the associated business
         /// </summary>
-        public List<Entreprise> Entreprises { get; set; }
+        public List<Business> Businesses { get; set; }
 
 
         /// <summary>

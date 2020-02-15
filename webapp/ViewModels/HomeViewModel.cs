@@ -7,6 +7,6 @@ namespace ViewModels
 {
     public class HomeViewModel
     {
-        public List<Entreprise> Entreprises {get; set;}
+        public List<Business> Businesses {get; set;}
     }
 }

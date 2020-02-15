@@ -19,12 +19,12 @@ namespace Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IEntrepriseServices _entrepriseServices;
+        private readonly IBusinessServices _businessServices;
 
-        public HomeController(ILogger<HomeController> logger, IEntrepriseServices entrepriseServices)
+        public HomeController(ILogger<HomeController> logger, IBusinessServices businessServices)
         {
             _logger = logger;
-            _entrepriseServices = entrepriseServices;
+            _businessServices = businessServices;
         }
 
 
@@ -32,7 +32,7 @@ namespace Controllers
         {
             var model = new HomeViewModel();
 
-            model.Entreprises = await _entrepriseServices.GetAll();
+            model.Businesses = await _businessServices.GetAll();
             //model.Events = new List<Event>();
 
             return View(model);
