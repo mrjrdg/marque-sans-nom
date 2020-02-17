@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace Services
@@ -43,5 +44,12 @@ namespace Services
         /// </summary>
         /// <returns>A List<<see cref="IDatabaseServices{T}"/>> of all the <see cref="IDatabaseServices{T}"/></returns>
         Task<List<T>> GetAll();
+
+        /// <summary>
+        ///     Get a list of all the <typeparamref name="T"/> entities that correspond to a lambda expression
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
+        Task<List<T>> GetFromPredicate(Expression<Func<T, bool>> predicate);
     }
 }

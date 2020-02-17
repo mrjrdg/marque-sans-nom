@@ -21,5 +21,20 @@ namespace Managers
         {
 
         }
+
+        public async Task<List<Event>> GetEventsFromEventTypeName(string eventTypeTitle)
+        {
+            List<Event> events = null;
+            var eventType = await _context.EventTypes
+                                                .Where(e => e.Title == eventTypeTitle)
+                                                .Include(e => e.Events)
+                                                .FirstOrDefaultAsync();
+            if(eventType != null)
+            {
+                events = eventType.Events;
+            }
+
+            return events;
+        }
     }
 }

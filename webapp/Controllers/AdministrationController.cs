@@ -36,7 +36,7 @@ namespace EmployeeManagement.Controllers
         {
             if (ModelState.IsValid)
             {
-                 IdentityResult result = await _roleManager.CreateAsync(new IdentityRole() { Name = model.RoleName });
+                IdentityResult result = await _roleManager.CreateAsync(new IdentityRole() { Name = model.RoleName });
 
                 if (result.Succeeded)
                 {
@@ -160,10 +160,11 @@ namespace EmployeeManagement.Controllers
             string roleId
         )
         {
-            IdentityRole role = await _roleManager.FindByIdAsync(roleId);
+            var role = await _roleManager.FindByIdAsync(roleId);
             IdentityResult result = null;
             ApplicationUser user = null;
             bool isInRoleResult = false;
+
             if (role == null)
             {
                 return View("Notfound");

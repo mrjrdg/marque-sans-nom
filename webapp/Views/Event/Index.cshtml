@@ -1,0 +1,14 @@
+
+@model ViewModels.ListEventsViewModel
+
+@{
+    ViewData["Title"] = "List all events";
+}
+
+
+@foreach (var item in Model.Events)
+{
+  <p>@item.Title</p>
+}
+                      
+</div>

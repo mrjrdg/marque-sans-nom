@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace Managers
 {
@@ -16,8 +17,8 @@ namespace Managers
     /// <typeparam name="TEntity">Represent the entity model use by the instance</typeparam>
     public abstract class NormalCrudOperationSQL<TEntity> : IDatabaseServices<TEntity> where TEntity : class
     {
-        private readonly AppDbContext _context;
-        private readonly ILogger<NormalCrudOperationSQL<TEntity>> _logger;
+        protected readonly AppDbContext _context;
+        protected readonly ILogger<NormalCrudOperationSQL<TEntity>> _logger;
 
         public NormalCrudOperationSQL(AppDbContext context, ILogger<NormalCrudOperationSQL<TEntity>> logger)
         {
@@ -62,6 +63,12 @@ namespace Managers
         public virtual async Task<List<TEntity>> GetAll()
         {
             var entities = await _context.Set<TEntity>().ToListAsync();
+            return entities;
+        }
+
+        public async Task<List<TEntity>> GetFromPredicate(Expression<Func<TEntity, bool>> predicate)
+        {
+            var entities = await _context.Set<TEntity>().Where(predicate).ToListAsync();
             return entities;
         }
     }

@@ -58,10 +58,8 @@ namespace EmployeeManagement.Controllers
                     */
                     return RedirectToAction("Index", "Home");
                 }
-                ModelState.AddModelError(
-                    string.Empty,
-                    "Invalid Login Attempt"
-                );
+
+                ModelState.AddModelError(string.Empty,"Invalid Login Attempt");
             }
             return View(model);
         }
