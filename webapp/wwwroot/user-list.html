@@ -55,7 +55,7 @@
         <div class="container">
             <h1 class="border-bottom pb-2 mb-4">Liste des utilisateurs</h1>
             <div class="container pl-0 pr-0">
-                <table id="myTable" class="table table-striped hover">
+                <table id="myTable" class="table table-striped">
                     <thead>
                         <tr>
                             <th scope="col">Nom d'utilisateur</th>
@@ -71,14 +71,18 @@
                             <td>Maurice</td>
                             <td>Richard</td>
                             <td>mrichard@canadiens.com</td>
-                            <td><i class="fas fa-user-edit"></i></td>
+                            <td>
+                                <a href="#"><i class="fas fa-user-edit mr-1"></i>Modifier</a>
+                            </td>
                         </tr>
                         <tr>
                             <td>glafleur</td>
                             <td>Guy</td>
                             <td>Lafleur</td>
                             <td>glafleur@canadiens.com</td>
-                            <td><i class="fas fa-user-edit"></i></td>
+                            <td>
+                                <a href="#"><i class="fas fa-user-edit mr-1"></i>Modifier</a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -95,9 +99,8 @@
 
         $(document).ready(function () {
             $('#myTable').dataTable({
-                "language": {
-                    "url": "https://cdn.datatables.net/plug-ins/1.10.20/i18n/French.json"
-                }
+                "language": { "url": "https://cdn.datatables.net/plug-ins/1.10.20/i18n/French.json" },
+                "responsive": true
             });
         });
     </script>
