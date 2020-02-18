@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Models
@@ -16,7 +17,63 @@ namespace Models
         /// </summary>
         /// <value></value>
         [Required]
-        public string Name { get; set; }
+        [RegularExpression("^[A-Za-z]*$", ErrorMessage = "")]
+        public string Street { get; set; }
+
+        /// <summary>
+        /// The civic number of the address
+        /// </summary>
+        [Required]
+        [RegularExpression("^[0-9]*$", ErrorMessage = "")]
+        public int CivicNumber { get; set; }
+
+        /// <summary>
+        /// The city of the address
+        /// </summary>
+        [Required]
+        [RegularExpression("^[A-Za-z]*$", ErrorMessage = "")]
+        public string City { get; set; }
+
+        /// <summary>
+        /// The state of the address
+        /// </summary>
+        [Required]
+        [RegularExpression("^[A-Za-z][A-Za-z]$", ErrorMessage = "")]
+        public string State { get; set; }
+
+        /// <summary>
+        /// The postalcode of the address
+        /// </summary>
+        [Required]
+        [RegularExpression("^[A-Za-z][0-9][A-Za-z]\\s*[0-9][A-Za-z][0-9]$", ErrorMessage = "")]
+        [DisplayFormat()]
+        public string PostalCode { get; set; }
+
+        /// <summary>
+        /// The country of the address
+        /// </summary>
+        [Required]
+        [RegularExpression("^[A-Za-z]*$", ErrorMessage = "")]
+        public string Country { get; set; }
+
+        /// <summary>
+        ///     The appartment number
+        /// </summary>
+        [RegularExpression("^[0-9]*$", ErrorMessage = "")]
+        public int? AppartmentNumber { get; set; }
+
+        // FOREIGN KEY //
+
+        /// <summary>
+        /// will contain all the reference to the associated business
+        /// </summary>
+        public List<Business> Businesses { get; set; }
+
+
+        /// <summary>
+        /// will contain all the reference to the associated Events
+        /// </summary>
+        public List<Event> Events { get; set; }
 
 
         /// <summary>
@@ -25,7 +82,7 @@ namespace Models
         /// <returns>The address as a string</returns>
         public override string ToString()
         {
-            return Name;
+            return $"{CivicNumber} {Street} {City}, {State} {Country}";
         }
     }
 }

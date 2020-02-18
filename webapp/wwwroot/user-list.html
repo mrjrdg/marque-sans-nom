@@ -1,0 +1,108 @@
+﻿<!doctype html> 
+<html lang="fr-ca"> 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="#DESCRIPTION#">
+    <meta name="author" content="#AUTHOR#">
+    <title>#TITLE#</title>
+    <!-- Bootstrap core CSS -->
+    <link href="./lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/site.css" rel="stylesheet">
+    <link href="./lib/datatables/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="./lib/fontawesome/css/all.css" rel="stylesheet" />
+    <!-- Favicon here -->
+
+</head>     
+<body>
+    <!-- LAYOUT NAVBAR -->
+    <nav role="navigation" class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="./img/soccer-ball-logo.svg" width="30" height="30" class="d-inline-block align-top" alt="" />
+                EVENTS INC.
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./event-list.html">Liste des activit&eacute;s</a>
+                    </li>
+                </ul>
+                <ul class="nav nav-pills">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> <img src="./img/photos/maurice-richard.jpg" class="avatar avatarsmall mr-2 rounded-circle" />Maurice </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="./profile-view.html">Mon profil</a>
+                            <a class="dropdown-item" href="#">Mes activités</a>
+                            <a class="dropdown-item" href="#">Mes messages</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Administration</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Se d&eacute;connecter</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- CONTENT -->
+    <main role="main">
+        <!-- EVENT LIST -->
+        <div class="container">
+            <h1 class="border-bottom pb-2 mb-4">Liste des utilisateurs</h1>
+            <div class="container pl-0 pr-0">
+                <table id="myTable" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nom d'utilisateur</th>
+                            <th scope="col">Pr&eacute;nom</th>
+                            <th scope="col">Nom</th>
+                            <th scope="col">Adresse courriel</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>mrichard</td>
+                            <td>Maurice</td>
+                            <td>Richard</td>
+                            <td>mrichard@canadiens.com</td>
+                            <td>
+                                <a href="#"><i class="fas fa-user-edit mr-1"></i>Modifier</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>glafleur</td>
+                            <td>Guy</td>
+                            <td>Lafleur</td>
+                            <td>glafleur@canadiens.com</td>
+                            <td>
+                                <a href="#"><i class="fas fa-user-edit mr-1"></i>Modifier</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    <!-- FOOTER START -->
+    <script src="./lib/jquery/dist/jquery.js"></script>
+    <script src="./lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./lib/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="./lib/datatables/js/dataTables.bootstrap4.min.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#myTable').dataTable({
+                "language": { "url": "https://cdn.datatables.net/plug-ins/1.10.20/i18n/French.json" },
+                "responsive": true
+            });
+        });
+    </script>
+</body>     
+</html>

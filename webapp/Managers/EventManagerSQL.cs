@@ -9,31 +9,17 @@ using System.Collections.Generic;
 
 namespace Managers
 {
-    public class EventManagerSQL : IEventServices
+    /// <summary>
+    ///   This is the final class that the user need to instanciate or to provide to the dependency injection system to work with the <see cref="Event"/> entity type in the database.
+    /// - The user can override the CRUD method implemented in the abstract class <see cref="NormalCrudOperationSQL<TEntity>"/> if needed.
+    /// - If the user want to implement a method that is only specific to the Business entity type, declare it in the <see cref="IEventServices"/> then implement it in this class.
+    /// - The only method that can be declared and implemented directly in this class are privates methods for the side logic or method that will be only needed for the SQL provider.
+    /// </summary>
+    public class EventManagerSQL : NormalCrudOperationSQL<Event>, IEventServices
     {
-        public Task<Event> Create(Event model)
+        public EventManagerSQL(AppDbContext context, ILogger<NormalCrudOperationSQL<Event>> logger) : base(context, logger)
         {
-            throw new NotImplementedException();
-        }
 
-        public Task<Event> Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Event> Edit(Event model)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Event> Get(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<Event>> GetAll()
-        {
-            throw new NotImplementedException();
         }
     }
 }

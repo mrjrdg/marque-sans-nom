@@ -1,14 +1,12 @@
 using System;
 using System.Collections.Generic;
 using Models;
+using Services;
 
 namespace ViewModels
 {
     public class HomeViewModel
     {
-        public List<Entreprise> Entreprises {get; set;}
-        
-        //public List<Event> Events { get; set; }
-
+        public List<Business> Businesses {get; set;}
     }
 }

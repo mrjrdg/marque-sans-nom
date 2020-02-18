@@ -31,13 +31,17 @@ namespace webapp
         {
             services.AddControllersWithViews();
 
-            services.AddScoped<IEntrepriseServices, EntrepriseManagerSQL>();
+            services.AddScoped<IBusinessServices, BusinessManagerSQL>();
             services.AddScoped<IEventServices, EventManagerSQL>();
-
+            services.AddScoped<IEventTypeServices, EventTypeManagerSQL>();
+            services.AddScoped<IAddressServices, AddressManagerSQL>();
 
             services.AddDbContextPool<AppDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("JordanGauthierDatabaseContext"))
-            );
+                {
+                    options.UseSqlServer(Configuration.GetConnectionString("JordanGauthierDatabaseContext"));
+                    options.EnableSensitiveDataLogging(true);
+                }
+            ); ;
 
             services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
@@ -47,6 +51,17 @@ namespace webapp
                 options.Password.RequireUppercase = false;
             })
             .AddEntityFrameworkStores<AppDbContext>();
+
+            services.ConfigureApplicationCookie(options =>
+            {
+                // Cookie settings
+                options.Cookie.HttpOnly = true;
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+
+                options.LoginPath = "/Account/Login";
+                options.AccessDeniedPath = "/Account/AccessDenied";
+                options.SlidingExpiration = true;
+            });
 
         }
 
@@ -59,20 +74,19 @@ namespace webapp
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
-                app.UseHsts();
+                app.UseExceptionHandler("/Error");
+                app.UseStatusCodePagesWithReExecute("/Error/{0}");
             }
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseRouting();
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

@@ -5,21 +5,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20200208150836_mig1.cs" />
-    <Compile Remove="Migrations\20200208150836_mig1.Designer.cs" />
-    <Compile Remove="Migrations\20200208150958_mig1.cs" />
-    <Compile Remove="Migrations\20200208150958_mig1.Designer.cs" />
-    <Compile Remove="Migrations\20200208152105_init.cs" />
-    <Compile Remove="Migrations\20200208152105_init.Designer.cs" />
-    <Compile Remove="Migrations\20200208152337_init.cs" />
-    <Compile Remove="Migrations\20200208152337_init.Designer.cs" />
-    <Compile Remove="Migrations\20200208152714_init.cs" />
-    <Compile Remove="Migrations\20200208152714_init.Designer.cs" />
+    <Compile Remove="Migrations\20200215035540_init.cs" />
+    <Compile Remove="Migrations\20200215035540_init.Designer.cs" />
+    <Compile Remove="Migrations\20200215035822_init.cs" />
+    <Compile Remove="Migrations\20200215035822_init.Designer.cs" />
+    <Compile Remove="Migrations\20200215221029_initial.cs" />
+    <Compile Remove="Migrations\20200215221029_initial.Designer.cs" />
   </ItemGroup>
 
  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.0">
       <PrivateAssets>all</PrivateAssets>
@@ -27,12 +25,12 @@
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.3" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.0.0" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
     <PackageReference Include="NLog.Web.AspNetCore" Version="4.9.0" />
   </ItemGroup>
 
  <ItemGroup>
-   <Folder Include="Migrations\" />
+   <Folder Include="Controllers\" />
  </ItemGroup>
 
 

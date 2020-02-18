@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace Models
 {
@@ -18,5 +19,9 @@ namespace Models
         /// <value></value>
         [Required]
         public string Title { get; set; }
+
+        // FOREIGN KEY //
+
+        public List<Event> Events {get; set;}
     }
 }
