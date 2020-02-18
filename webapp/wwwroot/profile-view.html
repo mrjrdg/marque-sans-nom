@@ -50,7 +50,7 @@
         <main role="main">
             <!-- MY PROFILE-->
             <div class="container">
-                <h1 class="border-bottom pb-2 mb-4">Modifier mon profil</h1>
+                <h1 class="border-bottom pb-2 mb-4">Mon profil</h1>
                 <div class="container pl-0 pr-0">
                     <form>
                         <!-- TODO : Corriger ceci -->
@@ -67,60 +67,48 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="inputPassword1" class="col-sm-3 col-form-label">Nouveau mot de passe</label>
-                            <div class="col-sm-9">
-                                <input type="password" class="form-control" id="inputPassword1">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="inputPassword2" class="col-sm-3 col-form-label">Confirmer le mot de passe</label>
-                            <div class="col-sm-9">
-                                <input type="password" class="form-control" id="inputPassword2">
-                            </div>
-                        </div>
-                        <div class="form-group row">
                             <label for="inputEmail" class="col-sm-3 col-form-label">Adresse courriel</label>
                             <div class="col-sm-9">
-                                <input type="email" class="form-control" id="inputEmail" value="mrichard@canadiens.com">
+                                <input type="email" readonly class="form-control" id="inputEmail" value="mrichard@canadiens.com">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputPrenom" class="col-sm-3 col-form-label">Pr&eacute;nom</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="inputPrenom" value="Maurice">
+                                <input type="text" readonly class="form-control" id="inputPrenom" value="Maurice">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputNom" class="col-sm-3 col-form-label">Nom</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="inputNom" value="Richard">
+                                <input type="text" readonly class="form-control" id="inputNom" value="Richard">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputTel" class="col-sm-3 col-form-label">Num&eacute;ro de t&eacute;l&eacute;phone</label>
                             <div class="col-sm-9">
-                                <input type="tel" class="form-control" id="inputTel" value="514 777-3377">
+                                <input type="tel" readonly class="form-control" id="inputTel" value="514 777-3377">
                             </div>
                         </div>
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" value="" id="inputEmailPrivateMessage">
+                            <input type="checkbox" disabled class="form-check-input" value="" id="inputEmailPrivateMessage">
                             <label class="form-check-label" for="inputEmailPrivateMessage">
                                 Recevoir un courriel lorsque je re&ccedil;ois un message priv&eacute;
                             </label>
                         </div>
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" value="" id="inputEmailCancelledEvent">
+                            <input type="checkbox" disabled class="form-check-input" value="" id="inputEmailCancelledEvent">
                             <label class="form-check-label" for="inputEmailCancelledEvent">
                                 Recevoir un courriel lorsqu'une activité auquelle je suis inscrit(e) est annul&eacute;e
                             </label>
                         </div>
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" value="" id="inputEmailNews">
+                            <input type="checkbox" disabled class="form-check-input" value="" id="inputEmailNews">
                             <label class="form-check-label" for="inputEmailNews">
                                 Recevoir des courriels sur les nouveaut&eacute;s de la plateforme
                             </label>
                         </div>
-                        <button class="btn btn-primary mt-2" type="submit">Sauvegarder</button>
+                        <a class="btn btn-primary mt-2" href="./profile-edit.html" role="button">Modifier</a>
                     </form>
                 </div>
             </div>
