@@ -4,3 +4,6 @@
 
 /webapp/.vs/webapp/v16/Server/sqlite3/db.lock
 /webapp/.vs/webapp/DesignTimeBuild/.dtbcache
+/webapp/.vscode/
+/webapp/bin/
+/webapp/obj/
