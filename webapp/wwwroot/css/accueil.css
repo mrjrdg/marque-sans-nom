@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+.container {
+	max-width: 2000px;
+}
+
+.contenu img {
+	width: 100%;
+	height: 100%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.section {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.B {
+	background-color: #f8f9fa;
+}
+
+#firecamp {
+	width: 100%;
+	height: 100%;
+}
+
+#sec1 {
+	background-image: url(/img/live-concert.jpg) !important;
+}
