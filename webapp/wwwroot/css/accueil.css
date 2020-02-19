@@ -54,6 +54,7 @@
 .imageS {
 	height: 100vh;
 	z-index: 20;
+    overflow:hidden;
 }
 
 .texteS {

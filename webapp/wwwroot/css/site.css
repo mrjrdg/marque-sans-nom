@@ -107,17 +107,23 @@ footer.footer a:hover {
 }
 
 .footerContainer {
-    widht: 100%;
+    width: 100%;
 }
 
 #ifooter, .pied-de-page {
     height: 100%;
     width: 100%;
     overflow:hidden;
+    overflow-y:hidden;
+    overflow-x:hidden;
     z-index: 100;
     position: absolute;
     border: none;
     height: 136px;
+}
+
+footer>iframe {
+    overflow: hidden;
 }
 
 /* Activer plus tard 
