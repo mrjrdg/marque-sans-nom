@@ -4,3 +4,10 @@
 
 /webapp/.vs/webapp/v16/Server/sqlite3/db.lock
 /webapp/.vs/webapp/DesignTimeBuild/.dtbcache
+/webapp/wwwroot/pgia/lib
+/webapp/wwwroot/_pgbackup
+/.vs/marque-sans-nom/config
+/.vs/marque-sans-nom/v16
+/.vs/slnx.sqlite
+/.vs/VSWorkspaceState.json
+/webapp/wwwroot/pinegrow.json
