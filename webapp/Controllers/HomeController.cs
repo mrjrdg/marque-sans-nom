@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -39,6 +39,10 @@ namespace Controllers
         }
 
         public IActionResult Privacy()
+        {
+            return View();
+        }
+          public IActionResult About()
         {
             return View();
         }

@@ -77,6 +77,7 @@ namespace EmployeeManagement.Controllers
             await _signIngManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
+    
 
         [HttpPost][HttpGet]
         [AllowAnonymous]
