@@ -86,10 +86,30 @@ ul.eventcategorylist > li {
 }
 
 /* Event List */
-.eventlistcardimg {
+div.eventlistcarddeck a:hover {
+    text-decoration: none;
+}
+
+img.eventlistcardimg {
     width: 100%;
-    height: 15vw;
+    height: 10vw;
     object-fit: cover;
+}
+
+/* DataTable */
+.table tbody td {
+    vertical-align: middle;
+}
+.table tbody tr a {
+    display: none;
+}
+
+.table tbody tr:hover a {
+    display: inline;
+}
+
+.table tbody tr:hover {
+    background-color: lightgrey;
 }
 
 /* Footer */
@@ -105,13 +125,3 @@ footer.footer a:hover {
     color: white;
     text-decoration: none;
 }
-
-/* Activer plus tard 
-.eventlistcard:hover {
-    cursor: pointer;
-}
-
-.eventlistcard:hover p {
-    text-decoration: none;
-}
- */
