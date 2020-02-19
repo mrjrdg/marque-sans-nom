@@ -16,14 +16,14 @@
 /* General layout */
 @media (min-width: 768px) {
     body {
-        padding-top: 1rem;
+        padding-top: 5rem;
     }
 }
 
 @media (max-width: 769px) {
     body {
         min-height: 50rem;
-        padding-top: 1rem;
+        padding-top: 4rem;
     }
 
     h1 {
