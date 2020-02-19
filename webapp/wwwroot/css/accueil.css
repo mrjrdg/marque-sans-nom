@@ -13,8 +13,12 @@
 }
 
 .section {
-	padding-top: 20px;
+	padding-top: 0px;
 	padding-bottom: 20px;
+	height: 100vh;
+	max-height: 100%;
+	position: relative;
+	display: block;
 }
 
 .B {
@@ -26,6 +30,56 @@
 	height: 100%;
 }
 
-#sec1 {
-	background-image: url(/img/live-concert.jpg) !important;
+.colorS {
+	position: absolute;
+	min-height: 100vh;
+	width: 100%;
+	z-index: 10;
+	opacity: 0.5; 
+	filter: alpha(opacity=50);
+}
+
+.blueS {
+	background-color: rgb(29, 182, 233);
+}
+
+.orangeS {
+	background-color: rgb(255, 166, 0);
+}
+
+.greenS {
+	background-color: rgba(153, 255, 94, 0.904);
+}
+
+.imageS {
+	height: 100vh;
+	z-index: 20;
+}
+
+.texteS {
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: white;
+	width: 100%;
+	z-index: 30;
+	max-height: 100vh;
+	max-width: 100%;
+}
+
+.texteS p {
+	font-size: 22px;
+}
+
+body {
+	padding-top: 55px;
+	background-color: lightslategray;
+}
+
+h2 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 60px;
+	font-weight: bold;
 }
