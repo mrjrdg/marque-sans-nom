@@ -92,6 +92,20 @@ ul.eventcategorylist > li {
     object-fit: cover;
 }
 
+/* Footer */
+footer.footer p {
+    color: white;
+}
+
+footer.footer a {
+    color: lightgrey;
+}
+
+footer.footer a:hover {
+    color: white;
+    text-decoration: none;
+}
+
 /* Activer plus tard 
 .eventlistcard:hover {
     cursor: pointer;
