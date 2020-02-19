@@ -106,6 +106,20 @@ footer.footer a:hover {
     text-decoration: none;
 }
 
+.footerContainer {
+    widht: 100%;
+}
+
+#ifooter, .pied-de-page {
+    height: 100%;
+    width: 100%;
+    overflow:hidden;
+    z-index: 100;
+    position: absolute;
+    border: none;
+    height: 136px;
+}
+
 /* Activer plus tard 
 .eventlistcard:hover {
     cursor: pointer;
