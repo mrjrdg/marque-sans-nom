@@ -64,23 +64,24 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <!-- TODO : Corriger ceci -->
-                        <div class="form-group row">
-                            <label for="inputPhoto" class="col-md-3 col-form-label">Photo</label>
-                            <div class="col-md-4">
-                                <img src="./img/photos/maurice-richard.jpg" id="inputPhoto " class="avatar avatarmedium mr-2 rounded-circle" />
-                            </div>
-                        </div>
+
+                        <p class="h5">Param&egrave;tres du compte</p>
                         <div class="form-group row">
                             <label for="inputUsername" class="col-md-3 col-form-label">Nom d'utilisateur</label>
                             <div class="col-md-4">
                                 <input type="text" readonly class="form-control" id="inputUsername" value="mrichard59">
+                                <small id="usernameHelpBlock" class="form-text text-muted">
+                                    Le nom d'utilisateur ne peut &ecirc;tre modifi&eacute;.
+                                </small>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputPassword1" class="col-md-3 col-form-label">Nouveau mot de passe</label>
                             <div class="col-md-4">
                                 <input type="password" class="form-control" id="inputPassword1">
+                                <small id="passwordHelpBlock" class="form-text text-muted">
+                                    Le mot de passe doit contenir un minimum de 8 caract&egrave;res.
+                                </small>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -93,6 +94,14 @@
                             <label for="inputEmail" class="col-md-3 col-form-label">Adresse courriel</label>
                             <div class="col-md-4">
                                 <input type="email" class="form-control" id="inputEmail" value="mrichard@canadiens.com">
+                            </div>
+                        </div>
+
+                        <p class="h5">Param&egrave;tres personnels</p>
+                        <div class="form-group row">
+                            <label for="inputPhoto" class="col-md-3 col-form-label">Photo</label>
+                            <div class="col-md-4">
+                                <img src="./img/photos/maurice-richard.jpg" id="inputPhoto " class="avatar avatarmedium mr-2 rounded-circle" />
                             </div>
                         </div>
                         <div class="form-group row">
@@ -108,11 +117,34 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label for="inputVille" class="col-md-3 col-form-label">Ville</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" id="inputVille" value="Montr&eacute;al">
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label for="inputTel" class="col-md-3 col-form-label">Num&eacute;ro de t&eacute;l&eacute;phone</label>
                             <div class="col-md-4">
                                 <input type="tel" class="form-control" id="inputTel" value="514 777-3377">
                             </div>
                         </div>
+                        <p class="h5">Mon profil</p>
+                        <div class="form-group row">
+                            <label for="inputApropos" class="col-md-3 col-form-label" rows="5">&Agrave; propos de moi</label>
+                            <div class="col-md-6">
+                                <textarea class="form-control" id="inputApropos">
+J'étais né le 4 août 1921 à Montréal dans la province de Québec, au Canada et je suis mort le 27 mai 2000 à Montréal. On me surnommait le Rocket ou encore la Comète. J'étais un joueur de hockey sur glace professionnel québécois. J'étais un des joueurs de hockey les plus connus au Canada et dans le monde entier. 
+                                </textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputInterets" class="col-md-3 col-form-label">Int&eacute;r&ecirc;ts</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" id="inputInterets" value="Jouer au hockey, travailler dans une usine">
+                            </div>
+                        </div>
+
+                        <p class="h5">Alertes par courriel</p>
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" value="" id="inputEmailPrivateMessage">
                             <label class="form-check-label" for="inputEmailPrivateMessage">
