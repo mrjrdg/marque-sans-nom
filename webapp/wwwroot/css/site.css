@@ -47,6 +47,11 @@ img.avatarbig {
     height: 6rem;
 }
 
+img.avatarverybig {
+    width: 10rem;
+    height: 10rem;
+}
+
 /* Page Navbar */
 /*
 @media (max-width: 576px) {
