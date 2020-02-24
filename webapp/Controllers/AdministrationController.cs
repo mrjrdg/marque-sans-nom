@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Models;
 using System.Collections.Generic;
-using Models;
 
 namespace EmployeeManagement.Controllers
 {

@@ -30,7 +30,7 @@ namespace webapp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-
+    services.AddRazorPages();
             services.AddScoped<IBusinessServices, BusinessManagerSQL>();
             services.AddScoped<IEventServices, EventManagerSQL>();
             services.AddScoped<IEventTypeServices, EventTypeManagerSQL>();
@@ -38,19 +38,21 @@ namespace webapp
 
             services.AddDbContextPool<AppDbContext>(options =>
                 {
-                    options.UseSqlServer(Configuration.GetConnectionString("JordanGauthierDatabaseContext"));
+                    options.UseSqlServer(Configuration.GetConnectionString("DatabaseContext"));
                     options.EnableSensitiveDataLogging(true);
                 }
             ); ;
 
-            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
-            {
-                options.Password.RequireDigit = false;
-                options.Password.RequireLowercase = false;
-                options.Password.RequireNonAlphanumeric = false;
-                options.Password.RequireUppercase = false;
-            })
-            .AddEntityFrameworkStores<AppDbContext>();
+// services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+//                 .AddEntityFrameworkStores<AppDbContext>();
+            // services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+            // {
+            //     options.Password.RequireDigit = false;
+            //     options.Password.RequireLowercase = false;
+            //     options.Password.RequireNonAlphanumeric = false;
+            //     options.Password.RequireUppercase = false;
+            // })
+            // .AddEntityFrameworkStores<AppDbContext>();
 
             services.ConfigureApplicationCookie(options =>
             {
@@ -83,11 +85,16 @@ namespace webapp
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
+       
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+             app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapRazorPages();
+        });
         }
     }
 }

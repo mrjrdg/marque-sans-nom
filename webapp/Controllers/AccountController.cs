@@ -77,6 +77,8 @@ namespace EmployeeManagement.Controllers
             await _signIngManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
+        
+    
 
         [HttpPost][HttpGet]
         [AllowAnonymous]
@@ -85,6 +87,7 @@ namespace EmployeeManagement.Controllers
             return await _userManager.FindByEmailAsync(email) == null ?
                    Json(true):
                    Json($"Email {email} is already in use.");
+        
         }
 
         [HttpPost]
