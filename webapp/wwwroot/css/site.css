@@ -6,7 +6,9 @@
     -ms-user-select: none;
     user-select: none;
 }
-
+body{
+    background-image: url("~/webapp/wwwroot/img/dust_scratches.png");
+}
 @media (min-width: 768px) {
     .bd-placeholder-img-lg {
         font-size: 3.5rem;
