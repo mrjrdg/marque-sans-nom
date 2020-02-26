@@ -1,8 +1,5 @@
-﻿
-@model ViewModels.HomeViewModel
-
-@{
-    ViewData["Title"] = "EVENTS INC.";
+﻿@{
+    ViewData["Title"] = "Plateforme événementielle : création et partage d'événements";
 }
 
 <head> 
@@ -19,34 +16,6 @@
     <script src="./lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </head>     
 <body>
-	<div class="container">
-		<!-- LAYOUT NAVBAR -->
-        <nav role="navigation" class="navbar navbar-expand-md navbar-light fixed-top bg-light">
-            <div class="container">
-                <a class="navbar-brand" href="#">
-                    <img src="./img/soccer-ball-logo.svg" width="30" height="30" class="d-inline-block align-top" alt="" />
-                    EVENTS INC.
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                    <ul class="nav nav-pills">
-                        <li class="nav-item">
-                            <a class="nav-link" href="./event-list.html">Contactez-nous</a>
-                        </li>
-                    </ul>
-                    <ul class="nav nav-pills">
-                        <li class="nav-item">
-                            <a class="nav-link" href="connexion.html" role="button"> 
-								<button type="button" class="btn btn-primary">Connexion</button>
-							</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-		</nav>
-	</div>
 	<div class="contenu d-flex flex-column">
 		<!-- premiere section -->
 		<div class="section" id="sec1">
@@ -112,17 +81,4 @@
 			</div>
 		</div>
 	</div>
-	<footer class="pied-de-page navbar-fixed-bottom" id="ifooter">
-		<iframe class="pied-de-page" src="footer.html">
-			Cette fonctionnalité n'est pas supporté par votre navigateur.
-		</iframe>
-	</footer>
 </body>
-<div class="text-center">
-
-@foreach (var item in Model.Businesses)
-{
-  @Html.DisplayFor(modelItem => item.Name)
-}
-                      
-</div>

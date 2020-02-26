@@ -1,7 +1,13 @@
 @charset "UTF-8";
 
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 .container {
 	max-width: 2000px;
+	padding: 0px;
 }
 
 .contenu img {

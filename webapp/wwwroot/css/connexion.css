@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+.formulaireConnexion {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    min-height: 52.5vh;
+    overflow: hidden;
+}

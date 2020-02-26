@@ -71,6 +71,11 @@ div.pagenav {
     border-radius: 0.5rem;
 }
 
+.nav-item {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
 /* Event - Avatars */
 ul.eventavatars > li {
     display: inline-block;

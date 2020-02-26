@@ -4,10 +4,15 @@
     ViewBag.Title = "User Login";
 }
 
-<h1>User Login</h1>
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="./css/connexion.css" rel="stylesheet">
+</head>
 
 <div class="row">
-    <div class="col-md-12">
+    <div class="formulaireConnexion col-10 offset-1 col-md-4 offset-md-4">
+        <h1>Se connecter</h1>
         <form method="post">
             <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
@@ -28,7 +33,10 @@
                     </label>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="submit" class="btn btn-primary">Connexion</button>
         </form>
     </div>
+	<footer class="pied-de-page navbar-fixed-bottom" id="ifooter">
+		<iframe class="pied-de-page" src="footer.html"></iframe>
+	</footer>
 </div>
