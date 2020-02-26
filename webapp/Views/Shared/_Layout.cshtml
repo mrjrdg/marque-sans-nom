@@ -4,15 +4,19 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - webapp</title>
+    <title>@ViewData["Title"] - EVENTS Inc.</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/lib/fontawesome/css/all.css" rel="stylesheet">  
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">webapp</a>
+        <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+            <div class="container" style="max-width:2000px">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/img/soccer-ball-logo.svg" width="30" height="30" class="d-inline-block align-top" alt="" />
+                    EVENTS INC.
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -34,16 +38,33 @@
             </div>
         </nav>
     </header>
-    <div class="container" style="height:1400px;">
+    <div class="container" style="height:1400px; max-width:2000px;">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2020 - webapp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
+    <footer class="pt-4 mt-3 mt-md-5 py-md-5 bg-dark footer" style="margin-top: 0px !important;">
+        <div class="container footerContainer">
+                    <div class="row">
+                        <div class="col-6 col-md">
+                            <p><a asp-area="" asp-controller="Home" asp-action="Index" style="color: white;">EVENTS INC.</a></p>
+                        </div>
+                        <div class="col-6 col-md">
+                            <p>
+                                <a href="./contacteznous.html"><i class="fas fa-envelope"></i> &nbspContactez-nous</a>
+                            </p>
+                            <p>
+                                <a href="https://github.com/mrjrdg/marque-sans-nom"><i class="fab fa-github"></i> &nbspNous suivre sur GitHub</i></a>
+                            </p>
+                        </div>
+                        <div class="col-6 col-md">
+                            <p>
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

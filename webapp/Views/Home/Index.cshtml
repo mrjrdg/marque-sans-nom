@@ -1,17 +1,84 @@
-﻿
-@model ViewModels.HomeViewModel
-
-@{
-    ViewData["Title"] = "Home Page";
+﻿@{
+    ViewData["Title"] = "Plateforme événementielle : création et partage d'événements";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-
-@foreach (var item in Model.Businesses)
-{
-  @Html.DisplayFor(modelItem => item.Name)
-}
-                      
-</div>
+<head> 
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+    <meta name="description" content="#DESCRIPTION#"> 
+    <meta name="author" content="#AUTHOR#">
+    <!-- Bootstrap core CSS -->         
+    <link href="./lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"> 
+		<link href="./css/site.css" rel="stylesheet">
+		<link href="./css/accueil.css" rel="stylesheet">
+		<!-- Favicon here -->         
+		<script src="./lib/jquery/dist/jquery.js"></script>
+    <script src="./lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</head>     
+<body>
+	<div class="contenu d-flex flex-column">
+		<!-- premiere section -->
+		<div class="section" id="sec1">
+			<div class="colorS blueS">
+			</div>
+			<div class="imageS">
+				<div class="row">
+					<img src="img/live-concert.jpg">
+				</div>
+			</div>			
+			<div class="container">
+				<div class="text-center pb-lg-4 texteS">
+					<div class="row justify-content-center">
+					<h2 class="mb-5 col-12 col-md-10">Partagez vos propres événements</h2>					
+						<div class="col-12 col-md-6">
+							<p>Avec EVENTS.INC, vous avez la chance de créer votre propre événement. Choisissez
+								quelle entreprise sera l'hôte de votre activité à partir des nombreuses offres mises à votre disposition.
+								Essayez-le! C'est facile!</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="section">
+			<div class="colorS orangeS">
+			</div>
+			<div class="imageS">
+				<div class="row">
+					<img src="img/soccer.jpg">
+				</div>
+			</div>
+			<div class="container">
+				<div class="text-center pb-lg-4 texteS">
+					<div class="row justify-content-center">
+					<h2 class="mb-5 col-12 col-md-10">Connectez-vous avec vos amis</h2>
+						<div class="col-12 col-md-6">
+							<p>Entretenez vos liens avec vos proches en participant ensemble aux différentes activités organisées dans votre
+								quartier. Rejoignez notre réseaux déjà extrêmement populaire et faites même connaissance avec d'autres personnes
+								partageant vos intérêts.</p>
+						</div>
+					</div>
+				</div>		
+			</div>
+		</div>
+		<div class="section">
+			<div class="colorS greenS">
+			</div>
+			<div class="imageS">
+				<div class="row">
+					<img src="img/tennis.jpg">
+				</div>
+			</div>
+			<div class="container">
+				<div class="text-center pb-lg-4 texteS">
+					<div class="row justify-content-center">
+					<h2 class="mb-5 col-12 col-md-10">Entreprises : annoncez ici</h2>
+						<div class="col-12 col-md-6">
+							<p>Vous avez l'infrastructure pour hébergez les activités de nos utilisateurs? Vous avez de l'équipement à louer?
+								Contactez-nous.</p>
+						</div>
+					</div>
+				</div>		
+			</div>
+		</div>
+	</div>
+</body>

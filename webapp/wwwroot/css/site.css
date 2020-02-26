@@ -71,6 +71,11 @@ div.pagenav {
     border-radius: 0.5rem;
 }
 
+.nav-item {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
 /* Event - Avatars */
 ul.eventavatars > li {
     display: inline-block;
@@ -129,4 +134,24 @@ footer.footer a {
 footer.footer a:hover {
     color: white;
     text-decoration: none;
+}
+
+.footerContainer {
+    width: 100%;
+}
+
+#ifooter, .pied-de-page {
+    height: 100%;
+    width: 100%;
+    overflow:hidden;
+    overflow-y:hidden;
+    overflow-x:hidden;
+    z-index: 100;
+    position: absolute;
+    border: none;
+    height: 136px;
+}
+
+footer>iframe {
+    overflow: hidden;
 }
