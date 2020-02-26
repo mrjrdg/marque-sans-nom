@@ -76,6 +76,8 @@ div.pagenav {
 .nav-item {
     margin-right: 10px;
     margin-left: 10px;
+    margin-top: 1px;
+    margin-bottom: 1px;
 }
 
 /* Event - Avatars */
@@ -133,25 +135,12 @@ footer.footer a {
     color: lightgrey;
 }
 
-footer.footer a:hover {
-    color: white;
+.footer a:hover {
     text-decoration: none;
 }
 
 .footerContainer {
     width: 100%;
-}
-
-#ifooter, .pied-de-page {
-    height: 100%;
-    width: 100%;
-    overflow:hidden;
-    overflow-y:hidden;
-    overflow-x:hidden;
-    z-index: 100;
-    position: absolute;
-    border: none;
-    height: 136px;
 }
 
 footer>iframe {
