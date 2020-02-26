@@ -21,7 +21,7 @@ namespace ViewModels
         public string Email { get; set; }
 
         [Required]
-        [Display(Name = "Mot de famille")]
+        [Display(Name = "Mot de passe")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
