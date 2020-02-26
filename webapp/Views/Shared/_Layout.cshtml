@@ -12,7 +12,7 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
-            <div class="container">
+            <div class="container" style="max-width:2000px">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
                     <img src="~/img/soccer-ball-logo.svg" width="30" height="30" class="d-inline-block align-top" alt="" />
                     EVENTS INC.
@@ -38,7 +38,7 @@
             </div>
         </nav>
     </header>
-    <div class="container" style="height:1400px;">
+    <div class="container" style="height:1400px; max-width:2000px;">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
