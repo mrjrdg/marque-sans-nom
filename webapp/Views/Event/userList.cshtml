@@ -1,0 +1,83 @@
+@* @model ViewModels.EventViewModel
+
+@{
+    ViewData["Title"] = "Event";
+} *@
+<!doctype html> 
+<html lang="fr-ca"> 
+   <head>
+         <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/site.css" rel="stylesheet">
+    <link href="~/lib/datatables/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="~/lib/fontawesome/css/all.css" rel="stylesheet" />
+   </head>
+<body>
+    
+   
+    <!-- CONTENT -->
+    <main role="main">
+        <div class="container">
+            <h1 class="border-bottom pb-2 mb-4">Liste des utilisateurs</h1>
+            <div class="container pl-0 pr-0">
+                <table id="myTable" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nom d'utilisateur</th>
+                            <th scope="col">Pr&eacute;nom</th>
+                            <th scope="col">Nom</th>
+                            <th scope="col">Adresse courriel</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <img src="~/img/photos/maurice-richard.jpg" class="avatar avatarsmall mr-2 rounded-circle" />
+                                mrichard
+                            </td>
+                            <td>Maurice</td>
+                            <td>Richard</td>
+                            <td>mrichard@canadiens.com</td>
+                            <td>
+                                <a href="./user-view.html"><i class="fas fa-user mr-2"></i></a>
+                                <a href="./user-edit.html"><i class="fas fa-user-edit mr-2"></i></a>
+                                <a href="./user-pm.html"><i class="fas fa-comment-alt mr-2"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="~/img/photos/guy-lafleur.jpg" class="avatar avatarsmall mr-2 rounded-circle" />
+                                glafleur
+                            </td>
+                            <td>Guy</td>
+                            <td>Lafleur</td>
+                            <td>glafleur@canadiens.com</td>
+                            <td>
+                                <a href="./user-view.html"><i class="fas fa-user mr-2"></i></a>
+                                <a href="./user-edit.html"><i class="fas fa-user-edit mr-1"></i></a>
+                                <a href="./user-pm-send.html"><i class="fas fa-comment-alt mr-2"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    <!-- FOOTER START -->
+     <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="~/lib/datatables/js/dataTables.bootstrap4.min.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#myTable').dataTable({
+                "language": { "url": "https://cdn.datatables.net/plug-ins/1.10.20/i18n/French.json" },
+                "responsive": true
+            });
+        });
+    </script>
+   
+</body>     
+</html>

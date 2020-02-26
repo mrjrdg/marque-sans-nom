@@ -7,4 +7,131 @@
 
 <h1>@Model.Event.Title</h1>
                       
+                       <main role="main">
+            <div class="container">
+                <!-- EVENT TITLE -->
+                <div>
+                    <h1 class="mb-0">Match de hockey des l&eacute;gendes</h1>
+                    <p class="h3 mb-0"><small class="text-muted mb-0">18 f&eacute;vrier 2020 à 18h</small></p>
+                    <p class="h4">
+                        <small class="text-muted">
+                            Organisé par <span class="eventorganizer"><a href="#">Association de Sport de Montr&eacute;al</a></span>
+                        </small>
+                    </p>
+                </div>
+                <!-- EVENT PARTICIPANTS START -->
+                <div class="eventavatars">
+                    <ul class="eventavatars pl-0">
+                        <!-- Place user avatar first -->
+                        <li>
+                            <img src="./img/photos/maurice-richard.jpg" class="avatarmedium eventavatar rounded-circle" data-toggle="tooltip" data-placement="top" title="moi" />
+                        </li>
+                        <li>
+                            <img src="./img/photos/henri-richard.jfif" class="avatarmedium eventavatar rounded-circle" data-toggle="tooltip" data-placement="top" title="Henri Richard" />
+                        </li>
+                        <li>
+                            <img src="./img/photos/jean-beliveau.jfif" class="avatarmedium eventavatar rounded-circle" data-toggle="tooltip" data-placement="top" title="Jean B&eacute;liveau" />
+                        </li>
+                        <li>
+                            <img src="./img/photos/larry-robinson.jfif" class="avatarmedium eventavatar rounded-circle" data-toggle="tooltip" data-placement="top" title="Larry Robinson" />
+                        </li>
+                        <li>
+                            <img src="./img/photos/guy-lafleur.jpg" class="avatarmedium eventavatar rounded-circle" data-toggle="tooltip" data-placement="top" title="Guy Lafleur" />
+                        </li>
+                    </ul>
+                    <!-- Number of participants -->
+                    <div>
+                        <p>
+                            5 participants <button type="button" class="btn btn-success btn-sm">Je veux participer !</button> <button type="button" class="btn btn-danger btn-sm">Me d&eacute;sinscrire</button>
+                        </p>
+                    </div>
+                </div>
+                <hr />
+                <!-- PAGE NAVBAR -->
+                <div class="mb-4 bg-light border pagenav mt-4">
+                    <ul class="nav nav-pills nav-fill pagenav" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" role="tab" aria-controls="projects" aria-selected="true" href="#eventinfo">Informations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" role="tab" aria-controls="members" aria-selected="false" href="#eventboard">
+                                Babillard <span class="badge badge-dark">1</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-content">
+                    <!-- EVENT INFO NAVTAB1 -->
+                    <div class="tab-pane active" id="eventinfo">
+                        <!-- EVENT DESCRIPTION -->
+                        <div id="container">
+                            <h3>Description</h3>
+                            <p class="lead">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eros in cursus turpis massa tincidunt dui ut ornare lectus. Semper viverra nam libero justo laoreet sit amet. Dignissim diam quis enim lobortis scelerisque fermentum dui faucibus. Mauris ultrices eros in cursus. Nunc faucibus a pellentesque sit amet porttitor. Molestie ac feugiat sed lectus. Nunc lobortis mattis aliquam faucibus purus in massa tempor. Arcu bibendum at varius vel pharetra vel turpis nunc eget. Nunc consequat interdum varius sit amet mattis vulputate. Molestie a iaculis at erat pellentesque. Lectus arcu bibendum at varius vel pharetra. Enim neque volutpat ac tincidunt vitae. Sed risus pretium quam vulputate dignissim suspendisse in est ante. <br /><br />
+                                Erat nam at lectus urna duis. Mollis aliquam ut porttitor leo a diam sollicitudin tempor. Duis ut diam quam nulla. In hac habitasse platea dictumst vestibulum rhoncus est pellentesque. Gravida rutrum quisque non tellus orci ac. Fames ac turpis egestas sed tempus urna et pharetra. Enim ut sem viverra aliquet eget sit amet tellus cras. Scelerisque varius morbi enim nunc faucibus a pellentesque. Turpis tincidunt id aliquet risus feugiat in ante metus. Fermentum odio eu feugiat pretium nibh ipsum. Egestas sed sed risus pretium quam vulputate. Diam vulputate ut pharetra sit amet. Non enim praesent elementum facilisis leo vel fringilla est. Sed tempus urna et pharetra. Non odio euismod lacinia at quis. Luctus venenatis lectus magna fringilla urna porttitor. Pharetra convallis posuere morbi leo. Faucibus in ornare quam viverra orci sagittis eu volutpat. Magna eget est lorem ipsum dolor sit amet. Lectus vestibulum mattis ullamcorper velit.
+                            </p>
+                        </div>
+                        <!-- EVENT LOCATION -->
+                        <div id="container">
+                            <h3>Lieu de l'activit&eacute;</h3>
+                            <p>
+                                <address>
+                                    4110, boulevard Lasalle<br />
+                                    Montréal (Québec)&nbsp;&nbsp;H4G 2N5
+                                </address> <a href="https://developers.google.com/maps/documentation/urls/guide" target="_blank">Afficher sur la carte</a>
+                            </p>
+                            <h5>Précisions</h5>
+                            <p>Veuillez entrer par la porte sur le c&ocirc;t&eacute; de l'ar&eacute;na, porte SH-2460</p>
+                        </div>
+                        <!-- EVENT CATEGORY -->
+                        <div>
+                            <h3>Cat&eacute;gories</h3>
+                            <ul class="eventcategorylist pl-0">
+                                <li>
+                                    <a href="#" class="badge badge-pill badge-primary">hockey</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="badge badge-pill badge-info">sport</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="badge badge-pill badge-danger">activit&eacute; ext&eacute;rieure</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- EVENT BOARD TAB2 -->
+                    <div class="tab-pane" id="eventboard">
+                        <!-- BOARD  -->
+                        <div>
+                            <h3>Babillard</h3>
+                            <!-- NEW MESSAGE FORM -->
+                            <form>
+                                <div class="form-group">
+                                    <label for="eventnewboardmessage">Publier un message</label>
+                                    <textarea class="form-control" id="eventnewboardmessage" rows="2"></textarea>
+                                    <button type="submit" class="btn btn-primary mt-2">Envoyer</button>
+                                </div>
+                            </form>
+                            <!-- BOARD MESSAGE LIST -->
+                            <div class="card mb-3">
+                                <div class="row no-gutters">
+                                    <div class="p-3 align-middle col-md-auto text-center">
+                                        <img src="./img/photos/guy-lafleur.jpg" class="card-img avatarsmall rounded-circle" alt="...">
+                                    </div>
+                                    <div class="col-md-11">
+                                        <!-- TODO: Corriger le problème lorsqu'on réduit la fenêtre -->
+                                        <div class="card-body pl-0">
+                                            <h5 class="card-title mb-1">
+                                                Guy Lafleur <small class="text-muted">Il y a 28 minutes</small>
+                                            </h5>
+                                            <p class="card-text">Watchez vous... Je vais vous éclater. 3 buts dans la première minute</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
 </div>

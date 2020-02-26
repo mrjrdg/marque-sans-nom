@@ -5,8 +5,13 @@ body {
     overflow-x: hidden;
 }
 
+.space{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
 .container {
-	max-width: 2000px;
+	/* max-width: 2000px; */
 	padding: 0px;
 }
 
@@ -82,7 +87,7 @@ body {
 
 body {
 	padding-top: 55px;
-	background-color: lightslategray;
+	background-color: white;
 }
 
 h2 {

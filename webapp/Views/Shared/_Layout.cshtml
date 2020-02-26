@@ -1,4 +1,8 @@
-﻿
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@using Models
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +11,11 @@
     <title>@ViewData["Title"] - EVENTS Inc.</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/accueil.css" />
     <link href="~/lib/fontawesome/css/all.css" rel="stylesheet">  
+        <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+
 </head>
 <body>
     <header>
@@ -38,14 +46,43 @@
             </div>
         </nav>
     </header>
-    <div class="container" style="height:1400px; max-width:2000px;">
+    <div class="container" style="height:auto; max-width:2000px;">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
+@* 
+       <footer class="pt-4 mt-3 mt-md-5 py-md-5 bg-dark footer" style="margin-top: 0px !important;"> *@
+<nav class="navbar navbar-expand-md navbar-dark fixed-bottom bg-dark">
+            <div class="container" style="max-width:2000px">
+                
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+        <li class="nav-item">
+                        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/img/soccer-ball-logo.svg" width="30" height="30" class="d-inline-block align-top" alt="" />
+                    EVENTS INC.
+                </a>
+                </li>
+                        <li class="nav-item space text-dark" style="padding-top:10px" >
+                         <a class="text-light" href="https://github.com/mrjrdg/marque-sans-nom"><i class="fab fa-github"></i> &nbspNous suivre sur GitHub</i></a>
+                        </li>
+                        <li class="nav-item space text-dark" style="padding-top:10px">
+                           <a  class="text-light" href="https://github.com/mrjrdg/marque-sans-nom"><i class="fab fa-github"></i> &nbspNous suivre sur GitHub</i></a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
-    <footer class="pt-4 mt-3 mt-md-5 py-md-5 bg-dark footer" style="margin-top: 0px !important;">
-        <div class="container footerContainer">
+
+    @* <footer class="pt-4 mt-3 mt-md-5 py-md-5 bg-dark footer" style="margin-top: 0px !important;">
+        <div class="container ">
                     <div class="row">
                         <div class="col-6 col-md">
                             <p><a asp-area="" asp-controller="Home" asp-action="Index" style="color: white;">EVENTS INC.</a></p>
@@ -65,10 +102,24 @@
                         </div>
                     </div>
                 </div>
-    </footer>
+    </footer> *@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="./lib/jquery/dist/jquery.js"></script>
+    <script src="./lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./lib/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="./lib/datatables/js/dataTables.bootstrap4.min.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#myTable').dataTable({
+                "language": { "url": "https://cdn.datatables.net/plug-ins/1.10.20/i18n/French.json" },
+                "responsive": true
+            });
+        });
+    </script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>

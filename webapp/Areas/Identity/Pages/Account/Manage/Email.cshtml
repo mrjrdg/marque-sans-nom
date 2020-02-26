@@ -1,8 +1,12 @@
 @page
 @model EmailModel
 @{
+    Layout = "_Layout.cshtml";
+}
+@{
     ViewData["Title"] = "Manage Email";
     ViewData["ActivePage"] = ManageNavPages.Email;
+
 }
 
 <h4>@ViewData["Title"]</h4>

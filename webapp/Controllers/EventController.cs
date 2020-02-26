@@ -73,5 +73,9 @@ namespace Controllers
 
             return result;
         }
+         public IActionResult userList()
+        {
+            return View();
+        }
     }
 }

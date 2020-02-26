@@ -1,13 +1,22 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
-@* @inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager *@
 @using Models
 
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
 {
+    @* A CHANGER POUR LES BONNE PAGES *@
+   <li class="nav-item space">
+        <a class="btn btn-primary" role="button" asp-area="Identity" asp-controller="Account" asp-action="Register">Find Event</a>
+    </li>
+   <li class="nav-item space">
+        <a class="btn btn-primary" role="button" asp-area="Identity" asp-controller="Account" asp-action="Register">Create Event</a>
+    </li>
+   <li class="nav-item space">
+        <a class="btn btn-primary" role="button" asp-area="Identity" asp-controller="Account" asp-action="Register">Manage Event</a>
+    </li>
+
     <li class="nav-item">
      <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
     </li>

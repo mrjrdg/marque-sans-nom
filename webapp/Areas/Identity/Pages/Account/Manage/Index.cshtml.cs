@@ -36,18 +36,32 @@ namespace webapp.Areas.Identity.Pages.Account.Manage
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
+
+            [Display(Name = "First Name")]
+            public string userFname { get; set; }
+
+             [Display(Name = "Last name")]
+            public string userLname { get; set; }
+
+            
         }
 
         private async Task LoadAsync(ApplicationUser user)
         {
             var userName = await _userManager.GetEmailAsync(user);
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
+            var firstName = user.FirstName;
+            var lastName = user.LastName;
 
             Username = userName;
 
             Input = new InputModel
             {
-                PhoneNumber = phoneNumber
+                PhoneNumber = phoneNumber,
+                userFname = firstName,
+                userLname = lastName,
+                
+      
             };
         }
 
