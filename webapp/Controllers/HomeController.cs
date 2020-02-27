@@ -37,11 +37,12 @@ namespace Controllers
 
             return View(model);
         }
-
-        public IActionResult Privacy()
+//  Home/Privacy
+     public IActionResult Privacy()
         {
             return View();
         }
+        //  Home/Contact
           public IActionResult Contact()
         {
             return View();
