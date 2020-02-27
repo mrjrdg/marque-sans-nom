@@ -4,19 +4,24 @@
 @using Models
 
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - EVENTS Inc.</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="stylesheet" href="~/css/accueil.css" />
-    <link href="~/lib/fontawesome/css/all.css" rel="stylesheet">  
-   
-    
+<html lang="fr-ca"> 
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+        <meta name="description" content="#DESCRIPTION#"> 
+        <meta name="author" content="#AUTHOR#"> 
+        <title>EVENTS inc. - @ViewData["Title"]</title>
 
-</head>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/css/accueil.css" />
+        <link rel="stylesheet" href="~/lib/fontawesome/css/all.css">  
+        
+        <!-- Favicon here -->
+
+    </head>     
+
 <body>
     <header>
         <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
@@ -51,8 +56,12 @@
             @RenderBody()
         </main>
     </div>
-@* 
-       <footer class="pt-4 mt-3 mt-md-5 py-md-5 bg-dark footer" style="margin-top: 0px !important;"> *@
+
+@*
+
+       <footer class="pt-4 mt-3 mt-md-5 py-md-5 bg-dark footer" style="margin-top: 0px !important;">
+*@
+
 <nav class="navbar navbar-expand-md navbar-dark fixed-bottom bg-dark">
             <div class="container footer" style="max-width:2000px">
                 
@@ -79,8 +88,8 @@
             </div>
         </nav>
 
-
-    @* <footer class="pt-4 mt-3 mt-md-5 py-md-5 bg-dark footer" style="margin-top: 0px !important;">
+@*
+    <footer class="pt-4 mt-3 mt-md-5 py-md-5 bg-dark footer" style="margin-top: 0px !important;">
         <div class="container ">
                     <div class="row">
                         <div class="col-6 col-md">
@@ -101,14 +110,17 @@
                         </div>
                     </div>
                 </div>
-    </footer> *@
+    </footer>
+*@
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-        <script src="./lib/jquery/dist/jquery.js"></script>
-    <script src="./lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./lib/datatables/js/jquery.dataTables.min.js"></script>
-    <script src="./lib/datatables/js/dataTables.bootstrap4.min.js"></script>
+
+@*
+
+    <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="~/lib/datatables/js/dataTables.bootstrap4.min.js"></script>
 
     <script type="text/javascript">
 
@@ -119,6 +131,8 @@
             });
         });
     </script>
+*@
+
     @RenderSection("Scripts", required: false)
 </body>
 </html>
