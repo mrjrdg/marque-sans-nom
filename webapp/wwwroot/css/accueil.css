@@ -3,8 +3,7 @@
 body {
     max-width: 100%;
 	overflow-x: hidden;
-		background-image: url("~/webapp/wwwroot/img/dust_scratches.png");
-	
+		background-image: url("../img/dust_scratches.png");
 }
 
 .space{

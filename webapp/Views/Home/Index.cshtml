@@ -5,142 +5,138 @@
 @{
     ViewData["Title"] = "Plateforme événementielle : création et partage d'événements";
 }
- 
-<body> 
-@if (SignInManager.IsSignedIn(User))
-{
 
-    <main role="main">
-        <div class="container">
-            <h1 class="border-bottom pb-2 mb-4">Liste de mes activités</h1>
-            <div class="container">
-                <div class="card-deck eventlistcarddeck">
-                    <div class="row pb-3 ml-0 mr-0">
-                        <div class="card">
-                            <img class="card-img-top eventlistcardimg" src="https://s16-us2.startpage.com/cgi-bin/serveimage?url=https%3A%2F%2Fi.ytimg.com%2Fvi%2F_U6rq4hmKuw%2Fhqdefault.jpg&sp=73bb94b6c7ccffee5d36c459590d5ecb&anticache=725823" alt="Image représentant l'activité">
-                            <div class="card-body">
-                                <h4 class="card-title"> <a asp-controller="Event" asp-action="1" class="stretched-link">Match de hockey des légendes</a> </h4>
-                                @* href="./event-view.html" *@
-                                <p class="card-text">
-                                    Cliquer sur le titre pour ouvrir l'activité. <br /><br />
-                                    À faire plus tard : Ajouter les avatars de 5 participants.
-                                </p>
-                                <p class="card-text"><small class="text-muted">5 participants</small></p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img class="card-img-top eventlistcardimg" alt="Image représentant l'activité" src="https://s14-eu5.startpage.com/cgi-bin/serveimage?url=https%3A%2F%2Fmedia.npr.org%2Fassets%2Fimg%2F2010%2F06%2F15%2Fsoccer-218591119cebb586708ad949c286254b2a8cf4c9-s800-c85.jpg&sp=08fe6ab9ff8a81ef8f3f23182d079e09&anticache=284073">
-                            <div class="card-body">
-                                <h4 class="card-title">Match de soccer des légendes</h4>
-                                <p class="card-text">Semper viverra nam libero justo laoreet sit amet. Dignissim diam quis enim lobortis scelerisque fermentum dui faucibus.</p>
-                                <p class="card-text"><small class="text-muted">1 participant</small></p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img class="card-img-top eventlistcardimg" src="https://s14-eu5.startpage.com/cgi-bin/serveimage?url=https%3A%2F%2Fimages.chesscomfiles.com%2Fuploads%2Fv1%2Fimages_users%2Ftiny_mce%2Fbatgirl%2Fphp3de5wC.jpeg&sp=6c7bd7d71acbdb07496669270e2ab1a9&anticache=789720" alt="Image représentant l'activité">
-                            <div class="card-body">
-                                <h4 class="card-title">Soirée d'échecs</h4>
-                                <p class="card-text">Mauris ultrices eros in cursus. Nunc faucibus a pellentesque sit amet porttitor. Molestie ac feugiat sed lectus.</p>
-                                <p class="card-text"><small class="text-muted">20 participants</small></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row ml-0 mr-0">
-                        <div class="card">
-                            <img class="card-img-top eventlistcardimg" alt="Image représentant l'activité" src="https://s14-eu5.startpage.com/cgi-bin/serveimage?url=https%3A%2F%2Fmedia.npr.org%2Fassets%2Fimg%2F2010%2F06%2F15%2Fsoccer-218591119cebb586708ad949c286254b2a8cf4c9-s800-c85.jpg&sp=08fe6ab9ff8a81ef8f3f23182d079e09&anticache=284073">
-                            <div class="card-body">
-                                <h4 class="card-title">Match de soccer des légendes</h4>
-                                <p class="card-text">Semper viverra nam libero justo laoreet sit amet. Dignissim diam quis enim lobortis scelerisque fermentum dui faucibus.</p>
-                                <p class="card-text"><small class="text-muted">1 participant</small></p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img class="card-img-top eventlistcardimg" src="https://s14-eu5.startpage.com/cgi-bin/serveimage?url=https%3A%2F%2Fimages.chesscomfiles.com%2Fuploads%2Fv1%2Fimages_users%2Ftiny_mce%2Fbatgirl%2Fphp3de5wC.jpeg&sp=6c7bd7d71acbdb07496669270e2ab1a9&anticache=789720" alt="Image représentant l'activité">
-                            <div class="card-body">
-                                <h4 class="card-title">Soirée d'échecs</h4>
-                                <p class="card-text">Mauris ultrices eros in cursus. Nunc faucibus a pellentesque sit amet porttitor. Molestie ac feugiat sed lectus.</p>
-                                <p class="card-text"><small class="text-muted">20 participants</small></p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img class="card-img-top eventlistcardimg" alt="Image représentant l'activité" src="https://s14-eu5.startpage.com/cgi-bin/serveimage?url=https%3A%2F%2Fmedia.npr.org%2Fassets%2Fimg%2F2010%2F06%2F15%2Fsoccer-218591119cebb586708ad949c286254b2a8cf4c9-s800-c85.jpg&sp=08fe6ab9ff8a81ef8f3f23182d079e09&anticache=284073">
-                            <div class="card-body">
-                                <h4 class="card-title">Match de soccer des légendes</h4>
-                                <p class="card-text">Semper viverra nam libero justo laoreet sit amet. Dignissim diam quis enim lobortis scelerisque fermentum dui faucibus.</p>
-                                <p class="card-text"><small class="text-muted">1 participant</small></p>
-                            </div>
-                        </div>
-                    </div>
+@if (SignInManager.IsSignedIn(User)) {
+
+<h1 class="border-bottom pb-2 mb-4">Liste de mes activités</h1>
+
+<div class="container ">
+    <div class="card-deck eventlistcarddeck">
+        <div class="row pb-3 ml-0 mr-0">
+            <div class="card">
+                <img class="card-img-top eventlistcardimg" src="https://s16-us2.startpage.com/cgi-bin/serveimage?url=https%3A%2F%2Fi.ytimg.com%2Fvi%2F_U6rq4hmKuw%2Fhqdefault.jpg&sp=73bb94b6c7ccffee5d36c459590d5ecb&anticache=725823" alt="Image représentant l'activité">
+                <div class="card-body">
+                    <h4 class="card-title"> <a  asp-controller="Event" asp-action="1"  class="stretched-link">Match de hockey des légendes</a> </h4>
+					@* href="./event-view.html" *@
+                    <p class="card-text">
+                        Cliquer sur le titre pour ouvrir l'activité. <br /><br />
+                        À faire plus tard : Ajouter les avatars de 5 participants.
+                    </p>
+                    <p class="card-text"><small class="text-muted">5 participants</small></p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top eventlistcardimg" alt="Image représentant l'activité" src="https://s14-eu5.startpage.com/cgi-bin/serveimage?url=https%3A%2F%2Fmedia.npr.org%2Fassets%2Fimg%2F2010%2F06%2F15%2Fsoccer-218591119cebb586708ad949c286254b2a8cf4c9-s800-c85.jpg&sp=08fe6ab9ff8a81ef8f3f23182d079e09&anticache=284073">
+                <div class="card-body">
+                    <h4 class="card-title">Match de soccer des légendes</h4>
+                    <p class="card-text">Semper viverra nam libero justo laoreet sit amet. Dignissim diam quis enim lobortis scelerisque fermentum dui faucibus.</p>
+                    <p class="card-text"><small class="text-muted">1 participant</small></p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top eventlistcardimg" src="https://s14-eu5.startpage.com/cgi-bin/serveimage?url=https%3A%2F%2Fimages.chesscomfiles.com%2Fuploads%2Fv1%2Fimages_users%2Ftiny_mce%2Fbatgirl%2Fphp3de5wC.jpeg&sp=6c7bd7d71acbdb07496669270e2ab1a9&anticache=789720" alt="Image représentant l'activité">
+                <div class="card-body">
+                    <h4 class="card-title">Soirée d'échecs</h4>
+                    <p class="card-text">Mauris ultrices eros in cursus. Nunc faucibus a pellentesque sit amet porttitor. Molestie ac feugiat sed lectus.</p>
+                    <p class="card-text"><small class="text-muted">20 participants</small></p>
                 </div>
             </div>
         </div>
-    </main>
+        <div class="row ml-0 mr-0">
+            <div class="card">
+                <img class="card-img-top eventlistcardimg" alt="Image représentant l'activité" src="https://s14-eu5.startpage.com/cgi-bin/serveimage?url=https%3A%2F%2Fmedia.npr.org%2Fassets%2Fimg%2F2010%2F06%2F15%2Fsoccer-218591119cebb586708ad949c286254b2a8cf4c9-s800-c85.jpg&sp=08fe6ab9ff8a81ef8f3f23182d079e09&anticache=284073">
+                <div class="card-body">
+                    <h4 class="card-title">Match de soccer des légendes</h4>
+                    <p class="card-text">Semper viverra nam libero justo laoreet sit amet. Dignissim diam quis enim lobortis scelerisque fermentum dui faucibus.</p>
+                    <p class="card-text"><small class="text-muted">1 participant</small></p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top eventlistcardimg" src="https://s14-eu5.startpage.com/cgi-bin/serveimage?url=https%3A%2F%2Fimages.chesscomfiles.com%2Fuploads%2Fv1%2Fimages_users%2Ftiny_mce%2Fbatgirl%2Fphp3de5wC.jpeg&sp=6c7bd7d71acbdb07496669270e2ab1a9&anticache=789720" alt="Image représentant l'activité">
+                <div class="card-body">
+                    <h4 class="card-title">Soirée d'échecs</h4>
+                    <p class="card-text">Mauris ultrices eros in cursus. Nunc faucibus a pellentesque sit amet porttitor. Molestie ac feugiat sed lectus.</p>
+                    <p class="card-text"><small class="text-muted">20 participants</small></p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top eventlistcardimg" alt="Image représentant l'activité" src="https://s14-eu5.startpage.com/cgi-bin/serveimage?url=https%3A%2F%2Fmedia.npr.org%2Fassets%2Fimg%2F2010%2F06%2F15%2Fsoccer-218591119cebb586708ad949c286254b2a8cf4c9-s800-c85.jpg&sp=08fe6ab9ff8a81ef8f3f23182d079e09&anticache=284073">
+                <div class="card-body">
+                    <h4 class="card-title">Match de soccer des légendes</h4>
+                    <p class="card-text">Semper viverra nam libero justo laoreet sit amet. Dignissim diam quis enim lobortis scelerisque fermentum dui faucibus.</p>
+                    <p class="card-text"><small class="text-muted">1 participant</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 } else {
 	
-	<div class="contenu d-flex flex-column">
-		<!-- premiere section -->
-		<div class="section" id="sec1">
-			<div class="colorS blueS">
-			</div>
-			<div class="imageS">
-				<div class="row">
-					<img src="img/live-concert.jpg">
-				</div>
-			</div>			
-			<div class="container noPad">
-				<div class="text-center pb-lg-4 texteS">
-					<div class="row justify-content-center">
-					<h2 class="mb-5 col-12 col-md-10">Partagez vos propres événements</h2>					
-						<div class="col-12 col-md-6">
-							<p>Avec EVENTS.INC, vous avez la chance de créer votre propre événement. Choisissez
-								quelle entreprise sera l'hôte de votre activité à partir des nombreuses offres mises à votre disposition.
-								Essayez-le! C'est facile!</p>
-						</div>
-					</div>
-				</div>
-			</div>
+<div class="contenu d-flex flex-column">
+	<!-- premiere section -->
+	<div class="section" id="sec1">
+		<div class="colorS blueS">
 		</div>
-		<div class="section">
-			<div class="colorS orangeS">
+		<div class="imageS">
+			<div class="row">
+				<img src="img/live-concert.jpg">
 			</div>
-			<div class="imageS">
-				<div class="row">
-					<img src="img/soccer.jpg">
-				</div>
-			</div>
-			<div class="container">
-				<div class="text-center pb-lg-4 texteS">
-					<div class="row justify-content-center">
-					<h2 class="mb-5 col-12 col-md-10">Connectez-vous avec vos amis</h2>
-						<div class="col-12 col-md-6">
-							<p>Entretenez vos liens avec vos proches en participant ensemble aux différentes activités organisées dans votre
-								quartier. Rejoignez notre réseaux déjà extrêmement populaire et faites même connaissance avec d'autres personnes
-								partageant vos intérêts.</p>
-						</div>
+		</div>			
+		<div class="container noPad">
+			<div class="text-center pb-lg-4 texteS">
+				<div class="row justify-content-center">
+				<h2 class="mb-5 col-12 col-md-10">Partagez vos propres événements</h2>					
+					<div class="col-12 col-md-6">
+						<p>Avec EVENTS.INC, vous avez la chance de créer votre propre événement. Choisissez
+							quelle entreprise sera l'hôte de votre activité à partir des nombreuses offres mises à votre disposition.
+							Essayez-le! C'est facile!</p>
 					</div>
-				</div>		
-			</div>
-		</div>
-		<div class="section">
-			<div class="colorS greenS">
-			</div>
-			<div class="imageS">
-				<div class="row">
-					<img src="img/tennis.jpg">
 				</div>
-			</div>
-			<div class="container">
-				<div class="text-center pb-lg-4 texteS">
-					<div class="row justify-content-center">
-					<h2 class="mb-5 col-12 col-md-10">Entreprises : annoncez ici</h2>
-						<div class="col-12 col-md-6">
-							<p>Vous avez l'infrastructure pour hébergez les activités de nos utilisateurs? Vous avez de l'équipement à louer?
-								Contactez-nous.</p>
-						</div>
-					</div>
-				</div>		
 			</div>
 		</div>
 	</div>
+	<div class="section">
+		<div class="colorS orangeS">
+		</div>
+		<div class="imageS">
+			<div class="row">
+				<img src="img/soccer.jpg">
+			</div>
+		</div>
+		<div class="container">
+			<div class="text-center pb-lg-4 texteS">
+				<div class="row justify-content-center">
+				<h2 class="mb-5 col-12 col-md-10">Connectez-vous avec vos amis</h2>
+					<div class="col-12 col-md-6">
+						<p>Entretenez vos liens avec vos proches en participant ensemble aux différentes activités organisées dans votre
+							quartier. Rejoignez notre réseaux déjà extrêmement populaire et faites même connaissance avec d'autres personnes
+							partageant vos intérêts.</p>
+					</div>
+				</div>
+			</div>		
+		</div>
+	</div>
+	<div class="section">
+		<div class="colorS greenS">
+		</div>
+		<div class="imageS">
+			<div class="row">
+				<img src="img/tennis.jpg">
+			</div>
+		</div>
+		<div class="container">
+			<div class="text-center pb-lg-4 texteS">
+				<div class="row justify-content-center">
+				<h2 class="mb-5 col-12 col-md-10">Entreprises : annoncez ici</h2>
+					<div class="col-12 col-md-6">
+						<p>Vous avez l'infrastructure pour hébergez les activités de nos utilisateurs? Vous avez de l'équipement à louer?
+							Contactez-nous.</p>
+					</div>
+				</div>
+			</div>		
+		</div>
+	</div>
+</div>
+
 }
-</body>

@@ -11,6 +11,9 @@ using System.Web;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using ViewModels;
 using Services;
+using Microsoft.AspNetCore.Identity;
+
+
 
 
 
@@ -19,12 +22,15 @@ namespace Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly SignInManager<ApplicationUser> _signIngManager;
+
         private readonly IBusinessServices _businessServices;
 
-        public HomeController(ILogger<HomeController> logger, IBusinessServices businessServices)
+        public HomeController(ILogger<HomeController> logger, IBusinessServices businessServices,SignInManager<ApplicationUser> signInManager)
         {
             _logger = logger;
             _businessServices = businessServices;
+            _signIngManager = signInManager;
         }
 
 
@@ -33,15 +39,23 @@ namespace Controllers
             var model = new HomeViewModel();
 
             model.Businesses = await _businessServices.GetAll();
+
+            if (_signIngManager.IsSignedIn(User)){
+
+                 return RedirectToAction("Index", "Event");
+            } else {
+            return View(model);
+            }
             //model.Events = new List<Event>();
 
-            return View(model);
-        }
 
-        public IActionResult Privacy()
+        }
+//  Home/Privacy
+     public IActionResult Privacy()
         {
             return View();
         }
+        //  Home/Contact
           public IActionResult Contact()
         {
             return View();

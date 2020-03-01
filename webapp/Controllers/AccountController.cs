@@ -56,7 +56,7 @@ namespace EmployeeManagement.Controllers
                         The return url was empty or null so we
                         redirect the user to /Home/Index
                     */
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Event");
                 }
 
                 ModelState.AddModelError(string.Empty,"Invalid Login Attempt");
