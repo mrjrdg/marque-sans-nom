@@ -19,13 +19,25 @@
 }
 
 /* General layout */
-@media (min-width: 768px) {
+
+/* Code for screen LARGER THAN MEDIUM */
+@media (min-width: 769px) {
     body {
         padding-top: 5rem;
     }
+
+    h1 {
+        padding-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    h2 {
+        margin-bottom: 1rem;
+    }
 }
 
-@media (max-width: 769px) {
+/* Code for screen SMALLER THAN MEDIUM */
+@media (max-width: 768px) {
     body {
         min-height: 50rem;
         padding-top: 4rem;
@@ -33,6 +45,13 @@
 
     h1 {
         font-size: 2rem;
+        padding-bottom: 0.25rem;
+        margin-bottom: 0.5rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.25rem;
     }
 }
 
@@ -71,6 +90,7 @@ img.avatarverybig {
     }
 
 }
+
 div.pagenav {
     background: #f8f9fa;
     border-radius: 0.5rem;
