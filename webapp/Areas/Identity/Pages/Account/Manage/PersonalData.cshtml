@@ -4,62 +4,94 @@
     Layout = "_Layout.cshtml";
 }
 @{
-    ViewData["Title"] = "Personal Data";
+    ViewData["Title"] = "Mon profil";
     ViewData["ActivePage"] = ManageNavPages.PersonalData;
 }
 
-@* <h4>@ViewData["Title"]</h4> *@
-
-@* <div class="row">
-    <div class="col-md-6">
-        <p>Your account contains personal data that you have given us. This page allows you to download or delete that data.</p>
-        <p>
-            <strong>Deleting this data will permanently remove your account, and this cannot be recovered.</strong>
-        </p>
-        <form id="download-data" asp-page="DownloadPersonalData" method="post" class="form-group">
-            <button class="btn btn-primary" type="submit">Download</button>
-        </form>
-        <p>
-            <a id="delete" asp-page="DeletePersonalData" class="btn btn-primary">Delete</a>
-        </p>
-    </div>
-</div> *@
-
-
-<main role="main">
+<h2>@ViewBag.Title</h2>
+<div class="container py-0">
     <div class="row">
-    <div class="col-md-6">
-        <div class="container">
-            <h1 class="border-bottom pb-2 mb-4">Profil d'un utilisateur</h1>
-            <div class="container pl-0 pr-0">
-                <div class="row">
-                    <div class="col-md-4 text-center">
-                        <img src="~/img/photos/guy-lafleur.jpg" id="inputPhoto " class="avatar rounded-circle avatarverybig mb-2" />
-                        <p class="h4 mb-4"><strong>Guy Lafleur</strong></p>
-                        <p>
-                            <a href="./user-pm-send.html">
-                                <i class="fas fa-comment-alt mr-2"></i>Envoyer un message priv&eacute;
-                            </a>
-                        </p>
+        <div class="col-md-4 text-center">
+            <img src="~/img/photos/guy-lafleur.jpg" id="inputPhoto " class="avatar rounded-circle avatarverybig mb-2" />
+            <p class="h4 mb-4"><strong>Guy Lafleur</strong></p>
+            <p>
+                <a href="./user-pm-send.html">
+                    <i class="fas fa-comment-alt mr-2"></i>Envoyer un message priv&eacute;
+                </a>
+            </p>
+        </div>
+        <div class="col-md-8">
+            <p class="h5">Ville</p>
+            <p>Montr&eacute;al</p>
+            <p class="h5">&Agrave; propos de moi</p>
+            <p>
+                Je suis un joueur professionnel de hockey sur glace, surnommé le « Démon blond » ou « flower » par mes coéquipiers. En 2007, je suis classé treizième meilleur joueur de l'histoire de la Ligue nationale de hockey après l'expansion majeure de 1967 par le magazine The Hockey News.
+            </p>
+            <p class="h5">Int&eacute;r&ecirc;ts</p>
+            <p>
+                Hockey
+            </p>
+        </div>
+    </div>
+</div>
+
+
+@*
+    <h4>@ViewData["Title"]</h4>
+
+    <div class="row">
+        <div class="col-md-6">
+            <p>Your account contains personal data that you have given us. This page allows you to download or delete that data.</p>
+            <p>
+                <strong>Deleting this data will permanently remove your account, and this cannot be recovered.</strong>
+            </p>
+            <form id="download-data" asp-page="DownloadPersonalData" method="post" class="form-group">
+                <button class="btn btn-primary" type="submit">Download</button>
+            </form>
+            <p>
+                <a id="delete" asp-page="DeletePersonalData" class="btn btn-primary">Delete</a>
+            </p>
+        </div>
+    </div>
+*@
+
+@*
+    <main role="main">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="container">
+                    <h1 class="border-bottom pb-2 mb-4">Profil d'un utilisateur</h1>
+                    <div class="container pl-0 pr-0">
+                        <div class="row">
+                            <div class="col-md-4 text-center">
+                                <img src="~/img/photos/guy-lafleur.jpg" id="inputPhoto " class="avatar rounded-circle avatarverybig mb-2" />
+                                <p class="h4 mb-4"><strong>Guy Lafleur</strong></p>
+                                <p>
+                                    <a href="./user-pm-send.html">
+                                        <i class="fas fa-comment-alt mr-2"></i>Envoyer un message priv&eacute;
+                                    </a>
+                                </p>
+                            </div>
+                            <div class="col-md-8">
+                                <p class="h5">Ville</p>
+                                <p>Montr&eacute;al</p>
+                                <p class="h5">&Agrave; propos de moi</p>
+                                <p>
+                                    Je suis un joueur professionnel de hockey sur glace, surnommé le « Démon blond » ou « flower » par mes coéquipiers. En 2007, je suis classé treizième meilleur joueur de l'histoire de la Ligue nationale de hockey après l'expansion majeure de 1967 par le magazine The Hockey News.
+                                </p>
+                                <p class="h5">Int&eacute;r&ecirc;ts</p>
+                                <p>
+                                    Hockey
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-8">
-                    <p class="h5">Ville</p>
-                    <p>Montr&eacute;al</p>
-                    <p class="h5">&Agrave; propos de moi</p>
-                    <p>
-                        Je suis un joueur professionnel de hockey sur glace, surnommé le « Démon blond » ou « flower » par mes coéquipiers. En 2007, je suis classé treizième meilleur joueur de l'histoire de la Ligue nationale de hockey après l'expansion majeure de 1967 par le magazine The Hockey News.
-                    </p>
-                    <p class="h5">Int&eacute;r&ecirc;ts</p>
-                    <p>
-                        Hockey
-                    </p>
-                </div>
                 </div>
             </div>
         </div>
-          </div>
-        </div>
     </main>
+*@
+
 @* @section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-} *@
+        <partial name="_ValidationScriptsPartial" />
+    } *@
