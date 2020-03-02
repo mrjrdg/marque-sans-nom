@@ -1,0 +1,89 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@using Models
+
+<!DOCTYPE html>
+<html lang="fr-ca">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Plateforme événementielle : création et partage d'événements">
+    <meta name="author" content="La marque sans nom">
+    <title>EVENTS inc. - @ViewData["Title"]</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/fontawesome/css/all.css">
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/accueil.css" />
+
+    <!-- Favicon here -->
+
+</head>
+
+<body>
+    <header>
+        <nav role="navigation" class="navbar navbar-expand-sm navbar-light fixed-top bg-light">
+            <div class="container py-0">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/img/soccer-ball-logo.svg" width="30" height="30" class="d-inline-block align-top" alt="" />
+                    EVENTS INC.
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <partial name="_MenuPartial" />
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main role="main">
+        <div class="container-fluid no-gutters px-0">
+
+            @RenderBody()
+
+        </div>
+    </main>
+
+    <footer class="pt-4 py-md-5 bg-dark footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md">
+                    <p>
+                        <a asp-area="" asp-controller="Home" asp-action="Index">
+                            <img src="~/img/soccer-ball-logo.svg" width="30" height="30" class="d-inline-block align-top" alt="" />
+                            EVENTS INC.
+                        </a>
+                    </p>
+                </div>
+                <div class="col-12 col-md">
+                    <p>
+                        <a asp-area="" asp-controller="Home" asp-action="Contact">
+                            <i class="fas fa-envelope"></i>
+                            Contactez-nous
+                        </a>
+                    </p>
+                </div>
+                <div class="col-12 col-md">
+                    <p>
+                        <a href="https://github.com/mrjrdg/marque-sans-nom">
+                            <i class="fab fa-github"></i>
+                            Nous suivre sur Github
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

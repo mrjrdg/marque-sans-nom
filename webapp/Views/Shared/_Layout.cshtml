@@ -4,137 +4,83 @@
 @using Models
 
 <!DOCTYPE html>
-<html lang="fr-ca"> 
-    <head> 
-        <meta charset="UTF-8"> 
-        <meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
-        <meta name="description" content="#DESCRIPTION#"> 
-        <meta name="author" content="#AUTHOR#"> 
-        <title>EVENTS inc. - @ViewData["Title"]</title>
+<html lang="fr-ca">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Plateforme événementielle : création et partage d'événements">
+    <meta name="author" content="La marque sans nom">
+    <title>EVENTS inc. - @ViewData["Title"]</title>
 
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
-        <link rel="stylesheet" href="~/css/accueil.css" />
-        <link rel="stylesheet" href="~/lib/fontawesome/css/all.css">  
-        
-        <!-- Favicon here -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/fontawesome/css/all.css">
+    <link rel="stylesheet" href="~/css/site.css" />
 
-    </head>     
+    <!-- Favicon here -->
+</head>
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
-            <div class="container noPad" style="max-width:2000px">
+        <nav role="navigation" class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
+            <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
                     <img src="~/img/soccer-ball-logo.svg" width="30" height="30" class="d-inline-block align-top" alt="" />
                     EVENTS INC.
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <partial name="_MenuPartial" />
                     <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </nav>
     </header>
-    
+
     <main role="main">
-        <div class="container-fluid no-gutters px-0">
+        <div class="container">
 
             @RenderBody()
 
         </div>
     </main>
 
-@*
-
-       <footer class="pt-4 mt-3 mt-md-5 py-md-5 bg-dark footer" style="margin-top: 0px !important;">
-*@
-
-<nav class="navbar navbar-expand-md navbar-dark fixed-bottom bg-dark">
-            <div class="container footer" style="max-width:2000px">
-                
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-        <li class="nav-item">
-                        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    <img src="~/img/soccer-ball-logo.svg" width="30" height="30" class="d-inline-block align-top" alt="" />
-                    EVENTS INC.
-                </a>
-                </li>
-                        <li class="nav-item space" style="padding-top:10px" >
-                            <a class="text-light" href="#" class=""><i class="fas fa-envelope"></i> &nbspContactez-nous</a>
-                        </li>
-                        <li class="nav-item space" style="padding-top:10px">
-                            <a class="text-light" href="https://github.com/mrjrdg/marque-sans-nom"><i class="fab fa-github"></i> &nbspNous suivre sur GitHub</i></a>
-                        </li>
-                    </ul>
+    <footer class="pt-4 mt-3 mt-md-5 py-md-5 bg-dark footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md">
+                    <p>
+                        <a asp-area="" asp-controller="Home" asp-action="Index">
+                            <img src="~/img/soccer-ball-logo.svg" width="30" height="30" class="d-inline-block align-top" alt="" />
+                            EVENTS INC.
+                        </a>
+                    </p>
+                </div>
+                <div class="col-12 col-md">
+                    <p>
+                        <a asp-area="" asp-controller="Home" asp-action="Contact">
+                            <i class="fas fa-envelope"></i>
+                            Contactez-nous
+                        </a>
+                    </p>
+                </div>
+                <div class="col-12 col-md">
+                    <p>
+                        <a href="https://github.com/mrjrdg/marque-sans-nom">
+                            <i class="fab fa-github"></i>
+                            Nous suivre sur Github
+                        </a>
+                    </p>
                 </div>
             </div>
-        </nav>
-
-@*
-    <footer class="pt-4 mt-3 mt-md-5 py-md-5 bg-dark footer" style="margin-top: 0px !important;">
-        <div class="container ">
-                    <div class="row">
-                        <div class="col-6 col-md">
-                            <p><a asp-area="" asp-controller="Home" asp-action="Index" style="color: white;">EVENTS INC.</a></p>
-                        </div>
-                        <div class="col-6 col-md">
-                            <p>
-                                <a href="./contacteznous.html"><i class="fas fa-envelope"></i> &nbspContactez-nous</a>
-                            </p>
-                            <p>
-                                <a href="https://github.com/mrjrdg/marque-sans-nom"><i class="fab fa-github"></i> &nbspNous suivre sur GitHub</i></a>
-                            </p>
-                        </div>
-                        <div class="col-6 col-md">
-                            <p>
-
-                            </p>
-                        </div>
-                    </div>
-                </div>
+        </div>
     </footer>
-*@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-
-@*
-
-    <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
-    <script src="~/lib/datatables/js/dataTables.bootstrap4.min.js"></script>
-
-    <script type="text/javascript">
-
-        $(document).ready(function () {
-            $('#myTable').dataTable({
-                "language": { "url": "https://cdn.datatables.net/plug-ins/1.10.20/i18n/French.json" },
-                "responsive": true
-            });
-        });
-    </script>
-*@
 
     @RenderSection("Scripts", required: false)
 </body>

@@ -76,12 +76,19 @@ div.pagenav {
     border-radius: 0.5rem;
 }
 
+/*
+    Si le visuel d'une page a été brisée, veuillez svp
+    éviter d'appliquer du CSS à des composantes Bootstrap
+    parce que cela modifie d'autres endroits dans le site.
+    Dans ce cas-ci, utiliser mx-3 et py-1 par exemple
+
 .nav-item {
     margin-right: 10px;
     margin-left: 10px;
     margin-top: 1px;
     margin-bottom: 1px;
 }
+*/
 
 /* Registration + Login */
 .formulaireConnexion {

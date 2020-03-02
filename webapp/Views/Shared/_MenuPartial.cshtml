@@ -1,0 +1,30 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@using Models
+
+@* CETTE PAGE AFFICHE CE QUI SE TROUVE DANS LE MILIEU DU MENU *@
+@* TODO: MODIFIER LES LIENS POUR LES BONNE PAGES *@
+
+    <ul class="navbar-nav mr-auto">
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <li class="nav-item">
+                <a class="nav-link text-primary" asp-area="Identity" asp-controller="Account" asp-action="Register">Chercher un &eacute;v&eacute;nement</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-primary" asp-area="Identity" asp-controller="Account" asp-action="Register">Organiser un &eacute;v&eacute;nement</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-primary" asp-area="Identity" asp-controller="Account" asp-action="Register">Modifier mes &eacute;v&eacute;nements</a>
+            </li>
+        }
+        else
+        {
+
+            @:&nbsp;
+            @* GARDER L'ESPACE *@
+            @* NE RIEN AFFICHER DANS LE MENU SI LA PERSONNE N'EST PAS CONNECTÉE *@
+
+        }
+    </ul>

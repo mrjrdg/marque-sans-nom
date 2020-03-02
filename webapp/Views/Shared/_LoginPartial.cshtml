@@ -3,40 +3,45 @@
 @inject UserManager<ApplicationUser> UserManager
 @using Models
 
-<ul class="navbar-nav">
+@* CETTE PAGE AFFICHE CE QUI SE TROUVE À DROITE DU MENU *@
+@* TODO: MODIFIER LES LIENS POUR LES BONNE PAGES *@
+@* TODO: AFFICHER L'AVATAR DE L'UTILISATEUR*@
+
 @if (SignInManager.IsSignedIn(User))
 {
-    @* A CHANGER POUR LES BONNE PAGES *@
-   <li class="nav-item space">
-        <a class="btn btn-primary" role="button" asp-area="Identity" asp-controller="Account" asp-action="Register">Find Event</a>
-    </li>
-   <li class="nav-item space">
-        <a class="btn btn-primary" role="button" asp-area="Identity" asp-controller="Account" asp-action="Register">Create Event</a>
-    </li>
-   <li class="nav-item space">
-        <a class="btn btn-primary" role="button" asp-area="Identity" asp-controller="Account" asp-action="Register">Manage Event</a>
-    </li>
+    <ul class="navbar-nav nav-pills">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                <img src="~/img/photos/maurice-richard.jpg" class="avatar avatarsmall mr-2 rounded-circle" />
+                @User.Identity.Name
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index">Mon profil</a>
+                <a class="dropdown-item" href="#">Mes activités</a>
+                <a class="dropdown-item" href="#">Mes messages</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Administration</a>
+                <div class="dropdown-divider"></div>
 
-    <li class="nav-item">
-     <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
-    </li>
-    <li class="nav-item">
-        <form method = "post" asp-area="Identity" asp-controller = "Account" asp-action = "Logout" > 
-            <button  type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-            </form> 
-    </li>
+                <form method="post" asp-area="Identity" asp-controller="Account" asp-action="Logout">
+                    <button type="submit" class="dropdown-item btn btn-link">
+                        Se d&eacute;connecter
+                    </button>
+                </form>
+            </div>
+        </li>
+    </ul>
+    
+} else {
+
+    <ul class="navbar-nav nav-pills">
+        <li class="nav-item mr-1">
+            <a class="btn btn-primary" role="button" asp-area="Identity" asp-controller="Account" asp-action="Register">S'inscrire</a>
+        </li>
+        <li class="nav-item">
+            <a class="btn btn-primary" role="button" asp-area="Identity" asp-controller="Account" asp-action="Login">Connexion</a>
+        </li>
+    </ul>
 }
-else
-{
 
-   
-
-     <li class="nav-item">
-        <a class="btn btn-primary" role="button" asp-area="Identity" asp-controller="Account" asp-action="Register">S'inscrire</a>
-    </li>
-    <li class="nav-item" style="margin-left:10px;">
-        <a class="btn btn-primary" role="button" asp-area="Identity" asp-controller="Account" asp-action="Login" >Connexion</a>
-    </li> 
-}
-</ul>
 @* asp-page="/Account/Login" asp-page="/Account/Logout"*@
