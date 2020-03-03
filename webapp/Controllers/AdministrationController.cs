@@ -23,6 +23,10 @@ namespace EmployeeManagement.Controllers
             _userManager = userManager;
             _logger = logger;
         }
+        public IActionResult Index()
+        {
+            return View();
+        }
 
         [HttpGet]
         public IActionResult CreateRole()

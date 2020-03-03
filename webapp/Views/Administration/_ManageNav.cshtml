@@ -1,0 +1,10 @@
+@using Models
+@inject SignInManager<ApplicationUser> SignInManager
+@{
+    var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
+}
+<ul class="nav nav-pills flex-column mb-2">
+     <li class=" nav-item" ><a class="nav-link @(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")"  asp-controller="Administration" asp-action="Index" >Index</a></li>
+    <li class="nav-item"><a class="nav-link @(ViewContext.RouteData.Values["Action"].ToString() == "CreateRole" ? "active" : "")" asp-controller="Administration" asp-action="CreateRole" >Create Role</a></li>
+    <li class="nav-item"><a class="nav-link @(ViewContext.RouteData.Values["Action"].ToString() == "ListRoles" ? "active" : "")"  asp-controller="Administration" asp-action="ListRoles">List Roles</a></li>
+</ul>
