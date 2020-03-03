@@ -21,9 +21,10 @@ namespace Models
 
     public class AppDbContext : IdentityDbContext<ApplicationUser>
     {
+     
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
-
+            
         }
 
         // !@#$%^&* MET LE NOM DE TES ENTITES AU PLURIEL ICI !@#$%^&*  //

@@ -39,7 +39,7 @@ namespace Controllers
             var model = new HomeViewModel();
 
             model.Businesses = await _businessServices.GetAll();
-
+            
             if (_signIngManager.IsSignedIn(User)){
 
                  return RedirectToAction("Index", "Event");
