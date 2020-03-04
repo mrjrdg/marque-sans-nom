@@ -17,28 +17,22 @@ namespace Controllers
 {
     public class BusinessController : Controller
     {
-     private readonly IBusinessServices _businessServices;
+        private readonly IBusinessServices _businessServices;
 
-     public readonly AppDbContext _context;
+        public readonly AppDbContext _context;
+        private readonly ILogger<BusinessController> _logger;
 
-               public BusinessController( IBusinessServices businessServices, AppDbContext context)
-        { 
+        public BusinessController(IBusinessServices businessServices, AppDbContext context, ILogger<BusinessController> logger)
+        {
             _businessServices = businessServices;
             _context = context;
-     
+            _logger = logger;
         }
 
-        // GET: Movies
         public async Task<IActionResult> Index()
         {
-         ;
-         await _context.Addresses.ToListAsync();
-              await _context.Events.ToListAsync();
-
- 
-
-
-            return View(await _context.Businesses.ToListAsync());
+            var businesses = await _businessServices.GetAll();
+            return View(businesses);
         }
     }
 }

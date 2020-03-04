@@ -15,7 +15,7 @@ namespace webapp.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.1")
+                .HasAnnotation("ProductVersion", "3.1.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -48,22 +48,22 @@ namespace webapp.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "ba1931c9-5934-43f2-a814-0f380103fd65",
-                            ConcurrencyStamp = "c91aab51-0420-45c0-a245-fad2d7c5fac5",
+                            Id = "37cbe6f2-a58d-4cfd-aa5d-271854ddd16f",
+                            ConcurrencyStamp = "bff25604-4394-4fa2-9b56-d7ee9b63cf02",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "ecc43d7d-a14e-4884-813d-8c68dca18d33",
-                            ConcurrencyStamp = "b8cffd0a-0dd9-4c6a-940a-a0c8cc673949",
+                            Id = "0ec768ac-c74a-4e90-9151-3255be541a13",
+                            ConcurrencyStamp = "9791f130-7c0d-4bd3-ad95-97a3996eeba2",
                             Name = "CustomerPeople",
                             NormalizedName = "CUSTOMERPEOPLE"
                         },
                         new
                         {
-                            Id = "296a0b44-495e-4f41-8da6-7b251eaef8a3",
-                            ConcurrencyStamp = "b2ea00d1-b29f-4132-935d-970fdeefced5",
+                            Id = "b42db1bb-c8d0-4e82-a1d7-1260ca8ce997",
+                            ConcurrencyStamp = "60da1bd1-4082-4d99-9c14-6aa672c2035e",
                             Name = "CustomerBusiness",
                             NormalizedName = "CUSTOMERBUSINESS"
                         });
@@ -156,23 +156,23 @@ namespace webapp.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "a72a0a93-794d-4fb1-9bd8-1260e7dbc1cc",
-                            RoleId = "ba1931c9-5934-43f2-a814-0f380103fd65"
+                            UserId = "15f23768-0fab-4623-b13e-5de26db78808",
+                            RoleId = "37cbe6f2-a58d-4cfd-aa5d-271854ddd16f"
                         },
                         new
                         {
-                            UserId = "e0cb1836-0067-4d2e-af69-8ac0eccbf8a1",
-                            RoleId = "ba1931c9-5934-43f2-a814-0f380103fd65"
+                            UserId = "77cc5faf-657b-4410-ba03-689faa1bc0a6",
+                            RoleId = "37cbe6f2-a58d-4cfd-aa5d-271854ddd16f"
                         },
                         new
                         {
-                            UserId = "6070951d-3c77-4577-9ad3-aa0ddf1e5c18",
-                            RoleId = "ba1931c9-5934-43f2-a814-0f380103fd65"
+                            UserId = "ada2b96c-3a54-45a9-8962-80ed922cf38e",
+                            RoleId = "37cbe6f2-a58d-4cfd-aa5d-271854ddd16f"
                         },
                         new
                         {
-                            UserId = "6b958624-5f31-49b7-8806-9f6ecaf385b7",
-                            RoleId = "ba1931c9-5934-43f2-a814-0f380103fd65"
+                            UserId = "fcd25c82-16b2-49ee-a666-04755ba34a4b",
+                            RoleId = "37cbe6f2-a58d-4cfd-aa5d-271854ddd16f"
                         });
                 });
 
@@ -343,9 +343,9 @@ namespace webapp.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "a72a0a93-794d-4fb1-9bd8-1260e7dbc1cc",
+                            Id = "15f23768-0fab-4623-b13e-5de26db78808",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "93454c53-65d5-47e8-bd86-7d6219b43b77",
+                            ConcurrencyStamp = "9d2f3c22-0756-4fc7-bc59-f920297403e3",
                             Email = "jordangauthier@noname.com",
                             EmailConfirmed = false,
                             FirstName = "Jordan",
@@ -353,18 +353,18 @@ namespace webapp.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "JORDANGAUTHIER@NONAME.COM",
                             NormalizedUserName = "JORDANGAUTHIER@NONAME.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEArnPirBKDxLSqE4oQagIKj4qBrlUpaKknr1uiGhe/9UAc+FlXKchjBcKTemdok4jw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBlNIHfXcbVELPrWd9N+ftBY5qr6zlcJBI5L/gcofokeWPrRXR+qjlQe6xzVrZB9WQ==",
                             PhoneNumber = "514-979-7316",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "855942d6-1f80-4dd0-9e6c-ee5a21c5b0cc",
+                            SecurityStamp = "89dcaee9-766c-44af-916a-fd61a5123806",
                             TwoFactorEnabled = false,
                             UserName = "jordangauthier@noname.com"
                         },
                         new
                         {
-                            Id = "e0cb1836-0067-4d2e-af69-8ac0eccbf8a1",
+                            Id = "77cc5faf-657b-4410-ba03-689faa1bc0a6",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "fb1e1f1c-b604-447f-8b54-9f01e81285aa",
+                            ConcurrencyStamp = "719c1dd9-57be-49ad-9749-b18478912658",
                             Email = "alexdufour@noname.com",
                             EmailConfirmed = false,
                             FirstName = "Alex",
@@ -372,18 +372,18 @@ namespace webapp.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ALEXDUFOUR@NONAME.COM",
                             NormalizedUserName = "ALEXDUFOUR@NONAME.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEArnPirBKDxLSqE4oQagIKj4qBrlUpaKknr1uiGhe/9UAc+FlXKchjBcKTemdok4jw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBlNIHfXcbVELPrWd9N+ftBY5qr6zlcJBI5L/gcofokeWPrRXR+qjlQe6xzVrZB9WQ==",
                             PhoneNumber = "514-911-9111",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "34672cfb-7e8c-4cc7-937a-6ce6bfe988ed",
+                            SecurityStamp = "0c309607-572c-4a34-a3a4-5cd5e7a179f5",
                             TwoFactorEnabled = false,
                             UserName = "alexdufour@noname.com"
                         },
                         new
                         {
-                            Id = "6070951d-3c77-4577-9ad3-aa0ddf1e5c18",
+                            Id = "ada2b96c-3a54-45a9-8962-80ed922cf38e",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "61f90150-3e61-4785-b6fc-76179fb54e9d",
+                            ConcurrencyStamp = "b3586ff4-e590-4854-9430-c1ff64cd3e1b",
                             Email = "alexhamel@noname.com",
                             EmailConfirmed = false,
                             FirstName = "Alexandre",
@@ -391,17 +391,17 @@ namespace webapp.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "alexhamel@noname.com",
                             NormalizedUserName = "alexhamel@noname.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEArnPirBKDxLSqE4oQagIKj4qBrlUpaKknr1uiGhe/9UAc+FlXKchjBcKTemdok4jw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBlNIHfXcbVELPrWd9N+ftBY5qr6zlcJBI5L/gcofokeWPrRXR+qjlQe6xzVrZB9WQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c841027b-6eac-4b9b-901b-bc3e91748fac",
+                            SecurityStamp = "48a93ede-d50c-4694-8b54-e8b08859ced4",
                             TwoFactorEnabled = false,
                             UserName = "alexhamel@noname.com"
                         },
                         new
                         {
-                            Id = "6b958624-5f31-49b7-8806-9f6ecaf385b7",
+                            Id = "fcd25c82-16b2-49ee-a666-04755ba34a4b",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7670bc00-4308-4036-be23-0f157ccd41e6",
+                            ConcurrencyStamp = "f0f11a18-2d50-450b-a4c9-9b4378b543b9",
                             Email = "philippesoucy@noname.com",
                             EmailConfirmed = false,
                             FirstName = "Philippe",
@@ -409,9 +409,9 @@ namespace webapp.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "PHILIPPESOUCY@NONAME.COM",
                             NormalizedUserName = "PHILIPPESOUCY@NONAME.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEArnPirBKDxLSqE4oQagIKj4qBrlUpaKknr1uiGhe/9UAc+FlXKchjBcKTemdok4jw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBlNIHfXcbVELPrWd9N+ftBY5qr6zlcJBI5L/gcofokeWPrRXR+qjlQe6xzVrZB9WQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b198a15a-9e4c-426f-bb17-2d6fc8d11b1b",
+                            SecurityStamp = "921ca609-3f21-4a75-ba71-13c81832713f",
                             TwoFactorEnabled = false,
                             UserName = "philippesoucy@noname.com"
                         });
@@ -507,7 +507,7 @@ namespace webapp.Migrations
                         {
                             Id = 1,
                             AddressId = 3,
-                            ApplicationUserId = "a72a0a93-794d-4fb1-9bd8-1260e7dbc1cc",
+                            ApplicationUserId = "15f23768-0fab-4623-b13e-5de26db78808",
                             BusinessId = 1,
                             EndDate = new DateTime(2020, 2, 25, 18, 30, 0, 0, DateTimeKind.Unspecified),
                             EventTypeId = 1,
@@ -519,7 +519,7 @@ namespace webapp.Migrations
                         {
                             Id = 2,
                             AddressId = 2,
-                            ApplicationUserId = "e0cb1836-0067-4d2e-af69-8ac0eccbf8a1",
+                            ApplicationUserId = "77cc5faf-657b-4410-ba03-689faa1bc0a6",
                             BusinessId = 2,
                             EndDate = new DateTime(2020, 2, 25, 18, 30, 0, 0, DateTimeKind.Unspecified),
                             EventTypeId = 1,
@@ -546,32 +546,32 @@ namespace webapp.Migrations
                     b.HasData(
                         new
                         {
-                            ApplicationUserId = "a72a0a93-794d-4fb1-9bd8-1260e7dbc1cc",
+                            ApplicationUserId = "15f23768-0fab-4623-b13e-5de26db78808",
                             EventId = 1
                         },
                         new
                         {
-                            ApplicationUserId = "e0cb1836-0067-4d2e-af69-8ac0eccbf8a1",
+                            ApplicationUserId = "77cc5faf-657b-4410-ba03-689faa1bc0a6",
                             EventId = 1
                         },
                         new
                         {
-                            ApplicationUserId = "a72a0a93-794d-4fb1-9bd8-1260e7dbc1cc",
+                            ApplicationUserId = "15f23768-0fab-4623-b13e-5de26db78808",
                             EventId = 2
                         },
                         new
                         {
-                            ApplicationUserId = "e0cb1836-0067-4d2e-af69-8ac0eccbf8a1",
+                            ApplicationUserId = "77cc5faf-657b-4410-ba03-689faa1bc0a6",
                             EventId = 2
                         },
                         new
                         {
-                            ApplicationUserId = "6b958624-5f31-49b7-8806-9f6ecaf385b7",
+                            ApplicationUserId = "fcd25c82-16b2-49ee-a666-04755ba34a4b",
                             EventId = 2
                         },
                         new
                         {
-                            ApplicationUserId = "6070951d-3c77-4577-9ad3-aa0ddf1e5c18",
+                            ApplicationUserId = "ada2b96c-3a54-45a9-8962-80ed922cf38e",
                             EventId = 2
                         });
                 });

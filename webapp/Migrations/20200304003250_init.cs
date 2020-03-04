@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace webapp.Migrations
 {
-    public partial class initial : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -290,9 +290,9 @@ namespace webapp.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "ba1931c9-5934-43f2-a814-0f380103fd65", "c91aab51-0420-45c0-a245-fad2d7c5fac5", "Admin", "ADMIN" },
-                    { "ecc43d7d-a14e-4884-813d-8c68dca18d33", "b8cffd0a-0dd9-4c6a-940a-a0c8cc673949", "CustomerPeople", "CUSTOMERPEOPLE" },
-                    { "296a0b44-495e-4f41-8da6-7b251eaef8a3", "b2ea00d1-b29f-4132-935d-970fdeefced5", "CustomerBusiness", "CUSTOMERBUSINESS" }
+                    { "37cbe6f2-a58d-4cfd-aa5d-271854ddd16f", "bff25604-4394-4fa2-9b56-d7ee9b63cf02", "Admin", "ADMIN" },
+                    { "0ec768ac-c74a-4e90-9151-3255be541a13", "9791f130-7c0d-4bd3-ad95-97a3996eeba2", "CustomerPeople", "CUSTOMERPEOPLE" },
+                    { "b42db1bb-c8d0-4e82-a1d7-1260ca8ce997", "60da1bd1-4082-4d99-9c14-6aa672c2035e", "CustomerBusiness", "CUSTOMERBUSINESS" }
                 });
 
             migrationBuilder.InsertData(
@@ -300,10 +300,10 @@ namespace webapp.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "a72a0a93-794d-4fb1-9bd8-1260e7dbc1cc", 0, "93454c53-65d5-47e8-bd86-7d6219b43b77", "jordangauthier@noname.com", false, "Jordan", "Gauthier", false, null, "JORDANGAUTHIER@NONAME.COM", "JORDANGAUTHIER@NONAME.COM", "AQAAAAEAACcQAAAAEArnPirBKDxLSqE4oQagIKj4qBrlUpaKknr1uiGhe/9UAc+FlXKchjBcKTemdok4jw==", "514-979-7316", true, "855942d6-1f80-4dd0-9e6c-ee5a21c5b0cc", false, "jordangauthier@noname.com" },
-                    { "e0cb1836-0067-4d2e-af69-8ac0eccbf8a1", 0, "fb1e1f1c-b604-447f-8b54-9f01e81285aa", "alexdufour@noname.com", false, "Alex", "Dufour", false, null, "ALEXDUFOUR@NONAME.COM", "ALEXDUFOUR@NONAME.COM", "AQAAAAEAACcQAAAAEArnPirBKDxLSqE4oQagIKj4qBrlUpaKknr1uiGhe/9UAc+FlXKchjBcKTemdok4jw==", "514-911-9111", false, "34672cfb-7e8c-4cc7-937a-6ce6bfe988ed", false, "alexdufour@noname.com" },
-                    { "6070951d-3c77-4577-9ad3-aa0ddf1e5c18", 0, "61f90150-3e61-4785-b6fc-76179fb54e9d", "alexhamel@noname.com", false, "Alexandre", "Hamel-Boudreault", false, null, "alexhamel@noname.com", "alexhamel@noname.com", "AQAAAAEAACcQAAAAEArnPirBKDxLSqE4oQagIKj4qBrlUpaKknr1uiGhe/9UAc+FlXKchjBcKTemdok4jw==", null, false, "c841027b-6eac-4b9b-901b-bc3e91748fac", false, "alexhamel@noname.com" },
-                    { "6b958624-5f31-49b7-8806-9f6ecaf385b7", 0, "7670bc00-4308-4036-be23-0f157ccd41e6", "philippesoucy@noname.com", false, "Philippe", "Soucy", false, null, "PHILIPPESOUCY@NONAME.COM", "PHILIPPESOUCY@NONAME.COM", "AQAAAAEAACcQAAAAEArnPirBKDxLSqE4oQagIKj4qBrlUpaKknr1uiGhe/9UAc+FlXKchjBcKTemdok4jw==", null, false, "b198a15a-9e4c-426f-bb17-2d6fc8d11b1b", false, "philippesoucy@noname.com" }
+                    { "15f23768-0fab-4623-b13e-5de26db78808", 0, "9d2f3c22-0756-4fc7-bc59-f920297403e3", "jordangauthier@noname.com", false, "Jordan", "Gauthier", false, null, "JORDANGAUTHIER@NONAME.COM", "JORDANGAUTHIER@NONAME.COM", "AQAAAAEAACcQAAAAEBlNIHfXcbVELPrWd9N+ftBY5qr6zlcJBI5L/gcofokeWPrRXR+qjlQe6xzVrZB9WQ==", "514-979-7316", true, "89dcaee9-766c-44af-916a-fd61a5123806", false, "jordangauthier@noname.com" },
+                    { "77cc5faf-657b-4410-ba03-689faa1bc0a6", 0, "719c1dd9-57be-49ad-9749-b18478912658", "alexdufour@noname.com", false, "Alex", "Dufour", false, null, "ALEXDUFOUR@NONAME.COM", "ALEXDUFOUR@NONAME.COM", "AQAAAAEAACcQAAAAEBlNIHfXcbVELPrWd9N+ftBY5qr6zlcJBI5L/gcofokeWPrRXR+qjlQe6xzVrZB9WQ==", "514-911-9111", false, "0c309607-572c-4a34-a3a4-5cd5e7a179f5", false, "alexdufour@noname.com" },
+                    { "ada2b96c-3a54-45a9-8962-80ed922cf38e", 0, "b3586ff4-e590-4854-9430-c1ff64cd3e1b", "alexhamel@noname.com", false, "Alexandre", "Hamel-Boudreault", false, null, "alexhamel@noname.com", "alexhamel@noname.com", "AQAAAAEAACcQAAAAEBlNIHfXcbVELPrWd9N+ftBY5qr6zlcJBI5L/gcofokeWPrRXR+qjlQe6xzVrZB9WQ==", null, false, "48a93ede-d50c-4694-8b54-e8b08859ced4", false, "alexhamel@noname.com" },
+                    { "fcd25c82-16b2-49ee-a666-04755ba34a4b", 0, "f0f11a18-2d50-450b-a4c9-9b4378b543b9", "philippesoucy@noname.com", false, "Philippe", "Soucy", false, null, "PHILIPPESOUCY@NONAME.COM", "PHILIPPESOUCY@NONAME.COM", "AQAAAAEAACcQAAAAEBlNIHfXcbVELPrWd9N+ftBY5qr6zlcJBI5L/gcofokeWPrRXR+qjlQe6xzVrZB9WQ==", null, false, "921ca609-3f21-4a75-ba71-13c81832713f", false, "philippesoucy@noname.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -320,10 +320,10 @@ namespace webapp.Migrations
                 columns: new[] { "UserId", "RoleId" },
                 values: new object[,]
                 {
-                    { "a72a0a93-794d-4fb1-9bd8-1260e7dbc1cc", "ba1931c9-5934-43f2-a814-0f380103fd65" },
-                    { "e0cb1836-0067-4d2e-af69-8ac0eccbf8a1", "ba1931c9-5934-43f2-a814-0f380103fd65" },
-                    { "6070951d-3c77-4577-9ad3-aa0ddf1e5c18", "ba1931c9-5934-43f2-a814-0f380103fd65" },
-                    { "6b958624-5f31-49b7-8806-9f6ecaf385b7", "ba1931c9-5934-43f2-a814-0f380103fd65" }
+                    { "15f23768-0fab-4623-b13e-5de26db78808", "37cbe6f2-a58d-4cfd-aa5d-271854ddd16f" },
+                    { "77cc5faf-657b-4410-ba03-689faa1bc0a6", "37cbe6f2-a58d-4cfd-aa5d-271854ddd16f" },
+                    { "ada2b96c-3a54-45a9-8962-80ed922cf38e", "37cbe6f2-a58d-4cfd-aa5d-271854ddd16f" },
+                    { "fcd25c82-16b2-49ee-a666-04755ba34a4b", "37cbe6f2-a58d-4cfd-aa5d-271854ddd16f" }
                 });
 
             migrationBuilder.InsertData(
@@ -338,24 +338,24 @@ namespace webapp.Migrations
             migrationBuilder.InsertData(
                 table: "Events",
                 columns: new[] { "Id", "AddressId", "ApplicationUserId", "BusinessId", "EndDate", "EventTypeId", "PriceToPayToParticipate", "StartDate", "Title" },
-                values: new object[] { 2, 2, "e0cb1836-0067-4d2e-af69-8ac0eccbf8a1", 2, new DateTime(2020, 2, 25, 18, 30, 0, 0, DateTimeKind.Unspecified), 1, 50.0, new DateTime(2020, 2, 25, 13, 30, 0, 0, DateTimeKind.Unspecified), "Souper spaghetti de dufour (Lever de fond)" });
+                values: new object[] { 2, 2, "77cc5faf-657b-4410-ba03-689faa1bc0a6", 2, new DateTime(2020, 2, 25, 18, 30, 0, 0, DateTimeKind.Unspecified), 1, 50.0, new DateTime(2020, 2, 25, 13, 30, 0, 0, DateTimeKind.Unspecified), "Souper spaghetti de dufour (Lever de fond)" });
 
             migrationBuilder.InsertData(
                 table: "Events",
                 columns: new[] { "Id", "AddressId", "ApplicationUserId", "BusinessId", "EndDate", "EventTypeId", "PriceToPayToParticipate", "StartDate", "Title" },
-                values: new object[] { 1, 3, "a72a0a93-794d-4fb1-9bd8-1260e7dbc1cc", 1, new DateTime(2020, 2, 25, 18, 30, 0, 0, DateTimeKind.Unspecified), 1, 50.0, new DateTime(2020, 2, 25, 13, 30, 0, 0, DateTimeKind.Unspecified), "Zumba de dufour" });
+                values: new object[] { 1, 3, "15f23768-0fab-4623-b13e-5de26db78808", 1, new DateTime(2020, 2, 25, 18, 30, 0, 0, DateTimeKind.Unspecified), 1, 50.0, new DateTime(2020, 2, 25, 13, 30, 0, 0, DateTimeKind.Unspecified), "Zumba de dufour" });
 
             migrationBuilder.InsertData(
                 table: "EventApplicationUsers",
                 columns: new[] { "ApplicationUserId", "EventId" },
                 values: new object[,]
                 {
-                    { "a72a0a93-794d-4fb1-9bd8-1260e7dbc1cc", 2 },
-                    { "e0cb1836-0067-4d2e-af69-8ac0eccbf8a1", 2 },
-                    { "6b958624-5f31-49b7-8806-9f6ecaf385b7", 2 },
-                    { "6070951d-3c77-4577-9ad3-aa0ddf1e5c18", 2 },
-                    { "a72a0a93-794d-4fb1-9bd8-1260e7dbc1cc", 1 },
-                    { "e0cb1836-0067-4d2e-af69-8ac0eccbf8a1", 1 }
+                    { "15f23768-0fab-4623-b13e-5de26db78808", 2 },
+                    { "77cc5faf-657b-4410-ba03-689faa1bc0a6", 2 },
+                    { "fcd25c82-16b2-49ee-a666-04755ba34a4b", 2 },
+                    { "ada2b96c-3a54-45a9-8962-80ed922cf38e", 2 },
+                    { "15f23768-0fab-4623-b13e-5de26db78808", 1 },
+                    { "77cc5faf-657b-4410-ba03-689faa1bc0a6", 1 }
                 });
 
             migrationBuilder.CreateIndex(
