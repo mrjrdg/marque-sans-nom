@@ -4,7 +4,7 @@
 @using Models
 
 <!DOCTYPE html>
-<html lang="fr-ca">
+<html class="h-100" lang="fr-ca">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -20,7 +20,7 @@
     <!-- Favicon here -->
 </head>
 
-<body>
+<body class="d-flex flex-column h-100">
     <header>
         <nav role="navigation" class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
             <div class="container">
@@ -39,7 +39,7 @@
         </nav>
     </header>
 
-    <main role="main">
+    <main role="main" class="mb-md-5 mb-3">
         <div class="container">
 
             @RenderBody()
@@ -47,32 +47,26 @@
         </div>
     </main>
 
-    <footer class="pt-4 mt-3 mt-md-5 py-md-5 bg-dark footer">
+    <footer class="mt-auto py-md-5 py-3 bg-dark footer">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-md">
-                    <p>
+                <div class="my-2 col-12 col-md">
                         <a asp-area="" asp-controller="Home" asp-action="Index">
-                            <img src="~/img/soccer-ball-logo.svg" width="30" height="30" class="d-inline-block align-top" alt="" />
+                            <img src="~/img/soccer-ball-logo.svg" width="30" height="30" class="d-inline-block align-top mr-1" alt="" />
                             EVENTS INC.
                         </a>
-                    </p>
                 </div>
-                <div class="col-12 col-md">
-                    <p>
+                <div class="my-2 col-12 col-md">
                         <a asp-area="" asp-controller="Home" asp-action="Contact">
-                            <i class="fas fa-envelope"></i>
+                            <i class="fas fa-envelope mr-1"></i>
                             Contactez-nous
                         </a>
-                    </p>
                 </div>
-                <div class="col-12 col-md">
-                    <p>
+                <div class="my-2 col-12 col-md">
                         <a href="https://github.com/mrjrdg/marque-sans-nom">
-                            <i class="fab fa-github"></i>
+                            <i class="fab fa-github mr-1"></i>
                             Nous suivre sur Github
                         </a>
-                    </p>
                 </div>
             </div>
         </div>

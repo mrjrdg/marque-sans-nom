@@ -1,13 +1,4 @@
-﻿.bd-placeholder-img {
-    font-size: 1.125rem;
-    text-anchor: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-.noPad{
+﻿.noPad{
     padding-left: 0px;
     padding-right: 0px;
 }
@@ -18,7 +9,13 @@
     }
 }
 
-/* General layout */
+/* ========== General layout ========== */
+
+/*
+main {
+    min-height: calc(100vh - 208px);
+}
+*/
 
 /* Code for screen LARGER THAN MEDIUM */
 @media (min-width: 769px) {
@@ -55,7 +52,7 @@
     }
 }
 
-/* Avatars */
+/* ========== Avatars ========== */
 img.avatarsmall {
     width: 2.25rem;
     height: 2.25rem;
@@ -110,13 +107,15 @@ div.pagenav {
 }
 */
 
-/* Registration + Login */
+/* ========== Registration + Login ========== */
 .formulaireConnexion {
     margin-top: 50px;
     margin-bottom: 50px;
     min-height: 52.5vh;
     overflow: hidden;
 }
+
+/* ========== Events ========== */
 
 /* Event - Avatars */
 ul.eventavatars > li {
@@ -148,7 +147,7 @@ img.eventlistcardimg {
     object-fit: cover;
 }
 
-/* DataTable */
+/* ========== DataTable ========== */
 .table tbody td {
     vertical-align: middle;
 }
@@ -164,23 +163,21 @@ img.eventlistcardimg {
     background-color: lightgrey;
 }
 
-/* Footer */
-footer.footer p {
+/* ========== Footer ========== */
+
+footer p {
     color: white;
 }
 
-footer.footer a {
+footer a {
     color: lightgrey;
 }
 
-.footer a:hover {
+footer a:hover {
+    color: white;
     text-decoration: none;
 }
 
 .footerContainer {
     width: 100%;
-}
-
-footer>iframe {
-    overflow: hidden;
 }
