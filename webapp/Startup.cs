@@ -30,21 +30,20 @@ namespace webapp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-    services.AddRazorPages();
+            services.AddRazorPages();
             services.AddScoped<IBusinessServices, BusinessManagerSQL>();
             services.AddScoped<IEventServices, EventManagerSQL>();
             services.AddScoped<IEventTypeServices, EventTypeManagerSQL>();
             services.AddScoped<IAddressServices, AddressManagerSQL>();
 
             services.AddDbContextPool<AppDbContext>(options =>
-                {
-                    options.UseSqlServer(Configuration.GetConnectionString("DatabaseContext"));
+            {
+                    options.UseSqlServer(Configuration.GetConnectionString("JordanGauthierDatabaseContext"));
                     options.EnableSensitiveDataLogging(true);
-                }
-            ); ;
+            });
 
-// services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-//                 .AddEntityFrameworkStores<AppDbContext>();
+            // services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            //                 .AddEntityFrameworkStores<AppDbContext>();
             // services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             // {
             //     options.Password.RequireDigit = false;
@@ -61,10 +60,10 @@ namespace webapp
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
 
                 options.LoginPath = "/Account/Login";
-                options.AccessDeniedPath = "/Account/AccessDenied";
+                options.AccessDeniedPath = "/Home/Index";
                 options.SlidingExpiration = true;
             });
-
+            // /Account/AccessDenied
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -85,16 +84,16 @@ namespace webapp
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
-       
+
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
             });
-             app.UseEndpoints(endpoints =>
-        {
-            endpoints.MapRazorPages();
-        });
+            app.UseEndpoints(endpoints =>
+       {
+           endpoints.MapRazorPages();
+       });
         }
     }
 }

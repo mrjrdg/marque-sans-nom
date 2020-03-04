@@ -21,5 +21,11 @@ namespace Managers
         {
 
         }
+
+        public override async Task<List<Business>> GetAll()
+        {
+            var entities = await _context.Businesses.Include(a => a.Address).Include(e => e.Events).ToListAsync();
+            return entities;
+        }
     }
 }

@@ -14,7 +14,6 @@ namespace Models {
         [StringLength(50), MinLength(2)]
         public string LastName { get; set; }
 
-        
         /// <summary>
         ///     List all the event of in which the ApplicationUser participate.
         /// </summary>
