@@ -4,15 +4,6 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Migrations\20200215035540_init.cs" />
-    <Compile Remove="Migrations\20200215035540_init.Designer.cs" />
-    <Compile Remove="Migrations\20200215035822_init.cs" />
-    <Compile Remove="Migrations\20200215035822_init.Designer.cs" />
-    <Compile Remove="Migrations\20200215221029_initial.cs" />
-    <Compile Remove="Migrations\20200215221029_initial.Designer.cs" />
-  </ItemGroup>
-
  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.1" />

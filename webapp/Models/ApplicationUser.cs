@@ -25,6 +25,9 @@ namespace Models {
         /// </summary>
         /// <value></value>
         public List<Event> Events{ get; set; }
+        public List<MessageConversation> MessageConversationsSender { get; set; }
+        public List<MessageConversation> MessageConversationsReceiver { get; set; }
+        public List<Message> Messages { get; set; }
 
         // PROPERTY NOT BIND TO THE DATABASE //
 

@@ -1,30 +1,30 @@
-﻿using System.ComponentModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
+using Managers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.EntityFrameworkCore;
-using Managers;
-using Services;
-using Microsoft.AspNetCore.Identity;
 using Models;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Services;
 
 namespace Models
 {
 
     public class AppDbContext : IdentityDbContext<ApplicationUser>
     {
-     
+
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
-            
+
         }
 
         // !@#$%^&* MET LE NOM DE TES ENTITES AU PLURIEL ICI !@#$%^&*  //
@@ -34,101 +34,112 @@ namespace Models
         public DbSet<EventType> EventTypes { get; set; }
         public DbSet<Event> Events { get; set; }
         public DbSet<EventApplicationUser> EventApplicationUsers { get; set; }
+        public DbSet<Message> Messages { get; set; }
+        public DbSet<MessageConversation> MessageConversations { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             PasswordHasher<ApplicationUser> hasher = new PasswordHasher<ApplicationUser>();
 
-            Dictionary<string, string> roleIds = new Dictionary<string, string>() {
-                { "Admin", Guid.NewGuid ().ToString () },
-                { "CustomerPeople", Guid.NewGuid ().ToString () },
-                { "CustomerBusiness", Guid.NewGuid ().ToString () },
+            Dictionary<string, string> roleIds = new Dictionary<string, string>() { { "Admin", Guid.NewGuid ().ToString () }, { "CustomerPeople", Guid.NewGuid ().ToString () }, { "CustomerBusiness", Guid.NewGuid ().ToString () },
             };
 
-            Dictionary<string, string> userIds = new Dictionary<string, string>() { { "jordangauthier@noname.com", Guid.NewGuid ().ToString () }, { "alexdufour@noname.com", Guid.NewGuid ().ToString () }, { "philippesoucy@noname.com", Guid.NewGuid ().ToString () }, { "alexhamel@noname.com", Guid.NewGuid ().ToString () },
+            Dictionary<string, string> userIds = new Dictionary<string, string>() { { "jordangauthier@noname.com", Guid.NewGuid ().ToString () }, { "alexdufour@noname.com", Guid.NewGuid ().ToString () }, { "philippesoucy@noname.com", Guid.NewGuid ().ToString () }, { "alexhamel@noname.com", Guid.NewGuid ().ToString () }
             };
 
             var passwordHash = hasher.HashPassword(null, "admin123");
 
             base.OnModelCreating(modelBuilder);
 
-
             // RELATION 1 //
 
             modelBuilder.Entity<Event>()
-                        .HasOne(e => e.Business)
-                        .WithMany(e => e.Events)
-                        .OnDelete(DeleteBehavior.Restrict);
+                .HasOne(e => e.Business)
+                .WithMany(e => e.Events)
+                .OnDelete(DeleteBehavior.Restrict);
 
             // RELATION 2 //
 
             modelBuilder.Entity<Event>()
-                        .HasOne(e => e.Address)
-                        .WithMany(e => e.Events)
-                        .OnDelete(DeleteBehavior.Restrict);
+                .HasOne(e => e.Address)
+                .WithMany(e => e.Events)
+                .OnDelete(DeleteBehavior.Restrict);
 
             // RELATION 3 //
 
             modelBuilder.Entity<Event>()
-                        .HasOne(e => e.EventType)
-                        .WithMany(e => e.Events)
-                        .OnDelete(DeleteBehavior.Restrict);
+                .HasOne(e => e.EventType)
+                .WithMany(e => e.Events)
+                .OnDelete(DeleteBehavior.Restrict);
 
             // RELATION 4 //
 
             modelBuilder.Entity<Event>()
-                        .HasOne(e => e.ApplicationUser)
-                        .WithMany(e => e.Events)
-                        .OnDelete(DeleteBehavior.Restrict);
+                .HasOne(e => e.ApplicationUser)
+                .WithMany(e => e.Events)
+                .OnDelete(DeleteBehavior.Restrict);
 
             // RELATION 5 //
 
             modelBuilder.Entity<Business>()
-                        .HasOne(e => e.Address)
-                        .WithMany(e => e.Businesses)
-                        .OnDelete(DeleteBehavior.Restrict);
+                .HasOne(e => e.Address)
+                .WithMany(e => e.Businesses)
+                .OnDelete(DeleteBehavior.Restrict);
 
             // RELATION 6-7 //
 
             modelBuilder.Entity<EventApplicationUser>()
-                        .HasKey(e => new { e.ApplicationUserId, e.EventId });
-
-
-            modelBuilder.Entity<EventApplicationUser>()
-                        .HasOne(e => e.ApplicationUser)
-                        .WithMany(e => e.EventsParticipation)
-                        .HasForeignKey(e => e.ApplicationUserId)
-                        .OnDelete(DeleteBehavior.Restrict);
+                .HasKey(e => new { e.ApplicationUserId, e.EventId });
 
             modelBuilder.Entity<EventApplicationUser>()
-                        .HasOne(e => e.Event)
-                        .WithMany(e => e.Members)
-                        .HasForeignKey(e => e.EventId)
-                        .OnDelete(DeleteBehavior.Restrict);
+                .HasOne(e => e.ApplicationUser)
+                .WithMany(e => e.EventsParticipation)
+                .HasForeignKey(e => e.ApplicationUserId)
+                .OnDelete(DeleteBehavior.Restrict);
 
+            modelBuilder.Entity<EventApplicationUser>()
+                .HasOne(e => e.Event)
+                .WithMany(e => e.Members)
+                .HasForeignKey(e => e.EventId)
+                .OnDelete(DeleteBehavior.Restrict);
 
+            modelBuilder.Entity<MessageConversation>()
+                .HasMany(x => x.Messages)
+                .WithOne(x => x.MessageConversation)
+                .OnDelete(DeleteBehavior.Restrict);
 
+            modelBuilder.Entity<MessageConversation>()
+                .HasOne(x => x.Sender)
+                .WithMany(x => x.MessageConversationsSender)
+                .HasForeignKey(x => x.SenderId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<MessageConversation>()
+                .HasOne(x => x.Receiver)
+                .WithMany(x => x.MessageConversationsReceiver)
+                .HasForeignKey(x => x.ReceiverId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<IdentityRole>().HasData(
-              new IdentityRole
-              {
-                  Id = roleIds["Admin"],
-                  Name = "Admin",
-                  NormalizedName = "ADMIN"
-              },
-              new IdentityRole
-              {
-                  Id = roleIds["CustomerPeople"],
-                  Name = "CustomerPeople",
-                  NormalizedName = "CUSTOMERPEOPLE"
-              },
-              new IdentityRole
-              {
-                  Id = roleIds["CustomerBusiness"],
-                  Name = "CustomerBusiness",
-                  NormalizedName = "CUSTOMERBUSINESS"
-              }
-          );
+                new IdentityRole
+                {
+                    Id = roleIds["Admin"],
+                    Name = "Admin",
+                    NormalizedName = "ADMIN"
+                },
+                new IdentityRole
+                {
+                    Id = roleIds["CustomerPeople"],
+                    Name = "CustomerPeople",
+                    NormalizedName = "CUSTOMERPEOPLE"
+                },
+                new IdentityRole
+                {
+                    Id = roleIds["CustomerBusiness"],
+                    Name = "CustomerBusiness",
+                    NormalizedName = "CUSTOMERBUSINESS"
+                }
+            );
 
             var jordan = new ApplicationUser
             {
@@ -143,7 +154,6 @@ namespace Models
                 PhoneNumberConfirmed = true,
                 PasswordHash = passwordHash
             };
-
 
             // SEEDING APPLICATION USERS //
 
@@ -213,7 +223,6 @@ namespace Models
 
             // SEEDING ADDRESS //
 
-
             modelBuilder.Entity<Address>().HasData(
                 new Address
                 {
@@ -270,16 +279,16 @@ namespace Models
             // SEEDING EVENTTYPE //
 
             modelBuilder.Entity<EventType>().HasData(
-                 new EventType
-                 {
-                     Id = 1,
-                     Title = "Entrainement"
-                 },
-                 new EventType
-                 {
-                     Id = 2,
-                     Title = "Lever de fond"
-                 }
+                new EventType
+                {
+                    Id = 1,
+                    Title = "Entrainement"
+                },
+                new EventType
+                {
+                    Id = 2,
+                    Title = "Lever de fond"
+                }
             );
 
             // SEEDING EVENT //
