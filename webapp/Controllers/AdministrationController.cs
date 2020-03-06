@@ -16,7 +16,7 @@ namespace EmployeeManagement.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ILogger<AdministrationController> _logger;
 
-        public AdministrationController(RoleManager<IdentityRole> roleManager,UserManager<ApplicationUser> userManager, ILogger<AdministrationController> logger
+        public AdministrationController(RoleManager<IdentityRole> roleManager, UserManager<ApplicationUser> userManager, ILogger<AdministrationController> logger
         )
         {
             _roleManager = roleManager;

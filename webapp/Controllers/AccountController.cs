@@ -59,7 +59,7 @@ namespace EmployeeManagement.Controllers
                     return RedirectToAction("Index", "Event");
                 }
 
-                ModelState.AddModelError(string.Empty,"Invalid Login Attempt");
+                ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
             }
             return View(model);
         }
@@ -77,17 +77,18 @@ namespace EmployeeManagement.Controllers
             await _signIngManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
-        
-    
 
-        [HttpPost][HttpGet]
+
+
+        [HttpPost]
+        [HttpGet]
         [AllowAnonymous]
         public async Task<IActionResult> IsEmailInUse(string email)
         {
             return await _userManager.FindByEmailAsync(email) == null ?
-                   Json(true):
+                   Json(true) :
                    Json($"Email {email} is already in use.");
-        
+
         }
 
         [HttpPost]
@@ -103,10 +104,12 @@ namespace EmployeeManagement.Controllers
                     FirstName = model.FirstName,
                     LastName = model.LastName
                 };
+
                 var result = await _userManager.CreateAsync(user, model.Password);
-                
+
                 if (result.Succeeded)
                 {
+                    await _userManager.AddToRoleAsync(user, "CustomerPeople");
                     await _signIngManager.SignInAsync(user, false);
                     return RedirectToAction("Index", "Home");
                 }
