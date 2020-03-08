@@ -66,10 +66,16 @@ namespace Managers
             return entities;
         }
 
-        public async Task<List<TEntity>> GetFromPredicate(Expression<Func<TEntity, bool>> predicate)
+        public async Task<List<TEntity>> GetFromPredicate(Expression<Func<TEntity, bool>> predicate, params Expression<Func<TEntity, object>>[] fieldsToInclude)
         {
-            var entities = await _context.Set<TEntity>().Where(predicate).ToListAsync();
-            return entities;
+            IQueryable<TEntity> query = _context.Set<TEntity>();
+
+            foreach(Expression<Func<TEntity, object>> expression in fieldsToInclude)
+            {
+                query = query.Include(expression);
+            }
+
+            return await query.Where(predicate).ToListAsync();
         }
     }
 }

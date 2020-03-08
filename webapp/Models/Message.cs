@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations.Schema;
 using System;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
@@ -14,6 +15,9 @@ namespace Models
         public string Content {get; set;}
         [Required]
         public ApplicationUser User { get; set; }
+        [Required]
+        public int MessageConversationId { get; set; }
+        [ForeignKey("MessageConversationId")]
         public MessageConversation MessageConversation { get; set; }
     }
 }

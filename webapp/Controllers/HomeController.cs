@@ -26,7 +26,7 @@ namespace Controllers
 
         private readonly IBusinessServices _businessServices;
 
-        public HomeController(ILogger<HomeController> logger, IBusinessServices businessServices,SignInManager<ApplicationUser> signInManager)
+        public HomeController(ILogger<HomeController> logger, IBusinessServices businessServices, SignInManager<ApplicationUser> signInManager)
         {
             _logger = logger;
             _businessServices = businessServices;
@@ -39,24 +39,25 @@ namespace Controllers
             var model = new HomeViewModel();
 
             model.Businesses = await _businessServices.GetAll();
-            
-            if (_signIngManager.IsSignedIn(User)){
 
-                 return RedirectToAction("Index", "Event");
-            } else {
-            return View(model);
+            if (_signIngManager.IsSignedIn(User))
+            {
+
+                return RedirectToAction("Index", "Event");
+            }
+            else
+            {
+                return View(model);
             }
             //model.Events = new List<Event>();
-
-
         }
-//  Home/Privacy
-     public IActionResult Privacy()
+
+        public IActionResult Privacy()
         {
             return View();
         }
-        //  Home/Contact
-          public IActionResult Contact()
+
+        public IActionResult Contact()
         {
             return View();
         }

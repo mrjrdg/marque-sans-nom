@@ -108,6 +108,9 @@ namespace Models
                 .WithOne(x => x.MessageConversation)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            modelBuilder.Entity<Message>()
+                .Ignore(x => x.MessageConversation);
+
             modelBuilder.Entity<MessageConversation>()
                 .HasOne(x => x.Sender)
                 .WithMany(x => x.MessageConversationsSender)
@@ -354,6 +357,49 @@ namespace Models
                     EventId = 2
                 }
             );
+
+
+            modelBuilder.Entity<MessageConversation>().HasData(
+                new MessageConversation
+                {
+                    Id = 1,
+                    SenderId = userIds["jordangauthier@noname.com"],
+                    ReceiverId = userIds["alexdufour@noname.com"],
+                    Subject = "tournois de cs pas d'awp"
+                }
+            );
+
+            modelBuilder.Entity<Message>().HasData(
+                new
+                {
+                    Id = 1,
+                    Content = "Est-tu pret big ?",
+                    MessageConversationId = 1,
+                    UserId = userIds["jordangauthier@noname.com"]
+                },
+                new
+                {
+                    Id = 2,
+                    Content = "Je sais pas toi ?",
+                    MessageConversationId = 1,
+                    UserId = userIds["alexdufour@noname.com"]
+                },
+                 new
+                {
+                    Id = 3,
+                    Content = "Je sais pas non plus.",
+                    MessageConversationId = 1,
+                    UserId = userIds["jordangauthier@noname.com"]
+                },
+                new
+                {
+                    Id = 4,
+                    Content = "Mtseee",
+                    MessageConversationId = 1,
+                    UserId = userIds["alexdufour@noname.com"]
+                }
+            );
+
 
         }
     }

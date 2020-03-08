@@ -50,6 +50,6 @@ namespace Services
         /// </summary>
         /// <param name="predicate"></param>
         /// <returns></returns>
-        Task<List<T>> GetFromPredicate(Expression<Func<T, bool>> predicate);
+        Task<List<T>> GetFromPredicate(Expression<Func<T, bool>> predicate,  params Expression<Func<T, object>>[] fieldsToInclude);
     }
 }

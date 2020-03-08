@@ -35,6 +35,8 @@ namespace webapp
             services.AddScoped<IEventServices, EventManagerSQL>();
             services.AddScoped<IEventTypeServices, EventTypeManagerSQL>();
             services.AddScoped<IAddressServices, AddressManagerSQL>();
+            services.AddScoped<IMessageConversationServices, MessageConversationManagerSQL>();
+            services.AddScoped<IMessageServices, MessageManagerSQL>();
 
             services.AddDbContextPool<AppDbContext>(options =>
             {
