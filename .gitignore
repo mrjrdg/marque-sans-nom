@@ -14,3 +14,6 @@
 /.vs/slnx.sqlite
 /.vs/VSWorkspaceState.json
 /webapp/wwwroot/pinegrow.json
+/webapp/webapp.csproj
+/webapp/appsettings.json
+/webapp/Startup.cs
