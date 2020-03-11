@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Models
 {
@@ -84,5 +85,12 @@ namespace Models
         {
             return $"{CivicNumber} {Street} {City}, {State} {Country}";
         }
+
+   [NotMapped]
+        public string fullAddress {
+        get { return $"{CivicNumber} {Street} {City}, {State} {Country}" ;}
+       
+    }
+
     }
 }
