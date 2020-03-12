@@ -22,7 +22,7 @@
    <div class="form-group">
                         @Html.LabelFor(m => m.Event.Address, htmlAttributes: new { @class = "control-label col-md-2" })
                          <div class="col-md-12">
-    @Html.DropDownListFor(Model => Model.Event.Address.Id, new SelectList(Model.Addresses, "Id", "fullAddress"), "-Select an option",new { @class = "form-control" })
+    @Html.DropDownListFor(Model => Model.Event.Address.Id, new SelectList(Model.Addresses, "Id", "fullAddress"), new { @class = "form-control" })
     </div>
    </div>
 
@@ -30,7 +30,7 @@
     <div class="form-group">
                         @Html.LabelFor(m => m.Event.Business, htmlAttributes: new { @class = "control-label col-md-2" })
                          <div class="col-md-12">
-    @Html.DropDownListFor(Model => Model.Event.Business.Id, new SelectList(Model.Businesses, "Id", "Name"), "-Select an option",new { @class = "form-control" })
+    @Html.DropDownListFor(Model => Model.Event.Business.Id, new SelectList(Model.Businesses, "Id", "Name"),new { @class = "form-control" })
     </div>
    </div>
 
@@ -81,7 +81,7 @@
       <div class="form-group">
                         @Html.LabelFor(m => m.Event.EventType, htmlAttributes: new { @class = "control-label col-md-2" })
                          <div class="col-md-12">
-    @Html.DropDownListFor(Model => Model.Event.EventType.Id,new SelectList(Model.EventTypes, "Id", "Title"), "-Select an option",new { @class = "form-control" })
+    @Html.DropDownListFor(Model => Model.Event.EventType.Id,new SelectList(Model.EventTypes, "Id", "Title"),new { @class = "form-control" })
     </div>
    </div>
 

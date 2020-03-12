@@ -72,7 +72,8 @@ namespace Controllers
         public async Task<IActionResult> GetEvent(int id)
         {
             IActionResult result = null;
-
+            var addresses = await _eventServices.GetAll();
+            await _eventTypeServices.GetAll();
             // var oneEvent = await _context.Events.FirstOrDefaultAsync(m => m.Id == id);
             var oneEvent = await _eventServices.Get(id);
 
@@ -83,6 +84,8 @@ namespace Controllers
             else
             {
                 var model = new EventViewModel { Event = oneEvent };
+                model.Event.Address = await _addressServices.Get(oneEvent.Address.Id);
+                model.Event.EventType = await _eventTypeServices.Get(oneEvent.EventType.Id);
                 result = View("Event", model);
             }
 
@@ -118,19 +121,18 @@ namespace Controllers
         {
            
 
-       
            event1.Event.Address = await _addressServices.Get(event1.Event.Address.Id);
            event1.Event.Business = await _businessServices.Get(event1.Event.Business.Id);
            event1.Event.EventType = await _context.EventTypes.FindAsync(event1.Event.EventType.Id);
            //[Bind("Id,AddressId,BusinessId,ApplicationUserId,StartDate,EndDate,PriceToPayToParticipate,Title,EventTypeId")]
-            if (ModelState.IsValid)
-            {
+            // if (ModelState.IsValid)
+            // {
                 _context.Add(event1.Event);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }else {
-            return RedirectToAction(nameof(CreateEvent));
-            }
+            // }else {
+            // return RedirectToAction(nameof(CreateEvent));
+            
         }
     
        
