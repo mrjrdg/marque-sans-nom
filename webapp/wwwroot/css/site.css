@@ -157,13 +157,6 @@ img.eventlistcardimg {
 .table tbody td {
     vertical-align: middle;
 }
-.table tbody tr a {
-    display: none;
-}
-
-.table tbody tr:hover a {
-    display: inline;
-}
 
 .table tbody tr:hover {
     background-color: lightgrey;
