@@ -14,6 +14,7 @@ using Services;
 
 
 
+
 namespace Controllers
 {
     public class EventController : Controller
@@ -22,11 +23,21 @@ namespace Controllers
         private readonly IEventServices _eventServices;
         private readonly IEventTypeServices _eventTypeServices;
 
-        public EventController(ILogger<HomeController> logger, IEventServices eventServices, IEventTypeServices eventTypeServices)
+        private readonly IAddressServices _addressServices;
+
+         private readonly IBusinessServices _businessServices;
+
+        private readonly AppDbContext _context;
+
+        public EventController(ILogger<HomeController> logger, IEventServices eventServices, IEventTypeServices eventTypeServices, 
+        AppDbContext context, IAddressServices addressServices, IBusinessServices businessServices)
         {
             _logger = logger;
             _eventServices = eventServices;
             _eventTypeServices = eventTypeServices;
+            _context = context;
+            _addressServices = addressServices;
+            _businessServices = businessServices;
         }
 
 
@@ -37,14 +48,16 @@ namespace Controllers
         {
             IActionResult result = null;
             var events = await (string.IsNullOrEmpty(type) ? _eventServices.GetAll() : _eventTypeServices.GetEventsFromEventTypeName(type));
-
+           var addresses = await _context.Addresses.ToListAsync();
+           var businesses = await _context.Businesses.ToListAsync();
             if(events == null)
             {
                 result = NotFound();
             }
             else
             {
-                var model = new ListEventsViewModel { Events = events };
+                var model = new ListEventsViewModel { Events = events , Addresses = addresses,Businesses = businesses };
+   
                 result = View(model);
             }
 
@@ -55,10 +68,13 @@ namespace Controllers
         ///     Page that display the information about a single Event.
         /// </summary>
         /// <param name="id">The id of the event</param>
-        [Route("Event/{id}")]
+        [Route("Event/{id:int}")]
         public async Task<IActionResult> GetEvent(int id)
         {
             IActionResult result = null;
+            var addresses = await _eventServices.GetAll();
+            await _eventTypeServices.GetAll();
+            // var oneEvent = await _context.Events.FirstOrDefaultAsync(m => m.Id == id);
             var oneEvent = await _eventServices.Get(id);
 
             if (oneEvent == null)
@@ -68,11 +84,58 @@ namespace Controllers
             else
             {
                 var model = new EventViewModel { Event = oneEvent };
+                model.Event.Address = await _addressServices.Get(oneEvent.Address.Id);
+                model.Event.EventType = await _eventTypeServices.Get(oneEvent.EventType.Id);
                 result = View("Event", model);
             }
 
             return result;
         }
+
+         public async Task<IActionResult> CreateEvent([FromQuery(Name = "type")] string type)
+        {
+            IActionResult result = null;
+            var events = await (string.IsNullOrEmpty(type) ? _eventServices.GetAll() : _eventTypeServices.GetEventsFromEventTypeName(type));
+           var addresses = await _context.Addresses.ToListAsync();
+           var businesses = await _context.Businesses.ToListAsync();
+           var eventypes = await _context.EventTypes.ToListAsync();
+            if(events == null)
+            {
+                result = NotFound();
+            }
+            else
+            {
+                        CreateEventView viewModel = new CreateEventView();
+                        viewModel.Addresses = addresses;
+                        viewModel.Businesses = businesses;
+                        viewModel.EventTypes = eventypes;
+   
+                result = View(viewModel);
+            }
+
+            return result;
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateEvent( CreateEventView event1)
+        {
+           
+
+           event1.Event.Address = await _addressServices.Get(event1.Event.Address.Id);
+           event1.Event.Business = await _businessServices.Get(event1.Event.Business.Id);
+           event1.Event.EventType = await _context.EventTypes.FindAsync(event1.Event.EventType.Id);
+           //[Bind("Id,AddressId,BusinessId,ApplicationUserId,StartDate,EndDate,PriceToPayToParticipate,Title,EventTypeId")]
+            // if (ModelState.IsValid)
+            // {
+                _context.Add(event1.Event);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            // }else {
+            // return RedirectToAction(nameof(CreateEvent));
+            
+        }
+    
+       
          public IActionResult userList()
         {
             return View();

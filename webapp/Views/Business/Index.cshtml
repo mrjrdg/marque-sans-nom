@@ -6,6 +6,14 @@
     ViewData["Title"] = "Index";
 }
 
+<!DOCTYPE html>
+<html class="h-100" lang="fr-ca">
+<head>
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <!-- Favicon here -->
+</head>
+
 <h1>Nos Entreprises </h1>
 
 @if (SignInManager.IsSignedIn(User)) {
@@ -16,26 +24,27 @@
    }
 
 
+<div class="container">
 
-<table class="table">
+<table class="table text-center">
     <thead>
-        <tr>
-            <th>
+        <tr class="row">
+            <th class="col-sm-2">
               @Html.DisplayNameFor(model => model.Name)
             </th>
 
-            <th>
+            <th class="col-sm-2">
                 @Html.DisplayNameFor(model => model.Phone)
             </th>
 
-            <th>
+            <th class="col-sm-4">
                 @Html.DisplayNameFor(model => model.Address.City)
             </th>
 
-            <th>
+            <th class="col-sm-2">
                 @Html.DisplayNameFor(model => model.Events)
             </th>
-             <th>
+             <th class="col-sm-2">
              
             </th>
             
@@ -43,27 +52,30 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr>
-            <td>
+        <tr class="row">
+            <td class="col-sm-2">
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Phone)
             </td>
-            <td>
+            <td class="col-sm-4">
                 @Html.DisplayFor(modelItem => item.Address.City),
                 (@Html.DisplayFor(modelItem => item.Address.CivicNumber)),
                 @Html.DisplayFor(modelItem => item.Address.Country)
                 
             </td>
+             <td class="col-sm-2">
             @foreach (var oneEvent in item.Events) {
-            <td>
+           
                 @Html.DisplayFor(modelEvent => oneEvent.Title)
+                <br/>
+            }
             </td>
             
-            }
+            
             @if (User.IsInRole("Admin")){
-            <td style="min-width: 200px">
+            <td class="col-sm-2">
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> | <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> 
            
             </td>
@@ -72,5 +84,7 @@
 }
     </tbody>
 </table>
+</div>
 }
+
 @*      <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> *@

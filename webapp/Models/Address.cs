@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Models
 {
@@ -17,35 +18,33 @@ namespace Models
         /// </summary>
         /// <value></value>
         [Required]
-        [RegularExpression("^[A-Za-z]*$", ErrorMessage = "")]
         public string Street { get; set; }
 
         /// <summary>
         /// The civic number of the address
         /// </summary>
         [Required]
-        [RegularExpression("^[0-9]*$", ErrorMessage = "")]
+        [RegularExpression("^[0-9]*$", ErrorMessage = "null")]
         public int CivicNumber { get; set; }
 
         /// <summary>
         /// The city of the address
         /// </summary>
         [Required]
-        [RegularExpression("^[A-Za-z]*$", ErrorMessage = "")]
+        [RegularExpression("^[A-Za-z]*$", ErrorMessage = "null")]
         public string City { get; set; }
 
         /// <summary>
         /// The state of the address
         /// </summary>
         [Required]
-        [RegularExpression("^[A-Za-z][A-Za-z]$", ErrorMessage = "")]
         public string State { get; set; }
 
         /// <summary>
         /// The postalcode of the address
         /// </summary>
         [Required]
-        [RegularExpression("^[A-Za-z][0-9][A-Za-z]\\s*[0-9][A-Za-z][0-9]$", ErrorMessage = "")]
+        [RegularExpression("^[A-Za-z][0-9][A-Za-z]\\s*[0-9][A-Za-z][0-9]$", ErrorMessage = "null")]
         [DisplayFormat()]
         public string PostalCode { get; set; }
 
@@ -53,7 +52,7 @@ namespace Models
         /// The country of the address
         /// </summary>
         [Required]
-        [RegularExpression("^[A-Za-z]*$", ErrorMessage = "")]
+        [RegularExpression("^[A-Za-z]*$", ErrorMessage = "null")]
         public string Country { get; set; }
 
         /// <summary>
@@ -84,5 +83,12 @@ namespace Models
         {
             return $"{CivicNumber} {Street} {City}, {State} {Country}";
         }
+
+   [NotMapped]
+        public string fullAddress {
+        get { return $"{CivicNumber} {Street} {City}, {State} {Country}" ;}
+       
+    }
+
     }
 }

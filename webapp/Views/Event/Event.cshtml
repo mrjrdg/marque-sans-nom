@@ -5,16 +5,20 @@
 }
 
 <h1>@Model.Event.Title</h1>
-                      <h1>@Model.Event.EndDate</h1>
+              
                        <main role="main">
             <div class="container">
                 <!-- EVENT TITLE -->
                 <div>
-                    <h1 class="mb-0">Match de hockey des l&eacute;gendes</h1>
-                    <p class="h3 mb-0"><small class="text-muted mb-0">18 f&eacute;vrier 2020 à 18h</small></p>
+                       <h1 class="mb-0"> Venez au "@Model.Event.Address.fullAddress"</h1>
+                    <p class="h3 mb-0"><small class="text-muted mb-0">Date de depart @Model.Event.StartDate</small></p>
+                    <br/>
+                    <p class="h3 mb-0"><small class="text-muted mb-0">Date de fin @Model.Event.EndDate</small></p>
+                      <p class="h3 mb-0"><small class="text-muted mb-0">Prix par participants @Model.Event.PriceToPayToParticipate</small></p>
+               
                     <p class="h4">
                         <small class="text-muted">
-                            Organisé par <span class="eventorganizer"><a href="#">Association de Sport de Montr&eacute;al</a></span>
+                            Organisé par <span class="eventorganizer"><a href="#">@Model.Event.Business.Name</a></span>
                         </small>
                     </p>
                 </div>
@@ -74,9 +78,9 @@
                         <div id="container">
                             <h3>Lieu de l'activit&eacute;</h3>
                             <p>
+                                 @Html.DisplayFor(model => model.Event.Address.fullAddress)
                                 <address>
-                                    4110, boulevard Lasalle<br />
-                                    Montréal (Québec)&nbsp;&nbsp;H4G 2N5
+                                
                                 </address> <a href="https://developers.google.com/maps/documentation/urls/guide" target="_blank">Afficher sur la carte</a>
                             </p>
                             <h5>Précisions</h5>
@@ -87,7 +91,7 @@
                             <h3>Cat&eacute;gories</h3>
                             <ul class="eventcategorylist pl-0">
                                 <li>
-                                    <a href="#" class="badge badge-pill badge-primary">hockey</a>
+                                    <a href="#" class="badge badge-pill badge-primary">@Model.Event.EventType.Title</a>
                                 </li>
                                 <li>
                                     <a href="#" class="badge badge-pill badge-info">sport</a>

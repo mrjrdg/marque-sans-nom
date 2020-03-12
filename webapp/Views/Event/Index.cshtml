@@ -1,77 +1,104 @@
 @model ViewModels.ListEventsViewModel
+@using Models
+@inject SignInManager<ApplicationUser> SignInManager
+    @inject UserManager<ApplicationUser> UserManager
 
-@{
-    ViewData["Title"] = "Liste des événements";
-}
+        @{
+        ViewData["Title"] = "Liste des événements";
+        }
+
+        @* @foreach (var item in Model.Events)
+        {
+        <p>@item.Title</p>
+        @Html.DropDownListFor(m => m.Events, new SelectList(Model.Events, "Id", "Title"), " ")
+        @Html.DropDownListFor(m => m.Addresses, new SelectList(Model.Addresses, "Id", "fullAddress"), "")
+        } *@
+
+        <h1 class="border-bottom pb-2 mb-4">Liste de mes activités</h1>
 
 
 
-@foreach (var item in Model.Events)
-{
-  <p>@item.Title</p>
-  
+        @*
+        <partial name="_partialAddress" /> *@
+        <div class="container ">
+            <div class="card-deck eventlistcarddeck">
+                <div class="row pb-3 ml-0 mr-0">
 
-}
 
-<h1 class="border-bottom pb-2 mb-4">Liste de mes activités</h1>
+                    @foreach (var item in Model.Events)
 
-<div class="container ">
-    <div class="card-deck eventlistcarddeck">
-        <div class="row pb-3 ml-0 mr-0">
-            <div class="card">
-                <img class="card-img-top eventlistcardimg" src="https://s16-us2.startpage.com/cgi-bin/serveimage?url=https%3A%2F%2Fi.ytimg.com%2Fvi%2F_U6rq4hmKuw%2Fhqdefault.jpg&sp=73bb94b6c7ccffee5d36c459590d5ecb&anticache=725823" alt="Image représentant l'activité">
-                <div class="card-body">
-                    <h4 class="card-title"> <a  asp-controller="Event" asp-action="1"  class="stretched-link">Match de hockey des légendes</a> </h4>
-					@* href="./event-view.html" *@
-                    <p class="card-text">
-                        Cliquer sur le titre pour ouvrir l'activité. <br /><br />
-                        À faire plus tard : Ajouter les avatars de 5 participants.
-                    </p>
-                    <p class="card-text"><small class="text-muted">5 participants</small></p>
+                    {
+                    <div class="card">
+                        <img class="card-img-top eventlistcardimg"
+                            src="https://s16-us2.startpage.com/cgi-bin/serveimage?url=https%3A%2F%2Fi.ytimg.com%2Fvi%2F_U6rq4hmKuw%2Fhqdefault.jpg&sp=73bb94b6c7ccffee5d36c459590d5ecb&anticache=725823"
+                            alt="Image représentant l'activité">
+                        <div class="card-body">
+                            <h4 class="card-title"> <a asp-action="GetEvent" asp-route-Id="@item.Id">@item.Title,
+                                    @item.Id</a> </h4>
+                            @* href="./event-view.html" *@
+                            <p class="card-text">
+                                Cliquer sur le titre pour ouvrir l'activité. <br /><br />
+                                À faire plus tard : Ajouter les avatars de 5 participants.
+                            </p>
+                            <p class="card-text"><small class="text-muted">5 participants</small></p>
+                        </div>
+
+                    </div>
+                    }
+                    <div class="card">
+                        <img class="card-img-top eventlistcardimg" alt="Image représentant l'activité"
+                            src="https://s14-eu5.startpage.com/cgi-bin/serveimage?url=https%3A%2F%2Fmedia.npr.org%2Fassets%2Fimg%2F2010%2F06%2F15%2Fsoccer-218591119cebb586708ad949c286254b2a8cf4c9-s800-c85.jpg&sp=08fe6ab9ff8a81ef8f3f23182d079e09&anticache=284073">
+                        <div class="card-body">
+                            <h4 class="card-title">Match de soccer des légendes</h4>
+                            <p class="card-text">Semper viverra nam libero justo laoreet sit amet. Dignissim diam quis
+                                enim lobortis scelerisque fermentum dui faucibus.</p>
+                            <p class="card-text"><small class="text-muted">1 participant</small></p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img class="card-img-top eventlistcardimg"
+                            src="https://s14-eu5.startpage.com/cgi-bin/serveimage?url=https%3A%2F%2Fimages.chesscomfiles.com%2Fuploads%2Fv1%2Fimages_users%2Ftiny_mce%2Fbatgirl%2Fphp3de5wC.jpeg&sp=6c7bd7d71acbdb07496669270e2ab1a9&anticache=789720"
+                            alt="Image représentant l'activité">
+                        <div class="card-body">
+                            <h4 class="card-title">Soirée d'échecs</h4>
+                            <p class="card-text">Mauris ultrices eros in cursus. Nunc faucibus a pellentesque sit amet
+                                porttitor. Molestie ac feugiat sed lectus.</p>
+                            <p class="card-text"><small class="text-muted">20 participants</small></p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top eventlistcardimg" alt="Image représentant l'activité" src="https://s14-eu5.startpage.com/cgi-bin/serveimage?url=https%3A%2F%2Fmedia.npr.org%2Fassets%2Fimg%2F2010%2F06%2F15%2Fsoccer-218591119cebb586708ad949c286254b2a8cf4c9-s800-c85.jpg&sp=08fe6ab9ff8a81ef8f3f23182d079e09&anticache=284073">
-                <div class="card-body">
-                    <h4 class="card-title">Match de soccer des légendes</h4>
-                    <p class="card-text">Semper viverra nam libero justo laoreet sit amet. Dignissim diam quis enim lobortis scelerisque fermentum dui faucibus.</p>
-                    <p class="card-text"><small class="text-muted">1 participant</small></p>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top eventlistcardimg" src="https://s14-eu5.startpage.com/cgi-bin/serveimage?url=https%3A%2F%2Fimages.chesscomfiles.com%2Fuploads%2Fv1%2Fimages_users%2Ftiny_mce%2Fbatgirl%2Fphp3de5wC.jpeg&sp=6c7bd7d71acbdb07496669270e2ab1a9&anticache=789720" alt="Image représentant l'activité">
-                <div class="card-body">
-                    <h4 class="card-title">Soirée d'échecs</h4>
-                    <p class="card-text">Mauris ultrices eros in cursus. Nunc faucibus a pellentesque sit amet porttitor. Molestie ac feugiat sed lectus.</p>
-                    <p class="card-text"><small class="text-muted">20 participants</small></p>
+                <div class="row ml-0 mr-0">
+                    <div class="card">
+                        <img class="card-img-top eventlistcardimg" alt="Image représentant l'activité"
+                            src="https://s14-eu5.startpage.com/cgi-bin/serveimage?url=https%3A%2F%2Fmedia.npr.org%2Fassets%2Fimg%2F2010%2F06%2F15%2Fsoccer-218591119cebb586708ad949c286254b2a8cf4c9-s800-c85.jpg&sp=08fe6ab9ff8a81ef8f3f23182d079e09&anticache=284073">
+                        <div class="card-body">
+                            <h4 class="card-title">Match de soccer des légendes</h4>
+                            <p class="card-text">Semper viverra nam libero justo laoreet sit amet. Dignissim diam quis
+                                enim lobortis scelerisque fermentum dui faucibus.</p>
+                            <p class="card-text"><small class="text-muted">1 participant</small></p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img class="card-img-top eventlistcardimg"
+                            src="https://s14-eu5.startpage.com/cgi-bin/serveimage?url=https%3A%2F%2Fimages.chesscomfiles.com%2Fuploads%2Fv1%2Fimages_users%2Ftiny_mce%2Fbatgirl%2Fphp3de5wC.jpeg&sp=6c7bd7d71acbdb07496669270e2ab1a9&anticache=789720"
+                            alt="Image représentant l'activité">
+                        <div class="card-body">
+                            <h4 class="card-title">Soirée d'échecs</h4>
+                            <p class="card-text">Mauris ultrices eros in cursus. Nunc faucibus a pellentesque sit amet
+                                porttitor. Molestie ac feugiat sed lectus.</p>
+                            <p class="card-text"><small class="text-muted">20 participants</small></p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img class="card-img-top eventlistcardimg" alt="Image représentant l'activité"
+                            src="https://s14-eu5.startpage.com/cgi-bin/serveimage?url=https%3A%2F%2Fmedia.npr.org%2Fassets%2Fimg%2F2010%2F06%2F15%2Fsoccer-218591119cebb586708ad949c286254b2a8cf4c9-s800-c85.jpg&sp=08fe6ab9ff8a81ef8f3f23182d079e09&anticache=284073">
+                        <div class="card-body">
+                            <h4 class="card-title">Match de soccer des légendes</h4>
+                            <p class="card-text">Semper viverra nam libero justo laoreet sit amet. Dignissim diam quis
+                                enim lobortis scelerisque fermentum dui faucibus.</p>
+                            <p class="card-text"><small class="text-muted">1 participant</small></p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="row ml-0 mr-0">
-            <div class="card">
-                <img class="card-img-top eventlistcardimg" alt="Image représentant l'activité" src="https://s14-eu5.startpage.com/cgi-bin/serveimage?url=https%3A%2F%2Fmedia.npr.org%2Fassets%2Fimg%2F2010%2F06%2F15%2Fsoccer-218591119cebb586708ad949c286254b2a8cf4c9-s800-c85.jpg&sp=08fe6ab9ff8a81ef8f3f23182d079e09&anticache=284073">
-                <div class="card-body">
-                    <h4 class="card-title">Match de soccer des légendes</h4>
-                    <p class="card-text">Semper viverra nam libero justo laoreet sit amet. Dignissim diam quis enim lobortis scelerisque fermentum dui faucibus.</p>
-                    <p class="card-text"><small class="text-muted">1 participant</small></p>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top eventlistcardimg" src="https://s14-eu5.startpage.com/cgi-bin/serveimage?url=https%3A%2F%2Fimages.chesscomfiles.com%2Fuploads%2Fv1%2Fimages_users%2Ftiny_mce%2Fbatgirl%2Fphp3de5wC.jpeg&sp=6c7bd7d71acbdb07496669270e2ab1a9&anticache=789720" alt="Image représentant l'activité">
-                <div class="card-body">
-                    <h4 class="card-title">Soirée d'échecs</h4>
-                    <p class="card-text">Mauris ultrices eros in cursus. Nunc faucibus a pellentesque sit amet porttitor. Molestie ac feugiat sed lectus.</p>
-                    <p class="card-text"><small class="text-muted">20 participants</small></p>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top eventlistcardimg" alt="Image représentant l'activité" src="https://s14-eu5.startpage.com/cgi-bin/serveimage?url=https%3A%2F%2Fmedia.npr.org%2Fassets%2Fimg%2F2010%2F06%2F15%2Fsoccer-218591119cebb586708ad949c286254b2a8cf4c9-s800-c85.jpg&sp=08fe6ab9ff8a81ef8f3f23182d079e09&anticache=284073">
-                <div class="card-body">
-                    <h4 class="card-title">Match de soccer des légendes</h4>
-                    <p class="card-text">Semper viverra nam libero justo laoreet sit amet. Dignissim diam quis enim lobortis scelerisque fermentum dui faucibus.</p>
-                    <p class="card-text"><small class="text-muted">1 participant</small></p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
