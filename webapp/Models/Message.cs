@@ -19,5 +19,17 @@ namespace Models
         public int MessageConversationId { get; set; }
         [ForeignKey("MessageConversationId")]
         public MessageConversation MessageConversation { get; set; }
+
+
+        [NotMapped]
+        public string ReceiverName
+        { 
+            get 
+            {
+                return MessageConversation.Sender.Id == User.Id ? 
+                    MessageConversation.Receiver.FullName : 
+                    MessageConversation.Sender.FullName;
+            }
+        }
     }
 }

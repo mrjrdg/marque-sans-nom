@@ -1,0 +1,61 @@
+@model MessagesConversationsIndex
+@using System.Linq;
+@using System;
+@using System.Collections.Generic;
+
+
+<h1>Conversations received</h1>
+
+<!-- conversation received -->
+
+@foreach (var conversation in Model.ConversationsReceived)
+{
+    <p>Subject : @conversation.Subject</p>
+    <p>sent by : @conversation.Sender.FullName</p>
+    <p>Messages</p>
+    <ul>
+        @foreach (var message in conversation.Messages)
+        {
+            <p>Sent by : @message.User.FullName</p>
+            <p>@message.Content</p>
+        }
+    </ul>
+}
+
+<h1>Conversations sent</h1>
+
+<!-- conversation sent -->
+
+@foreach (var conversation in Model.ConversationsSent)
+{
+    <p>Subject : @conversation.Subject</p>
+    <p>sent by : @conversation.Sender.FullName</p>
+    <p>Messages</p>
+    <ul>
+        @foreach (var message in conversation.Messages)
+        {
+            <p>Sent by : @message.User.FullName</p>
+            <p>@message.Content</p>
+        }
+    </ul>
+}
+
+<h1>Message received</h1>
+
+<!-- Message received -->
+
+ @foreach (var message in Model.MessagesReceived)
+{
+    <p>Sent by : @message.User.FullName</p>
+    <p>@message.Content</p>
+}
+
+<h1>Messages sent</h1>
+
+<!-- Message sent -->
+
+@foreach (var message in Model.MessagesSent)
+{
+    <p>Sent to : @message.ReceiverName </p>
+    <p>@message.Content</p>
+}

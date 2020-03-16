@@ -14,7 +14,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using ViewModels;
 using Services;
 using Microsoft.AspNetCore.Identity;
-
+using Managers;
 
 namespace Controllers
 {
@@ -23,9 +23,9 @@ namespace Controllers
         private readonly ILogger<MessagesController> _logger;
         private readonly IMessageConversationServices _messageConversationsServices;
         private readonly IMessageServices _messagesServices;
-        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly UserManagerSQL _userManager;
 
-        public MessagesController(ILogger<MessagesController> logger, IMessageServices messageServices, IMessageConversationServices messageConversationServices, UserManager<ApplicationUser> userManager)
+        public MessagesController(ILogger<MessagesController> logger, IMessageServices messageServices, IMessageConversationServices messageConversationServices, UserManagerSQL userManager)
         {
             _logger = logger;
             _messagesServices = messageServices;
@@ -35,31 +35,16 @@ namespace Controllers
 
         public async Task<IActionResult> Index()
         {
-            var user = await _userManager.GetUserAsync(User);
-            int count = 0;
+            var user = await _userManager
+                .GetUserAsync(User);
 
             var conversations = await _messageConversationsServices
-                .GetFromPredicate(x => x.SenderId == user.Id || x.ReceiverId == user.Id, x => x.Messages);
+                .GetAllMessageConversationsOfUser(user);
 
-            foreach (var conversation in conversations)
-            {
-                test(conversation, ref count);
-            }
+            var model = 
+                new MessagesConversationsIndex(conversations, user.Id);
 
-            return View(conversations);
-        }
-
-        private void test(MessageConversation conversation , ref int count)
-        {
-            if (conversation != null)
-            {
-                foreach (var message in conversation.Messages)
-                {
-                    count++;
-                    test(message.MessageConversation, ref count);
-                }
-            }
-
+            return View(model);
         }
     }
 }

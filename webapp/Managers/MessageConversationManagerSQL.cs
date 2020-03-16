@@ -7,6 +7,7 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 
 namespace Managers
 {
@@ -20,7 +21,19 @@ namespace Managers
     {
         public MessageConversationManagerSQL(AppDbContext context, ILogger<NormalCrudOperationSQL<MessageConversation>> logger) : base(context, logger)
         {
+          
+        }
 
+        public async Task<List<MessageConversation>> GetAllMessageConversationsOfUser(IdentityUser user)
+        {
+            var conversations = await _context.MessageConversations
+                .Where(x => x.SenderId == user.Id || x.ReceiverId == user.Id)
+                .Include(x => x.Messages)
+                    .ThenInclude(y => y.User)
+                .Include(x => x.Messages)
+                .ToListAsync();
+
+            return conversations;
         }
     }
 }

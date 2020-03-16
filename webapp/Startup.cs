@@ -31,6 +31,7 @@ namespace webapp
         {
             services.AddControllersWithViews();
             services.AddRazorPages();
+            services.AddScoped<UserManagerSQL>();
             services.AddScoped<IBusinessServices, BusinessManagerSQL>();
             services.AddScoped<IEventServices, EventManagerSQL>();
             services.AddScoped<IEventTypeServices, EventTypeManagerSQL>();
@@ -40,7 +41,7 @@ namespace webapp
 
             services.AddDbContextPool<AppDbContext>(options =>
             {
-                    options.UseSqlServer(Configuration.GetConnectionString("DatabaseContext"));
+                    options.UseSqlServer(Configuration.GetConnectionString("JordanGauthierDatabaseContext"));
                     options.EnableSensitiveDataLogging(true);
             });
 

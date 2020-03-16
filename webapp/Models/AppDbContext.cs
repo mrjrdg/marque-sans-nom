@@ -108,8 +108,8 @@ namespace Models
                 .WithOne(x => x.MessageConversation)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<Message>()
-                .Ignore(x => x.MessageConversation);
+           // modelBuilder.Entity<Message>()
+               // .Ignore(x => x.MessageConversation);
 
             modelBuilder.Entity<MessageConversation>()
                 .HasOne(x => x.Sender)
