@@ -1,8 +1,8 @@
 @model EditRoleViewModel
 
 @{
-    ViewBag.Title = "Modifier un r�le";
-    Layout = "_Layout.cshtml";
+ViewBag.Title = "Modifier un r�le";
+Layout = "_Layout.cshtml";
 }
 
 <h1>Edit Role</h1>
@@ -38,23 +38,19 @@
         <div class="card-body">
             @if (Model.Users.Any())
             {
-                foreach (var user in Model.Users)
-                {
-                    <h5 class="card-title">@user</h5>
-                }
+            foreach (var user in Model.Users)
+            {
+            <h5 class="card-title">@user</h5>
+            }
             }
             else
             {
-                <h5 class="card-title">None at the moment</h5>
+            <h5 class="card-title">None at the moment</h5>
             }
         </div>
         <div class="card-footer">
-            <a  asp-action="EditUsersInRole" 
-                asp-asp-controller="Administration" 
-                asp-route-roleId="@Model.Id" 
-                class="btn btn-primary" 
-                style="width:auto"
-            >
+            <a asp-action="EditUsersInRole" asp-asp-controller="Administration" asp-route-roleId="@Model.Id"
+                class="btn btn-primary" style="width:auto">
                 Add or remove users
             </a>
         </div>

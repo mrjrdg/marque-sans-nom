@@ -1,0 +1,33 @@
+﻿<Properties StartupConfiguration="{E526B6CD-61E9-4E1B-AEF8-716130A669C0}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ViewModels/CreateMessageView.cs">
+    <Files>
+      <File FileName="Views/Messages/Create.cshtml" Line="16" Column="19" />
+      <File FileName="Controllers/MessagesController.cs" Line="1" Column="1" />
+      <File FileName="ViewModels/CreateMessageView.cs" Line="5" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="webapp" expanded="True">
+            <Node name="webapp" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="ViewModels" expanded="True">
+                <Node name="CreateMessageView.cs" selected="True" />
+              </Node>
+              <Node name="Views" expanded="True">
+                <Node name="Messages" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.webapp PreferredExecutionTarget="/Applications/Firefox.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

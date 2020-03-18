@@ -8,6 +8,7 @@
 
 <!-- conversation received -->
 
+    <a class="btn btn-primary mt-3" asp-controller="Messages" asp-action="Create" role="button">Nouveau message</a>
 @foreach (var conversation in Model.ConversationsReceived)
 {
     <p>Subject : @conversation.Subject</p>
