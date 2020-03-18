@@ -56,8 +56,6 @@ namespace Controllers
             var user = await _userManager
                 .GetUserAsync(User);
 
-               
-
             var conversations = await _messageConversationsServices
                 .GetAllMessageConversationsOfUser(user);
 
@@ -74,22 +72,42 @@ namespace Controllers
                var sender = await _userManager
                 .GetUserAsync(User);
 
-            var receiver = await _context.Users.FindAsync(newConversation.UserId);
-            newConversation.messageConversation.Receiver = receiver;
-            newConversation.messageConversation.ReceiverId = receiver.Id;
-            newConversation.messageConversation.Sender = sender;
-            newConversation.messageConversation.SenderId = sender.Id;
+            var receiver = await _context.Users
+            .FindAsync(newConversation.UserId);
+
+            MessageConversation conversation = new MessageConversation();
+
+            conversation.ReceiverId = newConversation.UserId;
+            conversation.SenderId = sender.Id;
+            conversation.Subject = newConversation.Subject;
+
+            var model = _context.Add(conversation);
+
+            await _context.SaveChangesAsync();
+
+            // newConversation.messageConversation.Receiver = receiver;
+            //newConversation.UserId = receiver.Id;
+            // newConversation.messageConversation.Sender = sender;
+            // newConversation.messageConversation.SenderId = sender.Id;
+            // _context.Add(newConversation.messageConversation);
+            // await _context.SaveChangesAsync();
 
             var message = new Message();
-            message.MessageConversationId = newConversation.messageConversation.Id;
-            message.Content = newConversation.Message.Content;
-            message.User= sender;
+            message.Content = newConversation.Content;
+            message.MessageConversationId = model.Entity.Id;
+            message.User = sender;
 
+            _context.Add(message);
+            await _context.SaveChangesAsync();
+            // message.MessageConversationId = newConversation.messageConversation.Id;
+            // message.Content = newConversation.Message.Content;
+            // message.User = sender;
             
 
+        // _context.Add(message);
+        //     await _context.SaveChangesAsync();
 
-
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index","Messages");
         }
 
 

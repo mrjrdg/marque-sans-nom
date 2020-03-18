@@ -28,8 +28,10 @@ namespace Models
             {
                 return MessageConversation.Sender.Id == User.Id ? 
                     MessageConversation.Receiver.FullName : 
-                    MessageConversation.Sender.FullName;
+                    MessageConversation.Sender.FullName; 
             }
+            
+            
         }
     }
 }
