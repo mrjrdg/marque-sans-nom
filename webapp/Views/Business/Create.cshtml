@@ -1,81 +1,92 @@
 @model ViewModels.CreateBusinessView
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
 @{
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
-<h4>New Business </h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+@if (SignInManager.IsSignedIn(User))
+{
+    @if (User.IsInRole("Admin"))
+    {
 
-           <div class="form-group">
-        @Html.LabelFor(model => model.business.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-        @* <div class="col-md-10"> *@
-            @Html.EditorFor(model => model.business.Name, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.business.Name, "", new { @class = "text-danger" })
-      
-    </div>
+        <h1>Create</h1>
+        <h4>New Business </h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-      <div class="form-group">
-        @Html.LabelFor(model => model.business.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
-    
-            @Html.EditorFor(model => model.business.Phone, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.business.Phone, "", new { @class = "text-danger" })
-     
-    </div>
-            
-            <div class="form-group">
-                <label asp-for="@Model.address.CivicNumber" class="control-label"></label>
-                <input asp-for="@Model.address.CivicNumber" class="form-control" />
-                <span asp-validation-for="@Model.address.CivicNumber" class="text-danger"></span>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.business.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @* <div class="col-md-10"> *@
+                        @Html.EditorFor(model => model.business.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.business.Name, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.business.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                        @Html.EditorFor(model => model.business.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.business.Phone, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="@Model.address.CivicNumber" class="control-label"></label>
+                        <input asp-for="@Model.address.CivicNumber" class="form-control" />
+                        <span asp-validation-for="@Model.address.CivicNumber" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="@Model.address.Street" class="control-label"></label>
+                        <input asp-for="@Model.address.Street" class="form-control" />
+                        <span asp-validation-for="@Model.address.Street" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="@Model.address.City" class="control-label"></label>
+                        <input asp-for="@Model.address.City" class="form-control" />
+                        <span asp-validation-for="@Model.address.City" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="@Model.address.State" class="control-label"></label>
+                        <input asp-for="@Model.address.State" class="form-control" />
+                        <span asp-validation-for="@Model.address.State" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="@Model.address.Country" class="control-label"></label>
+                        <input asp-for="@Model.address.Country" class="form-control" />
+                        <span asp-validation-for="@Model.address.Country" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="@Model.address.PostalCode" class="control-label"></label>
+                        <input asp-for="@Model.address.PostalCode" class="form-control" />
+                        <span asp-validation-for="@Model.address.PostalCode" class="text-danger"></span>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </form>
             </div>
+        </div>
 
-             <div class="form-group">
-                <label asp-for="@Model.address.Street" class="control-label"></label>
-                <input asp-for="@Model.address.Street" class="form-control" />
-                <span asp-validation-for="@Model.address.Street" class="text-danger"></span>
-            </div>
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>
 
-               <div class="form-group">
-                <label asp-for="@Model.address.City" class="control-label"></label>
-                <input asp-for="@Model.address.City" class="form-control" />
-                <span asp-validation-for="@Model.address.City" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="@Model.address.State" class="control-label"></label>
-                <input asp-for="@Model.address.State" class="form-control" />
-                <span asp-validation-for="@Model.address.State" class="text-danger"></span>
-            </div>
-
-             <div class="form-group">
-                <label asp-for="@Model.address.Country" class="control-label"></label>
-                <input asp-for="@Model.address.Country" class="form-control" />
-                <span asp-validation-for="@Model.address.Country" class="text-danger"></span>
-            </div>
-
-               <div class="form-group">
-                <label asp-for="@Model.address.PostalCode" class="control-label"></label>
-                <input asp-for="@Model.address.PostalCode" class="form-control" />
-                <span asp-validation-for="@Model.address.PostalCode" class="text-danger"></span>
-            </div>
-            
-         
-         
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
 }
+
+        @section Scripts {
+            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        }
