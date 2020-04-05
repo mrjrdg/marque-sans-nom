@@ -83,13 +83,13 @@ namespace Models
         /// <returns>The address as a string</returns>
         public override string ToString()
         {
-            return $"{CivicNumber} {Street} {City}, {State} {Country}";
+            return $"{CivicNumber}, {Street} - {City} {State}  {PostalCode} - {Country}";
         }
 
         [NotMapped]
         public string fullAddress
         {
-            get { return $"{CivicNumber} {Street} {City}, {State} {Country}"; }
+            get { return $"{CivicNumber}, {Street} - {City} {State}  {PostalCode} - {Country}"; }
 
         }
 

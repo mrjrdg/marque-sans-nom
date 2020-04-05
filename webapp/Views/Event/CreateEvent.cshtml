@@ -1,111 +1,175 @@
 @model ViewModels.CreateEventView
 @using Models
 
-
-
 @{
-ViewData["Title"] = "Create";
+    ViewData["Title"] = "Organiser un evenement";
 }
 
+@section HeadScripts {
 
-<h1>Create</h1>
+    <link rel="stylesheet" href="~/lib/tempus-dominus-datetimepicker/css/tempusdominus-bootstrap-4.min.css" />
 
-<h4>Event Create</h4>
-<hr />
+}
+
+<h1 class="border-bottom">Organiser un &eacute;v&eacute;nement</h1>
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md">
         <form asp-action="CreateEvent">
             <div class="text-danger"></div>
             @* asp-validation-summary="ModelOnly" *@
 
-
             <div class="form-group">
-                @Html.LabelFor(m => m.Event.Address, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-12">
-                    @Html.DropDownListFor(Model => Model.Event.Address.Id, new SelectList(Model.Addresses, "Id",
-                    "fullAddress"), new { @class = "form-control" })
+                @Html.LabelFor(model => model.Event.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Event.Title, new
+                    {
+                        htmlAttributes = new { @class = "form-control" }
+                    })
+                    @Html.ValidationMessageFor(model => model.Event.Title, "", new { @class = "text-danger" })
                 </div>
             </div>
 
-
             <div class="form-group">
-                @Html.LabelFor(m => m.Event.Business, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-12">
-                    @Html.DropDownListFor(Model => Model.Event.Business.Id, new SelectList(Model.Businesses, "Id",
-                    "Name"),new { @class = "form-control" })
-                </div>
-            </div>
 
-            @* <div class="form-group">
-                @Html.LabelFor(model => model.Model.Id, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Model.Id, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Model.Id, "", new { @class = "text-danger" })
-                </div>
-            </div> *@
-
-
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Event.StartDate, htmlAttributes: new { @class = "control-label col-md-2"
+                @Html.LabelFor(model => model.Event.StartDate, htmlAttributes: new
+                {
+                    @class = "control-label col-md-3"
                 })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Event.StartDate, new { htmlAttributes = new { @class = "form-control"
-                    } })
+
+                <div class="col-md-6">
+                    <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+
+                        @Html.EditorFor(model => model.Event.StartDate, new
+                   {
+                       htmlAttributes = new
+                            {
+                           @class = "form-control datetimepicker-input",
+                           @data_target = "#datetimepicker1"
+                       }
+                   })
+
+                        <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        </div>
+                    </div>
                     @Html.ValidationMessageFor(model => model.Event.StartDate, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group">
                 @Html.LabelFor(model => model.Event.EndDate, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Event.EndDate, new { htmlAttributes = new { @class = "form-control" }
+                <div class="col-md-6">
+                    <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
+                        @Html.EditorFor(model => model.Event.EndDate, new
+                        {
+                            htmlAttributes = new
+                            {
+                                @class = "form-control",
+                                @data_target = "#datetimepicker2"
+                            }
+                        })
+
+                        <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Event.Business, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.DropDownListFor(Model => Model.Event.Business.Id, new SelectList(Model.Businesses, "Id",
+                    "Name"), new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Event.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.DropDownListFor(Model => Model.Event.Address.Id, new SelectList(Model.Addresses, "Id",
+                    "fullAddress"), new { @class = "form-control" })
+                </div>
+            </div>
+
+            @*
+                <div class="form-group">
+                @Html.LabelFor(model => model.Model.Id, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Model.Id, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Model.Id, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            *@
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Event.PriceToPayToParticipate, htmlAttributes: new
+                {
+                    @class = "control-label col-md-2"
+                })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Event.PriceToPayToParticipate, new
+                    {
+                        htmlAttributes = new
+                        {
+                            @class = "form-control"
+                        }
+                    })
+                    @Html.ValidationMessageFor(model => model.Event.PriceToPayToParticipate, "", new
+                    {
+                        @class = "text-danger"
                     })
                 </div>
             </div>
-
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Event.PriceToPayToParticipate, htmlAttributes: new { @class =
-                "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Event.PriceToPayToParticipate, new { htmlAttributes = new { @class =
-                    "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Event.PriceToPayToParticipate, "", new { @class =
-                    "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Event.Title, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Event.Title, new { htmlAttributes = new { @class = "form-control" }
-                    })
-                    @Html.ValidationMessageFor(model => model.Event.Title, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-
 
             <div class="form-group">
                 @Html.LabelFor(m => m.Event.EventType, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-12">
-                    @Html.DropDownListFor(Model => Model.Event.EventType.Id,new SelectList(Model.EventTypes, "Id",
-                    "Title"),new { @class = "form-control" })
+                <div class="col-md-6">
+                    @Html.DropDownListFor(Model => Model.Event.EventType.Id, new SelectList(Model.EventTypes, "Id",
+                    "Title"), new { @class = "form-control" })
                 </div>
             </div>
 
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Cr&eacute;er" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Retour &agrave; la liste des &eacute;v&eacute;nements</a>
 </div>
 
 @section Scripts {
-@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");
+
+        <script type="text/javascript" src="~/lib/momentjs/moment.js"></script>
+        <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script type="text/javascript" src="~/lib/tempus-dominus-datetimepicker/js/tempusdominus-bootstrap-4.min.js"></script>
+
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker({
+                    locale: 'fr',
+                    icons:
+                    {
+                        time: "fa fa-clock"
+                    }
+                });
+            });
+        </script>
+
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker2').datetimepicker({
+                    locale: 'fr',
+                    icons:
+                    {
+                        time: "fa fa-clock"
+                    }
+                });
+            });
+        </script>
+
+    }
 }
