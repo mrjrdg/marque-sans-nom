@@ -48,22 +48,22 @@ namespace webapp.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "ee77b2eb-c623-4e2f-a16b-eeebb3744774",
-                            ConcurrencyStamp = "437f3e25-0ba3-4ea3-970a-33414f0064ac",
+                            Id = "b2cb8904-288c-4421-aadf-51a6777c3090",
+                            ConcurrencyStamp = "7940f4e6-dccf-4d97-87e8-4da770e2c8f6",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "88a36f70-99e6-4cef-8c72-e92d5536de1b",
-                            ConcurrencyStamp = "0b60ac8e-06ec-4702-866c-df145f2b04bb",
+                            Id = "9bdef51e-aa14-4d53-b65b-96699343b6ad",
+                            ConcurrencyStamp = "df9036a3-133b-4e0b-aa9a-0ec94d50294a",
                             Name = "CustomerPeople",
                             NormalizedName = "CUSTOMERPEOPLE"
                         },
                         new
                         {
-                            Id = "96ceeed8-22de-426d-8cf6-a42ff20ed220",
-                            ConcurrencyStamp = "99f8a9dc-b2f6-4370-a99a-332ca0ff6c59",
+                            Id = "8616ebae-b74b-4682-a9b9-63213fbd5c72",
+                            ConcurrencyStamp = "0bf87046-d8fe-46f8-984d-e532b9b5fbbc",
                             Name = "CustomerBusiness",
                             NormalizedName = "CUSTOMERBUSINESS"
                         });
@@ -156,23 +156,23 @@ namespace webapp.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "14ad00d3-6ab5-49df-b269-44cde5f29e3e",
-                            RoleId = "ee77b2eb-c623-4e2f-a16b-eeebb3744774"
+                            UserId = "c614cf08-102b-4156-a31e-f1625303d822",
+                            RoleId = "b2cb8904-288c-4421-aadf-51a6777c3090"
                         },
                         new
                         {
-                            UserId = "a935282e-2336-49c3-9811-28742e1242a4",
-                            RoleId = "ee77b2eb-c623-4e2f-a16b-eeebb3744774"
+                            UserId = "5e54072f-8fa7-4152-b11e-cbdb1743fdd5",
+                            RoleId = "b2cb8904-288c-4421-aadf-51a6777c3090"
                         },
                         new
                         {
-                            UserId = "ae823a38-13c7-4916-a5b3-a7073cd2ecd1",
-                            RoleId = "ee77b2eb-c623-4e2f-a16b-eeebb3744774"
+                            UserId = "2df00be9-f303-4d5c-8a87-bc7dc55b2da7",
+                            RoleId = "b2cb8904-288c-4421-aadf-51a6777c3090"
                         },
                         new
                         {
-                            UserId = "79274c29-3dd8-43c0-b92a-aec049dc087f",
-                            RoleId = "ee77b2eb-c623-4e2f-a16b-eeebb3744774"
+                            UserId = "c2123f21-dcc2-4345-862a-52dcd65c917e",
+                            RoleId = "b2cb8904-288c-4421-aadf-51a6777c3090"
                         });
                 });
 
@@ -343,9 +343,9 @@ namespace webapp.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "14ad00d3-6ab5-49df-b269-44cde5f29e3e",
+                            Id = "c614cf08-102b-4156-a31e-f1625303d822",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "5de37be1-90bd-4a8f-8fc4-96b95c21fa00",
+                            ConcurrencyStamp = "1d55095b-94a9-4036-88ae-263e81c43f0e",
                             Email = "jordangauthier@noname.com",
                             EmailConfirmed = false,
                             FirstName = "Jordan",
@@ -353,18 +353,18 @@ namespace webapp.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "JORDANGAUTHIER@NONAME.COM",
                             NormalizedUserName = "JORDANGAUTHIER@NONAME.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJkpl6Zqtod+CrD298Kyfxks25FB6VVhLXpBMi+4eeLhMnLNT1uHH+ZlEBasrEAAOQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHipyCJqEdjLRbIVqWt5gUbUXAjM/ZXwmYCt7DSYbo9sI+yv0UxWoVAUOEAfYuD3AA==",
                             PhoneNumber = "514-979-7316",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "07f9190a-d6a3-4fde-bfcc-83275b129876",
+                            SecurityStamp = "d102ff06-a7ca-4134-8304-7053169f4656",
                             TwoFactorEnabled = false,
                             UserName = "jordangauthier@noname.com"
                         },
                         new
                         {
-                            Id = "a935282e-2336-49c3-9811-28742e1242a4",
+                            Id = "5e54072f-8fa7-4152-b11e-cbdb1743fdd5",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3a6de4e6-e8b4-4d98-be31-292db445a288",
+                            ConcurrencyStamp = "1e95864a-4559-422c-962f-8ff3ed2e1792",
                             Email = "alexdufour@noname.com",
                             EmailConfirmed = false,
                             FirstName = "Alex",
@@ -372,18 +372,18 @@ namespace webapp.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ALEXDUFOUR@NONAME.COM",
                             NormalizedUserName = "ALEXDUFOUR@NONAME.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJkpl6Zqtod+CrD298Kyfxks25FB6VVhLXpBMi+4eeLhMnLNT1uHH+ZlEBasrEAAOQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHipyCJqEdjLRbIVqWt5gUbUXAjM/ZXwmYCt7DSYbo9sI+yv0UxWoVAUOEAfYuD3AA==",
                             PhoneNumber = "514-911-9111",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "93be084a-cae0-4926-a949-5296f8a3457c",
+                            SecurityStamp = "9a00aaa5-79a5-44dc-bb76-eef925afc01c",
                             TwoFactorEnabled = false,
                             UserName = "alexdufour@noname.com"
                         },
                         new
                         {
-                            Id = "ae823a38-13c7-4916-a5b3-a7073cd2ecd1",
+                            Id = "2df00be9-f303-4d5c-8a87-bc7dc55b2da7",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a9a894ff-28fd-4059-9559-b5553127c3a1",
+                            ConcurrencyStamp = "0e33dd74-8495-4a41-bdf6-446544eeeb68",
                             Email = "alexhamel@noname.com",
                             EmailConfirmed = false,
                             FirstName = "Alexandre",
@@ -391,17 +391,17 @@ namespace webapp.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "alexhamel@noname.com",
                             NormalizedUserName = "alexhamel@noname.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJkpl6Zqtod+CrD298Kyfxks25FB6VVhLXpBMi+4eeLhMnLNT1uHH+ZlEBasrEAAOQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHipyCJqEdjLRbIVqWt5gUbUXAjM/ZXwmYCt7DSYbo9sI+yv0UxWoVAUOEAfYuD3AA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "51aa32c3-8d7a-43e8-9b56-d456a025d3cb",
+                            SecurityStamp = "0ecb3936-8595-49c2-a0c5-324047b76c1f",
                             TwoFactorEnabled = false,
                             UserName = "alexhamel@noname.com"
                         },
                         new
                         {
-                            Id = "79274c29-3dd8-43c0-b92a-aec049dc087f",
+                            Id = "c2123f21-dcc2-4345-862a-52dcd65c917e",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "70eba1d5-2ade-4b81-ade4-1ea49e2169f8",
+                            ConcurrencyStamp = "ad93c032-d5e7-4b9c-89e6-0f1b6999f0ae",
                             Email = "philippesoucy@noname.com",
                             EmailConfirmed = false,
                             FirstName = "Philippe",
@@ -409,9 +409,9 @@ namespace webapp.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "PHILIPPESOUCY@NONAME.COM",
                             NormalizedUserName = "PHILIPPESOUCY@NONAME.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJkpl6Zqtod+CrD298Kyfxks25FB6VVhLXpBMi+4eeLhMnLNT1uHH+ZlEBasrEAAOQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHipyCJqEdjLRbIVqWt5gUbUXAjM/ZXwmYCt7DSYbo9sI+yv0UxWoVAUOEAfYuD3AA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "17b984e7-921e-41b3-b3c4-94bc0caccf49",
+                            SecurityStamp = "8506f5c3-42e0-40df-97ee-3740c0abac40",
                             TwoFactorEnabled = false,
                             UserName = "philippesoucy@noname.com"
                         });
@@ -474,6 +474,9 @@ namespace webapp.Migrations
                     b.Property<int?>("BusinessId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
@@ -507,20 +510,22 @@ namespace webapp.Migrations
                         {
                             Id = 1,
                             AddressId = 3,
-                            ApplicationUserId = "14ad00d3-6ab5-49df-b269-44cde5f29e3e",
+                            ApplicationUserId = "c614cf08-102b-4156-a31e-f1625303d822",
                             BusinessId = 1,
+                            Description = "Fun fun Zumba de Jordan perte de poids assurer 100% garantie.",
                             EndDate = new DateTime(2020, 2, 25, 18, 30, 0, 0, DateTimeKind.Unspecified),
                             EventTypeId = 1,
                             PriceToPayToParticipate = 50.0,
                             StartDate = new DateTime(2020, 2, 25, 13, 30, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Zumba de dufour"
+                            Title = "Zumba de Jordan"
                         },
                         new
                         {
                             Id = 2,
                             AddressId = 2,
-                            ApplicationUserId = "a935282e-2336-49c3-9811-28742e1242a4",
+                            ApplicationUserId = "5e54072f-8fa7-4152-b11e-cbdb1743fdd5",
                             BusinessId = 2,
+                            Description = "Venez reprendre le poids Perdu a La Zumba de jordan!",
                             EndDate = new DateTime(2020, 2, 25, 18, 30, 0, 0, DateTimeKind.Unspecified),
                             EventTypeId = 1,
                             PriceToPayToParticipate = 50.0,
@@ -546,32 +551,32 @@ namespace webapp.Migrations
                     b.HasData(
                         new
                         {
-                            ApplicationUserId = "14ad00d3-6ab5-49df-b269-44cde5f29e3e",
+                            ApplicationUserId = "c614cf08-102b-4156-a31e-f1625303d822",
                             EventId = 1
                         },
                         new
                         {
-                            ApplicationUserId = "a935282e-2336-49c3-9811-28742e1242a4",
+                            ApplicationUserId = "5e54072f-8fa7-4152-b11e-cbdb1743fdd5",
                             EventId = 1
                         },
                         new
                         {
-                            ApplicationUserId = "14ad00d3-6ab5-49df-b269-44cde5f29e3e",
+                            ApplicationUserId = "c614cf08-102b-4156-a31e-f1625303d822",
                             EventId = 2
                         },
                         new
                         {
-                            ApplicationUserId = "a935282e-2336-49c3-9811-28742e1242a4",
+                            ApplicationUserId = "5e54072f-8fa7-4152-b11e-cbdb1743fdd5",
                             EventId = 2
                         },
                         new
                         {
-                            ApplicationUserId = "79274c29-3dd8-43c0-b92a-aec049dc087f",
+                            ApplicationUserId = "c2123f21-dcc2-4345-862a-52dcd65c917e",
                             EventId = 2
                         },
                         new
                         {
-                            ApplicationUserId = "ae823a38-13c7-4916-a5b3-a7073cd2ecd1",
+                            ApplicationUserId = "2df00be9-f303-4d5c-8a87-bc7dc55b2da7",
                             EventId = 2
                         });
                 });
@@ -636,28 +641,28 @@ namespace webapp.Migrations
                             Id = 1,
                             Content = "Est-tu pret big ?",
                             MessageConversationId = 1,
-                            UserId = "14ad00d3-6ab5-49df-b269-44cde5f29e3e"
+                            UserId = "c614cf08-102b-4156-a31e-f1625303d822"
                         },
                         new
                         {
                             Id = 2,
                             Content = "Je sais pas toi ?",
                             MessageConversationId = 1,
-                            UserId = "a935282e-2336-49c3-9811-28742e1242a4"
+                            UserId = "5e54072f-8fa7-4152-b11e-cbdb1743fdd5"
                         },
                         new
                         {
                             Id = 3,
                             Content = "Je sais pas non plus.",
                             MessageConversationId = 1,
-                            UserId = "14ad00d3-6ab5-49df-b269-44cde5f29e3e"
+                            UserId = "c614cf08-102b-4156-a31e-f1625303d822"
                         },
                         new
                         {
                             Id = 4,
                             Content = "Mtseee",
                             MessageConversationId = 1,
-                            UserId = "a935282e-2336-49c3-9811-28742e1242a4"
+                            UserId = "5e54072f-8fa7-4152-b11e-cbdb1743fdd5"
                         });
                 });
 
@@ -692,8 +697,8 @@ namespace webapp.Migrations
                         new
                         {
                             Id = 1,
-                            ReceiverId = "a935282e-2336-49c3-9811-28742e1242a4",
-                            SenderId = "14ad00d3-6ab5-49df-b269-44cde5f29e3e",
+                            ReceiverId = "5e54072f-8fa7-4152-b11e-cbdb1743fdd5",
+                            SenderId = "c614cf08-102b-4156-a31e-f1625303d822",
                             Subject = "tournois de cs pas d'awp"
                         });
                 });
@@ -754,7 +759,7 @@ namespace webapp.Migrations
                     b.HasOne("Models.Address", "Address")
                         .WithMany("Businesses")
                         .HasForeignKey("AddressId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Models.Event", b =>
@@ -789,18 +794,18 @@ namespace webapp.Migrations
                         .IsRequired();
 
                     b.HasOne("Models.Event", "Event")
-                        .WithMany("Members")
+                        .WithMany()
                         .HasForeignKey("EventId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
             modelBuilder.Entity("Models.Message", b =>
                 {
-                    b.HasOne("Models.MessageConversation", null)
+                    b.HasOne("Models.MessageConversation", "MessageConversation")
                         .WithMany("Messages")
                         .HasForeignKey("MessageConversationId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Models.ApplicationUser", "User")

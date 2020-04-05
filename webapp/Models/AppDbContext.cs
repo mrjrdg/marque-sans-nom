@@ -306,8 +306,9 @@ namespace Models
                     StartDate = new DateTime(2020, 02, 25, 13, 30, 0),
                     EndDate = new DateTime(2020, 02, 25, 18, 30, 0),
                     PriceToPayToParticipate = 50.0,
-                    Title = "Zumba de dufour",
+                    Title = "Zumba de Jordan",
                     EventTypeId = 1,
+                    Description = "Fun fun Zumba de Jordan perte de poids assurer 100% garantie."
                 },
                 new
                 {
@@ -320,6 +321,7 @@ namespace Models
                     PriceToPayToParticipate = 50.0,
                     Title = "Souper spaghetti de dufour (Lever de fond)",
                     EventTypeId = 1,
+                    Description = "Venez reprendre le poids Perdu a La Zumba de jordan!"
                 }
             );
 

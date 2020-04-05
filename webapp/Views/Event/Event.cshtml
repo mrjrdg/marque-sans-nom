@@ -25,6 +25,12 @@ ViewData["Title"] = "Fiche d'un événement";
 
             <p class="h4">
                 <small class="text-muted">
+                    Description de l'evenement @Model.Event.Description
+                </small>
+            </p>
+
+            <p class="h4">
+                <small class="text-muted">
                     participants 
                     @foreach (var item in Model.Event.Members)
                     {
@@ -32,7 +38,7 @@ ViewData["Title"] = "Fiche d'un événement";
                             @item.FullName
                         </h1>
                     }
-                    <span class="eventorganizer"><a href="#">@Model.Event.Members</a></span>
+                   
                 </small>
             </p>
         </div>

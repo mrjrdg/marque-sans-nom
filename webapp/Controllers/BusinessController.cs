@@ -134,15 +134,19 @@ namespace Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var business = await _context.Businesses.FindAsync(id);
-            await  _eventServices.GetAll();
+           var business = await _context.Businesses
+                .Include(x => x.Events)
+                .FirstAsync(x => x.Id == id);
+
+            await _eventServices.GetAll();
+
             await _context.EventApplicationUsers.ToListAsync();
-            
-            // foreach (var item in business.Events)
-            // {
-            //     _context.Events.Remove( await _context.Events.FindAsync(item.Id));
-            //     _context.EventApplicationUsers.Remove ( await _context.EventApplicationUsers.FindAsync(item.ApplicationUser.Id));
-            // }
+
+            foreach (var item in business.Events)
+            {
+                _context.Events.Remove(await _context.Events.FindAsync(item.Id));
+            }
+
             _context.Businesses.Remove(business);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

@@ -18,10 +18,12 @@ namespace Models
         /// The title of the event
         /// </summary>
         /// <value></value>
-        [Display(Name ="Titre")]
+        [Display(Name = "Titre")]
         [Required(ErrorMessage = "Le titre de l'evenement est requis.")]
         [RegularExpression("^.{1,64}$", ErrorMessage = "Veuillez saisir un maximum de 64 caract�res dans le titre de l'�v�nement.")]
         public string Title { get; set; }
+
+        public string Description { get; set; }
 
         /// <summary>
         /// The start date of the event
@@ -72,7 +74,7 @@ namespace Models
         /// <value></value>
         [Display(Name = "Categorie")]
         public EventType EventType { get; set; }
-        
+
         /// <summary>
         ///     The owner ApplicationUser of this event
         /// </summary>
@@ -87,6 +89,7 @@ namespace Models
         /// <value></value>
         [NotMapped]
         public List<ApplicationUser> Members { get; set; }
+
 
         public Event()
         {

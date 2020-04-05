@@ -17,9 +17,13 @@
 <h1 class="border-bottom">@ViewBag.Title</h1>
 <div class="eventlistcarddeck">
 @{
+
+    if (Model.Events.Count == 0){
+        <p> Il n'y a pas d'evenements </p>
+    } else {
 Event lastEvent = Model.Events.Last();
 int eventCount = 0;
-
+      
     foreach (var item in Model.Events)
     {
 
@@ -57,6 +61,7 @@ int eventCount = 0;
 
         eventCount++;
 
+    }
     }
 }
 </div>
