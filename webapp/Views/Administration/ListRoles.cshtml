@@ -1,48 +1,54 @@
 @model IEnumerable<IdentityRole>
 
-    @{
-    ViewBag.Title = "Liste des r�les";
+@{
+    ViewBag.Title = "Liste des rôles";
     Layout = "_Layout.cshtml";
-    }
+}
 
-    <h1>All Roles</h1>
+<h2>@ViewBag.Title</h2>
 
-    @if (Model.Any())
-    {
-    <a class="btn btn-primary mb-3" style="width:auto" asp-action="CreateRole" asp-controller="administration">Add new
-        role</a>
+<div class="row">
+    <div class="col-md">
+        <a class="btn btn-success m-1" role="button" asp-action="CreateRole" asp-controller="administration">
+            <i class="fas fa-plus"></i>
+            &nbsp;
+            Ajouter un r&ocirc;le
+        </a>
 
-    foreach (var role in Model)
-    {
-    <div class="card mb-3">
-        <div class="card-header">
-            Role Id : @role.Id
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">@role.Name</h5>
-        </div>
-        <div class="card-footer">
-            <a class="btn btn-primary" asp-action="EditRole" asp-controller="Administration"
-                asp-route-id="@role.Id">Edit</a>
-            <a asp-controller="Administration" asp-action="DeleteRole" asp-route-id="@role.Id"
-                class="btn btn-danger">Delete</a>
-        </div>
+        @if (Model.Any())
+        {
+            <table id="myTable" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Nom du r&ocirc;le</th>
+                        <th scope="col" class="text-right">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var role in Model)
+                    {
+                        <tr>
+                            <td>
+                                @role.Name
+                            </td>
+                            <td class="text-right">
+                                <a class="btn btn-primary mx-1" asp-action="EditRole" asp-controller="Administration"
+                                   asp-route-id="@role.Id">
+                                    <i class="fas fa-edit" style="width:14px; height:16px"></i>
+                                </a>
+                                <a class="btn btn-danger" asp-controller="Administration" asp-action="DeleteRole"
+                                   asp-route-id="@role.Id">
+                                    <i class="fas fa-trash-alt" style="width:14px; height:16px"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>Aucun r&ocirc;le. Veuillez en cr&eacute;er un.</p>
+        }
     </div>
-    }
-    }
-    else
-    {
-    <div class="card">
-        <div class="card-header">
-            No roles created yet
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">
-                Use the button below to create a role
-            </h5>
-            <a class="btn btn-primary" style="width:auto" asp-controller="administration" asp-action="CreateRole">
-                Create Role
-            </a>
-        </div>
-    </div>
-    }
+</div>

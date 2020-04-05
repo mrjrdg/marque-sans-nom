@@ -1,21 +1,30 @@
 @using Models
 @inject SignInManager<ApplicationUser> SignInManager
-        @{
-        var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
-        }
-        <ul class="nav nav-pills flex-column mb-2">
-                <li class="nav-item m-1">
-                <a class="nav-link btn btn-primary text-white" asp-area="" asp-controller="Administration"
-                    asp-action="Index">Administration</a>
-            </li>
+@{
+    var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
+}
 
-            <li class="nav-item m-1">
-                <a class="nav-link btn btn-primary text-white" asp-area="" asp-controller="Administration"
-                    asp-action="Listroles">List Roles</a>
-            </li>
+<ul class="nav nav-pills flex-column mb-2">
+    <li class="nav-item m-1">
+        <a class="nav-link" asp-area="" asp-controller="Administration"
+           asp-action="Listroles">Gestion des r&ocirc;les</a>
+    </li>
+    <li class="nav-item m-1">
+        <a class="nav-link" asp-area="" asp-controller="Business"
+           asp-action="Index">Gestion des entreprises</a>
+    </li>
+</ul>
 
-            <li class="nav-item m-1">
-                <a class="nav-link btn btn-primary text-white" asp-area="" asp-controller="Administration"
-                    asp-action="CreateRole">Create Role</a>
-         
-        </ul>
+@*
+    <ul class="nav nav-pills flex-column mb-2">
+        <li class="nav-item m-1">
+            <a class="nav-link btn btn-primary text-white" asp-area="" asp-controller="Administration"
+               asp-action="Listroles">List Roles</a>
+        </li>
+
+        <li class="nav-item m-1">
+            <a class="nav-link btn btn-primary text-white" asp-area="" asp-controller="Administration"
+               asp-action="CreateRole">Create Role</a>
+
+    </ul>
+*@
