@@ -18,14 +18,14 @@ namespace Models
         /// </summary>
         /// <value></value>
         [Required(ErrorMessage ="Le nom de la rue est requis.")]
-        [RegularExpression("^[A-Za-z0-9]+", ErrorMessage = "Veuillez saisir seulement des chiffres et des lettres dans le nom de la rue.")]
+        [RegularExpression("^[A-Za-z0-9_ ]+", ErrorMessage = "Veuillez saisir seulement des chiffres et des lettres dans le nom de la rue.")]
         public string Street { get; set; }
 
         /// <summary>
         /// The civic number of the address
         /// </summary>
-        [Required(ErrorMessage = "Le numéro civique est requis.")]
-        [RegularExpression("^[0-9]+$", ErrorMessage = "Veuillez saisir seulement des chiffres dans le numéro civique.")]
+        [Required(ErrorMessage = "Le numï¿½ro civique est requis.")]
+        [RegularExpression("^[0-9]+$", ErrorMessage = "Veuillez saisir seulement des chiffres dans le numï¿½ro civique.")]
         public int CivicNumber { get; set; }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace Models
         /// <summary>
         ///     The appartment number
         /// </summary>
-        [RegularExpression("^[0-9]*$", ErrorMessage = "Veuillez saisir seulement des chiffres dans le numéro de l'appartement.")]
+        [RegularExpression("^[0-9]*$", ErrorMessage = "Veuillez saisir seulement des chiffres dans le numï¿½ro de l'appartement.")]
         public int? AppartmentNumber { get; set; }
 
         // FOREIGN KEY //

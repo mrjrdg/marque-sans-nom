@@ -10,5 +10,7 @@ namespace ViewModels
             public List<Event> Events { get; set; }
          public List<Address> Addresses { get; set; }
           public List<Business> Businesses { get; set; }
+
+         
     }
 }

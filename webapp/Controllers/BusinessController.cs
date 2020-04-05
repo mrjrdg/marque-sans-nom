@@ -19,12 +19,15 @@ namespace Controllers
     {
         private readonly IBusinessServices _businessServices;
 
+        private readonly IEventServices _eventServices;
+
         private readonly IAddressServices _addressServices;
         public readonly AppDbContext _context;
         private readonly ILogger<BusinessController> _logger;
 
-        public BusinessController(IBusinessServices businessServices, AppDbContext context, ILogger<BusinessController> logger, IAddressServices addressServices)
+        public BusinessController(IBusinessServices businessServices, AppDbContext context, ILogger<BusinessController> logger, IAddressServices addressServices, IEventServices eventServices)
         {
+            _eventServices = eventServices;
             _businessServices = businessServices;
             _context = context;
             _logger = logger;
@@ -60,6 +63,94 @@ namespace Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             
+        }
+
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var model = await _context.Businesses.FindAsync(id);
+            await _addressServices.GetAll();
+            if (model == null)
+            {
+                return NotFound();
+            }
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, Business model)
+        {
+            if (id != model.Id)
+            {
+                return NotFound();
+            }
+
+
+            
+                try
+                {
+                    _context.Update(model);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!BusinessExists(model.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            
+            
+        }
+         public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var model = await _context.Businesses
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (model == null)
+            {
+                return NotFound();
+            }
+            
+            return View(model);
+        }
+
+              // POST: Movies/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var business = await _context.Businesses.FindAsync(id);
+            await  _eventServices.GetAll();
+            await _context.EventApplicationUsers.ToListAsync();
+            
+            // foreach (var item in business.Events)
+            // {
+            //     _context.Events.Remove( await _context.Events.FindAsync(item.Id));
+            //     _context.EventApplicationUsers.Remove ( await _context.EventApplicationUsers.FindAsync(item.ApplicationUser.Id));
+            // }
+            _context.Businesses.Remove(business);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+         private bool BusinessExists(int id)
+        {
+            return _context.Businesses.Any(e => e.Id == id);
         }
     }
 }

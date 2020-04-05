@@ -22,6 +22,19 @@ ViewData["Title"] = "Fiche d'un événement";
                     Organisé par <span class="eventorganizer"><a href="#">@Model.Event.Business.Name</a></span>
                 </small>
             </p>
+
+            <p class="h4">
+                <small class="text-muted">
+                    participants 
+                    @* @foreach (var item in Model.Event.Members)
+                    {
+                        <h1>
+                        @item.ApplicationUser.FirstName - @item.ApplicationUser.LastName;
+                        </h1>
+                    } *@
+                    <span class="eventorganizer"><a href="#">@Model.Event.Members</a></span>
+                </small>
+            </p>
         </div>
         <!-- EVENT PARTICIPANTS START -->
         <div class="eventavatars">

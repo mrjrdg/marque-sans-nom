@@ -84,7 +84,7 @@ namespace Models
             modelBuilder.Entity<Business>()
                 .HasOne(e => e.Address)
                 .WithMany(e => e.Businesses)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
 
             // RELATION 6-7 //
 

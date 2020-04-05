@@ -11,6 +11,7 @@ using System.Web;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using ViewModels;
 using Services;
+using Managers;
 
 
 
@@ -29,9 +30,15 @@ namespace Controllers
 
         private readonly AppDbContext _context;
 
+                private readonly UserManagerSQL _userManager;
+
+
+        
+
         public EventController(ILogger<HomeController> logger, IEventServices eventServices, IEventTypeServices eventTypeServices, 
-        AppDbContext context, IAddressServices addressServices, IBusinessServices businessServices)
+        AppDbContext context, IAddressServices addressServices, IBusinessServices businessServices, UserManagerSQL userManager)
         {
+            _userManager = userManager;
             _logger = logger;
             _eventServices = eventServices;
             _eventTypeServices = eventTypeServices;
@@ -74,6 +81,7 @@ namespace Controllers
             IActionResult result = null;
             var addresses = await _eventServices.GetAll();
             await _eventTypeServices.GetAll();
+        
             // var oneEvent = await _context.Events.FirstOrDefaultAsync(m => m.Id == id);
             var oneEvent = await _eventServices.Get(id);
 
@@ -86,6 +94,7 @@ namespace Controllers
                 var model = new EventViewModel { Event = oneEvent };
                 model.Event.Address = await _addressServices.Get(oneEvent.Address.Id);
                 model.Event.EventType = await _eventTypeServices.Get(oneEvent.EventType.Id);
+                model.Event.Members = await _context.EventApplicationUsers.ToListAsync();
                 result = View("Event", model);
             }
 
@@ -134,6 +143,51 @@ namespace Controllers
             // return RedirectToAction(nameof(CreateEvent));
             
         }
+
+        //GET Join Page
+        public async Task<IActionResult> Join([FromQuery(Name = "type")] string type)
+        {
+                var events = await (string.IsNullOrEmpty(type) ? _eventServices.GetAll() : _eventTypeServices.GetEventsFromEventTypeName(type));
+           var addresses = await _context.Addresses.ToListAsync();
+           var businesses = await _context.Businesses.ToListAsync();
+           var eventypes = await _context.EventTypes.ToListAsync();
+            
+
+            ListEventsViewModel allEvents = new ListEventsViewModel();
+            allEvents.Events = events;
+
+            return View (allEvents);
+
+        }  
+
+         [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Join( ListEventsViewModel event1)
+        {
+
+
+            var getUser = await _userManager
+                .GetUserAsync(User);
+           
+           var oneEvent = await _eventServices            
+                .Get(event1.Event.Id); 
+
+            var eventUser = await _context.EventApplicationUsers.FindAsync(getUser.Id,event1.Event.Id);
+
+           oneEvent.Members
+                .Add(eventUser);
+
+        
+           //[Bind("Id,AddressId,BusinessId,ApplicationUserId,StartDate,EndDate,PriceToPayToParticipate,Title,EventTypeId")]
+            // if (ModelState.IsValid)
+            // {
+                _context.Update(oneEvent);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            // }else {
+            // return RedirectToAction(nameof(CreateEvent));
+            
+        }  
     
        
          public IActionResult userList()
