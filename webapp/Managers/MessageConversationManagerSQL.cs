@@ -31,6 +31,7 @@ namespace Managers
                 .Include(x => x.Messages)
                     .ThenInclude(y => y.User)
                 .Include(x => x.Messages)
+                .Include(x => x.Receiver)
                 .ToListAsync();
 
             return conversations;
