@@ -97,11 +97,11 @@ namespace Models
                 .HasForeignKey(e => e.ApplicationUserId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<EventApplicationUser>()
+           /* modelBuilder.Entity<EventApplicationUser>()
                 .HasOne(e => e.Event)
                 .WithMany(e => e.Members)
                 .HasForeignKey(e => e.EventId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Restrict);*/
 
             modelBuilder.Entity<MessageConversation>()
                 .HasMany(x => x.Messages)

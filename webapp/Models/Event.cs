@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Models
 {
@@ -18,16 +19,16 @@ namespace Models
         /// </summary>
         /// <value></value>
         [Display(Name ="Titre")]
-        [Required(ErrorMessage = "Le titre de l'événement est requis.")]
-        [RegularExpression("^.{1,64}$", ErrorMessage = "Veuillez saisir un maximum de 64 caractères dans le titre de l'événement.")]
+        [Required(ErrorMessage = "Le titre de l'evenement est requis.")]
+        [RegularExpression("^.{1,64}$", ErrorMessage = "Veuillez saisir un maximum de 64 caractï¿½res dans le titre de l'ï¿½vï¿½nement.")]
         public string Title { get; set; }
 
         /// <summary>
         /// The start date of the event
         /// </summary>
         /// <value></value>
-        [Display(Name = "Date et heure de début")]
-        [Required(ErrorMessage = "La date et l'heure de début sont requis.")]
+        [Display(Name = "Date et heure de debut")]
+        [Required(ErrorMessage = "La date et l'heure de debut sont requis.")]
         public DateTime StartDate { get; set; }
 
 
@@ -58,9 +59,9 @@ namespace Models
         ///     The price per participation
         /// </summary>
         /// <value></value>
-        [Display(Name = "Coût")]
-        [Required(ErrorMessage = "Le prix de participation est requis. Veuillez saisir 0.00 si l'événement est gratuit.")]
-        [RegularExpression("^[0-9]{1,4}[.][0-9]{2}$", ErrorMessage = "Veuillez saisir le prix à payer dans ce format : 12.34. SVP saisir 0.00 si l'événement est gratuit.")]
+        [Display(Name = "Count")]
+        [Required(ErrorMessage = "Le prix de participation est requis. Veuillez saisir 0.00 si l'evenement est gratuit.")]
+        [RegularExpression("^[0-9]{1,4}[.][0-9]{2}$", ErrorMessage = "Veuillez saisir le prix a payer dans ce format : 12.34. SVP saisir 0.00 si l'evenement est gratuit.")]
         public double PriceToPayToParticipate { get; set; }
 
         // FOREIGN KEY ONE TO MANY //
@@ -69,7 +70,7 @@ namespace Models
         ///     The type of the event
         /// </summary>
         /// <value></value>
-        [Display(Name = "Catégorie")]
+        [Display(Name = "Categorie")]
         public EventType EventType { get; set; }
         
         /// <summary>
@@ -84,6 +85,12 @@ namespace Models
         ///     List all the ApplicationUsers participating at this event
         /// </summary>
         /// <value></value>
-        public List<EventApplicationUser> Members { get; set; }
+        [NotMapped]
+        public List<ApplicationUser> Members { get; set; }
+
+        public Event()
+        {
+            Members = new List<ApplicationUser>();
+        }
     }
 }

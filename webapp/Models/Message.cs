@@ -30,8 +30,6 @@ namespace Models
                     MessageConversation.Receiver.FullName : 
                     MessageConversation.Sender.FullName; 
             }
-            
-            
         }
     }
 }

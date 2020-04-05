@@ -41,7 +41,7 @@ namespace webapp
 
             services.AddDbContextPool<AppDbContext>(options =>
             {
-                    options.UseSqlServer(Configuration.GetConnectionString("DatabaseContext"));
+                    options.UseSqlServer(Configuration.GetConnectionString("JordanGauthierDatabaseContext"));
                     options.EnableSensitiveDataLogging(true);
             });
 
@@ -93,6 +93,7 @@ namespace webapp
             {
                 endpoints.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+            
             app.UseEndpoints(endpoints =>
        {
            endpoints.MapRazorPages();

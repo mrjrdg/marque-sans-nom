@@ -26,16 +26,16 @@ namespace Controllers
 
         private readonly IAddressServices _addressServices;
 
-         private readonly IBusinessServices _businessServices;
+        private readonly IBusinessServices _businessServices;
 
         private readonly AppDbContext _context;
 
-                private readonly UserManagerSQL _userManager;
+        private readonly UserManagerSQL _userManager;
 
 
-        
 
-        public EventController(ILogger<HomeController> logger, IEventServices eventServices, IEventTypeServices eventTypeServices, 
+
+        public EventController(ILogger<HomeController> logger, IEventServices eventServices, IEventTypeServices eventTypeServices,
         AppDbContext context, IAddressServices addressServices, IBusinessServices businessServices, UserManagerSQL userManager)
         {
             _userManager = userManager;
@@ -55,16 +55,16 @@ namespace Controllers
         {
             IActionResult result = null;
             var events = await (string.IsNullOrEmpty(type) ? _eventServices.GetAll() : _eventTypeServices.GetEventsFromEventTypeName(type));
-           var addresses = await _context.Addresses.ToListAsync();
-           var businesses = await _context.Businesses.ToListAsync();
-            if(events == null)
+            var addresses = await _context.Addresses.ToListAsync();
+            var businesses = await _context.Businesses.ToListAsync();
+            if (events == null)
             {
                 result = NotFound();
             }
             else
             {
-                var model = new ListEventsViewModel { Events = events , Addresses = addresses,Businesses = businesses };
-   
+                var model = new ListEventsViewModel { Events = events, Addresses = addresses, Businesses = businesses };
+
                 result = View(model);
             }
 
@@ -79,11 +79,14 @@ namespace Controllers
         public async Task<IActionResult> GetEvent(int id)
         {
             IActionResult result = null;
-            var addresses = await _eventServices.GetAll();
+
+            var addresses = await _eventServices
+                .GetAll();
+
             await _eventTypeServices.GetAll();
-        
-            // var oneEvent = await _context.Events.FirstOrDefaultAsync(m => m.Id == id);
-            var oneEvent = await _eventServices.Get(id);
+
+            var oneEvent = await _eventServices
+                .Get(id);
 
             if (oneEvent == null)
             {
@@ -94,31 +97,43 @@ namespace Controllers
                 var model = new EventViewModel { Event = oneEvent };
                 model.Event.Address = await _addressServices.Get(oneEvent.Address.Id);
                 model.Event.EventType = await _eventTypeServices.Get(oneEvent.EventType.Id);
-                model.Event.Members = await _context.EventApplicationUsers.ToListAsync();
+
+                var links = await _context.EventApplicationUsers
+                    .Where(x => x.EventId == oneEvent.Id)
+                    .ToListAsync();
+
+                foreach(var link in links)
+                {
+                    var user = await _userManager
+                        .FindByIdAsync(link.ApplicationUserId);
+                        
+                    model.Event.Members.Add(user);
+                }
+
                 result = View("Event", model);
             }
 
             return result;
         }
 
-         public async Task<IActionResult> CreateEvent([FromQuery(Name = "type")] string type)
+        public async Task<IActionResult> CreateEvent([FromQuery(Name = "type")] string type)
         {
             IActionResult result = null;
             var events = await (string.IsNullOrEmpty(type) ? _eventServices.GetAll() : _eventTypeServices.GetEventsFromEventTypeName(type));
-           var addresses = await _context.Addresses.ToListAsync();
-           var businesses = await _context.Businesses.ToListAsync();
-           var eventypes = await _context.EventTypes.ToListAsync();
-            if(events == null)
+            var addresses = await _context.Addresses.ToListAsync();
+            var businesses = await _context.Businesses.ToListAsync();
+            var eventypes = await _context.EventTypes.ToListAsync();
+            if (events == null)
             {
                 result = NotFound();
             }
             else
             {
-                        CreateEventView viewModel = new CreateEventView();
-                        viewModel.Addresses = addresses;
-                        viewModel.Businesses = businesses;
-                        viewModel.EventTypes = eventypes;
-   
+                CreateEventView viewModel = new CreateEventView();
+                viewModel.Addresses = addresses;
+                viewModel.Businesses = businesses;
+                viewModel.EventTypes = eventypes;
+
                 result = View(viewModel);
             }
 
@@ -126,71 +141,68 @@ namespace Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateEvent( CreateEventView event1)
+        public async Task<IActionResult> CreateEvent(CreateEventView event1)
         {
-           
 
-           event1.Event.Address = await _addressServices.Get(event1.Event.Address.Id);
-           event1.Event.Business = await _businessServices.Get(event1.Event.Business.Id);
-           event1.Event.EventType = await _context.EventTypes.FindAsync(event1.Event.EventType.Id);
-           //[Bind("Id,AddressId,BusinessId,ApplicationUserId,StartDate,EndDate,PriceToPayToParticipate,Title,EventTypeId")]
+
+            event1.Event.Address = await _addressServices.Get(event1.Event.Address.Id);
+            event1.Event.Business = await _businessServices.Get(event1.Event.Business.Id);
+            event1.Event.EventType = await _context.EventTypes.FindAsync(event1.Event.EventType.Id);
+            //[Bind("Id,AddressId,BusinessId,ApplicationUserId,StartDate,EndDate,PriceToPayToParticipate,Title,EventTypeId")]
             // if (ModelState.IsValid)
             // {
-                _context.Add(event1.Event);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+            _context.Add(event1.Event);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
             // }else {
             // return RedirectToAction(nameof(CreateEvent));
-            
+
         }
 
         //GET Join Page
         public async Task<IActionResult> Join([FromQuery(Name = "type")] string type)
         {
-                var events = await (string.IsNullOrEmpty(type) ? _eventServices.GetAll() : _eventTypeServices.GetEventsFromEventTypeName(type));
-           var addresses = await _context.Addresses.ToListAsync();
-           var businesses = await _context.Businesses.ToListAsync();
-           var eventypes = await _context.EventTypes.ToListAsync();
-            
+            var events = await (string.IsNullOrEmpty(type) ? _eventServices.GetAll() : _eventTypeServices.GetEventsFromEventTypeName(type));
+            var addresses = await _context.Addresses.ToListAsync();
+            var businesses = await _context.Businesses.ToListAsync();
+            var eventypes = await _context.EventTypes.ToListAsync();
+
 
             ListEventsViewModel allEvents = new ListEventsViewModel();
             allEvents.Events = events;
 
-            return View (allEvents);
+            return View(allEvents);
 
-        }  
+        }
 
-         [HttpPost]
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Join( ListEventsViewModel event1)
+        public async Task<IActionResult> Join(ListEventsViewModel event1)
         {
-
-
             var getUser = await _userManager
                 .GetUserAsync(User);
-           
-           var oneEvent = await _eventServices            
-                .Get(event1.Event.Id); 
 
-            var eventUser = await _context.EventApplicationUsers.FindAsync(getUser.Id,event1.Event.Id);
+            var oneEvent = await _eventServices
+                .Get(event1.Event.Id);
 
-           oneEvent.Members
-                .Add(eventUser);
+            var link = new EventApplicationUser
+            {
+                ApplicationUserId = getUser.Id,
+                EventId = oneEvent.Id
+            };
 
-        
-           //[Bind("Id,AddressId,BusinessId,ApplicationUserId,StartDate,EndDate,PriceToPayToParticipate,Title,EventTypeId")]
-            // if (ModelState.IsValid)
-            // {
-                _context.Update(oneEvent);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            // }else {
-            // return RedirectToAction(nameof(CreateEvent));
-            
-        }  
-    
-       
-         public IActionResult userList()
+            var eventUser = await _context.EventApplicationUsers
+                .AddAsync(link);
+
+            _context.Update(oneEvent);
+
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+        }
+
+
+        public IActionResult userList()
         {
             return View();
         }
