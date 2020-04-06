@@ -154,15 +154,13 @@ img.eventlistcardimg {
 }
 
 /* ========== DataTable ========== */
-.table tbody td {
+.table tbody td, .table thead th {
     vertical-align: middle;
-}
-.table tbody tr a {
-    display: none;
+    border: none;
 }
 
-.table tbody tr:hover a {
-    display: inline;
+.table tr {
+    border-bottom: 1px solid gray;
 }
 
 .table tbody tr:hover {

@@ -14,12 +14,12 @@
     <!-- Favicon here -->
 </head>
 
-<h1>Nos Entreprises </h1>
+<h1>Nos entreprises </h1>
 
 @if (SignInManager.IsSignedIn(User)) {
 @if (User.IsInRole("Admin")){
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Ajouter une entreprise</a>
 </p>
    }
 
@@ -28,7 +28,7 @@
 
 <table class="table text-center">
     <thead>
-        <tr class="row">
+        <tr class="row justify-content-between">
             <th class="col-sm-2">
               @Html.DisplayNameFor(model => model.Name)
             </th>
@@ -44,19 +44,21 @@
             <th class="col-sm-2">
                 @Html.DisplayNameFor(model => model.Events)
             </th>
+            @if (User.IsInRole("Admin")){
              <th class="col-sm-2">
              
             </th>
+            }
             
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr class="row">
+        <tr class="row justify-content-between">
             <td class="col-sm-2">
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
-            <td>
+            <td class="col-sm-2">
                 @Html.DisplayFor(modelItem => item.Phone)
             </td>
             <td class="col-sm-4">
@@ -76,7 +78,7 @@
             
             @if (User.IsInRole("Admin")){
             <td class="col-sm-2">
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> | <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> 
+                <a asp-action="Edit" asp-route-id="@item.Id">Modifier</a> | <a asp-action="Delete" asp-route-id="@item.Id">Supprimer</a> 
            
             </td>
             }
