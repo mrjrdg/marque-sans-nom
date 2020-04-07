@@ -15,67 +15,60 @@
 <div class="row">
     <div class="col-md">
         <form asp-action="CreateEvent">
-            <div class="text-danger"></div>
-            @* asp-validation-summary="ModelOnly" *@
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Event.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            @if (ViewData.ModelState.Keys.Any(k => ViewData.ModelState[k].Errors.Any()))
+            {
+                <div class="alert alert-danger alert-dismissible fade show col-md-6" role="alert">
+                    @Html.ValidationSummary(false, "")
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Fermer">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            }
+
+            <div class="form-group no-gutters">
+                <label asp-for="Event.Title"></label>
                 <div class="col-md-6">
-                    @Html.EditorFor(model => model.Event.Title, new
-                    {
-                        htmlAttributes = new { @class = "form-control" }
-                    })
-                    @Html.ValidationMessageFor(model => model.Event.Title, "", new { @class = "text-danger" })
+                    <input asp-for="Event.Title" class="form-control" />
+                    <span asp-validation-for="Event.Title" class="text-danger"></span>
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group no-gutters">
+                <label asp-for="Event.Description"></label>
+                <div class="col-md-6">
+                    <textarea asp-for="Event.Description" class="form-control" /></textarea>
+                    <span asp-validation-for="Event.Description" class="text-danger"></span>
+                </div>
+            </div>
 
-                @Html.LabelFor(model => model.Event.StartDate, htmlAttributes: new
-                {
-                    @class = "control-label col-md-3"
-                })
-
+            <div class="form-group no-gutters">
+                <label asp-for="Event.StartDate"></label>
                 <div class="col-md-6">
                     <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
-
-                        @Html.EditorFor(model => model.Event.StartDate, new
-                   {
-                       htmlAttributes = new
-                            {
-                           @class = "form-control datetimepicker-input",
-                           @data_target = "#datetimepicker1"
-                       }
-                   })
-
+                        <input asp-for="Event.StartDate" class="form-control datetimepicker-input" data-target="#datetimepicker1" />
                         <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
                             <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                         </div>
                     </div>
-                    @Html.ValidationMessageFor(model => model.Event.StartDate, "", new { @class = "text-danger" })
+                    <span asp-validation-for="Event.StartDate" class="text-danger"></span>
                 </div>
             </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Event.EndDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="form-group no-gutters">
+                <label asp-for="Event.EndDate"></label>
                 <div class="col-md-6">
                     <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
-                        @Html.EditorFor(model => model.Event.EndDate, new
-                        {
-                            htmlAttributes = new
-                            {
-                                @class = "form-control",
-                                @data_target = "#datetimepicker2"
-                            }
-                        })
-
+                        <input asp-for="Event.EndDate" class="form-control datetimepicker-input" data-target="#datetimepicker2" />
                         <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
                             <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                         </div>
                     </div>
+                    <span asp-validation-for="Event.EndDate" class="text-danger"></span>
                 </div>
             </div>
-            <div class="form-group">
+
+            <div class="form-group no-gutters">
                 @Html.LabelFor(m => m.Event.Business, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-6">
                     @Html.DropDownListFor(Model => Model.Event.Business.Id, new SelectList(Model.Businesses, "Id",
@@ -83,7 +76,7 @@
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group no-gutters">
                 @Html.LabelFor(m => m.Event.Address, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-6">
                     @Html.DropDownListFor(Model => Model.Event.Address.Id, new SelectList(Model.Addresses, "Id",
@@ -92,36 +85,25 @@
             </div>
 
             @*
-                <div class="form-group">
-                @Html.LabelFor(model => model.Model.Id, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Model.Id, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Model.Id, "", new { @class = "text-danger" })
-                    </div>
-                </div>
+        <div class="form-group">
+        @Html.LabelFor(model => model.Model.Id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Model.Id, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Model.Id, "", new { @class = "text-danger" })
+            </div>
+        </div>
             *@
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Event.PriceToPayToParticipate, htmlAttributes: new
-                {
-                    @class = "control-label col-md-2"
-                })
+            <div class="form-group no-gutters">
+                <label asp-for="Event.PriceToPayToParticipate"></label>
                 <div class="col-md-6">
-                    @Html.EditorFor(model => model.Event.PriceToPayToParticipate, new
-                    {
-                        htmlAttributes = new
-                        {
-                            @class = "form-control"
-                        }
-                    })
-                    @Html.ValidationMessageFor(model => model.Event.PriceToPayToParticipate, "", new
-                    {
-                        @class = "text-danger"
-                    })
+                    <input asp-for="Event.PriceToPayToParticipate" class="form-control" />
+                    <span asp-validation-for="Event.PriceToPayToParticipate" class="text-danger"></span>
                 </div>
             </div>
 
-            <div class="form-group">
+
+            <div class="form-group no-gutters">
                 @Html.LabelFor(m => m.Event.EventType, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-6">
                     @Html.DropDownListFor(Model => Model.Event.EventType.Id, new SelectList(Model.EventTypes, "Id",
@@ -129,8 +111,14 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <input type="submit" value="Cr&eacute;er" class="btn btn-primary" />
+            <div class="form-group row no-gutters">
+                <div class="col-md">
+                    <button type="submit" class="btn btn-primary m-1">
+                        <i class="fas fa-check" style="width:14px; height:16px"></i>
+                        &nbsp;
+                        Cr&eacute;er mon &eacute;v&eacute;nement !
+                    </button>
+                </div>
             </div>
         </form>
     </div>
