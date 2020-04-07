@@ -19,7 +19,7 @@ namespace Models
         public Address Address { get; set; }
 
 
-        [Required(ErrorMessage = "Le num�ro de t�l�phone de l'entreprise est requis.")]
+        [Required(ErrorMessage = "Le numéro de téléphone de l'entreprise est requis.")]
         [RegularExpression("^\\([0-9]{3}\\)\\s[0-9]{3}[-]{1}[0-9]{4}$", ErrorMessage = "Veuillez saisir le num�ro de t�l�phone dans le format suivant : (111) 222-3333")]
         public string Phone { get; set; }
 
