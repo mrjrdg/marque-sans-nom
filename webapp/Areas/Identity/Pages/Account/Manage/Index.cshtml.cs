@@ -34,13 +34,13 @@ namespace webapp.Areas.Identity.Pages.Account.Manage
         public class InputModel
         {
             [Phone]
-            [Display(Name = "Phone number")]
+            [Display(Name = "Numéro de téléphone")]
             public string PhoneNumber { get; set; }
 
-            [Display(Name = "First Name")]
+            [Display(Name = "Prénom")]
             public string userFname { get; set; }
 
-             [Display(Name = "Last name")]
+             [Display(Name = "Nom de famille")]
             public string userLname { get; set; }
 
             
@@ -98,12 +98,12 @@ namespace webapp.Areas.Identity.Pages.Account.Manage
                 if (!setPhoneResult.Succeeded)
                 {
                     var userId = await _userManager.GetUserIdAsync(user);
-                    throw new InvalidOperationException($"Unexpected error occurred setting phone number for user with ID '{userId}'.");
+                    throw new InvalidOperationException($"Erreur lors de l'enregistrement du téléphone de l'utilisateur '{userId}'.");
                 }
             }
 
             await _signInManager.RefreshSignInAsync(user);
-            StatusMessage = "Your profile has been updated";
+            StatusMessage = "Votre profil a été mis à jour";
             return RedirectToPage();
         }
     }

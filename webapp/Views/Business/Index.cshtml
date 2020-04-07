@@ -19,7 +19,11 @@
 @if (SignInManager.IsSignedIn(User)) {
 @if (User.IsInRole("Admin")){
 <p>
-    <a asp-action="Create">Ajouter une entreprise</a>
+    <a class="btn btn-success m-1" role="button" asp-action="Create">
+        <i class="fas fa-plus"></i>
+        &nbsp;
+        Ajouter une entreprise
+    </a>
 </p>
    }
 
@@ -29,25 +33,15 @@
 <table class="table text-center">
     <thead>
         <tr class="row justify-content-between">
-            <th class="col-sm-2">
-              @Html.DisplayNameFor(model => model.Name)
-            </th>
+            <th class="col-sm-2">Nom</th>
 
-            <th class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Phone)
-            </th>
+            <th class="col-sm-2">T&eacute;l&eacute;phone</th>
 
-            <th class="col-sm-4">
-                @Html.DisplayNameFor(model => model.Address.City)
-            </th>
+            <th class="col-sm-4">Adresse</th>
 
-            <th class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Events)
-            </th>
+            <th class="col-sm-2">&Eacute;v&eacute;nement(s)</th>
             @if (User.IsInRole("Admin")){
-             <th class="col-sm-2">
-             
-            </th>
+             <th class="col-sm-2">Administation</th>
             }
             
         </tr>
@@ -62,10 +56,10 @@
                 @Html.DisplayFor(modelItem => item.Phone)
             </td>
             <td class="col-sm-4">
+                @Html.DisplayFor(modelItem => item.Address.CivicNumber)
+                @Html.DisplayFor(modelItem => item.Address.Street),
                 @Html.DisplayFor(modelItem => item.Address.City),
-                (@Html.DisplayFor(modelItem => item.Address.CivicNumber)),
-                @Html.DisplayFor(modelItem => item.Address.Country)
-                
+                @Html.DisplayFor(modelItem => item.Address.Country)                
             </td>
              <td class="col-sm-2">
             @foreach (var oneEvent in item.Events) {
@@ -78,7 +72,12 @@
             
             @if (User.IsInRole("Admin")){
             <td class="col-sm-2">
-                <a asp-action="Edit" asp-route-id="@item.Id">Modifier</a> | <a asp-action="Delete" asp-route-id="@item.Id">Supprimer</a> 
+                <a class="btn btn-primary mx-1" asp-action="Edit" asp-route-id="@item.Id">
+                    <i class="fas fa-edit" style="width:14px; height:16px"></i>
+                </a>
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">
+                    <i class="fas fa-trash-alt" style="width:14px; height:16px"></i>
+                </a> 
            
             </td>
             }
