@@ -17,6 +17,7 @@ namespace Models
         /// The Street
         /// </summary>
         /// <value></value>
+        [Display(Name = "Rue")]
         [Required(ErrorMessage ="Le nom de la rue est requis.")]
         [RegularExpression("^[A-Za-z0-9_ ]+", ErrorMessage = "Veuillez saisir seulement des chiffres et des lettres dans le nom de la rue.")]
         public string Street { get; set; }
@@ -24,13 +25,15 @@ namespace Models
         /// <summary>
         /// The civic number of the address
         /// </summary>
-        [Required(ErrorMessage = "Le num�ro civique est requis.")]
-        [RegularExpression("^[0-9]+$", ErrorMessage = "Veuillez saisir seulement des chiffres dans le num�ro civique.")]
+        [Display(Name = "Numéro civique")]
+        [Required(ErrorMessage = "Le numéro civique est requis.")]
+        [RegularExpression("^[0-9]+$", ErrorMessage = "Veuillez saisir seulement des chiffres dans le numéro civique.")]
         public int CivicNumber { get; set; }
 
         /// <summary>
         /// The city of the address
         /// </summary>
+        [Display(Name = "Ville")]
         [Required(ErrorMessage = "La ville est requise.")]
         [RegularExpression("^[A-Za-z]+$", ErrorMessage = "Veuillez saisir seulement des lettres dans le nom de la ville.")]
         public string City { get; set; }
@@ -38,6 +41,7 @@ namespace Models
         /// <summary>
         /// The state of the address
         /// </summary>
+        [Display(Name = "Province")]
         [Required(ErrorMessage = "La province est requise.")]
         [RegularExpression("^[A-Za-z]+$", ErrorMessage = "Veuillez saisir seulement des lettres dans le nom de la province.")]
         public string State { get; set; }
@@ -45,6 +49,7 @@ namespace Models
         /// <summary>
         /// The postalcode of the address
         /// </summary>
+        [Display(Name = "Code postal")]
         [Required(ErrorMessage = "Le code postal est requis.")]
         [RegularExpression("^[A-Za-z][0-9][A-Za-z]\\s*[0-9][A-Za-z][0-9]$", ErrorMessage = "Veuillez saisir un code postal valide.")]
         [DisplayFormat()]
@@ -53,6 +58,7 @@ namespace Models
         /// <summary>
         /// The country of the address
         /// </summary>
+        [Display(Name = "Pays")]
         [Required(ErrorMessage = "Le pays est requis.")]
         [RegularExpression("^[A-Za-z]+$", ErrorMessage = "Veuillez saisir seulement des lettres dans le nom du pays.")]
         public string Country { get; set; }
@@ -60,6 +66,7 @@ namespace Models
         /// <summary>
         ///     The appartment number
         /// </summary>
+        [Display(Name = "Appartement")]
         [RegularExpression("^[0-9]*$", ErrorMessage = "Veuillez saisir seulement des chiffres dans le num�ro de l'appartement.")]
         public int? AppartmentNumber { get; set; }
 

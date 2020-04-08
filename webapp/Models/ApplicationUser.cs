@@ -32,7 +32,7 @@ namespace Models {
         // PROPERTY NOT BIND TO THE DATABASE //
 
         [NotMapped]
-        [Display(Name = "Full Name")]
+        [Display(Name = "Nom complet")]
         public string FullName
         {
             get

@@ -3,89 +3,83 @@
 @inject UserManager<ApplicationUser> UserManager
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Nos entreprises";
 }
 
-<!DOCTYPE html>
-<html class="h-100" lang="fr-ca">
-<head>
-    <link rel="stylesheet" href="~/css/site.css" />
+<h1 class="border-bottom">@ViewBag.Title</h1>
+<div class="row">
+    <div class="col-md">
 
-    <!-- Favicon here -->
-</head>
-
-<h1>Nos entreprises </h1>
-
-@if (SignInManager.IsSignedIn(User)) {
-@if (User.IsInRole("Admin")){
-<p>
-    <a class="btn btn-success m-1" role="button" asp-action="Create">
-        <i class="fas fa-plus"></i>
-        &nbsp;
-        Ajouter une entreprise
-    </a>
-</p>
-   }
-
-
-<div class="container">
-
-<table class="table text-center">
-    <thead>
-        <tr class="row justify-content-between">
-            <th class="col-sm-2">Nom</th>
-
-            <th class="col-sm-2">T&eacute;l&eacute;phone</th>
-
-            <th class="col-sm-4">Adresse</th>
-
-            <th class="col-sm-2">&Eacute;v&eacute;nement(s)</th>
-            @if (User.IsInRole("Admin")){
-             <th class="col-sm-2">Administation</th>
+        @if (SignInManager.IsSignedIn(User))
+        {
+            @if (User.IsInRole("Admin"))
+            {
+                    <a class="btn btn-success m-1" role="button" asp-action="Create">
+                        <i class="fas fa-plus"></i>
+                        &nbsp;
+                        Ajouter une entreprise
+                    </a>
             }
-            
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr class="row justify-content-between">
-            <td class="col-sm-2">
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td class="col-sm-2">
-                @Html.DisplayFor(modelItem => item.Phone)
-            </td>
-            <td class="col-sm-4">
-                @Html.DisplayFor(modelItem => item.Address.CivicNumber)
-                @Html.DisplayFor(modelItem => item.Address.Street),
-                @Html.DisplayFor(modelItem => item.Address.City),
-                @Html.DisplayFor(modelItem => item.Address.Country)                
-            </td>
-             <td class="col-sm-2">
-            @foreach (var oneEvent in item.Events) {
-           
-                @Html.DisplayFor(modelEvent => oneEvent.Title)
-                <br/>
-            }
-            </td>
-            
-            
-            @if (User.IsInRole("Admin")){
-            <td class="col-sm-2">
-                <a class="btn btn-primary mx-1" asp-action="Edit" asp-route-id="@item.Id">
-                    <i class="fas fa-edit" style="width:14px; height:16px"></i>
-                </a>
-                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">
-                    <i class="fas fa-trash-alt" style="width:14px; height:16px"></i>
-                </a> 
-           
-            </td>
-            }
-        </tr>
-}
-    </tbody>
-</table>
+
+            <table id="myTable" class="table table-striped no-gutters">
+                <thead>
+                    <tr>
+                        <th scope="col">Nom</th>
+                        <th scope="col">T&eacute;l&eacute;phone</th>
+                        <th scope="col">Adresse</th>
+                        <th scope="col">&Eacute;v&eacute;nement(s)</th>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <th scope="col" class="text-right">Action</th>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td class="align-top">
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td class="align-top">
+                            @Html.DisplayFor(modelItem => item.Phone)
+                        </td>
+                        <td class="align-top">
+                            @Html.DisplayFor(modelItem => item.Address.CivicNumber),
+                            @Html.DisplayFor(modelItem => item.Address.Street)
+                            <br />
+                            @Html.DisplayFor(modelItem => item.Address.City)
+                            (@Html.DisplayFor(modelItem => item.Address.State))&nbsp;
+                            @Html.DisplayFor(modelItem => item.Address.PostalCode)
+                            <br />
+                            @Html.DisplayFor(modelItem => item.Address.Country)
+                        </td>
+                        <td class="align-top">
+                            @foreach (var oneEvent in item.Events)
+                            {
+                                <a asp-controller="Event" asp-action="GetEvent" asp-route-Id="@oneEvent.Id">
+                                    @Html.DisplayFor(modelEvent => oneEvent.Title)
+                                </a>
+                                <br />
+                            }
+                        </td>
+
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <td class="text-right">
+                                <a class="btn btn-primary mx-1" asp-action="Edit" asp-route-id="@item.Id">
+                                    <i class="fas fa-edit" style="width:14px; height:16px"></i>
+                                </a>
+                                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">
+                                    <i class="fas fa-trash-alt" style="width:14px; height:16px"></i>
+                                </a>
+
+                            </td>
+                        }
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
 </div>
-}
-
-@*      <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> *@

@@ -3,85 +3,110 @@
 @inject UserManager<ApplicationUser> UserManager
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Enregistrer une nouvelle entreprise";
 }
 
 @if (SignInManager.IsSignedIn(User))
 {
     @if (User.IsInRole("Admin"))
     {
-
-        <h1>Enregistrer une nouvelle entreprise</h1>
-        <hr />
+        <h1 class="border-bottom">@ViewBag.Title</h1>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md">
                 <form asp-action="Create">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    @if (ViewData.ModelState.Keys.Any(k => ViewData.ModelState[k].Errors.Any()))
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show col-md-6" role="alert">
+                            @Html.ValidationSummary(false, "")
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Fermer">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    }
 
-                    <div class="form-group">
-                        <label asp-for="@Model.business.Name" class = "control-label">Nom</label>
-                        @Html.EditorFor(model => model.business.Name, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.business.Name, "", new { @class = "text-danger" })
+                    <div class="form-group no-gutters">
+                        <label asp-for="@Model.business.Name" class="control-label">Nom</label>
+                        <div class="col-md-6">
+                            @Html.EditorFor(model => model.business.Name, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.business.Name, "", new { @class = "text-danger" })
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label asp-for="@Model.business.Phone" class = "control-label">T&eacute;l&eacute;phone</label>
-                        @Html.EditorFor(model => model.business.Phone, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.business.Phone, "", new { @class = "text-danger" })
+                    <div class="form-group no-gutters">
+                        <label asp-for="@Model.business.Phone" class="control-label">T&eacute;l&eacute;phone</label>
+                        <div class="col-md-6">
+                            @Html.EditorFor(model => model.business.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.business.Phone, "", new { @class = "text-danger" })
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label asp-for="@Model.address.CivicNumber" class="control-label">Num&eacute;ro de rue</label>
-                        <input asp-for="@Model.address.CivicNumber" class="form-control" />
-                        <span asp-validation-for="@Model.address.CivicNumber" class="text-danger"></span>
+                    <div class="form-group no-gutters">
+                        <label asp-for="@Model.address.CivicNumber" class="control-label">Num&eacute;ro civique</label>
+                        <div class="col-md-6">
+                            <input asp-for="@Model.address.CivicNumber" class="form-control" />
+                            <span asp-validation-for="@Model.address.CivicNumber" class="text-danger"></span>
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label asp-for="@Model.address.Street" class="control-label">Nom de rue</label>
-                        <input asp-for="@Model.address.Street" class="form-control" />
-                        <span asp-validation-for="@Model.address.Street" class="text-danger"></span>
+                    <div class="form-group no-gutters">
+                        <label asp-for="@Model.address.Street" class="control-label">Nom de rue</label>                <div class="col-md-6">
+                            <input asp-for="@Model.address.Street" class="form-control" />
+                            <span asp-validation-for="@Model.address.Street" class="text-danger"></span>
+                        </div>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group no-gutters">
                         <label asp-for="@Model.address.City" class="control-label">Ville</label>
-                        <input asp-for="@Model.address.City" class="form-control" />
-                        <span asp-validation-for="@Model.address.City" class="text-danger"></span>
+                        <div class="col-md-6">
+                            <input asp-for="@Model.address.City" class="form-control" />
+                            <span asp-validation-for="@Model.address.City" class="text-danger"></span>
+                        </div>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group no-gutters">
                         <label asp-for="@Model.address.State" class="control-label">Province</label>
-                        <input asp-for="@Model.address.State" class="form-control" />
-                        <span asp-validation-for="@Model.address.State" class="text-danger"></span>
+                        <div class="col-md-6">
+                            <input asp-for="@Model.address.State" class="form-control" />
+                            <span asp-validation-for="@Model.address.State" class="text-danger"></span>
+                        </div>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group no-gutters">
                         <label asp-for="@Model.address.Country" class="control-label">Pays</label>
-                        <input asp-for="@Model.address.Country" class="form-control" />
-                        <span asp-validation-for="@Model.address.Country" class="text-danger"></span>
+                        <div class="col-md-6">
+                            <input asp-for="@Model.address.Country" class="form-control" />
+                            <span asp-validation-for="@Model.address.Country" class="text-danger"></span>
+                        </div>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group no-gutters">
                         <label asp-for="@Model.address.PostalCode" class="control-label">Code postal</label>
-                        <input asp-for="@Model.address.PostalCode" class="form-control" />
-                        <span asp-validation-for="@Model.address.PostalCode" class="text-danger"></span>
+                        <div class="col-md-6">
+                            <input asp-for="@Model.address.PostalCode" class="form-control" />
+                            <span asp-validation-for="@Model.address.PostalCode" class="text-danger"></span>
+                        </div>
                     </div>
 
-
-
-                    <div class="form-group">
-                        <input type="submit" value="Ajouter" class="btn btn-primary" />
+                    <div class="form-group row no-gutters">
+                        <div class="col-md">
+                            <button type="submit" class="btn btn-primary m-1">
+                                <i class="fas fa-check" style="width:14px; height:16px"></i>
+                                &nbsp;
+                                Cr&eacute;er l'entreprise
+                            </button>
+                        </div>
                     </div>
                 </form>
             </div>
         </div>
 
         <div>
-            <a asp-action="Index">Retourner à la liste</a>
+            <a asp-action="Index">Retourner à la liste des entreprises</a>
         </div>
 
     }
 }
 
-        @section Scripts {
-            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-        }
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

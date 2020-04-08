@@ -1,77 +1,121 @@
 @model Models.Business
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Modifier une entreprise";
 }
 
-<h1>Edit</h1>
+@if (SignInManager.IsSignedIn(User))
+{
+    @if (User.IsInRole("Admin"))
+    {
+        <h1 class="border-bottom">@ViewBag.Title</h1>
+        <div class="row">
+            <div class="col-md">
+                <form asp-action="Edit">
 
-<h4>Business</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
+                    @if (ViewData.ModelState.Keys.Any(k => ViewData.ModelState[k].Errors.Any()))
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show col-md-6" role="alert">
+                            @Html.ValidationSummary(false, "")
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Fermer">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    }
 
-             <div class="form-group">
-                <label asp-for="Phone" class="control-label"></label>
-                <input asp-for="Phone" class="form-control" />
-                <span asp-validation-for="Phone" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Address.CivicNumber" class="control-label"></label>
-                <input asp-for="Address.CivicNumber" class="form-control" />
-                <span asp-validation-for="Address.CivicNumber" class="text-danger"></span>
-            </div>
+                    <input type="hidden" asp-for="Id" />
 
-             <div class="form-group">
-                <label asp-for="Address.Street" class="control-label"></label>
-                <input asp-for="Address.Street" class="form-control" />
-                <span asp-validation-for="Address.Street" class="text-danger"></span>
-            </div>
+                    <div class="form-group no-gutters">
+                        <label asp-for="Name" class="control-label"></label>
+                        <div class="col-md-6">
+                            <input asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                    </div>
 
-             <div class="form-group">
-                <label asp-for="Address.PostalCode" class="control-label"></label>
-                <input asp-for="Address.PostalCode" class="form-control" />
-                <span asp-validation-for="Address.PostalCode" class="text-danger"></span>
-            </div>
+                    <div class="form-group no-gutters">
+                        <label asp-for="Phone" class="control-label"></label>
+                        <div class="col-md-6">
+                            <input asp-for="Phone" class="form-control" />
+                            <span asp-validation-for="Phone" class="text-danger"></span>
+                        </div>
+                    </div>
 
-            <div class="form-group">
-                <label asp-for="Address.City" class="control-label"></label>
-                <input asp-for="Address.City" class="form-control" />
-                <span asp-validation-for="Address.City" class="text-danger"></span>
-            </div>
+                    <div class="form-group no-gutters">
+                        <label asp-for="Address.CivicNumber" class="control-label"></label>
+                        <div class="col-md-6">
+                            <input asp-for="Address.CivicNumber" class="form-control" />
+                            <span asp-validation-for="Address.CivicNumber" class="text-danger"></span>
+                        </div>
+                    </div>
 
-             <div class="form-group">
-                <label asp-for="Address.Country" class="control-label"></label>
-                <input asp-for="Address.Country" class="form-control" />
-                <span asp-validation-for="Address.Country" class="text-danger"></span>
-            </div>
+                    <div class="form-group no-gutters">
+                        <label asp-for="Address.Street" class="control-label"></label>
+                        <div class="col-md-6">
+                            <input asp-for="Address.Street" class="form-control" />
+                            <span asp-validation-for="Address.Street" class="text-danger"></span>
+                        </div>
+                    </div>
 
-            <div class="form-group">
-                <label asp-for="Address.State" class="control-label"></label>
-                <input asp-for="Address.State" class="form-control" />
-                <span asp-validation-for="Address.State" class="text-danger"></span>
-            </div>
+                    <div class="form-group no-gutters">
+                        <label asp-for="Address.PostalCode" class="control-label"></label>
+                        <div class="col-md-6">
+                            <input asp-for="Address.PostalCode" class="form-control" />
+                            <span asp-validation-for="Address.PostalCode" class="text-danger"></span>
+                        </div>
+                    </div>
 
-        
-         
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
+                    <div class="form-group no-gutters">
+                        <label asp-for="Address.City" class="control-label"></label>
+                        <div class="col-md-6">
+                            <input asp-for="Address.City" class="form-control" />
+                            <span asp-validation-for="Address.City" class="text-danger"></span>
+                        </div>
+                    </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+                    <div class="form-group no-gutters">
+                        <label asp-for="Address.Country" class="control-label"></label>
+                        <div class="col-md-6">
+                            <input asp-for="Address.Country" class="form-control" />
+                            <span asp-validation-for="Address.Country" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group no-gutters">
+                        <label asp-for="Address.State" class="control-label"></label>
+                        <div class="col-md-6">
+                            <input asp-for="Address.State" class="form-control" />
+                            <span asp-validation-for="Address.State" class="text-danger"></span>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <div class="col-md">
+                            <button type="submit" class="btn btn-primary m-1">
+                                <i class="fas fa-check" style="width:14px; height:16px"></i>
+                                &nbsp;
+                                Sauvegarder
+                            </button>
+                            <a asp-action="Index" class="btn btn-danger m-1">
+                                <i class="fas fa-times" style="width:14px; height:16px"></i>
+                                &nbsp;
+                                Annuler
+                            </a>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+        <div>
+            <a asp-action="Index">Retour &agrave; la liste des entreprises</a>
+        </div>
+    }
+}
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
