@@ -1,0 +1,28 @@
+@model Models.Business
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "Details d'une entreprise";
+}
+
+Bienvenur sur la page de 
+                            @Html.DisplayFor(Model => Model.Name)<br/>
+                            @Html.DisplayFor(Model => Model.Address.fullAddress)<br/>
+
+                            @Html.DisplayFor(Model => Model.Phone)<br/>
+                            Voici Notre liste D'evenement offer:<br/>
+                           <td class="align-top">
+                            @foreach (var oneEvent in Model.Events)
+                            {
+                                <a asp-controller="Event" asp-action="GetEvent" asp-route-Id="@oneEvent.Id">
+                                    @Html.DisplayFor(modelEvent => oneEvent.Title)
+                                </a>
+                                <br />
+                            }
+                        </td>
+                        Nous offrons ce Type de events:
+                        @Html.DisplayFor(Model => Model.Events.First().EventType.Title)<br/>
+                        Notre mission:<br/>
+                        @Html.DisplayFor(Model => Model.Description)<br/>
+

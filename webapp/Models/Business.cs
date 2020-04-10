@@ -15,6 +15,9 @@ namespace Models
         [Required(ErrorMessage = "Le nom de l'entreprise est requis.")]
         public string Name { get; set; }
 
+        [Display(Name = "A propos")]
+        public string Description { get; set; }
+
         [Display(Name = "Adresse")]
         public Address Address { get; set; }
 

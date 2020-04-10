@@ -39,7 +39,9 @@
                     {
                     <tr>
                         <td class="align-top">
+                             <a asp-controller="Business" asp-action="GetBusiness" asp-route-Id="@item.Id">
                             @Html.DisplayFor(modelItem => item.Name)
+                            </a>
                         </td>
                         <td class="align-top">
                             @Html.DisplayFor(modelItem => item.Phone)

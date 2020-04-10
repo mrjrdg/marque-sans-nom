@@ -14,6 +14,13 @@ namespace Models {
         [StringLength(50), MinLength(2)]
         public string LastName { get; set; }
 
+        
+        [StringLength(100), MinLength(2)]
+        public string Descrption {get;set; } 
+
+        [StringLength(50), MinLength(2)]
+        public string ville {get;set;}
+
         /// <summary>
         ///     List all the event of in which the ApplicationUser participate.
         /// </summary>

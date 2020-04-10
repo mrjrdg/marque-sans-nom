@@ -14,13 +14,15 @@ namespace webapp.Areas.Identity.Pages.Account.Manage
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
+        public AppDbContext _context;
 
         public IndexModel(
             UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager)
+            SignInManager<ApplicationUser> signInManager, AppDbContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _context = context;
         }
 
         public string Username { get; set; }
@@ -40,10 +42,14 @@ namespace webapp.Areas.Identity.Pages.Account.Manage
             [Display(Name = "Prénom")]
             public string userFname { get; set; }
 
-             [Display(Name = "Nom de famille")]
+            [Display(Name = "Nom de famille")]
             public string userLname { get; set; }
 
-            
+            public string Descrption {get;set;}
+
+            public string Ville {get;set;}
+
+
         }
 
         private async Task LoadAsync(ApplicationUser user)
@@ -52,6 +58,8 @@ namespace webapp.Areas.Identity.Pages.Account.Manage
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
             var firstName = user.FirstName;
             var lastName = user.LastName;
+            var description = user.Descrption;
+            var ville = user.ville;
 
             Username = userName;
 
@@ -60,8 +68,10 @@ namespace webapp.Areas.Identity.Pages.Account.Manage
                 PhoneNumber = phoneNumber,
                 userFname = firstName,
                 userLname = lastName,
-                
-      
+                Descrption = description,
+                Ville = ville,
+
+
             };
         }
 
@@ -92,9 +102,21 @@ namespace webapp.Areas.Identity.Pages.Account.Manage
             }
 
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
+            user.LastName = Input.userLname;
+            user.FirstName = Input.userFname;
+            user.Descrption = Input.Descrption;
+            user.ville = Input.Ville;
+
+            _context.Users.Update(user);
+
+            await _userManager.UpdateAsync(user);
+            await _context.SaveChangesAsync();
             if (Input.PhoneNumber != phoneNumber)
             {
                 var setPhoneResult = await _userManager.SetPhoneNumberAsync(user, Input.PhoneNumber);
+
+
+
                 if (!setPhoneResult.Succeeded)
                 {
                     var userId = await _userManager.GetUserIdAsync(user);

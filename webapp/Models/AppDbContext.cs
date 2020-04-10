@@ -151,11 +151,14 @@ namespace Models
                 Email = "jordangauthier@noname.com",
                 FirstName = "Jordan",
                 LastName = "Gauthier",
+                Descrption = "J'aime les Teckels et je suis ici pour participer a des courses a Teckel",
+                ville = "Terrebonne",
                 NormalizedUserName = "JORDANGAUTHIER@NONAME.COM",
                 NormalizedEmail = "JORDANGAUTHIER@NONAME.COM",
                 PhoneNumber = "514-979-7316",
                 PhoneNumberConfirmed = true,
-                PasswordHash = passwordHash
+                PasswordHash = passwordHash,
+                
             };
 
             // SEEDING APPLICATION USERS //
@@ -169,6 +172,8 @@ namespace Models
                     Email = "alexdufour@noname.com",
                     FirstName = "Alex",
                     LastName = "Dufour",
+                    Descrption = "J'aime le Hockey et je suis ici pour jouer au Hockey",
+                    ville = "Montreal",
                     NormalizedUserName = "ALEXDUFOUR@NONAME.COM",
                     NormalizedEmail = "ALEXDUFOUR@NONAME.COM",
                     PhoneNumber = "514-911-9111",
@@ -182,6 +187,8 @@ namespace Models
                     Email = "alexhamel@noname.com",
                     FirstName = "Alexandre",
                     LastName = "Hamel-Boudreault",
+                    Descrption = "J'aime le Karate et je suis ici pour ca",
+                    ville = "Montreal",
                     NormalizedUserName = "alexhamel@noname.com",
                     NormalizedEmail = "alexhamel@noname.com",
                     PasswordHash = passwordHash
@@ -193,6 +200,8 @@ namespace Models
                     Email = "philippesoucy@noname.com",
                     FirstName = "Philippe",
                     LastName = "Soucy",
+                    Descrption = "J'aime les Statistiques et je suis ici pour rejoindre un club de chess",
+                    ville = "Montreal",
                     NormalizedUserName = "PHILIPPESOUCY@NONAME.COM",
                     NormalizedEmail = "PHILIPPESOUCY@NONAME.COM",
                     PasswordHash = passwordHash
@@ -267,6 +276,8 @@ namespace Models
                 {
                     Id = 1,
                     Name = "Pro gym",
+                    Description = " Nous offrons des services d'entrainement et des levers de fonds Venez essayer 1 mois gratuit"
+                                    +"Nous nos locaux Hochelga",
                     Phone = "(514) 252-8704",
                     AddressId = 3
                 },
@@ -274,6 +285,7 @@ namespace Models
                 {
                     Id = 2,
                     Name = "Groupe tazor",
+                    Description = " Nous offrons des services d'entrainement et des levers de fonds",
                     Phone = "(514) 911-9111",
                     AddressId = 1
                 }
