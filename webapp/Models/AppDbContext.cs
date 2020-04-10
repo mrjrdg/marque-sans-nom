@@ -97,19 +97,19 @@ namespace Models
                 .HasForeignKey(e => e.ApplicationUserId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-           /* modelBuilder.Entity<EventApplicationUser>()
-                .HasOne(e => e.Event)
-                .WithMany(e => e.Members)
-                .HasForeignKey(e => e.EventId)
-                .OnDelete(DeleteBehavior.Restrict);*/
+            /* modelBuilder.Entity<EventApplicationUser>()
+                 .HasOne(e => e.Event)
+                 .WithMany(e => e.Members)
+                 .HasForeignKey(e => e.EventId)
+                 .OnDelete(DeleteBehavior.Restrict);*/
 
             modelBuilder.Entity<MessageConversation>()
                 .HasMany(x => x.Messages)
                 .WithOne(x => x.MessageConversation)
                 .OnDelete(DeleteBehavior.Restrict);
 
-           // modelBuilder.Entity<Message>()
-               // .Ignore(x => x.MessageConversation);
+            // modelBuilder.Entity<Message>()
+            // .Ignore(x => x.MessageConversation);
 
             modelBuilder.Entity<MessageConversation>()
                 .HasOne(x => x.Sender)
@@ -158,7 +158,7 @@ namespace Models
                 PhoneNumber = "514-979-7316",
                 PhoneNumberConfirmed = true,
                 PasswordHash = passwordHash,
-                
+
             };
 
             // SEEDING APPLICATION USERS //
@@ -277,7 +277,7 @@ namespace Models
                     Id = 1,
                     Name = "Pro gym",
                     Description = " Nous offrons des services d'entrainement et des levers de fonds Venez essayer 1 mois gratuit"
-                                    +"Nous nos locaux Hochelga",
+                                    + "Nous nos locaux Hochelga",
                     Phone = "(514) 252-8704",
                     AddressId = 3
                 },
@@ -315,8 +315,8 @@ namespace Models
                     AddressId = 3,
                     BusinessId = 1,
                     ApplicationUserId = userIds["jordangauthier@noname.com"],
-                    StartDate = new DateTime(2020, 02, 25, 13, 30, 0),
-                    EndDate = new DateTime(2020, 02, 25, 18, 30, 0),
+                    StartDate = new DateTime(2020, 04, 25, 13, 30, 0),
+                    EndDate = new DateTime(2020, 04, 25, 18, 30, 0),
                     PriceToPayToParticipate = 50.0,
                     Title = "Zumba de Jordan",
                     EventTypeId = 1,
@@ -328,13 +328,40 @@ namespace Models
                     AddressId = 2,
                     BusinessId = 2,
                     ApplicationUserId = userIds["alexdufour@noname.com"],
-                    StartDate = new DateTime(2020, 02, 25, 13, 30, 0),
-                    EndDate = new DateTime(2020, 02, 25, 18, 30, 0),
+                    StartDate = new DateTime(2020, 04, 25, 13, 30, 0),
+                    EndDate = new DateTime(2020, 04, 25, 18, 30, 0),
                     PriceToPayToParticipate = 50.0,
                     Title = "Souper spaghetti de dufour (Lever de fond)",
                     EventTypeId = 1,
                     Description = "Venez reprendre le poids Perdu a La Zumba de jordan!"
-                }
+                },
+                  new
+                  {
+                      Id = 3,
+                      AddressId = 2,
+                      BusinessId = 2,
+                      ApplicationUserId = userIds["alexdufour@noname.com"],
+                      StartDate = new DateTime(2020, 02, 25, 13, 30, 0),
+                      EndDate = new DateTime(2020, 02, 25, 18, 30, 0),
+                      PriceToPayToParticipate = 50.0,
+                      Title = "Evenement Dans le Passer",
+                      EventTypeId = 1,
+                      Description = "Je suis du passer!"
+                  },
+                     new
+                     {
+                         Id = 4,
+                         AddressId = 2,
+                         BusinessId = 2,
+                         ApplicationUserId = userIds["alexdufour@noname.com"],
+                         StartDate = new DateTime(2020, 01, 25, 13, 30, 0),
+                         EndDate = new DateTime(2020, 01, 25, 18, 30, 0),
+                         PriceToPayToParticipate = 50.0,
+                         Title = "Evenement De Tennis",
+                         EventTypeId = 1,
+                         Description = "Je suis du passer!"
+                     }
+
             );
 
             // SEEDING EVENT APPLICATION USER //
@@ -359,6 +386,26 @@ namespace Models
                 {
                     ApplicationUserId = userIds["alexdufour@noname.com"],
                     EventId = 2
+                },
+                  new EventApplicationUser
+                {
+                    ApplicationUserId = userIds["alexdufour@noname.com"],
+                    EventId = 3
+                },
+                   new EventApplicationUser
+                {
+                    ApplicationUserId = userIds["alexhamel@noname.com"],
+                    EventId = 3
+                },
+                   new EventApplicationUser
+                {
+                    ApplicationUserId = userIds["alexhamel@noname.com"],
+                    EventId = 4
+                },
+                 new EventApplicationUser
+                {
+                    ApplicationUserId = userIds["alexdufour@noname.com"],
+                    EventId = 4
                 },
                 new EventApplicationUser
                 {
@@ -399,12 +446,12 @@ namespace Models
                     UserId = userIds["alexdufour@noname.com"]
                 },
                  new
-                {
-                    Id = 3,
-                    Content = "Je sais pas non plus.",
-                    MessageConversationId = 1,
-                    UserId = userIds["jordangauthier@noname.com"]
-                },
+                 {
+                     Id = 3,
+                     Content = "Je sais pas non plus.",
+                     MessageConversationId = 1,
+                     UserId = userIds["jordangauthier@noname.com"]
+                 },
                 new
                 {
                     Id = 4,

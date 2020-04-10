@@ -57,14 +57,31 @@ namespace Controllers
             var events = await (string.IsNullOrEmpty(type) ? _eventServices.GetAll() : _eventTypeServices.GetEventsFromEventTypeName(type));
             var addresses = await _context.Addresses.ToListAsync();
             var businesses = await _context.Businesses.ToListAsync();
+            var users = await _context.EventApplicationUsers.ToListAsync();
             if (events == null)
             {
                 result = NotFound();
             }
             else
             {
+
                 var model = new ListEventsViewModel { Events = events, Addresses = addresses, Businesses = businesses };
 
+                    foreach (var item in model.Events)
+                    {
+                        var links = await _context.EventApplicationUsers
+                    .Where(x => x.EventId == item.Id)
+                    .ToListAsync();
+
+                foreach(var link in links)
+                {
+                    var user = await _userManager
+                        .FindByIdAsync(link.ApplicationUserId);
+                        
+                    item.Members.Add(user);
+                }
+                        
+                    }
                 result = View(model);
             }
 

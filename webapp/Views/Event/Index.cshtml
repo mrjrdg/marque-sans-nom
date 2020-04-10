@@ -8,7 +8,6 @@
 }
 
 @functions {
-
     public string Truncate(string source, int length)
     {
         if (source.Length > length)
@@ -18,6 +17,8 @@
 
         return source;
     }
+
+    DateTime today = DateTime.Today;
 
 }
 
@@ -29,7 +30,7 @@
     } *@
 
 <h1 class="border-bottom">@ViewBag.Title</h1>
-<div class="eventlistcarddeck">
+<div class="eventlistcarddeck"> 
     @{
 
         if (Model.Events.Count == 0)
@@ -44,9 +45,10 @@
         {
             Event lastEvent = Model.Events.Last();
             int eventCount = 0;
-
+           
             foreach (var item in Model.Events)
             {
+                if ( item.StartDate > today){
 
                 if ((eventCount % 3 == 0))
                 {
@@ -107,6 +109,110 @@
                 eventCount++;
 
             }
+            }
+        }
+    }
+</div>
+
+
+<h1 class="border-bottom">Evenement Passer</h1>
+<div class="eventlistcarddeck"> 
+    @{
+
+        if (Model.Events.Count == 0)
+        {
+            <div class="alert alert-warning" role="alert">
+                Il n'y a pas d'&eacute;v&eacute;nements en cours. Pourquoi ne pas en
+                <a class="alert-link" asp-area="Identity" asp-controller="Event" asp-action="CreateEvent">
+                organiser un</a> ?
+            </div>
+        }
+        else
+        {
+            
+            Event lastEvent = Model.Events.Last();
+            int eventCount = 0;
+             var current_user = await UserManager.GetUserAsync(User);
+             var firstname = current_user.FirstName;
+            var isInEvent = false;
+           
+            foreach (var item in Model.Events)
+            {
+                if ( item.EndDate < today){
+                 
+                foreach (var oneMember in item.Members.ToList())
+                {
+                    if ( firstname.Equals(oneMember.FirstName)){
+                        @* current_user.Result.FirstName  *@
+                            isInEvent = true;
+                    } 
+                }
+
+                if(isInEvent == true && item.EndDate < today)
+                {
+
+                if ((eventCount % 3 == 0))
+                {
+
+                    @:<div class="row ml-0 mr-0">
+
+                    }
+
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <img class="card-img-top eventlistcardimg"
+                                 src="https://s16-us2.startpage.com/cgi-bin/serveimage?url=https%3A%2F%2Fi.ytimg.com%2Fvi%2F_U6rq4hmKuw%2Fhqdefault.jpg&sp=73bb94b6c7ccffee5d36c459590d5ecb&anticache=725823"
+                                 alt="Image représentant l'activité">
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    <a asp-action="GetEvent" asp-route-Id="@item.Id" class="stretched-link">
+                                        @item.Title
+                                    </a>
+                                </h4>
+                                <p class="card-text">
+                                    @{
+                                        int descriptionMaxLength = 100;
+                                        string description;
+
+                                        if (item.Description != null)
+                                        {
+
+                                            if (item.Description.Length <= descriptionMaxLength)
+                                            {
+                                                description = item.Description;
+                                            }
+                                            else
+                                            {
+                                                description = Truncate(item.Description, descriptionMaxLength) + "...";
+                                            }
+
+                                            @description
+
+                                        }
+                                    }
+                                </p>
+                                <p class="card-text">
+                                    <small class="text-muted">
+                                        @item.Members.Count participant(s)
+                                    </small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    if ((eventCount % 3 == 2) || (item.Equals(lastEvent)))
+                    {
+
+                    @:</div>
+
+                }
+
+                eventCount++;
+
+                }
+            }
+            }
+        
         }
     }
 </div>
