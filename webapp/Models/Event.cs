@@ -102,6 +102,8 @@ namespace Models
         [NotMapped]
         public List<ApplicationUser> Members { get; set; }
 
+        public List<Commentaire> Commentaires {get ; set ;}
+
         public Event()
         {
             Members = new List<ApplicationUser>();

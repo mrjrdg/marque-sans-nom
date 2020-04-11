@@ -48,22 +48,22 @@ namespace webapp.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "dbfaf472-c11e-4a15-9181-ce2a7503b710",
-                            ConcurrencyStamp = "b8e80807-394e-477d-8e64-ba6e6c558355",
+                            Id = "9de7451e-9259-4295-8ea3-8e550349f481",
+                            ConcurrencyStamp = "6906ef49-ce96-473e-8aa8-e2fdd3b990d8",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "1792593e-2109-47d2-a10c-29f46e2903c4",
-                            ConcurrencyStamp = "d2d2717b-aa2d-44ba-865f-259d1fb5eb5f",
+                            Id = "69276be7-92f8-46d4-ae7f-c89401f89b7b",
+                            ConcurrencyStamp = "bb47ce6b-51b4-4bd6-929a-9c3c2e38e33f",
                             Name = "CustomerPeople",
                             NormalizedName = "CUSTOMERPEOPLE"
                         },
                         new
                         {
-                            Id = "eb3d3872-e5fe-4a6f-aa42-a74e96e92126",
-                            ConcurrencyStamp = "cc16437f-18f5-4b17-929a-dd93ab79866e",
+                            Id = "13e2c407-4e80-4aad-b3a0-f42faf8527b4",
+                            ConcurrencyStamp = "6fb6c7b4-2f50-4df9-afa9-71c00681bbff",
                             Name = "CustomerBusiness",
                             NormalizedName = "CUSTOMERBUSINESS"
                         });
@@ -156,23 +156,23 @@ namespace webapp.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "f6d40f50-9c4e-4486-9ec2-d347b1bbe631",
-                            RoleId = "dbfaf472-c11e-4a15-9181-ce2a7503b710"
+                            UserId = "3958266f-67b7-4bd7-9dd1-f5e0a6efa8ca",
+                            RoleId = "9de7451e-9259-4295-8ea3-8e550349f481"
                         },
                         new
                         {
-                            UserId = "487f981c-3a78-4742-9625-bd2bb02a8b67",
-                            RoleId = "dbfaf472-c11e-4a15-9181-ce2a7503b710"
+                            UserId = "015dd6e3-065d-4846-b268-a6217e7f6b29",
+                            RoleId = "9de7451e-9259-4295-8ea3-8e550349f481"
                         },
                         new
                         {
-                            UserId = "8b744573-90da-4c48-8718-8abe4ec2de1f",
-                            RoleId = "dbfaf472-c11e-4a15-9181-ce2a7503b710"
+                            UserId = "27c72385-07ff-4852-9a67-dd9a253cbc68",
+                            RoleId = "9de7451e-9259-4295-8ea3-8e550349f481"
                         },
                         new
                         {
-                            UserId = "fe2115f8-597c-4965-807e-f918f23755cb",
-                            RoleId = "dbfaf472-c11e-4a15-9181-ce2a7503b710"
+                            UserId = "cd18dc91-554c-4b75-9171-455c4be6cd7e",
+                            RoleId = "9de7451e-9259-4295-8ea3-8e550349f481"
                         });
                 });
 
@@ -351,9 +351,9 @@ namespace webapp.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "f6d40f50-9c4e-4486-9ec2-d347b1bbe631",
+                            Id = "3958266f-67b7-4bd7-9dd1-f5e0a6efa8ca",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "394abf64-4051-4ed6-80fa-ae9ed5301d13",
+                            ConcurrencyStamp = "69b00e7b-da0d-4292-bd33-5153a7e3c03f",
                             Descrption = "J'aime les Teckels et je suis ici pour participer a des courses a Teckel",
                             Email = "jordangauthier@noname.com",
                             EmailConfirmed = false,
@@ -362,19 +362,19 @@ namespace webapp.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "JORDANGAUTHIER@NONAME.COM",
                             NormalizedUserName = "JORDANGAUTHIER@NONAME.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFrx+Yqjxfn3BkhUr+gQ6DOLogMfthLKqlmLFvDlI3HNI9QKyyGibFja1+KbvVKtKA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEeNtkQHnpbEQF0+5nVO+24XfpkPp0u4ubhjR7Wz0jUNhApU4sNXk4/RWTPZkD/+qQ==",
                             PhoneNumber = "514-979-7316",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "f1a32da6-d6d3-4bf5-bc44-3eb5d410f168",
+                            SecurityStamp = "87ae8e44-3e19-48ef-bb30-d025ab6f883a",
                             TwoFactorEnabled = false,
                             UserName = "jordangauthier@noname.com",
                             ville = "Terrebonne"
                         },
                         new
                         {
-                            Id = "487f981c-3a78-4742-9625-bd2bb02a8b67",
+                            Id = "015dd6e3-065d-4846-b268-a6217e7f6b29",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7c46f0ca-5d33-4703-9c89-57eac6c9b6a3",
+                            ConcurrencyStamp = "fd121b93-1564-4bf8-bbe2-f9079b20f64a",
                             Descrption = "J'aime le Hockey et je suis ici pour jouer au Hockey",
                             Email = "alexdufour@noname.com",
                             EmailConfirmed = false,
@@ -383,19 +383,19 @@ namespace webapp.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ALEXDUFOUR@NONAME.COM",
                             NormalizedUserName = "ALEXDUFOUR@NONAME.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFrx+Yqjxfn3BkhUr+gQ6DOLogMfthLKqlmLFvDlI3HNI9QKyyGibFja1+KbvVKtKA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEeNtkQHnpbEQF0+5nVO+24XfpkPp0u4ubhjR7Wz0jUNhApU4sNXk4/RWTPZkD/+qQ==",
                             PhoneNumber = "514-911-9111",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "cf3560c5-1582-4445-9be5-a65ef42b1235",
+                            SecurityStamp = "c57b0d42-035a-4418-9a16-ac7e8922e470",
                             TwoFactorEnabled = false,
                             UserName = "alexdufour@noname.com",
                             ville = "Montreal"
                         },
                         new
                         {
-                            Id = "8b744573-90da-4c48-8718-8abe4ec2de1f",
+                            Id = "27c72385-07ff-4852-9a67-dd9a253cbc68",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "bc34f654-07da-4fa4-9c35-030dba7c3879",
+                            ConcurrencyStamp = "624bfb9f-4030-4325-8920-83e18511e662",
                             Descrption = "J'aime le Karate et je suis ici pour ca",
                             Email = "alexhamel@noname.com",
                             EmailConfirmed = false,
@@ -404,18 +404,18 @@ namespace webapp.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "alexhamel@noname.com",
                             NormalizedUserName = "alexhamel@noname.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFrx+Yqjxfn3BkhUr+gQ6DOLogMfthLKqlmLFvDlI3HNI9QKyyGibFja1+KbvVKtKA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEeNtkQHnpbEQF0+5nVO+24XfpkPp0u4ubhjR7Wz0jUNhApU4sNXk4/RWTPZkD/+qQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "0815a422-83f8-449e-b2f0-b84b6e7e819f",
+                            SecurityStamp = "b02a0808-5724-416f-a3bb-0920174e8f2f",
                             TwoFactorEnabled = false,
                             UserName = "alexhamel@noname.com",
                             ville = "Montreal"
                         },
                         new
                         {
-                            Id = "fe2115f8-597c-4965-807e-f918f23755cb",
+                            Id = "cd18dc91-554c-4b75-9171-455c4be6cd7e",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "423ed08f-2ebc-4cc7-b469-c59ef961591d",
+                            ConcurrencyStamp = "57384a10-2bc9-4d0c-933a-89e42d8cd851",
                             Descrption = "J'aime les Statistiques et je suis ici pour rejoindre un club de chess",
                             Email = "philippesoucy@noname.com",
                             EmailConfirmed = false,
@@ -424,9 +424,9 @@ namespace webapp.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "PHILIPPESOUCY@NONAME.COM",
                             NormalizedUserName = "PHILIPPESOUCY@NONAME.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFrx+Yqjxfn3BkhUr+gQ6DOLogMfthLKqlmLFvDlI3HNI9QKyyGibFja1+KbvVKtKA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEeNtkQHnpbEQF0+5nVO+24XfpkPp0u4ubhjR7Wz0jUNhApU4sNXk4/RWTPZkD/+qQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "47de1503-637b-4e6b-96d4-f9ab10719e6d",
+                            SecurityStamp = "435f05ee-be88-4e14-ba24-8927b57f6aa3",
                             TwoFactorEnabled = false,
                             UserName = "philippesoucy@noname.com",
                             ville = "Montreal"
@@ -476,6 +476,42 @@ namespace webapp.Migrations
                             Description = " Nous offrons des services d'entrainement et des levers de fonds",
                             Name = "Groupe tazor",
                             Phone = "(514) 911-9111"
+                        });
+                });
+
+            modelBuilder.Entity("Models.Commentaire", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("EventId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EventId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Commentaires");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Content = "Wow malade l'evenement",
+                            EventId = 1,
+                            UserId = "3958266f-67b7-4bd7-9dd1-f5e0a6efa8ca"
                         });
                 });
 
@@ -531,7 +567,7 @@ namespace webapp.Migrations
                         {
                             Id = 1,
                             AddressId = 3,
-                            ApplicationUserId = "f6d40f50-9c4e-4486-9ec2-d347b1bbe631",
+                            ApplicationUserId = "3958266f-67b7-4bd7-9dd1-f5e0a6efa8ca",
                             BusinessId = 1,
                             Description = "Fun fun Zumba de Jordan perte de poids assurer 100% garantie.",
                             EndDate = new DateTime(2020, 4, 25, 18, 30, 0, 0, DateTimeKind.Unspecified),
@@ -544,7 +580,7 @@ namespace webapp.Migrations
                         {
                             Id = 2,
                             AddressId = 2,
-                            ApplicationUserId = "487f981c-3a78-4742-9625-bd2bb02a8b67",
+                            ApplicationUserId = "015dd6e3-065d-4846-b268-a6217e7f6b29",
                             BusinessId = 2,
                             Description = "Venez reprendre le poids Perdu a La Zumba de jordan!",
                             EndDate = new DateTime(2020, 4, 25, 18, 30, 0, 0, DateTimeKind.Unspecified),
@@ -557,7 +593,7 @@ namespace webapp.Migrations
                         {
                             Id = 3,
                             AddressId = 2,
-                            ApplicationUserId = "487f981c-3a78-4742-9625-bd2bb02a8b67",
+                            ApplicationUserId = "015dd6e3-065d-4846-b268-a6217e7f6b29",
                             BusinessId = 2,
                             Description = "Je suis du passer!",
                             EndDate = new DateTime(2020, 2, 25, 18, 30, 0, 0, DateTimeKind.Unspecified),
@@ -570,7 +606,7 @@ namespace webapp.Migrations
                         {
                             Id = 4,
                             AddressId = 2,
-                            ApplicationUserId = "487f981c-3a78-4742-9625-bd2bb02a8b67",
+                            ApplicationUserId = "015dd6e3-065d-4846-b268-a6217e7f6b29",
                             BusinessId = 2,
                             Description = "Je suis du passer!",
                             EndDate = new DateTime(2020, 1, 25, 18, 30, 0, 0, DateTimeKind.Unspecified),
@@ -598,52 +634,52 @@ namespace webapp.Migrations
                     b.HasData(
                         new
                         {
-                            ApplicationUserId = "f6d40f50-9c4e-4486-9ec2-d347b1bbe631",
+                            ApplicationUserId = "3958266f-67b7-4bd7-9dd1-f5e0a6efa8ca",
                             EventId = 1
                         },
                         new
                         {
-                            ApplicationUserId = "487f981c-3a78-4742-9625-bd2bb02a8b67",
+                            ApplicationUserId = "015dd6e3-065d-4846-b268-a6217e7f6b29",
                             EventId = 1
                         },
                         new
                         {
-                            ApplicationUserId = "f6d40f50-9c4e-4486-9ec2-d347b1bbe631",
+                            ApplicationUserId = "3958266f-67b7-4bd7-9dd1-f5e0a6efa8ca",
                             EventId = 2
                         },
                         new
                         {
-                            ApplicationUserId = "487f981c-3a78-4742-9625-bd2bb02a8b67",
+                            ApplicationUserId = "015dd6e3-065d-4846-b268-a6217e7f6b29",
                             EventId = 2
                         },
                         new
                         {
-                            ApplicationUserId = "487f981c-3a78-4742-9625-bd2bb02a8b67",
+                            ApplicationUserId = "015dd6e3-065d-4846-b268-a6217e7f6b29",
                             EventId = 3
                         },
                         new
                         {
-                            ApplicationUserId = "8b744573-90da-4c48-8718-8abe4ec2de1f",
+                            ApplicationUserId = "27c72385-07ff-4852-9a67-dd9a253cbc68",
                             EventId = 3
                         },
                         new
                         {
-                            ApplicationUserId = "8b744573-90da-4c48-8718-8abe4ec2de1f",
+                            ApplicationUserId = "27c72385-07ff-4852-9a67-dd9a253cbc68",
                             EventId = 4
                         },
                         new
                         {
-                            ApplicationUserId = "487f981c-3a78-4742-9625-bd2bb02a8b67",
+                            ApplicationUserId = "015dd6e3-065d-4846-b268-a6217e7f6b29",
                             EventId = 4
                         },
                         new
                         {
-                            ApplicationUserId = "fe2115f8-597c-4965-807e-f918f23755cb",
+                            ApplicationUserId = "cd18dc91-554c-4b75-9171-455c4be6cd7e",
                             EventId = 2
                         },
                         new
                         {
-                            ApplicationUserId = "8b744573-90da-4c48-8718-8abe4ec2de1f",
+                            ApplicationUserId = "27c72385-07ff-4852-9a67-dd9a253cbc68",
                             EventId = 2
                         });
                 });
@@ -708,28 +744,28 @@ namespace webapp.Migrations
                             Id = 1,
                             Content = "Est-tu pret big ?",
                             MessageConversationId = 1,
-                            UserId = "f6d40f50-9c4e-4486-9ec2-d347b1bbe631"
+                            UserId = "3958266f-67b7-4bd7-9dd1-f5e0a6efa8ca"
                         },
                         new
                         {
                             Id = 2,
                             Content = "Je sais pas toi ?",
                             MessageConversationId = 1,
-                            UserId = "487f981c-3a78-4742-9625-bd2bb02a8b67"
+                            UserId = "015dd6e3-065d-4846-b268-a6217e7f6b29"
                         },
                         new
                         {
                             Id = 3,
                             Content = "Je sais pas non plus.",
                             MessageConversationId = 1,
-                            UserId = "f6d40f50-9c4e-4486-9ec2-d347b1bbe631"
+                            UserId = "3958266f-67b7-4bd7-9dd1-f5e0a6efa8ca"
                         },
                         new
                         {
                             Id = 4,
                             Content = "Mtseee",
                             MessageConversationId = 1,
-                            UserId = "487f981c-3a78-4742-9625-bd2bb02a8b67"
+                            UserId = "015dd6e3-065d-4846-b268-a6217e7f6b29"
                         });
                 });
 
@@ -764,8 +800,8 @@ namespace webapp.Migrations
                         new
                         {
                             Id = 1,
-                            ReceiverId = "487f981c-3a78-4742-9625-bd2bb02a8b67",
-                            SenderId = "f6d40f50-9c4e-4486-9ec2-d347b1bbe631",
+                            ReceiverId = "015dd6e3-065d-4846-b268-a6217e7f6b29",
+                            SenderId = "3958266f-67b7-4bd7-9dd1-f5e0a6efa8ca",
                             Subject = "tournois de cs pas d'awp"
                         });
                 });
@@ -827,6 +863,21 @@ namespace webapp.Migrations
                         .WithMany("Businesses")
                         .HasForeignKey("AddressId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Models.Commentaire", b =>
+                {
+                    b.HasOne("Models.Event", "Event")
+                        .WithMany("Commentaires")
+                        .HasForeignKey("EventId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Models.Event", b =>

@@ -58,6 +58,7 @@ namespace Controllers
             var addresses = await _context.Addresses.ToListAsync();
             var businesses = await _context.Businesses.ToListAsync();
             var users = await _context.EventApplicationUsers.ToListAsync();
+            var comments = await _context.Commentaires.ToListAsync();
             if (events == null)
             {
                 result = NotFound();
@@ -114,6 +115,11 @@ namespace Controllers
                 var model = new EventViewModel { Event = oneEvent };
                 model.Event.Address = await _addressServices.Get(oneEvent.Address.Id);
                 model.Event.EventType = await _eventTypeServices.Get(oneEvent.EventType.Id);
+
+                
+                model.Event.Commentaires = await _context.Commentaires
+                    .Where(x => x.EventId == oneEvent.Id)
+                    .ToListAsync();
 
                 var links = await _context.EventApplicationUsers
                     .Where(x => x.EventId == oneEvent.Id)
@@ -217,6 +223,23 @@ namespace Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Route("Event/{id:int}")]
+        public async Task<IActionResult> Commenter(int id, EventViewModel newComment)
+        {
+            
+            
+            Commentaire newCommentaire = new Commentaire();
+
+            newCommentaire.EventId = id;
+            newCommentaire.Content = newComment.commentaire;
+            newCommentaire.User = await _userManager.GetUserAsync(User);
+            _context.Commentaires.Add(newCommentaire);
+            await _context.SaveChangesAsync();
+
+        return RedirectToAction("GetEvent", new { id  });        }
 
 
         public IActionResult userList()

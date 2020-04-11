@@ -35,6 +35,8 @@ namespace Models
         public DbSet<Event> Events { get; set; }
         public DbSet<EventApplicationUser> EventApplicationUsers { get; set; }
         public DbSet<Message> Messages { get; set; }
+
+        public DbSet<Commentaire> Commentaires{get;set;}
         public DbSet<MessageConversation> MessageConversations { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -110,6 +112,11 @@ namespace Models
 
             // modelBuilder.Entity<Message>()
             // .Ignore(x => x.MessageConversation);
+
+            modelBuilder.Entity<Commentaire>()
+                .HasOne( x => x.Event)
+                .WithMany(x => x.Commentaires)
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<MessageConversation>()
                 .HasOne(x => x.Sender)
@@ -306,6 +313,15 @@ namespace Models
                 }
             );
 
+            modelBuilder.Entity<Commentaire>().HasData(
+                new
+                { Id = 1,
+                Content = "Wow malade l'evenement",
+                UserId = userIds["jordangauthier@noname.com"],
+                EventId = 1,
+                });
+
+
             // SEEDING EVENT //
 
             modelBuilder.Entity<Event>().HasData(
@@ -320,7 +336,8 @@ namespace Models
                     PriceToPayToParticipate = 50.0,
                     Title = "Zumba de Jordan",
                     EventTypeId = 1,
-                    Description = "Fun fun Zumba de Jordan perte de poids assurer 100% garantie."
+                    Description = "Fun fun Zumba de Jordan perte de poids assurer 100% garantie.",
+                    
                 },
                 new
                 {

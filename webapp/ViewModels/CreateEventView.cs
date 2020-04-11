@@ -15,6 +15,8 @@ namespace ViewModels
 
            public List<EventType> EventTypes { get; set; }
 
+           
+
            public CreateEventView()
    {
        Event = new Event();

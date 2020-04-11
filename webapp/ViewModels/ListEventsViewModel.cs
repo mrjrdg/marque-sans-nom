@@ -11,6 +11,8 @@ namespace ViewModels
          public List<Address> Addresses { get; set; }
           public List<Business> Businesses { get; set; }
 
+          public Commentaire Commentaire {get; set;}
+
          
     }
 }

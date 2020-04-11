@@ -9,5 +9,7 @@ namespace ViewModels
         public Event Event;
         public List<Address> Addresses { get; set; }
         public EventType eventType { get; set; }
+
+        public string commentaire {get;set;}
     }
 }

@@ -203,34 +203,55 @@
                 <div>
                     <h3>Babillard</h3>
                     <!-- NEW MESSAGE FORM -->
-                    <form>
+                    <form asp-action="Commenter"  asp-route-id="@Model.Event.Id">
                         <div class="form-group">
                             <label for="eventnewboardmessage">Publier un message</label>
-                            <textarea class="form-control" id="eventnewboardmessage" rows="2"></textarea>
-                            <button type="submit" class="btn btn-primary mt-2">Envoyer</button>
+                              <div class="form-group no-gutters">
+                                    
+                            <textarea class="form-control" asp-for="@Model.commentaire"
+                                 id="eventnewboardmessage" rows="2">
+
+                            </textarea>
+
+                             <div class="form-group" style="padding-top:10px;">
+                <input type="submit" value="Envoyer" class="btn btn-primary" />
+                             </div>
+                         
+                            @* <button type="submit" class="btn btn-primary mt-2">Envoyer</button> *@
                         </div>
                     </form>
                     <!-- BOARD MESSAGE LIST -->
+
+                    @foreach (var item in Model.Event.Commentaires)
+                                    {
                     <div class="card mb-3">
                         <div class="row no-gutters">
                             <div class="p-3 align-middle col-md-auto text-center">
                                 <img src="~/img/photos/guy-lafleur.jpg" class="card-img avatarsmall rounded-circle"
                                      alt="...">
                             </div>
+
+                            
                             <div class="col-md-11">
-                                <!-- TODO: Corriger le problème lorsqu'on réduit la fenêtre -->
+                                
                                 <div class="card-body pl-0">
                                     <h5 class="card-title mb-1">
-                                        Guy Lafleur <small class="text-muted">Il y a 28 minutes</small>
+                                        @Html.DisplayFor(itemModel => item.User.FirstName ) 
+                                        @Html.DisplayFor(itemModel => item.User.LastName ) 
+                                        <small class="text-muted">Il y a 28 minutes</small>
                                     </h5>
-                                    <p class="card-text">
-                                        Watchez vous... Je vais vous éclater. 3 buts dans la première
-                                        minute
+
+                                    <p class="card-text">                                     
+                                        @Html.DisplayFor(itemModel => item.Content)
                                     </p>
                                 </div>
                             </div>
+                                    
+
                         </div>
                     </div>
+                    }
+
                 </div>
             </div>
         </div>
