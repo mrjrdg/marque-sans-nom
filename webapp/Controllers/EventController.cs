@@ -51,13 +51,39 @@ namespace Controllers
         /// <summary>
         ///     Page that display a list of Event that depend on specific criteria
         /// </summary>
-        public async Task<IActionResult> Index([FromQuery(Name = "type")] string type)
+        public async Task<IActionResult> Index([FromQuery(Name = "type")] string type, string search, string typeSearch)
         {
+
+            var events = await _context.Events.ToListAsync();
+            var eventypes = await _context.EventTypes.ToListAsync();
+            if (!String.IsNullOrEmpty(search))
+            {
+                events = events.Where(c => c.Title.Contains(search)).ToList();//
+                // .Where( s => s.EventType.Title.Equals(typeSearch)).ToList();  
+                //  eventypes = eventypes.Where( x => x.Title.Contains(typeSearch)).ToList();
+
+
+            }
+            else if ((!String.IsNullOrEmpty(typeSearch))){
+                
+                // events = events.Where(x => x.EventType.Title.Equals(typeSearch)).ToList();
+
+                events = events.ToList().Where(x => x.EventType.Title == typeSearch).ToList();
+
+                // eventypes = eventypes.Where( x => x.Title.Contains(typeSearch)).ToList();
+            }
+
+            else {
+                
+                events = await (string.IsNullOrEmpty(type) ? _eventServices.GetAll() : _eventTypeServices.GetEventsFromEventTypeName(type));
+            }
+
             IActionResult result = null;
-            var events = await (string.IsNullOrEmpty(type) ? _eventServices.GetAll() : _eventTypeServices.GetEventsFromEventTypeName(type));
+
             var addresses = await _context.Addresses.ToListAsync();
             var businesses = await _context.Businesses.ToListAsync();
             var users = await _context.EventApplicationUsers.ToListAsync();
+            
             var comments = await _context.Commentaires.ToListAsync();
             if (events == null)
             {
@@ -66,27 +92,34 @@ namespace Controllers
             else
             {
 
-                var model = new ListEventsViewModel { Events = events, Addresses = addresses, Businesses = businesses };
-
-                    foreach (var item in model.Events)
-                    {
-                        var links = await _context.EventApplicationUsers
-                    .Where(x => x.EventId == item.Id)
-                    .ToListAsync();
-
-                foreach(var link in links)
+                var model = new ListEventsViewModel
                 {
-                    var user = await _userManager
-                        .FindByIdAsync(link.ApplicationUserId);
-                        
-                    item.Members.Add(user);
-                }
-                        
+                    Events = events,
+                    Addresses = addresses,
+                    Businesses = businesses,
+                    EventTypes = eventypes
+                };
+
+                foreach (var item in model.Events)
+                {
+                    var links = await _context.EventApplicationUsers
+                .Where(x => x.EventId == item.Id)
+                .ToListAsync();
+
+                    foreach (var link in links)
+                    {
+                        var user = await _userManager
+                            .FindByIdAsync(link.ApplicationUserId);
+
+                        item.Members.Add(user);
                     }
+
+                }
                 result = View(model);
             }
 
             return result;
+
         }
 
         /// <summary>
@@ -116,7 +149,7 @@ namespace Controllers
                 model.Event.Address = await _addressServices.Get(oneEvent.Address.Id);
                 model.Event.EventType = await _eventTypeServices.Get(oneEvent.EventType.Id);
 
-                
+
                 model.Event.Commentaires = await _context.Commentaires
                     .Where(x => x.EventId == oneEvent.Id)
                     .ToListAsync();
@@ -125,11 +158,11 @@ namespace Controllers
                     .Where(x => x.EventId == oneEvent.Id)
                     .ToListAsync();
 
-                foreach(var link in links)
+                foreach (var link in links)
                 {
                     var user = await _userManager
                         .FindByIdAsync(link.ApplicationUserId);
-                        
+
                     model.Event.Members.Add(user);
                 }
 
@@ -229,8 +262,8 @@ namespace Controllers
         [Route("Event/{id:int}")]
         public async Task<IActionResult> Commenter(int id, EventViewModel newComment)
         {
-            
-            
+
+
             Commentaire newCommentaire = new Commentaire();
 
             newCommentaire.EventId = id;
@@ -239,7 +272,8 @@ namespace Controllers
             _context.Commentaires.Add(newCommentaire);
             await _context.SaveChangesAsync();
 
-        return RedirectToAction("GetEvent", new { id  });        }
+            return RedirectToAction("GetEvent", new { id });
+        }
 
 
         public IActionResult userList()

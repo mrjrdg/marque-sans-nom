@@ -22,12 +22,34 @@
 
 }
 
-@* @foreach (var item in Model.Events)
-    {
-    <p>@item.Title</p>
-    @Html.DropDownListFor(m => m.Events, new SelectList(Model.Events, "Id", "Title"), " ")
-    @Html.DropDownListFor(m => m.Addresses, new SelectList(Model.Addresses, "Id", "fullAddress"), "")
-    } *@
+    @* @Html.BeginForm(){ *@
+
+    
+  @* @Html.BeginForm("Index", "Event",
+ new {id="", @class = "form-inline d-flex justify-content-center md-form form-sm mt-0"})
+{ *@
+@using (Html.BeginForm("Index", "Event",FormMethod.Post,
+ new {id="", @class = ""})){
+<p>
+    Recherche par titre :<br/>
+    <div class="col-md-6" >
+        <div class= "md-form active-pink active-pink-2 mb-3 mt-0">  
+              
+     @Html.TextBox("search", null, new {@class="form-control"})<br />
+     </div>
+    </div>
+        <div class="col-md-6">
+                    @Html.DropDownListFor( Model => Model.typeSearch, new SelectList(Model.EventTypes, "Title",
+                    "Title"),"Choisir par Genre", new { @class = "form-control" , placeholder = "typeSearch"})
+        </div>
+        <button type="submit" class="btn btn-primary m-1">
+                        <i class="fas fa-check" style="width:14px; height:16px"></i>
+                        &nbsp;
+                        Lancer la recherche!
+                    </button>
+        @* <input type="submit" value="search" /> *@
+</p>
+}
 
 <h1 class="border-bottom">@ViewBag.Title</h1>
 <div class="eventlistcarddeck"> 

@@ -349,7 +349,7 @@ namespace Models
                     EndDate = new DateTime(2020, 04, 25, 18, 30, 0),
                     PriceToPayToParticipate = 50.0,
                     Title = "Souper spaghetti de dufour (Lever de fond)",
-                    EventTypeId = 1,
+                    EventTypeId = 2,
                     Description = "Venez reprendre le poids Perdu a La Zumba de jordan!"
                 },
                   new
@@ -377,6 +377,19 @@ namespace Models
                          Title = "Evenement De Tennis",
                          EventTypeId = 1,
                          Description = "Je suis du passer!"
+                     },
+                       new
+                     {
+                         Id = 5,
+                         AddressId = 2,
+                         BusinessId = 2,
+                         ApplicationUserId = userIds["alexdufour@noname.com"],
+                         StartDate = new DateTime(2020, 01, 25, 13, 30, 0),
+                         EndDate = new DateTime(2020, 01, 25, 18, 30, 0),
+                         PriceToPayToParticipate = 50.0,
+                         Title = "La Course de Montreal",
+                         EventTypeId = 1,
+                         Description = "Belle course de 50km"
                      }
 
             );
@@ -423,6 +436,11 @@ namespace Models
                 {
                     ApplicationUserId = userIds["alexdufour@noname.com"],
                     EventId = 4
+                },
+                 new EventApplicationUser
+                {
+                    ApplicationUserId = userIds["alexdufour@noname.com"],
+                    EventId = 5
                 },
                 new EventApplicationUser
                 {
