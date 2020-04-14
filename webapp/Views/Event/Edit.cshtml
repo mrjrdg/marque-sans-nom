@@ -1,0 +1,163 @@
+@model ViewModels.CreateEventView
+@using Models
+
+@{
+    ViewData["Title"] = "Organiser un evenement";
+}
+
+@section HeadScripts {
+
+    <link rel="stylesheet" href="~/lib/tempus-dominus-datetimepicker/css/tempusdominus-bootstrap-4.min.css" />
+
+}
+
+<h1 class="border-bottom">Organiser un &eacute;v&eacute;nement</h1>
+<div class="row">
+    <div class="col-md">
+        <form asp-action="Edit" >
+
+            @if (ViewData.ModelState.Keys.Any(k => ViewData.ModelState[k].Errors.Any()))
+            {
+                <div class="alert alert-danger alert-dismissible fade show col-md-6" role="alert">
+                    @Html.ValidationSummary(false, "")
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Fermer">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            }
+
+            <div class="form-group no-gutters">
+                <label asp-for="Event.Title"></label>
+                <div class="col-md-6">
+                    <input asp-for="Event.Title" class="form-control" />
+                    <span asp-validation-for="Event.Title" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group no-gutters">
+                <label asp-for="Event.Description"></label>
+                <div class="col-md-6">
+                    <textarea asp-for="Event.Description" class="form-control" /></textarea>
+                    <span asp-validation-for="Event.Description" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group no-gutters">
+                <label asp-for="Event.StartDate"></label>
+                <div class="col-md-6">
+                    <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                        <input asp-for="Event.StartDate" class="form-control datetimepicker-input" data-target="#datetimepicker1" />
+                        <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        </div>
+                    </div>
+                    <span asp-validation-for="Event.StartDate" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group no-gutters">
+                <label asp-for="Event.EndDate"></label>
+                <div class="col-md-6">
+                    <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
+                        <input asp-for="Event.EndDate" class="form-control datetimepicker-input" data-target="#datetimepicker2" />
+                        <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        </div>
+                    </div>
+                    <span asp-validation-for="Event.EndDate" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group no-gutters">
+                @Html.LabelFor(m => m.Event.Business, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.DropDownListFor(Model => Model.Event.Business.Id, new SelectList(Model.Businesses, "Id",
+                    "Name"), new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group no-gutters">
+                @Html.LabelFor(m => m.Event.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.DropDownListFor(Model => Model.Event.Address.Id, new SelectList(Model.Addresses, "Id",
+                    "fullAddress"), new { @class = "form-control" })
+                </div>
+            </div>
+
+            @*
+        <div class="form-group">
+        @Html.LabelFor(model => model.Model.Id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Model.Id, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Model.Id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+            *@
+
+            <div class="form-group no-gutters">
+                <label asp-for="Event.PriceToPayToParticipate"></label>
+                <div class="col-md-6">
+                    <input asp-for="Event.PriceToPayToParticipate" class="form-control" />
+                    <span asp-validation-for="Event.PriceToPayToParticipate" class="text-danger"></span>
+                </div>
+            </div>
+
+
+            <div class="form-group no-gutters">
+                @Html.LabelFor(m => m.Event.EventType, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.DropDownListFor(Model => Model.Event.EventType.Id, new SelectList(Model.EventTypes, "Id",
+                    "Title"), new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group row no-gutters">
+                <div class="col-md">
+                    <button type="submit" class="btn btn-primary m-1">
+                        <i class="fas fa-check" style="width:14px; height:16px"></i>
+                        &nbsp;
+                        Modifier mon evenement
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Retour &agrave; la liste des &eacute;v&eacute;nements</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");
+
+        <script type="text/javascript" src="~/lib/momentjs/moment.js"></script>
+        <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script type="text/javascript" src="~/lib/tempus-dominus-datetimepicker/js/tempusdominus-bootstrap-4.min.js"></script>
+
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker({
+                    locale: 'fr',
+                    icons:
+                    {
+                        time: "fa fa-clock"
+                    }
+                });
+            });
+        </script>
+
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker2').datetimepicker({
+                    locale: 'fr',
+                    icons:
+                    {
+                        time: "fa fa-clock"
+                    }
+                });
+            });
+        </script>
+
+    }
+}

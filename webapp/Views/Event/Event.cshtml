@@ -99,7 +99,10 @@
                     else
                     {
                         @* Afficher QUIT si l'utilisateur est un participant*@
+                    @if( Model.Event.StartDate >  DateTime.Today &&
+                        Model.Event.ApplicationUser.Id != UserManager.GetUserId(User) ){
 
+                    
                         <form>
                             <button type="submit" class="btn btn-danger m-1">
                                 <i class="fas fa-times" style="width:14px; height:16px"></i>
@@ -107,6 +110,7 @@
                                 Me d&eacute;sinscrire
                             </button>
                         </form>
+                        }
                     }
                 }
                 else
@@ -114,9 +118,63 @@
                     <div class="alert alert-warning" role="alert">
                         Oups ! Vous n'&ecirc;tes pas connect&eacute;. Veuillez 
                         <a asp-area="Identity" asp-controller="Account" asp-action="Login">vous connecter</a>
-                         pour participer !
+                         pour participer !`
                     </div>
                 }
+                @if(@Model.Event.ApplicationUser.Id == UserManager.GetUserId(User) && 
+                     Model.Event.StartDate >  DateTime.Today){
+                      <form asp-action="Delete" asp-route-id="@Model.Event.Id">
+
+                    @if (ViewData.ModelState.Keys.Any(k => ViewData.ModelState[k].Errors.Any()))
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show col-md-6" role="alert">
+                            @Html.ValidationSummary(false, "")
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Fermer">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    }
+
+                    
+                    <p>
+                        <b>
+                            @Html.DisplayFor(model => model.Event.Title)
+                        </b>
+                    </p>
+
+                    <input type="hidden" />
+
+                    <div class="form-group row">
+                        <div class="col-md">
+                            <button type="submit" class="btn btn-danger m-1">
+                                <i class="fas fa-times" style="width:14px; height:16px"></i>
+                                &nbsp;
+                                Supprimer
+                            </button>
+                            <p>Voulez-vous vraiment supprimer cette event?</p>
+                        </div>
+                    </div>
+                </form>
+
+
+
+                <p>Souhaitez-vous modifiez cette evenement?</p>
+
+                 <td class="text-right">
+                                <a class="btn btn-primary mx-1" asp-action="Edit" asp-route-id="@Model.Event.Id">
+                                    <i class="fas fa-edit" style="width:14px; height:16px"></i>
+                                </a>
+                                
+
+                            </td>
+                    @* <form asp-action="Edit"  asp-route-id="@Model.Event.Id">
+                        
+                               <div class="form-group" style="padding-top:10px;">
+                <input type="submit" value="Supprimer" class="btn btn-primary" />
+                             </div>
+                    </form> *@
+                }
+
             </div>
         </div>
         <hr />
