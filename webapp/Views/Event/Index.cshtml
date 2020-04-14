@@ -161,7 +161,8 @@
                  
                 foreach (var oneMember in item.Members.ToList())
                 {
-                    if ( firstname.Equals(oneMember.FirstName)){
+                    if ( firstname.Equals(oneMember.FirstName) || 
+                        firstname.Equals(item.ApplicationUser.FirstName)){
                         @* current_user.Result.FirstName  *@
                             isInEvent = true;
                     } 

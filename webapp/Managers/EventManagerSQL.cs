@@ -23,7 +23,7 @@ namespace Managers
         }
          public override async Task<List<Event>> GetAll()
         {
-            var entities = await _context.Events.Include(a => a.Address).Include(e => e.Business).ToListAsync();
+            var entities = await _context.Events.Include(a => a.Address).Include(e => e.Business).Include(b => b.ApplicationUser).ToListAsync();
             return entities;
         }
     }
