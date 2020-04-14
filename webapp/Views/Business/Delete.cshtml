@@ -46,7 +46,9 @@
                 </form>
 
                 <div>
-                    <a asp-action="Index">Retour &agrave; la liste des entreprises</a>
+                    <a asp-controller="Business" asp-action="GetBusiness" asp-route-Id="@Model.Id">
+                        Retour &agrave; la fiche de l'entreprise
+                    </a>
                 </div>
 
             </div>

@@ -3,26 +3,76 @@
 @inject UserManager<ApplicationUser> UserManager
 
 @{
-    ViewData["Title"] = "Details d'une entreprise";
+    ViewData["Title"] = "Fiche d'une entreprise";
 }
 
-Bienvenur sur la page de 
-                            @Html.DisplayFor(Model => Model.Name)<br/>
-                            @Html.DisplayFor(Model => Model.Address.fullAddress)<br/>
+<h1 class="border-bottom">@Html.DisplayFor(Model => Model.Name)</h1>
+<div class="row">
+    <div class="col-md">
 
-                            @Html.DisplayFor(Model => Model.Phone)<br/>
-                            Voici Notre liste D'evenement offer:<br/>
-                           <td class="align-top">
-                            @foreach (var oneEvent in Model.Events)
-                            {
-                                <a asp-controller="Event" asp-action="GetEvent" asp-route-Id="@oneEvent.Id">
-                                    @Html.DisplayFor(modelEvent => oneEvent.Title)
-                                </a>
-                                <br />
-                            }
-                        </td>
-                        Nous offrons ce Type de events:
-                        @Html.DisplayFor(Model => Model.Events.First().EventType.Title)<br/>
-                        Notre mission:<br/>
-                        @Html.DisplayFor(Model => Model.Description)<br/>
+        @if (SignInManager.IsSignedIn(User))
+        {
+            @if (User.IsInRole("Admin"))
+            {
+                <div class="form-group row">
+                    <div class="col-md">
+                        <a class="btn btn-primary mx-1" asp-action="Edit" asp-route-id="@Model.Id">
+                            <i class="fas fa-check" style="width:14px; height:16px"></i>
+                            &nbsp;
+                            Modifier
+                        </a>
+                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@Model.Id">
+                            <i class="fas fa-times" style="width:14px; height:16px"></i>
+                            &nbsp;
+                            Supprimer
+                        </a>
+                    </div>
+                </div>
+            }
+        }
 
+        <h2>Services offerts</h2>
+        <p>
+            @Html.Raw(Html.Encode(Model.Description).Replace("\n", "<br />"))
+        </p>
+
+        <h2>Liste des &eacute;v&eacute;nements</h2>
+        <p>
+            <ul>
+                @foreach (var oneEvent in Model.Events)
+                {
+                    <li>
+                        <a asp-controller="Event" asp-action="GetEvent" asp-route-Id="@oneEvent.Id">
+                            @Html.DisplayFor(modelEvent => oneEvent.Title)
+                        </a>
+                    </li>
+                }
+            </ul>
+        </p>
+
+        <h2>Coordonn&eacute;es</h2>
+        <p>
+            <address>
+                @Html.DisplayFor(Model => Model.Address.CivicNumber),
+                @Html.DisplayFor(Model => Model.Address.Street)
+                <br />
+                @Html.DisplayFor(Model => Model.Address.City)
+                (@Html.DisplayFor(Model => Model.Address.State))
+                &nbsp;
+                @Html.DisplayFor(Model => Model.Address.PostalCode)
+                <br />
+                @Html.DisplayFor(Model => Model.Address.Country)
+            </address>
+        </p>
+
+        <h2>T&eacute;l&eacute;phone</h2>
+        <p>
+            @Html.DisplayFor(Model => Model.Phone)
+        </p>
+
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Retour &agrave; la liste des entreprises</a>
+</div>
