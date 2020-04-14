@@ -39,6 +39,7 @@ namespace Models
         /// </summary>
         /// <value></value>
         [Display(Name = "Date et heure de début")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd hh:MM}", ApplyFormatInEditMode = true)]
         [Required(ErrorMessage = "La date et l'heure de d&eacute;but sont requis.")]
         public DateTime StartDate { get; set; }
 
@@ -48,6 +49,7 @@ namespace Models
         /// </summary>
         /// <value></value>
         [Display(Name = "Date et heure de fin")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd hh:MM}", ApplyFormatInEditMode = true)]
         [Required(ErrorMessage = "La date et l'heure de fin sont requis.")]
         public DateTime EndDate { get; set; }
 

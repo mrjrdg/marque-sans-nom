@@ -37,7 +37,7 @@
             <div class="form-group no-gutters">
                 <label asp-for="Event.Description"></label>
                 <div class="col-md-6">
-                    <textarea asp-for="Event.Description" class="form-control" /></textarea>
+                    <textarea asp-for="Event.Description" class="form-control"></textarea>
                     <span asp-validation-for="Event.Description" class="text-danger"></span>
                 </div>
             </div>
@@ -46,7 +46,7 @@
                 <label asp-for="Event.StartDate"></label>
                 <div class="col-md-6">
                     <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
-                        <input asp-for="Event.StartDate" class="form-control datetimepicker-input" data-target="#datetimepicker1" type="datetime-local"  id="datePicker" />
+                        <input asp-for="Event.StartDate" class="form-control datetimepicker-input" data-target="#datetimepicker1" />
                         <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
                             <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                         </div>
@@ -139,6 +139,8 @@
             $(function () {
                 $('#datetimepicker1').datetimepicker({
                     locale: 'fr',
+                    minDate: "now",
+                    format: "YYYY-MM-DD HH:mm",
                     icons:
                     {
                         time: "fa fa-clock"
@@ -151,6 +153,8 @@
             $(function () {
                 $('#datetimepicker2').datetimepicker({
                     locale: 'fr',
+                    minDate: "now",
+                    format: "YYYY-MM-DD HH:mm",
                     icons:
                     {
                         time: "fa fa-clock"
@@ -158,6 +162,5 @@
                 });
             });
         </script>
-
     }
 }
