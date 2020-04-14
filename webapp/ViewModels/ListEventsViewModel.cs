@@ -6,7 +6,8 @@ namespace ViewModels
 {
     public class ListEventsViewModel
     {
-          public string typeSearch {get;set;}
+        [Display(Name = "Par type :")]
+        public string typeSearch {get;set;}
           public Event Event { get; set; }
             public List<Event> Events { get; set; }
          public List<Address> Addresses { get; set; }

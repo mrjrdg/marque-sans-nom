@@ -6,25 +6,39 @@
 @* CETTE PAGE AFFICHE CE QUI SE TROUVE DANS LE MILIEU DU MENU *@
 @* TODO: MODIFIER LES LIENS POUR LES BONNE PAGES *@
 
-    <ul class="navbar-nav mr-auto">
-        @if (SignInManager.IsSignedIn(User))
-        {
-            @* <li class="nav-item">
+<ul class="navbar-nav mr-auto">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        @* <li class="nav-item">
                 <a class="nav-link text-primary" asp-area="Identity" asp-controller="Event" asp-action="Join">Chercher un &eacute;v&eacute;nement</a>
             </li> *@
-            <li class="nav-item">
-                <a class="nav-link text-primary" asp-area="Identity" asp-controller="Event" asp-action="CreateEvent">Organiser un &eacute;v&eacute;nement</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-primary" asp-area="Identity" asp-controller="Account" asp-action="Register">Modifier mes &eacute;v&eacute;nements</a>
-            </li>
-        }
-        else
-        {
+        <li class="nav-item">
+            <a class="nav-link text-primary" asp-area="Identity" asp-controller="Event" asp-action="CreateEvent">Organiser un &eacute;v&eacute;nement</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-primary" asp-area="Identity" asp-controller="Account" asp-action="Register">Modifier mes &eacute;v&eacute;nements</a>
+        </li>
+    }
+    else
+    {
 
-            @:&nbsp;
-            @* GARDER L'ESPACE *@
-            @* NE RIEN AFFICHER DANS LE MENU SI LA PERSONNE N'EST PAS CONNECTÉE *@
+        @:&nbsp;
+        @* GARDER L'ESPACE *@
+        @* NE RIEN AFFICHER DANS LE MENU SI LA PERSONNE N'EST PAS CONNECTÉE *@
 
-        }
-    </ul>
+    }
+</ul>
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <form asp-action="Index" asp-controller="Event">
+
+        @Html.TextBox("search", null,
+        new
+            {
+            @class = "form-control mr-sm-2",
+            @placeholder = "Rechercher un événement"
+            })
+
+    </form>
+}
