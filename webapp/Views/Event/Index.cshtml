@@ -72,54 +72,51 @@
             {
                 if ( item.StartDate > today){
 
-                if ((eventCount % 3 == 0))
-                {
-
-                    @:<div class="row ml-0 mr-0">
-
+                    if ((eventCount % 3 == 0)){
+                        @:<div class="row ml-0 mr-0">
                     }
 
-                    <div class="col-md-4 mb-3">
-                        <div class="card">
-                            <img class="card-img-top eventlistcardimg"
-                                 src="https://s16-us2.startpage.com/cgi-bin/serveimage?url=https%3A%2F%2Fi.ytimg.com%2Fvi%2F_U6rq4hmKuw%2Fhqdefault.jpg&sp=73bb94b6c7ccffee5d36c459590d5ecb&anticache=725823"
-                                 alt="Image représentant l'activité">
-                            <div class="card-body">
-                                <h4 class="card-title">
-                                    <a asp-action="GetEvent" asp-route-Id="@item.Id" class="stretched-link">
-                                        @item.Title
-                                    </a>
-                                </h4>
-                                <p class="card-text">
-                                    @{
-                                        int descriptionMaxLength = 100;
-                                        string description;
+                        <div class="col-md-4 mb-3">
+                            <div class="card">
+                                <img class="card-img-top eventlistcardimg"
+                                    src="https://s16-us2.startpage.com/cgi-bin/serveimage?url=https%3A%2F%2Fi.ytimg.com%2Fvi%2F_U6rq4hmKuw%2Fhqdefault.jpg&sp=73bb94b6c7ccffee5d36c459590d5ecb&anticache=725823"
+                                    alt="Image représentant l'activité">
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a asp-action="GetEvent" asp-route-Id="@item.Id" class="stretched-link">
+                                            @item.Title
+                                        </a>
+                                    </h4>
+                                    <p class="card-text">
+                                        @{
+                                            int descriptionMaxLength = 100;
+                                            string description;
 
-                                        if (item.Description != null)
-                                        {
-
-                                            if (item.Description.Length <= descriptionMaxLength)
+                                            if (item.Description != null)
                                             {
-                                                description = item.Description;
-                                            }
-                                            else
-                                            {
-                                                description = Truncate(item.Description, descriptionMaxLength) + "...";
-                                            }
 
-                                            @description
+                                                if (item.Description.Length <= descriptionMaxLength)
+                                                {
+                                                    description = item.Description;
+                                                }
+                                                else
+                                                {
+                                                    description = Truncate(item.Description, descriptionMaxLength) + "...";
+                                                }
 
+                                                @description
+
+                                            }
                                         }
-                                    }
-                                </p>
-                                <p class="card-text">
-                                    <small class="text-muted">
-                                        @item.Members.Count participant(s)
-                                    </small>
-                                </p>
+                                    </p>
+                                    <p class="card-text">
+                                        <small class="text-muted">
+                                            @item.Members.Count participant(s)
+                                        </small>
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
                     if ((eventCount % 3 == 2) || (item.Equals(lastEvent)))
                     {
@@ -137,7 +134,7 @@
 </div>
 
 
-<h1 class="border-bottom">Evenement Passer</h1>
+<h1 class="border-bottom">&Eacute;v&eacute;nements pass&eacute;s</h1>
 <div class="eventlistcarddeck"> 
     @{
 
