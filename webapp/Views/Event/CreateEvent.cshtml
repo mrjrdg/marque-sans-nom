@@ -46,7 +46,7 @@
                 <label asp-for="Event.StartDate"></label>
                 <div class="col-md-6">
                     <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
-                        <input asp-for="Event.StartDate" class="form-control datetimepicker-input" data-target="#datetimepicker1" />
+                        <input asp-for="Event.StartDate" class="form-control datetimepicker-input" data-target="#datetimepicker1" type="datetime-local"  id="datePicker" />
                         <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
                             <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                         </div>

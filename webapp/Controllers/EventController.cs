@@ -150,6 +150,7 @@ namespace Controllers
                 var model = new EventViewModel { Event = oneEvent };
                 model.Event.Address = await _addressServices.Get(oneEvent.Address.Id);
                 model.Event.EventType = await _eventTypeServices.Get(oneEvent.EventType.Id);
+                
 
 
                 model.Event.Commentaires = await _context.Commentaires
@@ -201,16 +202,35 @@ namespace Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateEvent(CreateEventView event1)
         {
-
+            var user = await _userManager.GetUserAsync(User);
 
             event1.Event.Address = await _addressServices.Get(event1.Event.Address.Id);
             event1.Event.Business = await _businessServices.Get(event1.Event.Business.Id);
             event1.Event.EventType = await _context.EventTypes.FindAsync(event1.Event.EventType.Id);
+
+         
+
+            
+            event1.Event.ApplicationUser = user;
+            
             //[Bind("Id,AddressId,BusinessId,ApplicationUserId,StartDate,EndDate,PriceToPayToParticipate,Title,EventTypeId")]
             // if (ModelState.IsValid)
             // {
-            _context.Add(event1.Event);
+            _context.Events.Add(event1.Event);
             await _context.SaveChangesAsync();
+
+
+                var link = new EventApplicationUser
+            {
+                ApplicationUserId = user.Id,
+                EventId = event1.Event.Id
+            };
+
+            var eventUser = await _context.EventApplicationUsers
+                .AddAsync(link);
+            await _context.SaveChangesAsync();
+
+            
             return RedirectToAction(nameof(Index));
             // }else {
             // return RedirectToAction(nameof(CreateEvent));
