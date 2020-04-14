@@ -15,7 +15,7 @@ namespace Models
         public string Content {get;set;}
         [Required]
         public ApplicationUser User { get; set; }
-        [Required]
+        
         public int EventId { get; set; }
         [ForeignKey("EventId")]
         public Event Event { get; set; }

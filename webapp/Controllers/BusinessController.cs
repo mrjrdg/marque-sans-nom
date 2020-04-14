@@ -138,9 +138,6 @@ namespace Controllers
             {
                 return NotFound();
             }
-
-
-            
                 try
                 {
                     _context.Update(model);
@@ -158,8 +155,7 @@ namespace Controllers
                     }
                 }
                 return RedirectToAction(nameof(Index));
-            
-            
+               
         }
          public async Task<IActionResult> Delete(int? id)
         {
@@ -189,12 +185,28 @@ namespace Controllers
 
             await _eventServices.GetAll();
 
+            var allComments = await _context.Commentaires.ToListAsync();
             await _context.EventApplicationUsers.ToListAsync();
 
             foreach (var item in business.Events)
             {
-                _context.Events.Remove(await _context.Events.FindAsync(item.Id));
+
+            foreach (var unComment in allComments)
+            {
+                var commentDelete = await _context.Commentaires.FindAsync(unComment.EventId);
+                if (unComment.EventId == item.Id)
+                {
+                    _context.Commentaires.Remove(commentDelete);
+
+                }
+
             }
+                _context.Events.Remove(await _context.Events.FindAsync(item.Id));
+
+                await _context.SaveChangesAsync();
+            }
+
+           
 
             _context.Businesses.Remove(business);
             await _context.SaveChangesAsync();
