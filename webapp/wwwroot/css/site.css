@@ -185,3 +185,10 @@ footer a:hover {
 .footerContainer {
     width: 100%;
 }
+
+a.anchor-rec {
+    display: block;
+    position: relative;
+    top: -75px;
+    visibility: hidden;
+}

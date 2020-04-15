@@ -4,7 +4,7 @@
 @inject UserManager<ApplicationUser> UserManager
 
 @{
-    ViewData["Title"] = "Liste des événements";
+    ViewData["Title"] = "Événements";
 }
 
 @functions {
@@ -89,8 +89,11 @@
     </div>
 </div>
 
+<h2 class="border-bottom">Mes &eacute;v&eacute;nements &agrave; venir</h2>
+
 <div class="eventlistcarddeck">
     @{
+        int eventCount = 0;
 
         if (Model.Events.Count == 0)
         {
@@ -103,81 +106,225 @@
         }
         else
         {
+
             Event lastEvent = Model.Events.Last();
-            int eventCount = 0;
+            var current_user = await UserManager.GetUserAsync(User);
+            var firstname = current_user.FirstName;
+            var isInEvent = false;
 
             foreach (var item in Model.Events)
             {
-                if (item.StartDate > today)
+                if ( item.EndDate >= today){
+                 
+                foreach (var oneMember in item.Members.ToList())
                 {
-
-                    if ((eventCount % 3 == 0))
-                    {
-                        @:<div class="row ml-0 mr-0">
+                    if ( firstname.Equals(oneMember.FirstName) || 
+                        firstname.Equals(item.ApplicationUser.FirstName)){
+                        @* current_user.Result.FirstName  *@
+                            isInEvent = true;
                         }
-
-                        <div class="col-md-4 mb-3">
-                            <div class="card">
-                                <img class="card-img-top eventlistcardimg"
-                                     src="https://s16-us2.startpage.com/cgi-bin/serveimage?url=https%3A%2F%2Fi.ytimg.com%2Fvi%2F_U6rq4hmKuw%2Fhqdefault.jpg&sp=73bb94b6c7ccffee5d36c459590d5ecb&anticache=725823"
-                                     alt="Image représentant l'activité">
-                                <div class="card-body">
-                                    <h4 class="card-title">
-                                        <a asp-action="GetEvent" asp-route-Id="@item.Id" class="stretched-link">
-                                            @item.Title
-                                        </a>
-                                    </h4>
-                                    <p class="card-text">
-                                        @{
-                                            int descriptionMaxLength = 100;
-                                            string description;
-
-                                            if (item.Description != null)
-                                            {
-
-                                                if (item.Description.Length <= descriptionMaxLength)
-                                                {
-                                                    description = item.Description;
-                                                }
-                                                else
-                                                {
-                                                    description = Truncate(item.Description, descriptionMaxLength) + "...";
-                                                }
-
-                                                @description
-
-                                            }
-                                        }
-                                    </p>
-                                    <p class="card-text">
-                                        <small class="text-muted">
-                                            @item.Members.Count participant(s)
-                                        </small>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        if ((eventCount % 3 == 2) || (item.Equals(lastEvent)))
-                        {
-
-                        @:</div>
-
-
                     }
 
-                    eventCount++;
+                    if (isInEvent == true && item.EndDate >= today)
+                    {
 
+                        if ((eventCount % 3 == 0))
+                        {
+
+                            @:<div class="row ml-0 mr-0">
+
+                            }
+
+                            <div class="col-md-4 mb-3">
+                                <div class="card">
+                                    <img class="card-img-top eventlistcardimg"
+                                         src="https://s16-us2.startpage.com/cgi-bin/serveimage?url=https%3A%2F%2Fi.ytimg.com%2Fvi%2F_U6rq4hmKuw%2Fhqdefault.jpg&sp=73bb94b6c7ccffee5d36c459590d5ecb&anticache=725823"
+                                         alt="Image représentant l'activité">
+                                    <div class="card-body">
+                                        <h4 class="card-title">
+                                            <a asp-action="GetEvent" asp-route-Id="@item.Id" class="stretched-link">
+                                                @item.Title
+                                            </a>
+                                        </h4>
+                                        <p class="card-text">
+                                            @{
+                                                int descriptionMaxLength = 100;
+                                                string description;
+
+                                                if (item.Description != null)
+                                                {
+
+                                                    if (item.Description.Length <= descriptionMaxLength)
+                                                    {
+                                                        description = item.Description;
+                                                    }
+                                                    else
+                                                    {
+                                                        description = Truncate(item.Description, descriptionMaxLength) + "...";
+                                                    }
+
+                                                    @description
+
+                                                }
+                                            }
+                                        </p>
+                                        <p class="card-text">
+                                            <small class="text-muted">
+                                                @item.Members.Count participant(s)
+                                            </small>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            if ((eventCount % 3 == 2) || (item.Equals(lastEvent)))
+                            {
+
+                            @:</div>
+
+                        }
+
+                        eventCount++;                        
+                    }
+                    isInEvent = false;
                 }
             }
+
+        }
+
+        if (eventCount == 0)
+        {
+            <div class="alert alert-warning" role="alert">
+                Vous n'&ecirc;tes inscrit &agrave; aucun &eacute;v&eacute;nement. Pourquoi ne pas en
+                <a class="alert-link" href="#recommande"> trouver un</a>
+                ?
+            </div>
+        }
+    }
+</div>
+
+<a class="anchor-rec" id="recommande"></a>
+
+<h2 class="border-bottom">&Eacute;v&eacute;nements recommand&eacute;s</h2>
+
+<div class="eventlistcarddeck">
+    @{
+        eventCount = 0;
+
+        if (Model.Events.Count == 0)
+        {
+            <div class="alert alert-warning" role="alert">
+                Il n'y a pas d'&eacute;v&eacute;nements en cours. Pourquoi ne pas en
+                <a class="alert-link" asp-area="Identity" asp-controller="Event" asp-action="CreateEvent">
+                    organiser un
+                </a> ?
+            </div>
+        }
+        else
+        {
+
+            Event lastEvent = Model.Events.Last();            
+            var current_user = await UserManager.GetUserAsync(User);
+            var firstname = current_user.FirstName;
+            var isInEvent = false;
+
+            foreach (var item in Model.Events)
+            {
+                if ( item.EndDate >= today){
+                 
+                foreach (var oneMember in item.Members.ToList())
+                {
+                    if ( firstname.Equals(oneMember.FirstName) || 
+                        firstname.Equals(item.ApplicationUser.FirstName)){
+                        @* current_user.Result.FirstName  *@
+                            isInEvent = true;
+                        }
+                    }
+
+                    if (isInEvent == false && item.EndDate >= today)
+                    {
+
+                        if ((eventCount % 3 == 0))
+                        {
+
+                            @:<div class="row ml-0 mr-0">
+
+                            }
+
+                            <div class="col-md-4 mb-3">
+                                <div class="card">
+                                    <img class="card-img-top eventlistcardimg"
+                                         src="https://s16-us2.startpage.com/cgi-bin/serveimage?url=https%3A%2F%2Fi.ytimg.com%2Fvi%2F_U6rq4hmKuw%2Fhqdefault.jpg&sp=73bb94b6c7ccffee5d36c459590d5ecb&anticache=725823"
+                                         alt="Image représentant l'activité">
+                                    <div class="card-body">
+                                        <h4 class="card-title">
+                                            <a asp-action="GetEvent" asp-route-Id="@item.Id" class="stretched-link">
+                                                @item.Title
+                                            </a>
+                                        </h4>
+                                        <p class="card-text">
+                                            @{
+                                                int descriptionMaxLength = 100;
+                                                string description;
+
+                                                if (item.Description != null)
+                                                {
+
+                                                    if (item.Description.Length <= descriptionMaxLength)
+                                                    {
+                                                        description = item.Description;
+                                                    }
+                                                    else
+                                                    {
+                                                        description = Truncate(item.Description, descriptionMaxLength) + "...";
+                                                    }
+
+                                                    @description
+
+                                                }
+                                            }
+                                        </p>
+                                        <p class="card-text">
+                                            <small class="text-muted">
+                                                @item.Members.Count participant(s)
+                                            </small>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            if ((eventCount % 3 == 2) || (item.Equals(lastEvent)))
+                            {
+
+                            @:</div>
+
+                        }
+
+                        eventCount++;                        
+                    }
+                    isInEvent = false;
+                }
+            }
+
+        }
+
+        if (eventCount == 0)
+        {
+            <div class="alert alert-warning" role="alert">
+                Il n'y a pas d'autres &eacute;v&eacute;nements à venir. Pourquoi ne pas en
+                <a class="alert-link" asp-area="Identity" asp-controller="Event" asp-action="CreateEvent">
+                    organiser un
+                </a> ?
+            </div>
         }
     }
 </div>
 
 
-<h1 class="border-bottom">&Eacute;v&eacute;nements pass&eacute;s</h1>
+<h2 class="border-bottom">Mes &eacute;v&eacute;nements pass&eacute;s</h2>
 <div class="eventlistcarddeck">
     @{
+        eventCount = 0;
 
         if (Model.Events.Count == 0)
         {
@@ -191,8 +338,7 @@
         else
         {
 
-            Event lastEvent = Model.Events.Last();
-            int eventCount = 0;
+            Event lastEvent = Model.Events.Last();            
             var current_user = await UserManager.GetUserAsync(User);
             var firstname = current_user.FirstName;
             var isInEvent = false;
@@ -269,12 +415,22 @@
 
                         }
 
-                        eventCount++;
-
+                        eventCount++;                        
                     }
+                    isInEvent = false;
                 }
             }
 
+        }
+
+        if (eventCount == 0)
+        {
+            <div class="alert alert-warning" role="alert">
+                Vous n'avez encore particip&eacute; &agrave; aucun &eacute;v&eacute;nement. Pourquoi ne pas en
+                <a class="alert-link" href="#recommande">
+                    trouver un
+                </a> ?
+            </div>
         }
     }
 </div>
