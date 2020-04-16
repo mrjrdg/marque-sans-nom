@@ -37,7 +37,7 @@
             <div class="form-group no-gutters">
                 <label asp-for="Event.Description"></label>
                 <div class="col-md-6">
-                    <textarea asp-for="Event.Description" class="form-control" /></textarea>
+                    <textarea asp-for="Event.Description" class="form-control" placeholder="@Model.Event.Description"></textarea>
                     <span asp-validation-for="Event.Description" class="text-danger"></span>
                 </div>
             </div>
@@ -46,7 +46,7 @@
                 <label asp-for="Event.StartDate"></label>
                 <div class="col-md-6">
                     <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
-                        <input asp-for="Event.StartDate" class="form-control datetimepicker-input" data-target="#datetimepicker1" />
+                        <input asp-for="Event.StartDate" class="form-control datetimepicker-input" data-target="#datetimepicker1" placeholder="@Model.Event.StartDate.ToShortDateString() @Model.Event.StartDate.ToShortTimeString()"/>
                         <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
                             <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                         </div>
@@ -59,7 +59,7 @@
                 <label asp-for="Event.EndDate"></label>
                 <div class="col-md-6">
                     <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
-                        <input asp-for="Event.EndDate" class="form-control datetimepicker-input" data-target="#datetimepicker2" />
+                        <input asp-for="Event.EndDate" class="form-control datetimepicker-input" data-target="#datetimepicker2" placeholder="@Model.Event.EndDate.ToShortDateString() @Model.Event.EndDate.ToShortTimeString()"/>
                         <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
                             <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                         </div>
