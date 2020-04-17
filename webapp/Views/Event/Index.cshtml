@@ -99,9 +99,9 @@
             }
         }
 
-        Event lastMyEvent = myEvents.Last();
-
         if(myEvents.Count > 0) {
+
+            Event lastMyEvent = myEvents.Last();
 
             foreach (var myEvent in myEvents)
             {
@@ -219,9 +219,9 @@
             }
         }
 
-        Event lastRecommendedEvent = recommendedEvents.Last();
-
         if(recommendedEvents.Count > 0) {
+
+            Event lastRecommendedEvent = recommendedEvents.Last();
 
             foreach (var myEvent in recommendedEvents)
             {
@@ -279,18 +279,20 @@
                 eventCount++;
             }
 
+        } else {
+
+            <div class="alert alert-warning" role="alert">
+                Il n'y a aucun autre &eacute;v&eacute;nement actif. Pourquoi ne pas en
+                <a class="alert-link" asp-area="Identity" asp-controller="Event" asp-action="CreateEvent">
+                    organiser un
+                </a> ?
+            </div>
+
         }
 
-    } else {
-
-        <div class="alert alert-warning" role="alert">
-            Il n'y a aucun &eacute;v&eacute;nement actif. Pourquoi ne pas en
-            <a class="alert-link" asp-area="Identity" asp-controller="Event" asp-action="CreateEvent">
-                organiser un
-            </a> ?
-        </div>
-
     }
+
+    
 }
 </div>
 
@@ -326,10 +328,11 @@
                 }
             }
         }
-
-        Event lastPastEvent = myPastEvents.Last();
+       
 
         if(myPastEvents.Count > 0) {
+
+            Event lastPastEvent = myPastEvents.Last();
 
             foreach (var myEvent in myPastEvents)
             {
