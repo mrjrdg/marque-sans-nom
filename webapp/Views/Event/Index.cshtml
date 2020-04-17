@@ -282,13 +282,22 @@
         } else {
 
             <div class="alert alert-warning" role="alert">
-                Il n'y a aucun autre &eacute;v&eacute;nement actif. Pourquoi ne pas en
+                Il n'y a aucun autre &eacute;v&eacute;nement &agrave; venir. Pourquoi ne pas en
                 <a class="alert-link" asp-area="Identity" asp-controller="Event" asp-action="CreateEvent">
                     organiser un
                 </a> ?
             </div>
 
         }
+
+    } else {
+
+            <div class="alert alert-warning" role="alert">
+                Il n'y a aucun &eacute;v&eacute;nement actif. Pourquoi ne pas en
+                <a class="alert-link" asp-area="Identity" asp-controller="Event" asp-action="CreateEvent">
+                    organiser un
+                </a> ?
+            </div>
 
     }
 
