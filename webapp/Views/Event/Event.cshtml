@@ -6,8 +6,57 @@
     ViewData["Title"] = "Fiche d'un événement";
 }
 
-<p class="h1 mb-0">@Model.Event.Title</p>
-<div class="row">
+<h1 class="h1 mb-0">@Model.Event.Title</h1>
+
+ @if (@Model.Event.ApplicationUser.Id == UserManager.GetUserId(User) &&
+                    Model.Event.StartDate > DateTime.Today)
+                {
+
+                <div class="form-group row">
+                    <div class="col-md">
+                        <a class="btn btn-primary mx-1" asp-action="Edit" asp-route-id="@Model.Event.Id">
+                            <i class="fas fa-check" style="width:14px; height:16px"></i>
+                            &nbsp;
+                            Modifier
+                        </a>
+                        <a class="btn btn-danger m-1 collapsed" data-toggle="collapse" href="#confirmDEL" role="button" aria-expanded="false" aria-controls="confirmDEL">
+                            <i class="fas fa-times" style="width:14px; height:16px"></i>
+                            &nbsp;
+                            Supprimer
+                        </a>
+                    </div>
+                </div>
+                    <form asp-action="Delete" asp-route-id="@Model.Event.Id">
+
+                        @if (ViewData.ModelState.Keys.Any(k => ViewData.ModelState[k].Errors.Any()))
+                        {
+                            <div class="alert alert-danger alert-dismissible fade show col-md-6" role="alert">
+                                @Html.ValidationSummary(false, "")
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Fermer">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        }
+
+                        <input type="hidden" />                            
+                                
+                                <div class="collapse" id="confirmDEL">
+                                    <p>Voulez-vous vraiment supprimer cette &eacute;v&eacute;nement?</p>
+                                        <button type="submit" class="btn btn-success m-1">
+                                            <i class="fas fa-check" style="width:14px; height:16px"></i>
+                                            &nbsp;
+                                            Oui
+                                        </button>
+                                        <a class="btn btn-danger m-1" data-toggle="collapse" href="#confirmDEL" role="button" aria-expanded="false" aria-controls="confirmDEL">
+                                            <i class="fas fa-times" style="width:14px; height:16px"></i>
+                                            &nbsp;
+                                            Non
+                                        </a>           
+                                </div>
+                    </form>                    
+                }
+
+<div class="row">  
     <div class="col-md">
         @{
             String startDate = Model.Event.StartDate.ToLongDateString();
@@ -122,60 +171,7 @@
                         pour participer !`
                     </div>
                 }
-                @if (@Model.Event.ApplicationUser.Id == UserManager.GetUserId(User) &&
-                    Model.Event.StartDate > DateTime.Today)
-                {
-                    <form asp-action="Delete" asp-route-id="@Model.Event.Id">
-
-                        @if (ViewData.ModelState.Keys.Any(k => ViewData.ModelState[k].Errors.Any()))
-                        {
-                            <div class="alert alert-danger alert-dismissible fade show col-md-6" role="alert">
-                                @Html.ValidationSummary(false, "")
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Fermer">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                        }
-
-
-                        <p>
-                            <b>
-                                @Html.DisplayFor(model => model.Event.Title)
-                            </b>
-                        </p>
-
-                        <input type="hidden" />
-
-                        <div class="form-group row">
-                            <div class="col-md">
-                                <button type="submit" class="btn btn-danger m-1">
-                                    <i class="fas fa-times" style="width:14px; height:16px"></i>
-                                    &nbsp;
-                                    Supprimer
-                                </button>
-                                <p>Voulez-vous vraiment supprimer cette event?</p>
-                            </div>
-                        </div>
-                    </form>
-
-
-
-                    <p>Souhaitez-vous modifiez cette evenement?</p>
-
-                    <td class="text-right">
-                        <a class="btn btn-primary mx-1" asp-action="Edit" asp-route-id="@Model.Event.Id">
-                            <i class="fas fa-edit" style="width:14px; height:16px"></i>
-                        </a>
-
-
-                    </td>
-                    @* <form asp-action="Edit"  asp-route-id="@Model.Event.Id">
-
-                                       <div class="form-group" style="padding-top:10px;">
-                        <input type="submit" value="Supprimer" class="btn btn-primary" />
-                                     </div>
-                            </form> *@
-                }
+                
 
             </div>
         </div>
@@ -236,9 +232,13 @@
                         <a href="https://www.google.com/maps/search/?api=1&query=@googleQuery"
                            target="_blank">Afficher sur la carte</a>
                     </p>
-                    <h5>Précisions</h5>
-                    <p>Veuillez entrer par la porte sur le c&ocirc;t&eacute; de l'ar&eacute;na, porte SH-2460</p>
                 </div>
+                <!-- EVENT PRICE -->
+                @if( Model.Event.PriceToPayToParticipate > 0 ) {
+                    <div>
+                        <p>Prix de l'activit&eacute; : @Model.Event.PriceToPayToParticipate $</p>
+                    </div>
+                }
                 <!-- EVENT CATEGORY -->
                 <div>
                     <h3>Cat&eacute;gorie</h3>
@@ -255,7 +255,7 @@
                         </li>
                             -->
                     </ul>
-                </div>
+                </div>                
             </div>
             <!-- EVENT BOARD TAB2 -->
             <div class="tab-pane" id="eventboard">
