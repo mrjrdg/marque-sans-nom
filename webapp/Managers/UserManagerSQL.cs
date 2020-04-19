@@ -18,5 +18,15 @@ namespace Managers
         {
             _context = context;
         }
+
+        public Task<ApplicationUser> GetApplicationUserWithAvatar(string id)
+        {
+            var user =_context.Users
+                .AsNoTracking()
+                .Include(x => x.Avatar)
+                .FirstAsync(x => x.Id == id);
+
+            return user;
+        }
     }
 }

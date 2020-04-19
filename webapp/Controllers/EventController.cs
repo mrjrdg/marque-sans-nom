@@ -105,8 +105,8 @@ namespace Controllers
                 foreach (var item in model.Events)
                 {
                     var links = await _context.EventApplicationUsers
-                .Where(x => x.EventId == item.Id)
-                .ToListAsync();
+                        .Where(x => x.EventId == item.Id)
+                        .ToListAsync();
 
                     foreach (var link in links)
                     {
@@ -150,8 +150,6 @@ namespace Controllers
                 var model = new EventViewModel { Event = oneEvent };
                 model.Event.Address = await _addressServices.Get(oneEvent.Address.Id);
                 model.Event.EventType = await _eventTypeServices.Get(oneEvent.EventType.Id);
-                
-
 
                 model.Event.Commentaires = await _context.Commentaires
                     .Where(x => x.EventId == oneEvent.Id)
@@ -208,11 +206,11 @@ namespace Controllers
             event1.Event.Business = await _businessServices.Get(event1.Event.Business.Id);
             event1.Event.EventType = await _context.EventTypes.FindAsync(event1.Event.EventType.Id);
 
-         
 
-            
+
+
             event1.Event.ApplicationUser = user;
-            
+
             //[Bind("Id,AddressId,BusinessId,ApplicationUserId,StartDate,EndDate,PriceToPayToParticipate,Title,EventTypeId")]
             // if (ModelState.IsValid)
             // {
@@ -220,7 +218,7 @@ namespace Controllers
             await _context.SaveChangesAsync();
 
 
-                var link = new EventApplicationUser
+            var link = new EventApplicationUser
             {
                 ApplicationUserId = user.Id,
                 EventId = event1.Event.Id
@@ -230,7 +228,7 @@ namespace Controllers
                 .AddAsync(link);
             await _context.SaveChangesAsync();
 
-            
+
             return RedirectToAction(nameof(Index));
             // }else {
             // return RedirectToAction(nameof(CreateEvent));

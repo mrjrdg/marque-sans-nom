@@ -1,0 +1,14 @@
+
+@model ImageViewModel
+
+<h1>Test d</h1>
+
+<form asp-controller="Image" asp-action="UploadAvatar" enctype="multipart/form-data" method="post">
+    <input asp-for="File" type="File"/>
+    <input class="btn" type="submit" value="Upload" />
+</form>
+
+@if(ViewBag.Avatar != null)
+{
+    <img src="~/AvatarsImages/@ViewBag.Avatar.Name">
+}

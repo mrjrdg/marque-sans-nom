@@ -31,6 +31,7 @@ namespace webapp
         {
             services.AddControllersWithViews();
             services.AddRazorPages();
+
             services.AddScoped<UserManagerSQL>();
             services.AddScoped<IBusinessServices, BusinessManagerSQL>();
             services.AddScoped<IEventServices, EventManagerSQL>();
@@ -38,10 +39,11 @@ namespace webapp
             services.AddScoped<IAddressServices, AddressManagerSQL>();
             services.AddScoped<IMessageConversationServices, MessageConversationManagerSQL>();
             services.AddScoped<IMessageServices, MessageManagerSQL>();
+            services.AddScoped<IAvatarServices, AvatarManagerSQL>();
 
             services.AddDbContextPool<AppDbContext>(options =>
             {
-                    options.UseSqlServer(Configuration.GetConnectionString("DatabaseContext"));
+                    options.UseSqlServer(Configuration.GetConnectionString("JordanGauthierDatabaseContext"));
                     options.EnableSensitiveDataLogging(true);
             });
 

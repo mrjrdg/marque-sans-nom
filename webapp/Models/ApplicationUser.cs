@@ -35,6 +35,7 @@ namespace Models {
         public List<MessageConversation> MessageConversationsSender { get; set; }
         public List<MessageConversation> MessageConversationsReceiver { get; set; }
         public List<Message> Messages { get; set; }
+        public Avatar Avatar { get; set; }
 
         // PROPERTY NOT BIND TO THE DATABASE //
 

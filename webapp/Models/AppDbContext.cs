@@ -29,6 +29,7 @@ namespace Models
 
         // !@#$%^&* MET LE NOM DE TES ENTITES AU PLURIEL ICI !@#$%^&*  //
 
+        public DbSet<Avatar> Avatars { get; set; }
         public DbSet<Business> Businesses { get; set; }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<EventType> EventTypes { get; set; }
@@ -36,7 +37,7 @@ namespace Models
         public DbSet<EventApplicationUser> EventApplicationUsers { get; set; }
         public DbSet<Message> Messages { get; set; }
 
-        public DbSet<Commentaire> Commentaires{get;set;}
+        public DbSet<Commentaire> Commentaires { get; set; }
         public DbSet<MessageConversation> MessageConversations { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -52,6 +53,13 @@ namespace Models
             var passwordHash = hasher.HashPassword(null, "admin123");
 
             base.OnModelCreating(modelBuilder);
+
+            // Relation for an ApplicationUsers and Avatars
+
+            modelBuilder.Entity<ApplicationUser>()
+                .HasOne(x => x.Avatar)
+                .WithOne(y => y.ApplicationUser)
+                .HasForeignKey<Avatar>(x => x.ApplicationUserId);
 
             // RELATION 1 //
 
@@ -114,7 +122,7 @@ namespace Models
             // .Ignore(x => x.MessageConversation);
 
             modelBuilder.Entity<Commentaire>()
-                .HasOne( x => x.Event)
+                .HasOne(x => x.Event)
                 .WithMany(x => x.Commentaires)
                 .OnDelete(DeleteBehavior.Restrict);
 
@@ -283,8 +291,8 @@ namespace Models
                 {
                     Id = 1,
                     Name = "Pro gym",
-                    Description = " Nous offrons des services d'entrainement et des levers de fonds Venez essayer 1 mois gratuit"
-                                    + "Nous nos locaux Hochelga",
+                    Description = " Nous offrons des services d'entrainement et des levers de fonds Venez essayer 1 mois gratuit" +
+                        "Nous nos locaux Hochelga",
                     Phone = "(514) 252-8704",
                     AddressId = 3
                 },
@@ -315,12 +323,12 @@ namespace Models
 
             modelBuilder.Entity<Commentaire>().HasData(
                 new
-                { Id = 1,
-                Content = "Wow malade l'evenement",
-                UserId = userIds["jordangauthier@noname.com"],
-                EventId = 1,
+                {
+                    Id = 1,
+                    Content = "Wow malade l'evenement",
+                    UserId = userIds["jordangauthier@noname.com"],
+                    EventId = 1,
                 });
-
 
             // SEEDING EVENT //
 
@@ -337,7 +345,7 @@ namespace Models
                     Title = "Zumba de Jordan",
                     EventTypeId = 1,
                     Description = "Fun fun Zumba de Jordan perte de poids assurer 100% garantie.",
-                    
+
                 },
                 new
                 {
@@ -352,45 +360,45 @@ namespace Models
                     EventTypeId = 2,
                     Description = "Venez reprendre le poids Perdu a La Zumba de jordan!"
                 },
-                  new
-                  {
-                      Id = 3,
-                      AddressId = 2,
-                      BusinessId = 2,
-                      ApplicationUserId = userIds["alexdufour@noname.com"],
-                      StartDate = new DateTime(2020, 02, 25, 13, 30, 0),
-                      EndDate = new DateTime(2020, 02, 25, 18, 30, 0),
-                      PriceToPayToParticipate = 50.0,
-                      Title = "Evenement Dans le Passer",
-                      EventTypeId = 1,
-                      Description = "Je suis du passer!"
-                  },
-                     new
-                     {
-                         Id = 4,
-                         AddressId = 2,
-                         BusinessId = 2,
-                         ApplicationUserId = userIds["alexdufour@noname.com"],
-                         StartDate = new DateTime(2020, 01, 25, 13, 30, 0),
-                         EndDate = new DateTime(2020, 01, 25, 18, 30, 0),
-                         PriceToPayToParticipate = 50.0,
-                         Title = "Evenement De Tennis",
-                         EventTypeId = 1,
-                         Description = "Je suis du passer!"
-                     },
-                       new
-                     {
-                         Id = 5,
-                         AddressId = 2,
-                         BusinessId = 2,
-                         ApplicationUserId = userIds["alexdufour@noname.com"],
-                         StartDate = new DateTime(2020, 01, 25, 13, 30, 0),
-                         EndDate = new DateTime(2020, 01, 25, 18, 30, 0),
-                         PriceToPayToParticipate = 50.0,
-                         Title = "La Course de Montreal",
-                         EventTypeId = 1,
-                         Description = "Belle course de 50km"
-                     }
+                new
+                {
+                    Id = 3,
+                    AddressId = 2,
+                    BusinessId = 2,
+                    ApplicationUserId = userIds["alexdufour@noname.com"],
+                    StartDate = new DateTime(2020, 02, 25, 13, 30, 0),
+                    EndDate = new DateTime(2020, 02, 25, 18, 30, 0),
+                    PriceToPayToParticipate = 50.0,
+                    Title = "Evenement Dans le Passer",
+                    EventTypeId = 1,
+                    Description = "Je suis du passer!"
+                },
+                new
+                {
+                    Id = 4,
+                    AddressId = 2,
+                    BusinessId = 2,
+                    ApplicationUserId = userIds["alexdufour@noname.com"],
+                    StartDate = new DateTime(2020, 01, 25, 13, 30, 0),
+                    EndDate = new DateTime(2020, 01, 25, 18, 30, 0),
+                    PriceToPayToParticipate = 50.0,
+                    Title = "Evenement De Tennis",
+                    EventTypeId = 1,
+                    Description = "Je suis du passer!"
+                },
+                new
+                {
+                    Id = 5,
+                    AddressId = 2,
+                    BusinessId = 2,
+                    ApplicationUserId = userIds["alexdufour@noname.com"],
+                    StartDate = new DateTime(2020, 01, 25, 13, 30, 0),
+                    EndDate = new DateTime(2020, 01, 25, 18, 30, 0),
+                    PriceToPayToParticipate = 50.0,
+                    Title = "La Course de Montreal",
+                    EventTypeId = 1,
+                    Description = "Belle course de 50km"
+                }
 
             );
 
@@ -417,27 +425,27 @@ namespace Models
                     ApplicationUserId = userIds["alexdufour@noname.com"],
                     EventId = 2
                 },
-                  new EventApplicationUser
+                new EventApplicationUser
                 {
                     ApplicationUserId = userIds["alexdufour@noname.com"],
                     EventId = 3
                 },
-                   new EventApplicationUser
+                new EventApplicationUser
                 {
                     ApplicationUserId = userIds["alexhamel@noname.com"],
                     EventId = 3
                 },
-                   new EventApplicationUser
+                new EventApplicationUser
                 {
                     ApplicationUserId = userIds["alexhamel@noname.com"],
                     EventId = 4
                 },
-                 new EventApplicationUser
+                new EventApplicationUser
                 {
                     ApplicationUserId = userIds["alexdufour@noname.com"],
                     EventId = 4
                 },
-                 new EventApplicationUser
+                new EventApplicationUser
                 {
                     ApplicationUserId = userIds["alexdufour@noname.com"],
                     EventId = 5
@@ -453,7 +461,6 @@ namespace Models
                     EventId = 2
                 }
             );
-
 
             modelBuilder.Entity<MessageConversation>().HasData(
                 new MessageConversation
@@ -480,13 +487,13 @@ namespace Models
                     MessageConversationId = 1,
                     UserId = userIds["alexdufour@noname.com"]
                 },
-                 new
-                 {
-                     Id = 3,
-                     Content = "Je sais pas non plus.",
-                     MessageConversationId = 1,
-                     UserId = userIds["jordangauthier@noname.com"]
-                 },
+                new
+                {
+                    Id = 3,
+                    Content = "Je sais pas non plus.",
+                    MessageConversationId = 1,
+                    UserId = userIds["jordangauthier@noname.com"]
+                },
                 new
                 {
                     Id = 4,
@@ -495,7 +502,6 @@ namespace Models
                     UserId = userIds["alexdufour@noname.com"]
                 }
             );
-
 
         }
     }
