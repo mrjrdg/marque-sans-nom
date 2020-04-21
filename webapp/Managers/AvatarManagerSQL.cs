@@ -24,9 +24,19 @@ namespace Managers
 
         public async Task<Avatar> Get(string id)
         {
-            var entity = await _context.Set<Avatar>()
-                .AsNoTracking()
-                .FirstAsync(x => x.ApplicationUserId == id);
+            Avatar entity = null;
+
+            try
+            {
+                entity = await _context.Set<Avatar>()
+                    .AsNoTracking()
+                    .FirstAsync(x => x.ApplicationUserId == id);
+            }
+            catch(Exception e)
+            {
+                entity = null;
+            }
+
                 
             return entity;
         }
