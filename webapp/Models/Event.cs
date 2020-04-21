@@ -75,8 +75,8 @@ namespace Models
         /// </summary>
         /// <value></value>
         [Display(Name = "Coût")]
-        [Required(ErrorMessage = "Le prix de participation est requis. Veuillez saisir 0.00 si l'&eacute;v&eacute;nement est gratuit.")]
-        [RegularExpression("^[0-9]{1,4}[.][0-9]{2}$", ErrorMessage = "Veuillez saisir le prix &agrave; payer dans ce format : 12.34. SVP saisir 0.00 si l'&eacute;v&eacute;nement est gratuit.")]
+        [Required(ErrorMessage = "Le prix de participation est requis. Veuillez saisir 0 si l'&eacute;v&eacute;nement est gratuit.")]
+        [RegularExpression("^[0-9]{1,4}$", ErrorMessage = "Veuillez saisir le prix &agrave; payer sans d&eacute;cimales.")]
         public double PriceToPayToParticipate { get; set; }
 
         // FOREIGN KEY ONE TO MANY //

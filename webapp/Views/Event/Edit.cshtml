@@ -109,11 +109,12 @@
             <div class="form-group no-gutters">
                 <label asp-for="Event.PriceToPayToParticipate"></label>
                 <div class="col-md-6">
+
                     @*
                     <input asp-for="Event.PriceToPayToParticipate" class="form-control" placeholder="@Model.Event.PriceToPayToParticipate" />
                     *@
 
-                    <input class="form-control" type="text" data-val-regex="Veuillez saisir le prix &amp;agrave; payer dans ce format : 12.34. SVP saisir 0.00 si l'&amp;eacute;v&amp;eacute;nement est gratuit." data-val-regex-pattern="^[0-9]{1,4}[.][0-9]{2}$" data-val-required="Le prix de participation est requis. Veuillez saisir 0.00 si l'&amp;eacute;v&amp;eacute;nement est gratuit." id="Event_PriceToPayToParticipate" name="Event.PriceToPayToParticipate">
+                    <input class="form-control" type="text" id="Event_PriceToPayToParticipate" name="Event.PriceToPayToParticipate" value="@Model.Event.PriceToPayToParticipate">
 
                     <span asp-validation-for="Event.PriceToPayToParticipate" class="text-danger"></span>
                 </div>
