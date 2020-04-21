@@ -102,7 +102,9 @@ namespace EmployeeManagement.Controllers
                     UserName = model.Email,
                     Email = model.Email,
                     FirstName = model.FirstName,
-                    LastName = model.LastName
+                    LastName = model.LastName,
+                    ville = model.ville,
+                    Descrption = model.Descrption
                 };
 
                 var result = await _userManager.CreateAsync(user, model.Password);

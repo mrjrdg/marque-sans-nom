@@ -32,5 +32,13 @@ namespace ViewModels
         [Display(Name = "Confirmer le mot de passe")]
         [Compare("Password", ErrorMessage = "Les deux mots de passe ne correspondent pas.")]
         public string ConfirmPassword { get; set; }
+
+        [RegularExpression("^[A-Za-z]{1,32}$", ErrorMessage = "Veuillez saisir un maximum de 32 lettres dans la ville.")]
+        [Display(Name = "Ville")]
+        public string ville { get; set; }
+
+        [RegularExpression("^.{1,1024}$", ErrorMessage = "Veuillez saisir un maximum de 1024 caractères.")]
+        [Display(Name = "À propos de moi")]
+        public string Descrption { get; set; }
     }
 }
