@@ -367,11 +367,13 @@ namespace Controllers
             try
             {
                 eventToChange.Title = model.Event.Title;
-                eventToChange.Address = await _addressServices.Get(model.Event.Address.Id);
-                eventToChange.Business = await _businessServices.Get(model.Event.Business.Id);
-                eventToChange.EventType = await _context.EventTypes.FindAsync(model.Event.EventType.Id);
                 eventToChange.Description = model.Event.Description;
-
+                eventToChange.StartDate = model.Event.StartDate;
+                eventToChange.EndDate = model.Event.EndDate;
+                eventToChange.Business = await _businessServices.Get(model.Event.Business.Id);
+                eventToChange.Address = await _addressServices.Get(model.Event.Address.Id);
+                eventToChange.PriceToPayToParticipate = model.Event.PriceToPayToParticipate;
+                eventToChange.EventType = await _context.EventTypes.FindAsync(model.Event.EventType.Id);
 
                 _context.Update(eventToChange);
                 await _context.SaveChangesAsync();

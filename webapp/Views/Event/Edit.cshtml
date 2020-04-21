@@ -2,7 +2,7 @@
 @using Models
 
 @{
-    ViewData["Title"] = "Organiser un evenement";
+    ViewData["Title"] = "Modifier un evenement";
 }
 
 @section HeadScripts {
@@ -11,10 +11,10 @@
 
 }
 
-<h1 class="border-bottom">Organiser un &eacute;v&eacute;nement</h1>
+<h1 class="border-bottom">Modifier un &eacute;v&eacute;nement</h1>
 <div class="row">
     <div class="col-md">
-        <form asp-action="Edit" >
+        <form asp-action="Edit">
 
             @if (ViewData.ModelState.Keys.Any(k => ViewData.ModelState[k].Errors.Any()))
             {
@@ -46,7 +46,13 @@
                 <label asp-for="Event.StartDate"></label>
                 <div class="col-md-6">
                     <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+
+                        @*
                         <input asp-for="Event.StartDate" class="form-control datetimepicker-input" data-target="#datetimepicker1" />
+                        *@
+
+                        <input class="form-control datetimepicker-input" data-target="#datetimepicker1" type="datetime-local" id="Event_StartDate" name="Event.StartDate">
+
                         <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
                             <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                         </div>
@@ -59,7 +65,13 @@
                 <label asp-for="Event.EndDate"></label>
                 <div class="col-md-6">
                     <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
+
+                        @*
                         <input asp-for="Event.EndDate" class="form-control datetimepicker-input" data-target="#datetimepicker2" />
+                        *@
+
+                        <input class="form-control datetimepicker-input" data-target="#datetimepicker2" type="datetime-local" id="Event_EndDate" name="Event.EndDate">
+
                         <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
                             <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                         </div>
@@ -85,19 +97,24 @@
             </div>
 
             @*
-        <div class="form-group">
-        @Html.LabelFor(model => model.Model.Id, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Model.Id, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Model.Id, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <div class="form-group">
+                @Html.LabelFor(model => model.Model.Id, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Model.Id, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Model.Id, "", new { @class = "text-danger" })
+                    </div>
+                </div>
             *@
 
             <div class="form-group no-gutters">
                 <label asp-for="Event.PriceToPayToParticipate"></label>
                 <div class="col-md-6">
-                    <input asp-for="Event.PriceToPayToParticipate" class="form-control" placeholder="@Model.Event.PriceToPayToParticipate"/>
+                    @*
+                    <input asp-for="Event.PriceToPayToParticipate" class="form-control" placeholder="@Model.Event.PriceToPayToParticipate" />
+                    *@
+
+                    <input class="form-control" type="text" data-val-regex="Veuillez saisir le prix &amp;agrave; payer dans ce format : 12.34. SVP saisir 0.00 si l'&amp;eacute;v&amp;eacute;nement est gratuit." data-val-regex-pattern="^[0-9]{1,4}[.][0-9]{2}$" data-val-required="Le prix de participation est requis. Veuillez saisir 0.00 si l'&amp;eacute;v&amp;eacute;nement est gratuit." id="Event_PriceToPayToParticipate" name="Event.PriceToPayToParticipate">
+
                     <span asp-validation-for="Event.PriceToPayToParticipate" class="text-danger"></span>
                 </div>
             </div>
@@ -139,18 +156,25 @@
             $(function () {
                 $('#datetimepicker1').datetimepicker({
                     locale: 'fr',
+                    minDate: "now",
+                    defaultDate: "@Model.Event.StartDate",
+                    format: "YYYY-MM-DD HH:mm",
                     icons:
                     {
                         time: "fa fa-clock"
                     }
                 });
             });
+
         </script>
 
         <script type="text/javascript">
             $(function () {
                 $('#datetimepicker2').datetimepicker({
                     locale: 'fr',
+                    minDate: "now",
+                    defaultDate: "@Model.Event.EndDate",
+                    format: "YYYY-MM-DD HH:mm",
                     icons:
                     {
                         time: "fa fa-clock"
@@ -158,6 +182,5 @@
                 });
             });
         </script>
-
     }
 }
