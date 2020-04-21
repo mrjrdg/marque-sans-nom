@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@using Managers
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
+@using Managers
 @inject UserManagerSQL _userManagerSQL
 @using Models
 
@@ -43,16 +43,17 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index">Mon compte</a>
                 @*
-                <a class="dropdown-item" href="#">Mes activités</a>
+                    <a class="dropdown-item" href="#">Mes activités</a>
                 *@
                 <a class="dropdown-item" asp-controller="Messages" asp-action="index">Mes messages</a>
                 <div class="dropdown-divider"></div>
-@if (User.IsInRole("Admin"))                {
+                @if (User.IsInRole("Admin"))
+                {
 
 
-                <a class="dropdown-item"  asp-controller="Administration" asp-action="index">Administration</a>
-                <div class="dropdown-divider"></div>
-}
+                    <a class="dropdown-item" asp-controller="Administration" asp-action="index">Administration</a>
+                    <div class="dropdown-divider"></div>
+                }
                 <form method="post" asp-area="Identity" asp-controller="Account" asp-action="Logout">
                     <button type="submit" class="dropdown-item btn btn-link">
                         Se d&eacute;connecter
@@ -61,8 +62,10 @@
             </div>
         </li>
     </ul>
-    
-} else {
+
+}
+else
+{
 
     <ul class="navbar-nav nav-pills">
         <li class="nav-item m-1">

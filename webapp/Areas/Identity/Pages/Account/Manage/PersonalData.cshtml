@@ -4,6 +4,8 @@
 @using Microsoft.AspNetCore.Identity
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
+@using Managers
+@inject UserManagerSQL _userManagerSQL
 @{
     Layout = "_Layout.cshtml";
     ViewData["Title"] = "Mon profil";
@@ -13,11 +15,15 @@
 
 
     @* AFFICHAGE DE L'AVATAR DE L'UTILISATEUR *@
+
+    var userWithAvatar = await _userManagerSQL
+        .GetApplicationUserWithAvatar(user.Id);
+
     String avatarPath = null;
 
-    if (user.Avatar != null)
+    if (userWithAvatar.Avatar != null)
     {
-        avatarPath = $"~/AvatarsImages/{user.Avatar.Name}";
+        avatarPath = $"~/AvatarsImages/{userWithAvatar.Avatar.Name}";
     }
     else
     {

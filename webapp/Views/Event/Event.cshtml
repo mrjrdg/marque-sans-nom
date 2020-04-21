@@ -1,6 +1,8 @@
 @model ViewModels.EventViewModel
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
+@using Managers
+@inject UserManagerSQL _userManagerSQL
 
 @{
     ViewData["Title"] = "Fiche d'un événement";
@@ -8,55 +10,56 @@
 
 <h1 class="h1 mb-0 pb-0">@Model.Event.Title</h1>
 
- @if (@Model.Event.ApplicationUser.Id == UserManager.GetUserId(User) &&
-                    Model.Event.StartDate > DateTime.Today)
-                {
+@if (@Model.Event.ApplicationUser.Id == UserManager.GetUserId(User) &&
+                  Model.Event.StartDate > DateTime.Today)
+{
 
-                <div class="form-group row">
-                    <div class="col-md">
-                        <a class="btn btn-primary mx-1" asp-action="Edit" asp-route-id="@Model.Event.Id">
-                            <i class="fas fa-check" style="width:14px; height:16px"></i>
-                            &nbsp;
-                            Modifier
-                        </a>
-                        <a class="btn btn-danger m-1 collapsed" data-toggle="collapse" href="#confirmDEL" role="button" aria-expanded="false" aria-controls="confirmDEL">
-                            <i class="fas fa-times" style="width:14px; height:16px"></i>
-                            &nbsp;
-                            Supprimer
-                        </a>
-                    </div>
-                </div>
-                    <form asp-action="Delete" asp-route-id="@Model.Event.Id">
+    <div class="form-group row">
+        <div class="col-md">
+            <a class="btn btn-primary mx-1" asp-action="Edit" asp-route-id="@Model.Event.Id">
+                <i class="fas fa-check" style="width:14px; height:16px"></i>
+                &nbsp;
+                Modifier
+            </a>
+            <a class="btn btn-danger m-1 collapsed" data-toggle="collapse" href="#confirmDEL" role="button" aria-expanded="false" aria-controls="confirmDEL">
+                <i class="fas fa-times" style="width:14px; height:16px"></i>
+                &nbsp;
+                Supprimer
+            </a>
+        </div>
+    </div>
+    <form asp-action="Delete" asp-route-id="@Model.Event.Id">
 
-                        @if (ViewData.ModelState.Keys.Any(k => ViewData.ModelState[k].Errors.Any()))
-                        {
-                            <div class="alert alert-danger alert-dismissible fade show col-md-6" role="alert">
-                                @Html.ValidationSummary(false, "")
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Fermer">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                        }
+        @if (ViewData.ModelState.Keys.Any(k => ViewData.ModelState[k].Errors.Any()))
+        {
+            <div class="alert alert-danger alert-dismissible fade show col-md-6" role="alert">
+                @Html.ValidationSummary(false, "")
+                <button type="button" class="close" data-dismiss="alert" aria-label="Fermer">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        }
 
-                        <input type="hidden" />                            
-                                
-                                <div class="collapse" id="confirmDEL">
-                                    <p>Voulez-vous vraiment supprimer cette &eacute;v&eacute;nement?</p>
-                                        <button type="submit" class="btn btn-success m-1">
-                                            <i class="fas fa-check" style="width:14px; height:16px"></i>
-                                            &nbsp;
-                                            Oui
-                                        </button>
-                                        <a class="btn btn-danger m-1" data-toggle="collapse" href="#confirmDEL" role="button" aria-expanded="false" aria-controls="confirmDEL">
-                                            <i class="fas fa-times" style="width:14px; height:16px"></i>
-                                            &nbsp;
-                                            Non
-                                        </a>           
-                                </div>
-                    </form>                    
-                }
+        <input type="hidden" />
 
-<div class="row">  
+        <div class="collapse" id="confirmDEL">
+            <p>Voulez-vous vraiment supprimer cette &eacute;v&eacute;nement?</p>
+            <button type="submit" class="btn btn-success m-1">
+                <i class="fas fa-check" style="width:14px; height:16px"></i>
+                &nbsp;
+                Oui
+            </button>
+            <a class="btn btn-danger m-1" data-toggle="collapse" href="#confirmDEL" role="button" aria-expanded="false" aria-controls="confirmDEL">
+                <i class="fas fa-times" style="width:14px; height:16px"></i>
+                &nbsp;
+                Non
+            </a>
+        </div>
+    </form>
+
+}
+
+<div class="row">
     <div class="col-md">
         @{
             String startDate = Model.Event.StartDate.ToLongDateString();
@@ -86,24 +89,28 @@
                 @{
                     @* AFFICHAGE DE L'AVATAR DES PARTICIPANTS *@
 
-                foreach (var item in Model.Event.Members)
-                {
-                    String avatarPath = null;
-
-                    if (item.Avatar != null)
+                    foreach (var item in Model.Event.Members)
                     {
-                        avatarPath = $"~/AvatarsImages/{item.Avatar.Name}";
-                    }
-                    else
-                    {
-                        avatarPath = $"~/AvatarsImages/default-profile.png";
-                    }
 
-                <li>
-                    <img src="@Url.Content(avatarPath)" class="avatarmedium eventavatar rounded-circle" data-toggle="tooltip" data-placement="top" title="@item.FullName" />
-                </li>
+                        var userWithAvatar = await _userManagerSQL
+                        .GetApplicationUserWithAvatar(item.Id);
 
-                } 
+                        String avatarPath = null;
+
+                        if (userWithAvatar.Avatar != null)
+                        {
+                            avatarPath = $"~/AvatarsImages/{userWithAvatar.Avatar.Name}";
+                        }
+                        else
+                        {
+                            avatarPath = $"~/AvatarsImages/default-profile.png";
+                        }
+
+                        <li>
+                            <img src="@Url.Content(avatarPath)" class="avatarmedium eventavatar rounded-circle" data-toggle="tooltip" data-placement="top" title="@item.FullName" />
+                        </li>
+
+                    }
                 }
             </ul>
             <!-- Number of participants -->
@@ -145,7 +152,7 @@
                     {
                         @* Afficher QUIT si l'utilisateur est un participant*@
                         @if (Model.Event.StartDate > DateTime.Today &&
-                           Model.Event.ApplicationUser.Id != UserManager.GetUserId(User))
+                          Model.Event.ApplicationUser.Id != UserManager.GetUserId(User))
                         {
 
 
@@ -167,7 +174,7 @@
                         pour participer !`
                     </div>
                 }
-                
+
 
             </div>
         </div>
@@ -230,7 +237,8 @@
                     </p>
                 </div>
                 <!-- EVENT PRICE -->
-                @if( Model.Event.PriceToPayToParticipate > 0 ) {
+                @if (Model.Event.PriceToPayToParticipate > 0)
+                {
                     <div>
                         <p>Prix de l'activit&eacute; : @Model.Event.PriceToPayToParticipate $</p>
                     </div>
@@ -251,7 +259,7 @@
                         </li>
                             -->
                     </ul>
-                </div>                
+                </div>
             </div>
             <!-- EVENT BOARD TAB2 -->
             <div class="tab-pane" id="eventboard">
@@ -297,23 +305,26 @@
                             <div class="row no-gutters">
                                 <div class="p-3 align-middle col-md-auto text-center">
 
-                                @{
-                                @* AFFICHAGE DE L'AVATAR DES UTILISATEURS *@
+                                    @{
+                                        @* AFFICHAGE DE L'AVATAR DES UTILISATEURS *@
 
-                                    String avatarPath = null;
+                                    var userWithAvatar = await _userManagerSQL
+                                        .GetApplicationUserWithAvatar(item.User.Id);
 
-                                    if (item.User.Avatar != null)
-                                    {
-                                        avatarPath = $"~/AvatarsImages/{item.User.Avatar.Name}";
+                                        String avatarPath = null;
+
+                                        if (userWithAvatar.Avatar != null)
+                                        {
+                                            avatarPath = $"~/AvatarsImages/{userWithAvatar.Avatar.Name}";
+                                        }
+                                        else
+                                        {
+                                            avatarPath = $"~/AvatarsImages/default-profile.png";
+                                        }
+
+                                        <img src="@Url.Content(avatarPath)" class="card-img avatarsmall rounded-circle" />
+
                                     }
-                                    else
-                                    {
-                                        avatarPath = $"~/AvatarsImages/default-profile.png";
-                                    }
-
-                                    <img src="@Url.Content(avatarPath)" class="card-img avatarsmall rounded-circle" />
-
-                                }
 
                                 </div>
 
@@ -323,7 +334,7 @@
                                             @Html.DisplayFor(itemModel => item.User.FirstName)
                                             @Html.DisplayFor(itemModel => item.User.LastName)
                                             @*
-                                            <small class="text-muted">Il y a 28 minutes</small>
+                                                <small class="text-muted">Il y a 28 minutes</small>
                                             *@
                                         </h5>
 

@@ -4,6 +4,8 @@
 @using Microsoft.AspNetCore.Identity
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
+@using Managers
+@inject UserManagerSQL _userManagerSQL
 
 @{
     Layout = "_Layout.cshtml";
@@ -31,12 +33,17 @@
             @{
                 @* AFFICHAGE DE L'AVATAR DE L'UTILISATEUR *@
 
-                var user = await UserManager.GetUserAsync(User);
+                var user = await UserManager
+                    .GetUserAsync(User);
+
+                var userWithAvatar = await _userManagerSQL
+                    .GetApplicationUserWithAvatar(user.Id);
+
                 String avatarPath = null;
 
-                if (user.Avatar != null)
+                if (userWithAvatar.Avatar != null)
                 {
-                    avatarPath = $"~/AvatarsImages/{user.Avatar.Name}";
+                    avatarPath = $"~/AvatarsImages/{userWithAvatar.Avatar.Name}";
                 }
                 else
                 {
@@ -77,12 +84,12 @@
     </div>
 
     @*
-    <div class="form-group">
-        <label asp-for="Input.PhoneNumber"></label>
-        <input asp-for="Input.PhoneNumber" class="form-control" />
-        <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
-    </div>
-   *@
+        <div class="form-group">
+            <label asp-for="Input.PhoneNumber"></label>
+            <input asp-for="Input.PhoneNumber" class="form-control" />
+            <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+        </div>
+    *@
 
     @* <div class="form-group">
             <label>A Propos de Moi</label>
