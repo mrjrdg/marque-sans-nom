@@ -49,26 +49,6 @@
         </div>
     </div>
 
-    <div class="form-group row">
-        <label for="inputEmail" class="col-md-3 col-form-label">Adresse courriel</label>
-        <div class="col-md">
-            <input asp-for="Username" class="form-control" disabled />
-        </div>
-    </div>
-
-    <div class="form-group row">
-        <label for="inputPrenom" class="col-md-3 col-form-label">Pr&eacute;nom</label>
-        <div class="col-md">
-            <input asp-for="Input.userFname" class="form-control" enabled />
-        </div>
-    </div>
-
-    <div class="form-group row">
-        <label for="inputNom" class="col-md-3 col-form-label">Nom</label>
-        <div class="col-md">
-            <input asp-for="Input.userLname" class="form-control" enabled />
-        </div>
-    </div>
     @*
         <div class="form-group row">
             <label for="inputTel" class="col-md-3 col-form-label">Num&eacute;ro de t&eacute;l&eacute;phone</label>
@@ -77,6 +57,24 @@
             </div>
         </div>
     *@
+
+    <div class="form-group">
+        <label asp-for="Username"></label>
+        <input asp-for="Username" class="form-control" disabled />
+        <span asp-validation-for="Username" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Input.userFname"></label>
+        <input asp-for="Input.userFname" class="form-control" />
+        <span asp-validation-for="Input.userFname" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Input.userLname"></label>
+        <input asp-for="Input.userLname" class="form-control" />
+        <span asp-validation-for="Input.userLname" class="text-danger"></span>
+    </div>
 
     <div class="form-group">
         <label asp-for="Input.PhoneNumber"></label>
