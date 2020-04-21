@@ -12,7 +12,25 @@
     <ul class="navbar-nav nav-pills">
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                <img src="~/img/photos/maurice-richard.jpg" class="avatar avatarsmall mr-2 rounded-circle" />
+
+                @{
+                    @* AFFICHAGE DE L'AVATAR DE L'UTILISATEUR *@
+
+                    var user = await UserManager.GetUserAsync(User);
+                    String avatarPath = null;
+
+                    if (user.Avatar != null)
+                    {
+                        avatarPath = $"~/AvatarsImages/{user.Avatar.Name}";
+                    }
+                    else
+                    {
+                        avatarPath = $"~/AvatarsImages/default-profile.png";
+                    }
+
+                    <img src="@Url.Content(avatarPath)" class="avatar avatarsmall mr-2 rounded-circle" />
+                }
+
                 @User.Identity.Name
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">

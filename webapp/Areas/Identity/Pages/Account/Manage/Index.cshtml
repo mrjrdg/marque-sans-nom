@@ -3,120 +3,138 @@
 @using Models
 @using Microsoft.AspNetCore.Identity
 @inject SignInManager<ApplicationUser> SignInManager
-    @inject UserManager<ApplicationUser> UserManager
+@inject UserManager<ApplicationUser> UserManager
 
-        @{
-        Layout = "_Layout.cshtml";
-        }
-        @{
-        ViewData["Title"] = "Informations personnelles";
-        ViewData["ActivePage"] = ManageNavPages.Index;
-        }
+@{
+    Layout = "_Layout.cshtml";
+    ViewData["Title"] = "Informations personnelles";
+    ViewData["ActivePage"] = ManageNavPages.Index;
 
-        <h2>@ViewBag.Title</h2>
-        <partial name="_StatusMessage" model="Model.StatusMessage" />
-        <form id="profile-form" method="post">
-            <!-- TODO : Corriger ceci -->
-            <div class="form-group row">
-                <label for="inputPhoto" class="col-md-3 col-form-label">Photo</label>
-                <div class="col-md">
-                    <img src="~/img/photos/maurice-richard.jpg" id="inputPhoto "
-                        class="avatar avatarmedium mr-2 rounded-circle" />
-                </div>
+}
 
-            </div>
-            <div class="form-group row">
-                @* <label for="inputUsername" class="col-md-3 col-form-label">Nom d'utilisateur</label> *@
-                <div class="col-md">
-                    <div asp-validation-summary="All" class="text-danger"></div>
+<h2>@ViewBag.Title</h2>
+<partial name="_StatusMessage" model="Model.StatusMessage" />
 
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="inputEmail" class="col-md-3 col-form-label">Adresse courriel</label>
-                <div class="col-md">
-                    <input asp-for="Username" class="form-control" disabled />
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="inputPrenom" class="col-md-3 col-form-label">Pr&eacute;nom</label>
-                <div class="col-md">
-                    <input asp-for="Input.userFname" class="form-control" enabled />
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="inputNom" class="col-md-3 col-form-label">Nom</label>
-                <div class="col-md">
-                    <input asp-for="Input.userLname" class="form-control" enabled />
-                </div>
-            </div>
-            @*
-            <div class="form-group row">
-                <label for="inputTel" class="col-md-3 col-form-label">Num&eacute;ro de t&eacute;l&eacute;phone</label>
-                <div class="col-md-4">
-                    <input type="tel" readonly class="form-control" id="inputTel" value="@User.Identity.Name">
-                </div>
-            </div>
-            *@
+<div class="form-group row">
+    @* <label for="inputUsername" class="col-md-3 col-form-label">Nom d'utilisateur</label> *@
+    <div class="col-md">
+        <div asp-validation-summary="All" class="text-danger"></div>
+    </div>
+</div>
 
+<form id="profile-form" method="post">
+    <!-- TODO : Corriger ceci -->
+    <div class="form-group row">
+        <label for="inputPhoto" class="col-md-3 col-form-label">Photo</label>
+        <div class="col-md">
 
-            <div class="form-group">
-                <label asp-for="Input.PhoneNumber"></label>
-                <input asp-for="Input.PhoneNumber" class="form-control" />
-                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
-            </div>
+            @{
+                @* AFFICHAGE DE L'AVATAR DE L'UTILISATEUR *@
 
-            @* <div class="form-group">
-                <label>A Propos de Moi</label>
-                <input asp-for="Input.Descrption" class="form-control" />
-                <span asp-validation-for="Input.Descrption" class="text-danger"></span>
-            </div> *@
+                var user = await UserManager.GetUserAsync(User);
+                String avatarPath = null;
 
-             <div class="form-group">
-  <label for="comment">A propos de Moi:</label>
-  <textarea asp-for="Input.Descrption" class="form-control" rows="5" id="comment"></textarea>
-  <span asp-validation-for="Input.Descrption" class="text-danger"></span>
-</div> 
+                if (user.Avatar != null)
+                {
+                    avatarPath = $"~/AvatarsImages/{user.Avatar.Name}";
+                }
+                else
+                {
+                    avatarPath = $"~/AvatarsImages/default-profile.png";
+                }
 
-            <div class="form-group">
-                <label asp-for="Input.Ville"></label>
-                <input asp-for="Input.Ville" class="form-control" />
-                <span asp-validation-for="Input.Ville" class="text-danger"></span>
-            </div>
-
-            <div class="form-check">
-                <input type="checkbox" disabled class="form-check-input" value="" id="inputEmailPrivateMessage">
-                <label class="form-check-label" for="inputEmailPrivateMessage">
-                    Recevoir un courriel lorsque je re&ccedil;ois un message priv&eacute;
-                </label>
-            </div>
-            <div class="form-check">
-                <input type="checkbox" disabled class="form-check-input" value="" id="inputEmailCancelledEvent">
-                <label class="form-check-label" for="inputEmailCancelledEvent">
-                    Recevoir un courriel lorsqu'une activité auquelle je suis inscrit(e) est annul&eacute;e
-                </label>
-            </div>
-            <div class="form-check">
-                <input type="checkbox" disabled class="form-check-input" value="" id="inputEmailNews">
-                <label class="form-check-label" for="inputEmailNews">
-                    Recevoir des courriels sur les nouveaut&eacute;s de la plateforme
-                </label>
-            </div>
-
-            @* <a class="btn btn-primary mt-3" href="./profile-edit.html" role="button">Sauvegarder</a> *@
-            <button id="update-profile-button" type="submit" class="btn btn-primary">Save</button>
-        </form>
-
-
-
-
-
-
+                <img src="@Url.Content(avatarPath)" id="inputPhoto" class="avatar avatarmedium mr-2 rounded-circle" />
+            }
 
         </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="inputEmail" class="col-md-3 col-form-label">Adresse courriel</label>
+        <div class="col-md">
+            <input asp-for="Username" class="form-control" disabled />
         </div>
+    </div>
 
+    <div class="form-group row">
+        <label for="inputPrenom" class="col-md-3 col-form-label">Pr&eacute;nom</label>
+        <div class="col-md">
+            <input asp-for="Input.userFname" class="form-control" enabled />
+        </div>
+    </div>
 
-        @section Scripts {
-        <partial name="_ValidationScriptsPartial" />
-        }
+    <div class="form-group row">
+        <label for="inputNom" class="col-md-3 col-form-label">Nom</label>
+        <div class="col-md">
+            <input asp-for="Input.userLname" class="form-control" enabled />
+        </div>
+    </div>
+    @*
+        <div class="form-group row">
+            <label for="inputTel" class="col-md-3 col-form-label">Num&eacute;ro de t&eacute;l&eacute;phone</label>
+            <div class="col-md-4">
+                <input type="tel" readonly class="form-control" id="inputTel" value="@User.Identity.Name">
+            </div>
+        </div>
+    *@
+
+    <div class="form-group">
+        <label asp-for="Input.PhoneNumber"></label>
+        <input asp-for="Input.PhoneNumber" class="form-control" />
+        <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+    </div>
+
+    @* <div class="form-group">
+            <label>A Propos de Moi</label>
+            <input asp-for="Input.Descrption" class="form-control" />
+            <span asp-validation-for="Input.Descrption" class="text-danger"></span>
+        </div> *@
+
+    <div class="form-group">
+        <label for="comment">A propos de Moi:</label>
+        <textarea asp-for="Input.Descrption" class="form-control" rows="5" id="comment"></textarea>
+        <span asp-validation-for="Input.Descrption" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Input.Ville"></label>
+        <input asp-for="Input.Ville" class="form-control" />
+        <span asp-validation-for="Input.Ville" class="text-danger"></span>
+    </div>
+
+    <div class="form-check">
+        <input type="checkbox" disabled class="form-check-input" value="" id="inputEmailPrivateMessage">
+        <label class="form-check-label" for="inputEmailPrivateMessage">
+            Recevoir un courriel lorsque je re&ccedil;ois un message priv&eacute;
+        </label>
+    </div>
+
+    <div class="form-check">
+        <input type="checkbox" disabled class="form-check-input" value="" id="inputEmailCancelledEvent">
+        <label class="form-check-label" for="inputEmailCancelledEvent">
+            Recevoir un courriel lorsqu'une activité auquelle je suis inscrit(e) est annul&eacute;e
+        </label>
+    </div>
+
+    <div class="form-check">
+        <input type="checkbox" disabled class="form-check-input" value="" id="inputEmailNews">
+        <label class="form-check-label" for="inputEmailNews">
+            Recevoir des courriels sur les nouveaut&eacute;s de la plateforme
+        </label>
+    </div>
+
+    <div class="form-group row no-gutters">
+        <div class="col-md">
+            <button id="update-profile-button" type="submit" class="btn btn-primary m-1">
+                <i class="fas fa-check" style="width:14px; height:16px"></i>
+                &nbsp;
+                Sauvegarder
+            </button>
+        </div>
+    </div>
+
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

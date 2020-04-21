@@ -6,7 +6,7 @@
     ViewData["Title"] = "Fiche d'un événement";
 }
 
-<h1 class="h1 mb-0">@Model.Event.Title</h1>
+<h1 class="h1 mb-0 pb-0">@Model.Event.Title</h1>
 
  @if (@Model.Event.ApplicationUser.Id == UserManager.GetUserId(User) &&
                     Model.Event.StartDate > DateTime.Today)
@@ -83,37 +83,33 @@
         <div class="eventavatars">
             <ul class="eventavatars pl-0">
                 <!-- Place user avatar first -->
+                @{
+                    @* AFFICHAGE DE L'AVATAR DES PARTICIPANTS *@
+
+                foreach (var item in Model.Event.Members)
+                {
+                    String avatarPath = null;
+
+                    if (item.Avatar != null)
+                    {
+                        avatarPath = $"~/AvatarsImages/{item.Avatar.Name}";
+                    }
+                    else
+                    {
+                        avatarPath = $"~/AvatarsImages/default-profile.png";
+                    }
+
                 <li>
-                    <img src="~/img/photos/maurice-richard.jpg" class="avatarmedium eventavatar rounded-circle"
-                         data-toggle="tooltip" data-placement="top" title="moi" />
+                    <img src="@Url.Content(avatarPath)" class="avatarmedium eventavatar rounded-circle" data-toggle="tooltip" data-placement="top" title="@item.FullName" />
                 </li>
-                <li>
-                    <img src="~/img/photos/henri-richard.jfif" class="avatarmedium eventavatar rounded-circle"
-                         data-toggle="tooltip" data-placement="top" title="Henri Richard" />
-                </li>
-                <li>
-                    <img src="~/img/photos/jean-beliveau.jfif" class="avatarmedium eventavatar rounded-circle"
-                         data-toggle="tooltip" data-placement="top" title="Jean B&eacute;liveau" />
-                </li>
-                <li>
-                    <img src="~/img/photos/larry-robinson.jfif" class="avatarmedium eventavatar rounded-circle"
-                         data-toggle="tooltip" data-placement="top" title="Larry Robinson" />
-                </li>
-                <li>
-                    <img src="~/img/photos/guy-lafleur.jpg" class="avatarmedium eventavatar rounded-circle"
-                         data-toggle="tooltip" data-placement="top" title="Guy Lafleur" />
-                </li>
+
+                } 
+                }
             </ul>
             <!-- Number of participants -->
             <div>
-                @Model.Event.Members.Count participants :
+                @Model.Event.Members.Count participants
                 <br />
-                @foreach (var item in Model.Event.Members)
-                {
-                    @item.FullName
-                    <br />
-                }
-
                 <br />
 
                 @if (SignInManager.IsSignedIn(User))
@@ -330,3 +326,11 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+}
