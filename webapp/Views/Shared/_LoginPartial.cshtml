@@ -1,6 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Identity
+@using Managers
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
+@inject UserManagerSQL _userManagerSQL
 @using Models
 
 @* CETTE PAGE AFFICHE CE QUI SE TROUVE À DROITE DU MENU *@
@@ -16,12 +18,17 @@
                 @{
                     @* AFFICHAGE DE L'AVATAR DE L'UTILISATEUR *@
 
-                    var user = await UserManager.GetUserAsync(User);
+                    var user = await UserManager
+                        .GetUserAsync(User);
+
+                    var userWithAvatar = await _userManagerSQL
+                        .GetApplicationUserWithAvatar(user.Id);
+
                     String avatarPath = null;
 
-                    if (user.Avatar != null)
+                    if (userWithAvatar.Avatar != null)
                     {
-                        avatarPath = $"~/AvatarsImages/{user.Avatar.Name}";
+                        avatarPath = $"~/AvatarsImages/{userWithAvatar.Avatar.Name}";
                     }
                     else
                     {
