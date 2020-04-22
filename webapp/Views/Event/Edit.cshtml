@@ -51,7 +51,7 @@
                         <input asp-for="Event.StartDate" class="form-control datetimepicker-input" data-target="#datetimepicker1" />
                         *@
 
-                        <input class="form-control datetimepicker-input" data-target="#datetimepicker1" type="datetime-local" id="Event_StartDate" name="Event.StartDate">
+                        <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1" type="datetime-local" id="Event_StartDate" name="Event.StartDate" value="@Model.Event.StartDate.ToShortDateString() @Model.Event.StartDate.ToShortTimeString().Substring(0, 2)@Model.Event.StartDate.ToShortTimeString().Substring(3)">
 
                         <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
                             <div class="input-group-text"><i class="fa fa-calendar"></i></div>
@@ -69,8 +69,8 @@
                         @*
                         <input asp-for="Event.EndDate" class="form-control datetimepicker-input" data-target="#datetimepicker2" />
                         *@
-
-                        <input class="form-control datetimepicker-input" data-target="#datetimepicker2" type="datetime-local" id="Event_EndDate" name="Event.EndDate">
+                        
+                        <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker2" type="datetime-local" id="Event_EndDate" name="Event.EndDate" value="@Model.Event.EndDate.ToShortDateString() @Model.Event.EndDate.ToShortTimeString().Substring(0, 2)@Model.Event.EndDate.ToShortTimeString().Substring(3)">
 
                         <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
                             <div class="input-group-text"><i class="fa fa-calendar"></i></div>
@@ -156,30 +156,30 @@
         <script type="text/javascript">
             $(function () {
                 $('#datetimepicker1').datetimepicker({
-                    locale: 'fr',
-                    minDate: "now",
-                    defaultDate: "@Model.Event.StartDate",
-                    format: "YYYY-MM-DD HH:mm",
+                    locale: 'fr-ca',
+                    format: "YYYY-MM-DD HH[h]mm",
                     icons:
                     {
                         time: "fa fa-clock"
                     }
                 });
-            });
-
-        </script>
-
-        <script type="text/javascript">
-            $(function () {
                 $('#datetimepicker2').datetimepicker({
-                    locale: 'fr',
-                    minDate: "now",
-                    defaultDate: "@Model.Event.EndDate",
-                    format: "YYYY-MM-DD HH:mm",
+                    locale: 'fr-ca',
+                    format: "YYYY-MM-DD HH[h]mm",
+                    useCurrent: false,
                     icons:
                     {
                         time: "fa fa-clock"
                     }
+                });
+                $('#datetimepicker1').datetimepicker('minDate', "@DateTime.Today.ToShortDateString() @DateTime.Today.ToShortTimeString().Substring(0, 2)@DateTime.Today.ToShortTimeString().Substring(3)");
+                $('#datetimepicker2').datetimepicker('minDate', "@Model.Event.StartDate.ToShortDateString() @Model.Event.StartDate.ToShortTimeString().Substring(0, 2)@Model.Event.StartDate.ToShortTimeString().Substring(3)");
+                $('#datetimepicker1').datetimepicker('maxDate', "@Model.Event.EndDate.ToShortDateString() @Model.Event.EndDate.ToShortTimeString().Substring(0, 2)@Model.Event.EndDate.ToShortTimeString().Substring(3)");
+                $("#datetimepicker1").on("change.datetimepicker", function (e) {
+                    $('#datetimepicker2').datetimepicker('minDate', e.date);
+                });
+                $("#datetimepicker2").on("change.datetimepicker", function (e) {
+                    $('#datetimepicker1').datetimepicker('maxDate', e.date);
                 });
             });
         </script>
