@@ -224,7 +224,9 @@
                                 String googleQuery = query.Replace(" ", "+").Replace(",", "%2C");
                             }
 
-                            @Model.Event.Business.Name
+                            <a asp-controller="Business" asp-action="GetBusiness" asp-route-Id="@Model.Event.Business.Id">
+                                @Model.Event.Business.Name
+                            </a>
                             <br />
                             @civicNumber, @street
                             <br />
