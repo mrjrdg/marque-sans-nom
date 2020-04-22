@@ -63,7 +63,8 @@
     <div class="col-md">
         @{
             String startDate = Model.Event.StartDate.ToLongDateString();
-            String startTime = Model.Event.StartDate.ToShortTimeString();
+            String startTime = Model.Event.StartDate.ToShortTimeString().Substring(0, 2) + 
+                Model.Event.StartDate.ToShortTimeString().Substring(3);
         }
 
         <p class="h3 mb-0"><small class="text-muted mb-0">Le @startDate &agrave; @startTime</small></p>
