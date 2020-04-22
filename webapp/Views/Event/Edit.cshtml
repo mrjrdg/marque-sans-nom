@@ -11,6 +11,18 @@
 
 }
 
+@{
+    String startDate = Model.Event.StartDate.ToShortDateString() + " " +
+                        Model.Event.StartDate.ToShortTimeString().Substring(0, 2) + 
+                        Model.Event.StartDate.ToShortTimeString().Substring(3);
+    String endDate = Model.Event.EndDate.ToShortDateString() + " " +
+                        Model.Event.EndDate.ToShortTimeString().Substring(0, 2) + 
+                        Model.Event.EndDate.ToShortTimeString().Substring(3);
+    String todayDate = @DateTime.Today.ToShortDateString() + " " +
+                        @DateTime.Today.ToShortTimeString().Substring(0, 2) +
+                        @DateTime.Today.ToShortTimeString().Substring(3);
+}
+
 <h1 class="border-bottom">Modifier un &eacute;v&eacute;nement</h1>
 <div class="row">
     <div class="col-md">
@@ -47,11 +59,8 @@
                 <div class="col-md-6">
                     <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
 
-                        @*
-                        <input asp-for="Event.StartDate" class="form-control datetimepicker-input" data-target="#datetimepicker1" />
-                        *@
-
-                        <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1" type="datetime-local" id="Event_StartDate" name="Event.StartDate" value="@Model.Event.StartDate.ToShortDateString() @Model.Event.StartDate.ToShortTimeString().Substring(0, 2)@Model.Event.StartDate.ToShortTimeString().Substring(3)">
+                        <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1" 
+                            type="datetime-local" id="Event_StartDate" name="Event.StartDate" value="@startDate">
 
                         <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
                             <div class="input-group-text"><i class="fa fa-calendar"></i></div>
@@ -65,12 +74,9 @@
                 <label asp-for="Event.EndDate"></label>
                 <div class="col-md-6">
                     <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
-
-                        @*
-                        <input asp-for="Event.EndDate" class="form-control datetimepicker-input" data-target="#datetimepicker2" />
-                        *@
                         
-                        <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker2" type="datetime-local" id="Event_EndDate" name="Event.EndDate" value="@Model.Event.EndDate.ToShortDateString() @Model.Event.EndDate.ToShortTimeString().Substring(0, 2)@Model.Event.EndDate.ToShortTimeString().Substring(3)">
+                        <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker2" 
+                            type="datetime-local" id="Event_EndDate" name="Event.EndDate" value="@endDate">
 
                         <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
                             <div class="input-group-text"><i class="fa fa-calendar"></i></div>
@@ -172,9 +178,9 @@
                         time: "fa fa-clock"
                     }
                 });
-                $('#datetimepicker1').datetimepicker('minDate', "@DateTime.Today.ToShortDateString() @DateTime.Today.ToShortTimeString().Substring(0, 2)@DateTime.Today.ToShortTimeString().Substring(3)");
-                $('#datetimepicker2').datetimepicker('minDate', "@Model.Event.StartDate.ToShortDateString() @Model.Event.StartDate.ToShortTimeString().Substring(0, 2)@Model.Event.StartDate.ToShortTimeString().Substring(3)");
-                $('#datetimepicker1').datetimepicker('maxDate', "@Model.Event.EndDate.ToShortDateString() @Model.Event.EndDate.ToShortTimeString().Substring(0, 2)@Model.Event.EndDate.ToShortTimeString().Substring(3)");
+                $('#datetimepicker1').datetimepicker('minDate', "@todayDate");
+                $('#datetimepicker2').datetimepicker('minDate', "@startDate");
+                $('#datetimepicker1').datetimepicker('maxDate', "@endDate");
                 $("#datetimepicker1").on("change.datetimepicker", function (e) {
                     $('#datetimepicker2').datetimepicker('minDate', e.date);
                 });

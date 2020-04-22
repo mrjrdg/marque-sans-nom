@@ -3,6 +3,9 @@
 
 @{
     ViewData["Title"] = "Organiser un evenement";
+    String todayDate = @DateTime.Today.ToShortDateString() + " " +
+                        @DateTime.Today.ToShortTimeString().Substring(0, 2) +
+                        @DateTime.Today.ToShortTimeString().Substring(3);
 }
 
 @section HeadScripts {
@@ -51,7 +54,8 @@
                         <input asp-for="Event.StartDate" class="form-control datetimepicker-input" data-target="#datetimepicker1" />
                         *@
 
-                        <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1" type="datetime-local" id="Event_StartDate" name="Event.StartDate" value="@DateTime.Today.ToShortDateString() @DateTime.Today.ToShortTimeString().Substring(0, 2)@DateTime.Today.ToShortTimeString().Substring(3)">
+                        <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1"
+                            type="datetime-local" id="Event_StartDate" name="Event.StartDate" value="@todayDate">
 
                         <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
                             <div class="input-group-text"><i class="fa fa-calendar"></i></div>
@@ -70,7 +74,8 @@
                         <input asp-for="Event.EndDate" class="form-control datetimepicker-input" data-target="#datetimepicker2" />
                         *@
 
-                        <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker2" type="datetime-local" id="Event_EndDate" name="Event.EndDate">
+                        <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker2"
+                            type="datetime-local" id="Event_EndDate" name="Event.EndDate" value="@todayDate">
 
                         <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
                             <div class="input-group-text"><i class="fa fa-calendar"></i></div>
@@ -173,8 +178,8 @@
                         time: "fa fa-clock"
                     }
                 });
-                $('#datetimepicker1').datetimepicker('minDate', "@DateTime.Today.ToShortDateString() @DateTime.Today.ToShortTimeString().Substring(0, 2)@DateTime.Today.ToShortTimeString().Substring(3)");
-                $('#datetimepicker2').datetimepicker('minDate', "@DateTime.Today.ToShortDateString() @DateTime.Today.ToShortTimeString().Substring(0, 2)@DateTime.Today.ToShortTimeString().Substring(3)");
+                $('#datetimepicker1').datetimepicker('minDate', "@todayDate");
+                $('#datetimepicker2').datetimepicker('minDate', "@todayDate");
                 $("#datetimepicker1").on("change.datetimepicker", function (e) {
                     $('#datetimepicker2').datetimepicker('date', e.date);
                     $('#datetimepicker2').datetimepicker('minDate', e.date);
