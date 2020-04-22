@@ -18,3 +18,4 @@
 /webapp/appsettings.json
 /webapp/Startup.cs
 /webapp/Migrations
+/webapp/.vs/webapp
