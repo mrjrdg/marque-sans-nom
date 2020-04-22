@@ -3,60 +3,229 @@
 @using System;
 @using System.Collections.Generic;
 
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> UserManager
 
-<h1>Conversations received</h1>
+@using Managers
+@inject UserManagerSQL _userManagerSQL
 
-<!-- conversation received -->
+@{
+    ViewBag.Title = "Messagerie entre utilisateurs";
 
-    <a class="btn btn-primary mt-3" asp-controller="Messages" asp-action="Create" role="button">Nouveau message</a>
-@foreach (var conversation in Model.ConversationsReceived)
-{
-    <p>Subject : @conversation.Subject</p>
-    <p>sent by : @conversation.Sender.FullName</p>
-    <p>Messages</p>
-    <ul>
-        @foreach (var message in conversation.Messages)
+    List<string> messagesUniqueUserId = new List<string>();
+
+    @foreach (var conversation in Model.ConversationsReceived)
+    {
+        if (!messagesUniqueUserId.Contains(conversation.SenderId))
         {
-            <p>Sent by : @message.User.FullName</p>
-            <p>@message.Content</p>
+            messagesUniqueUserId.Add(conversation.SenderId);
         }
-    </ul>
-}
+    }
 
-<h1>Conversations sent</h1>
-
-<!-- conversation sent -->
-
-@foreach (var conversation in Model.ConversationsSent)
-{
-    <p>Subject : @conversation.Subject</p>
-    <p>sent by : @conversation.Sender.FullName</p>
-    <p>Messages</p>
-    <ul>
-        @foreach (var message in conversation.Messages)
+    @foreach (var conversation in Model.ConversationsSent)
+    {
+        if (!messagesUniqueUserId.Contains(conversation.ReceiverId))
         {
-            <p>Sent by : @message.User.FullName</p>
-            <p>@message.Content</p>
+            messagesUniqueUserId.Add(conversation.ReceiverId);
         }
-    </ul>
+    }
+
 }
 
-<h1>Message received</h1>
+<a class="btn btn-primary mt-3" asp-controller="Messages" asp-action="Create" role="button">Nouveau message</a>
 
-<!-- Message received -->
+<h1 class="border-bottom">@ViewBag.Title</h1>
 
- @foreach (var message in Model.MessagesReceived)
-{
-    <p>Sent by : @message.User.FullName</p>
-    <p>@message.Content</p>
-}
+<div class="row">
+    <div class="col-md-4">
+        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 
-<h1>Messages sent</h1>
+            @{
+                foreach (var entry in messagesUniqueUserId)
+                {
+                    String entryId = "T" + entry;
 
-<!-- Message sent -->
+                    @* AFFICHAGE DE L'AVATAR DE L'UTILISATEUR *@
 
-@foreach (var message in Model.MessagesSent)
-{
-    <p>Sent to : @message.ReceiverName </p>
-    <p>@message.Content</p>
-}
+                    var userWithAvatar = await _userManagerSQL
+                        .GetApplicationUserWithAvatar(entry);
+
+                    String avatarPath = null;
+
+                    if (userWithAvatar.Avatar != null)
+                    {
+                        avatarPath = $"~/AvatarsImages/{userWithAvatar.Avatar.Name}";
+                    }
+                    else
+                    {
+                        avatarPath = $"~/AvatarsImages/default-profile.png";
+                    }
+
+                    if (messagesUniqueUserId.First() == entry)
+                    {
+
+                        <a class="nav-link active" id="@entryId-tab" data-toggle="pill" href="#@entryId" role="tab" aria-controls="@entryId" aria-selected="true">
+
+                            <img src="@Url.Content(avatarPath)" class="avatar avatarsmall mr-2 rounded-circle" />
+                            @userWithAvatar.FullName
+                        </a>
+                    }
+                    else
+                    {
+                        <a class="nav-link" id="@entryId-tab" data-toggle="pill" href="#@entryId" role="tab" aria-controls="@entryId" aria-selected="false">
+                            <img src="@Url.Content(avatarPath)" class="avatar avatarsmall mr-2 rounded-circle" />
+                            @userWithAvatar.FullName
+                        </a>
+                    }
+                }
+            }
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="tab-content" id="v-pills-tabContent">
+
+            @{
+                foreach (var entry in messagesUniqueUserId)
+                {
+                    String entryId = "T" + entry;
+
+                    if (messagesUniqueUserId.First() == entry)
+                    {
+
+
+
+                      @:<div class="tab-pane fade show active" id="@entryId" role="tabpanel" aria-labelledby="@entryId-tab">
+
+                    }
+                    else
+                    {
+
+                      @:<div class="tab-pane fade" id="@entryId" role="tabpanel" aria-labelledby="@entryId-tab">
+
+                    }
+
+                    List<MessageConversation> messageConversations = new List<MessageConversation>();
+
+                    @foreach (var conversation in Model.ConversationsReceived)
+                    {
+                        if (entry == conversation.SenderId)
+                        {
+                            messageConversations.Add(conversation);
+                        }
+                    }
+
+                    @foreach (var conversation in Model.ConversationsSent)
+                    {
+                        if (entry == conversation.ReceiverId)
+                        {
+                            messageConversations.Add(conversation);
+                        }
+                    }
+
+
+
+                    var user = await _userManagerSQL.GetApplicationUserWithAvatar(entry);
+
+                    @foreach (var conversation in messageConversations)
+                    {
+                        foreach (var message in conversation.Messages)
+                        {
+                            if (conversation.SenderId == entry)
+                            {
+
+                                <div class="card mb-3">
+                                    <div class="row no-gutters">
+                                        <div class="p-3 align-middle col-md-auto text-center">
+
+                                        @* AFFICHAGE DE L'AVATAR DES UTILISATEURS *@
+
+                                        @{
+                                        var userWithAvatar = await _userManagerSQL
+                                        .GetApplicationUserWithAvatar(entry);
+
+                                        String avatarPath = null;
+
+                                        if (userWithAvatar.Avatar != null)
+                                        {
+                                            avatarPath = $"~/AvatarsImages/{userWithAvatar.Avatar.Name}";
+                                        }
+                                        else
+                                        {
+                                            avatarPath = $"~/AvatarsImages/default-profile.png";
+                                        }
+
+                                        <img src="@Url.Content(avatarPath)" class="card-img avatarsmall rounded-circle" />
+
+                                    }
+
+                                </div>
+
+                                <div class="col-md-11">
+                                    <div class="card-body pl-0">
+                                        <h5 class="card-title mb-1">
+                                            @conversation.Sender.FullName
+                                        </h5>
+                                        <p class="card-text">
+                                            @message.Content
+                                        </p>
+                                    </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            } else {
+
+                                <div class="card mb-3">
+                                    <div class="row no-gutters">
+                                        <div class="p-3 align-middle col-md-auto text-center">
+
+                                        @* AFFICHAGE DE L'AVATAR DES UTILISATEURS *@
+
+                                        @{
+                                        var userWithAvatar = await _userManagerSQL
+                                        .GetApplicationUserWithAvatar(entry);
+
+                                        String avatarPath = null;
+
+                                        if (userWithAvatar.Avatar != null)
+                                        {
+                                            avatarPath = $"~/AvatarsImages/{userWithAvatar.Avatar.Name}";
+                                        }
+                                        else
+                                        {
+                                            avatarPath = $"~/AvatarsImages/default-profile.png";
+                                        }
+
+                                        <img src="@Url.Content(avatarPath)" class="card-img avatarsmall rounded-circle" />
+
+                                    }
+
+                                </div>
+
+                                <div class="col-md-11">
+                                    <div class="card-body pl-0">
+                                        <h5 class="card-title mb-1">
+                                            @conversation.Sender.FullName
+                                        </h5>
+                                        <p class="card-text">
+                                            @message.Content
+                                        </p>
+                                    </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            }
+                        }
+                    }
+
+                      @:</div>
+
+                }
+
+            }
+        </div>
+    </div>
+</div>
