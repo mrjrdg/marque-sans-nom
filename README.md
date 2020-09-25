@@ -6,10 +6,10 @@
 
 ## Authors
 
-Alex Dufour-Couture   (DUFA23059001)
-Don Nguyen            (###)
-Yanick Marion         (###)
-Mathieu Gratton       (###)
+Alex Dufour-Couture   (DUFA23059001)  
+Don Nguyen            (###)  
+Yanick Marion         (###)  
+Mathieu Gratton       (###)  
 
 
 ## How it works
