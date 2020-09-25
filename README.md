@@ -2,21 +2,22 @@
 
 ## Description
 
-Final project for `Certificat - informatique et developement logiciel`. The project is a multidisciplinary meeting platform for sports and events.
+// Project description, INF-5190 session project
 
 ## Authors
 
-- Jordan Gauthier       (GAUJ25089201)
-- Alex Dufour	          (DUFA23059001)
-- Philippe Soucy        (SOUP17039601)
-- Alexandre H. Bourdeau (HAMA12128907)
+Alex Dufour-Couture   (DUFA23059001)
+Don Nguyen            (###)
+Yanick Marion         (###)
+Mathieu Gratton       (###)
 
-## How it work
+
+## How it works
 
 #### How to clone the project with https :
 
 ```bash
-git clone https://github.com/mrjrdg/marque-sans-nom.git
+git clone https://github.com/sheik2306/inf5190_Groupe12.git
 ```
 
 ## Supported platforms
@@ -25,59 +26,23 @@ git clone https://github.com/mrjrdg/marque-sans-nom.git
 
 ## References
 
-## Compte rendu des taches
 
-- [ ] Maquette de la page d'accueil
+## Tasks summary
 
+#### User
 
-#### Entreprise/Client -
-
-- [ ] Inscription de leurs services offerts sur notre plateforme (Exemple : Paintball,Arena,Karting)
-- [ ] Afficher leurs locals/services a louer
+// User functionalities
 
 
-#### Administrateur - Gestion
+#### Administrator
 
-- [ ] Gestion des administrateurs
-- [ ] Gestion des utilisateurs
-- [ ] Gestion des lieux / services offerts par les entreprises ( Creer nouveau service offert )
-- [ ] Gestion des événements
+// Administrator functionalities 
 
 
-#### Utilisateur - Profil
-
-- [ ] Inscription au site
-- [ ] Modification de profil
-- [ ] Modification des preferences du profil
-- [ ] Afficher l'historique d'activites
-
-
-#### Utilisateur - Messages
-
-- [ ] Ajout d'utilisateurs (afin de lui envoyer un message)
-- [ ] Messages privés entre utilisateurs
-- [ ] Chat par evenement
-- [ ] Babillard pour discuter entre participant sur l'evenement
-
-
-#### Utilisateur - Événements
-
-- [ ] Inscription aux événements
-- [ ] Creation aux événements soit publique ou prive
-- [ ] Recherche d'événements ( Par ville, sport ect.)
-- [ ] Etablir le nombre de participants requis
-- [ ] Reservation/Depot a un événement
-- [ ] Shopping cart et checkout
-- [ ] Option: Fermer l'événement selon le nombre de participant requis ou laisser ouvert
-
-
-#### Utilisateur - Événements à venir
-
-- [ ] Liste des événements auxquelles l'utilisateur est inscrit
-- [ ] Suggestions d'événements selon leur historique
+#### Courses
 
 
 
 ## State of the project
 
-The project in developement.
+The project is in developement.
